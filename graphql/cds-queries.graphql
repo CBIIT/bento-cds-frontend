@@ -15,7 +15,7 @@ type SubjectDetail {
     study_name: String
     gender: String
     site: [String]
-    files: [FileInfo]
+    files: [file]
     samples: [sample]
     numberOfSamples: Int
     numberOfDiseaseSites: Int
@@ -44,13 +44,6 @@ schema {
 type QueryType {
     schemaVersion: String @cypher(statement: "RETURN '1.0.0'")
 
-    "Simple counts"
-    numberOfStudies: Int @cypher(statement: "MATCH (n:study) return count(n)")
-    numberOfSubjects: Int @cypher(statement: "MATCH (n:participant) return count(n)")
-    numberOfSamples: Int @cypher(statement: "MATCH (n:sample) return count(n)")
-    numberOfFiles: Int @cypher(statement: "MATCH (n:file) return count(n)")
-    numberOfDiseaseSites: Int @cypher(statement: "MATCH (n:sample) return count(distinct n.sample_anatomic_site)")
-
     "Get lists of all subject ids, used by Local Find"
     idsLists: IdsLists @cypher(statement: """
         MATCH (p:participant)
@@ -64,7 +57,7 @@ type QueryType {
     # Study Detail Page
     studyDetail(phs_accession: String): StudyDetail @cypher(statement:  """
         MATCH (s:study {phs_accession: $phs_accession})
-        OPTIONAL MACTH (s)<--(p:participant)
+        OPTIONAL MATCH (s)<--(p:participant)
         OPTIONAL MATCH (p)<--(samp:sample)
         OPTIONAL MATCH (samp)<--(f:file)
         RETURN {
@@ -74,9 +67,9 @@ type QueryType {
             study_description: s.study_description,
             numberOfSubjects: COUNT(DISTINCT p),
             numberOfSamples: COUNT(DISTINCT samp),
-            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site)
+            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
             numberOfFiles: COUNT(DISTINCT f)
-    }
+        }
     """, passThrough: true)
 
 
@@ -88,17 +81,20 @@ type QueryType {
         RETURN {
             subject_id: p.participant_id,
             study_acronym: s.study_acronym,
-            study_name: s.study_name,
+            study_name: s.study_title,
             gender: p.gender,
-            site: COLLECT(DISTINCT samp.sample_anatomic_site)
-            samples: COLLECT(DISTINCT samp)
-            files: COLLECT(DISTINCT f)
-            numberOfSamples: COUNT(DISTINCT samp)
-            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site)
+            site: COLLECT(DISTINCT samp.sample_anatomic_site),
+            samples: COLLECT(DISTINCT samp{.*}),
+            files: COLLECT(DISTINCT f{.*}),
+            numberOfSamples: COUNT(DISTINCT samp),
+            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
             numberOfFiles: COUNT(DISTINCT f)
-            }
+        }
     """, passThrough: true)
 
-    samplesForSubjectId(subject_id: String!): [sample] @cypher(statement: "MATCH (ss:participant {participant_id: $subject_id})<--(s:sample) RETURN s")
+    samplesForSubjectId(subject_id: String!): [sample] @cypher(statement: """
+        MATCH (p:participant {participant_id: $subject_id})<--(samp:sample)
+        RETURN samp{.*}
+    """, passThrough: true)
 
 }

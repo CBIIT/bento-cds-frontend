@@ -1,5 +1,4 @@
 type diagnosis {
-  diagnosis_id: String
   primary_diagnosis: String
   primary_site: String
   age_at_diagnosis: Float
@@ -17,7 +16,6 @@ type diagnosis {
 }
 
 type file {
-  file_id: String
   file_name: String
   file_type: String
   file_description: String
@@ -80,12 +78,13 @@ type study {
   phs_accession: String
   bioproject_id: String
   index_date: String
-  study_admin: study_admin 
+  study_admins: [study_admin] 
   participants: [participant] 
 }
 
 type study_admin {
-  cds_requestor -funding_agenci: String
+  cds_requestor: String
+  funding_agency: String
   species: String
   study_type: String
   data_types: String
@@ -112,7 +111,6 @@ type submission {
 }
 
 type treatment {
-  treatment_id: String
   treatment_type: String
   treatment_outcome: String
   days_to_treatment: Int
@@ -135,7 +133,7 @@ type SubjectDetail {
     study_name: String
     gender: String
     site: [String]
-    files: [FileInfo]
+    files: [file]
     samples: [sample]
     numberOfSamples: Int
     numberOfDiseaseSites: Int
@@ -163,13 +161,6 @@ schema {
 
 type QueryType {
     schemaVersion: String 
-
-    "Simple counts"
-    numberOfStudies: Int 
-    numberOfSubjects: Int 
-    numberOfSamples: Int 
-    numberOfFiles: Int 
-    numberOfDiseaseSites: Int 
 
     "Get lists of all subject ids, used by Local Find"
     idsLists: IdsLists 
