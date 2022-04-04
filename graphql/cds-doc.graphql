@@ -162,6 +162,13 @@ schema {
 type QueryType {
     schemaVersion: String 
 
+    numberOfStudies: Int 
+    numberOfSubjects: Int 
+    numberOfSamples: Int 
+    numberOfFiles: Int 
+    numberOfDiseaseSites: Int 
+
+
     "Get lists of all subject ids, used by Local Find"
     idsLists: IdsLists 
 

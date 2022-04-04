@@ -44,6 +44,13 @@ schema {
 type QueryType {
     schemaVersion: String @cypher(statement: "RETURN '1.0.0'")
 
+    numberOfStudies: Int @cypher(statement: "MATCH (n:study) RETURN COUNT(n)")
+    numberOfSubjects: Int @cypher(statement: "MATCH (n:participant) RETURN COUNT(n)")
+    numberOfSamples: Int @cypher(statement: "MATCH (n:sample) RETURN COUNT(n)")
+    numberOfFiles: Int @cypher(statement: "MATCH (n:file) RETURN COUNT(n)")
+    numberOfDiseaseSites: Int @cypher(statement: "MATCH (samp:sample) RETURN COUNT(DISTINCT samp.sample_anatomic_site)")
+
+
     "Get lists of all subject ids, used by Local Find"
     idsLists: IdsLists @cypher(statement: """
         MATCH (p:participant)
