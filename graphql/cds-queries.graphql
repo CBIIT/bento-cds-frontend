@@ -23,7 +23,7 @@ type SubjectDetail {
 }
 
 type StudyDetail {
-    study_title: String
+    study_name: String
     phs_accession: String
     study_acronym: String
     study_description: String
@@ -68,7 +68,7 @@ type QueryType {
         OPTIONAL MATCH (p)<--(samp:sample)
         OPTIONAL MATCH (samp)<--(f:file)
         RETURN {
-            study_title: s.study_title,
+            study_name: s.study_name,
             phs_accession: s.phs_accession,
             study_acronym: s.study_acronym,
             study_description: s.study_description,
@@ -88,7 +88,7 @@ type QueryType {
         RETURN {
             subject_id: p.participant_id,
             study_acronym: s.study_acronym,
-            study_name: s.study_title,
+            study_name: s.study_name,
             gender: p.gender,
             site: COLLECT(DISTINCT samp.sample_anatomic_site),
             samples: COLLECT(DISTINCT samp{.*}),

@@ -1,4 +1,7 @@
 type diagnosis {
+  diagnosis_id: String
+  disease_type: String
+  vital_status: String
   primary_diagnosis: String
   primary_site: String
   age_at_diagnosis: Float
@@ -6,36 +9,49 @@ type diagnosis {
   age_at_diagnosis_original: Float
   age_at_diagnosis_original_unit: String
   tumor_grade: String
-  tumor_stage: String
-  tumor_morphology: String
+  tumor_stage_clinical_m: String
+  tumor_stage_clinical_n: String
+  tumor_stage_clinical_t: String
+  morphology: String
   incidence_type: String
-  days_to_recurrence: Int
+  progression_or_recurrence: String
+  days_to_recurrence: Float
+  days_to_last_followup: String
   last_known_disease_status: String
-  days_to_last_known_status: Int
+  days_to_last_known_status: Float
   participant: participant @relation(name:"of_participant", direction:OUT)
 }
 
 type file {
+  file_id: String
   file_name: String
   file_type: String
   file_description: String
-  file_size: Int
+  file_size: Float
   md5sum: String
-  sra_study_accession: String
-  sra_run_accession: String
-  internal_url: String
-  drs_url: String
+  file_url_in_cds: String
   samples: [sample] @relation(name:"from_sample", direction:OUT)
-  submissions: [submission] @relation(name:"from_submission", direction:OUT)
-  genomic_details: genomic_details @relation(name:"of_file", direction:IN)
+  genomic_info: genomic_info @relation(name:"of_file", direction:IN)
 }
 
-type genomic_details {
-  number_of_bp: Int
-  number_of_reads: Int
-  average_read_length: Float
+type genomic_info {
+  library_id: String
+  bases: String
+  number_of_reads: Float
+  avg_read_length: String
   coverage: Float
-  genome_reference_or_accession: String
+  reference_genome_assembly: String
+  custom_assembly_fasta_file_for_alignment: String
+  design_description: String
+  library_strategy: String
+  library_layout: String
+  library_source: String
+  library_selection: String
+  platform: String
+  instrument_model: String
+  sequence_alignment_software: String
+  files: [file] @relation(name:"from_genomic_info", direction:IN)
+  samples: [sample] @relation(name:"in_genomic_info", direction:IN)
   file: file @relation(name:"of_file", direction:OUT)
 }
 
@@ -44,7 +60,7 @@ type participant {
   race: String
   gender: String
   ethnicity: String
-  vital_status: String
+  dbGaP_subject_id: String
   study: study @relation(name:"of_study", direction:OUT)
   diagnoses: [diagnosis] @relation(name:"of_participant", direction:IN)
   specimens: [specimen] @relation(name:"of_participant", direction:IN)
@@ -56,12 +72,13 @@ type sample {
   sample_type: String
   sample_tumor_status: String
   sample_anatomic_site: String
-  days_to_collection: Int
+  sample_age_at_collection: String
+  derived_from_specimen: String
   biosample_accession: String
   participant: participant @relation(name:"of_participant", direction:OUT)
   specimen: specimen @relation(name:"of_specimen", direction:OUT)
   files: [file] @relation(name:"from_sample", direction:IN)
-  submissions: [submission] @relation(name:"in_submission", direction:OUT)
+  genomic_info: [genomic_info] @relation(name:"in_genomic_info", direction:OUT)
 }
 
 type specimen {
@@ -71,49 +88,48 @@ type specimen {
 }
 
 type study {
-  study_title: String
+  study_name: String
   study_acronym: String
   study_description: String
+  short_description: String
   study_external_url: String
+  primary_investigator_name: String
+  primary_investigator_email: String
+  co_investigator_name: String
+  co_investigator_email: String
   phs_accession: String
-  bioproject_id: String
+  bioproject_accession: String
   index_date: String
-  study_admins: [study_admin] @relation(name:"of_study", direction:IN)
-  participants: [participant] @relation(name:"of_study", direction:IN)
-}
-
-type study_admin {
   cds_requestor: String
   funding_agency: String
-  species: String
-  study_type: String
+  funding_source_program_name: String
+  grant_id: String
+  clinical_trial_system: String
+  clinical_trial_identifier: String
+  clinical_trial_arm: String
+  organism_species: String
+  adult_or_childhood_study: String
   data_types: String
   file_types: String
   data_access_level: String
-  study: study @relation(name:"of_study", direction:OUT)
-}
-
-type submission {
-  design_description: String
-  sra_experiment_accession: String
-  library_id: String
-  library_strategy: String
-  library_layout: String
-  library_source: String
-  protocol: String
-  image_series_id: String
-  image_modality: String
-  platform: String
-  instrument_model: String
-  software_packages: String
-  files: [file] @relation(name:"from_submission", direction:IN)
-  samples: [sample] @relation(name:"in_submission", direction:IN)
+  cds_primary_bucket: String
+  cds_secondary_bucket: String
+  cds_tertiary_bucket: String
+  number_of_participants: String
+  number_of_samples: String
+  study_data_types: String
+  experimental_strategy_and_data_subtypes: String
+  file_types_and_format: String
+  size_of_data_being_uploaded: String
+  participants: [participant] @relation(name:"of_study", direction:IN)
 }
 
 type treatment {
+  treatment_id: String
   treatment_type: String
   treatment_outcome: String
-  days_to_treatment: Int
+  days_to_treatment: Float
+  therapeutic_agents: String
 }
 
 type FileInfo {
@@ -141,7 +157,7 @@ type SubjectDetail {
 }
 
 type StudyDetail {
-    study_title: String
+    study_name: String
     phs_accession: String
     study_acronym: String
     study_description: String
@@ -186,7 +202,7 @@ type QueryType {
         OPTIONAL MATCH (p)<--(samp:sample)
         OPTIONAL MATCH (samp)<--(f:file)
         RETURN {
-            study_title: s.study_title,
+            study_name: s.study_name,
             phs_accession: s.phs_accession,
             study_acronym: s.study_acronym,
             study_description: s.study_description,
@@ -206,7 +222,7 @@ type QueryType {
         RETURN {
             subject_id: p.participant_id,
             study_acronym: s.study_acronym,
-            study_name: s.study_title,
+            study_name: s.study_name,
             gender: p.gender,
             site: COLLECT(DISTINCT samp.sample_anatomic_site),
             samples: COLLECT(DISTINCT samp{.*}),
