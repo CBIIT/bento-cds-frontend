@@ -33,6 +33,13 @@ type StudyDetail {
     numberOfFiles: Int
 }
 
+type StudyInfo {
+    study_name: String
+    phs_accession: String
+    numberOfSubjects: Int
+    numberOfFiles: Int
+}
+
 type IdsLists {
     subjectIds: [String]
 }
@@ -102,6 +109,18 @@ type QueryType {
     samplesForSubjectId(subject_id: String!): [sample] @cypher(statement: """
         MATCH (p:participant {participant_id: $subject_id})<--(samp:sample)
         RETURN samp{.*}
+    """, passThrough: true)
+
+    studyList: [StudyInfo] @cypher(statement: """
+        MATCH (s:study)
+        OPTIONAL MATCH (s)<--(p:participant)
+        OPTIONAL MATCH (s)<-[*]-(f:file)
+        RETURN {
+            phs_accession: s.phs_accession,
+            study_name: s.study_name,
+            numberOfSubjects: COUNT(DISTINCT p),
+            numberOfFiles: COUNT(DISTINCT f)
+        }
     """, passThrough: true)
 
 }
