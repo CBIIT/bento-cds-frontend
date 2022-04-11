@@ -1,6 +1,6 @@
 export const navBarstyling = {
   global: {
-    backgroundColor: '#142D64',
+    backgroundColor: '#0E6292;',
     height: '39px',
     padding: '9px 20px 0px 20px',
   },
@@ -47,12 +47,12 @@ export const navBarData = [
     link: '/home',
   },
   {
-    labelText: 'explore',
+    labelText: 'data',
     type: 'link',
     link: '/explore',
   },
   {
-    labelText: 'programs',
+    labelText: 'studies',
     type: 'link',
     link: '/programs',
   },
@@ -77,8 +77,8 @@ export const navBarData = [
 ];
 
 export const navBarCartData = {
-  cartLabel: 'MY Files',
+  cartLabel: 'My Files',
   cartLink: '/fileCentricCart',
-  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Icon-Cart-Navbar.svg',
+  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/cartIcon.svg',
   cartIconAlt: 'cart_logo',
 };

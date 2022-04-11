@@ -31,8 +31,8 @@ function searchComponent({ classes }) {
   async function getAutoCompleteRes(newValue = []) {
     setInputValue(newValue);
     const searchResp = await getSearch(newValue);
-    const keys = ['programs', 'studies', 'subjects', 'samples', 'files'];
-    const datafields = ['program_id', 'study_id', 'subject_id', 'sample_id', 'file_id'];
+    const keys = ['studies', 'subjects', 'samples', 'files'];
+    const datafields = ['study_code', 'subject_id', 'sample_id', 'file_id'];
 
     const mapOption = keys.map((key, ind) => searchResp[key].map((id) => (id[datafields[ind]])));
     const option = mapOption.reduce((acc = [], iterator) => [...acc, ...iterator]);
@@ -82,7 +82,7 @@ function searchComponent({ classes }) {
             classes={{ root: classes.inputRoot }}
             variant="outlined"
             hiddenLabel
-            placeholder="SEARCH BENTO"
+            placeholder="SEARCH CDS"
             onKeyDown={(e) => {
               if (e.key === 'Enter' && e.target.value) {
                 onChange([e.target.value]);
