@@ -1,0 +1,126 @@
+type FileInfo {
+    subject_id: String
+    file_name: String
+    file_type: String
+    association: String
+    file_description: String
+    file_size: Float
+    file_id: String
+    md5sum: String
+}
+
+type SubjectDetail {
+    subject_id: String
+    study_acronym: String
+    study_name: String
+    gender: String
+    site: [String]
+    files: [file]
+    samples: [sample]
+    numberOfSamples: Int
+    numberOfDiseaseSites: Int
+    numberOfFiles: Int
+}
+
+type StudyDetail {
+    study_name: String
+    phs_accession: String
+    study_acronym: String
+    study_description: String
+    numberOfSubjects: Int
+    numberOfSamples: Int
+    numberOfDiseaseSites: Int
+    numberOfFiles: Int
+}
+
+type StudyInfo {
+    study_name: String
+    phs_accession: String
+    numberOfSubjects: Int
+    numberOfFiles: Int
+}
+
+type IdsLists {
+    subjectIds: [String]
+}
+
+schema {
+    query: QueryType
+}
+
+type QueryType {
+    schemaVersion: String @cypher(statement: "RETURN '1.0.0'")
+
+    numberOfStudies: Int @cypher(statement: "MATCH (n:study) RETURN COUNT(n)")
+    numberOfSubjects: Int @cypher(statement: "MATCH (n:participant) RETURN COUNT(n)")
+    numberOfSamples: Int @cypher(statement: "MATCH (n:sample) RETURN COUNT(n)")
+    numberOfFiles: Int @cypher(statement: "MATCH (n:file) RETURN COUNT(n)")
+    numberOfDiseaseSites: Int @cypher(statement: "MATCH (samp:sample) RETURN COUNT(DISTINCT samp.sample_anatomic_site)")
+
+
+    "Get lists of all subject ids, used by Local Find"
+    idsLists: IdsLists @cypher(statement: """
+        MATCH (p:participant)
+        WITH COLLECT(DISTINCT p.participant_id) as study_subjects
+        RETURN {
+            subjectIds: study_subjects
+        }
+    """, passThrough: true)
+
+
+    # Study Detail Page
+    studyDetail(phs_accession: String): StudyDetail @cypher(statement:  """
+        MATCH (s:study {phs_accession: $phs_accession})
+        OPTIONAL MATCH (s)<--(p:participant)
+        OPTIONAL MATCH (p)<--(samp:sample)
+        OPTIONAL MATCH (samp)<--(f:file)
+        RETURN {
+            study_name: s.study_name,
+            phs_accession: s.phs_accession,
+            study_acronym: s.study_acronym,
+            study_description: s.study_description,
+            numberOfSubjects: COUNT(DISTINCT p),
+            numberOfSamples: COUNT(DISTINCT samp),
+            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
+            numberOfFiles: COUNT(DISTINCT f)
+        }
+    """, passThrough: true)
+
+
+    # Subject Detail Page
+    subjectDetail(subject_id: String): SubjectDetail @cypher(statement:  """
+        MATCH (s:study)<--(p:participant {participant_id: $subject_id})
+        OPTIONAL MATCH (p)<--(samp:sample)
+        OPTIONAL MATCH (samp)<--(f:file)
+        RETURN {
+            subject_id: p.participant_id,
+            study_acronym: s.study_acronym,
+            study_name: s.study_name,
+            gender: p.gender,
+            site: COLLECT(DISTINCT samp.sample_anatomic_site),
+            samples: COLLECT(DISTINCT samp{.*}),
+            files: COLLECT(DISTINCT f{.*}),
+            numberOfSamples: COUNT(DISTINCT samp),
+            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
+            numberOfFiles: COUNT(DISTINCT f)
+        }
+    """, passThrough: true)
+
+    samplesForSubjectId(subject_id: String!): [sample] @cypher(statement: """
+        MATCH (p:participant {participant_id: $subject_id})<--(samp:sample)
+        RETURN samp{.*}
+    """, passThrough: true)
+
+    studyList: [StudyInfo] @cypher(statement: """
+        MATCH (s:study)
+        OPTIONAL MATCH (s)<--(p:participant)
+        OPTIONAL MATCH (s)<-[*]-(f:file)
+        RETURN {
+            phs_accession: s.phs_accession,
+            study_name: s.study_name,
+            numberOfSubjects: COUNT(DISTINCT p),
+            numberOfFiles: COUNT(DISTINCT f)
+        }
+    """, passThrough: true)
+
+}
