@@ -94,7 +94,7 @@ const cartView = ({
           ...{ file_ids: fileIDs },
         },
       })
-      .then((result) => result.data.filesInList);
+      .then((result) => result.data.fileOverview);
     return fetchResult;
   }
 

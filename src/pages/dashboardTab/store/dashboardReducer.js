@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/destructuring-assignment */
 import _ from 'lodash';
@@ -38,7 +39,6 @@ import {
 import {
   GET_IDS_BY_TYPE,
   GET_SUBJECT_IDS,
-  widgetsSearchData,
   SUBJECT_OVERVIEW_QUERY,
   GET_SEARCH_NODES_BY_FACET,
   ageAtIndex,
@@ -579,17 +579,17 @@ export function fetchDataForDashboardTab(
   const { QUERY, sortfield, sortDirection } = getQueryAndDefaultSort(payload);
   const newFilters = filters;
   // deal with empty string inside the age_at_index filter
-  if (filters && filters.age_at_index.length === 2) {
-    if (filters.age_at_index.includes('')) {
-      newFilters.age_at_index = [];
-    }
-    if (typeof filters.age_at_index[0] === 'string') {
-      newFilters.age_at_index[0] = Number(newFilters.age_at_index[0]);
-    }
-    if (typeof filters.age_at_index[1] === 'string') {
-      newFilters.age_at_index[1] = Number(newFilters.age_at_index[1]);
-    }
-  }
+  // if (filters && filters.age_at_index.length === 2) {
+  //   if (filters.age_at_index.includes('')) {
+  //     newFilters.age_at_index = [];
+  //   }
+  //   if (typeof filters.age_at_index[0] === 'string') {
+  //     newFilters.age_at_index[0] = Number(newFilters.age_at_index[0]);
+  //   }
+  //   if (typeof filters.age_at_index[1] === 'string') {
+  //     newFilters.age_at_index[1] = Number(newFilters.age_at_index[1]);
+  //   }
+  // }
   const activeFilters = newFilters === null
     ? (getState().allActiveFilters !== {}
       ? {
@@ -1212,8 +1212,8 @@ const reducers = {
         variables: item.variables,
       },
       stats: getFilteredStat(item.result.data.nodeCountsFromLists, statsCount),
-      widgets: getSearchWidgetsData(item.result.data, widgetsSearchData),
-
+      // widgets: getSearchWidgetsData(item.result.data, widgetsData),
+      widgets: getWidgetsInitData(item.result.data, widgetsData),
     };
   },
   UPDATE_CURRRENT_TAB_DATA: (state, item) => (
