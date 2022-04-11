@@ -11,11 +11,11 @@ export const landingPageData = {
   callToActionLink: '/explore',
   heroLeftBg: {
     alt: 'Alt tag1',
-    img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/leftSide.png',
+    img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/LeftSide.png',
   },
   heroRightBg: {
     alt: 'Alt tag1',
-    img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/rightSide.png',
+    img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/RightSide.png',
   },
   landingPageHero: {
     alt: 'Alt tag1',
