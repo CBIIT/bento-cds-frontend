@@ -17,6 +17,10 @@ const ProgamCard = ({ data, classes, index }) => {
       label: 'Program Name',
       dataField: 'program_name',
     },
+    {
+      label: 'Program ID',
+      dataField: 'program_id',
+    },
 
   ];
 

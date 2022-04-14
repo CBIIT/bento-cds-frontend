@@ -14,8 +14,8 @@ const LandingView = ({ classes, statsData }) => (
   <div className={classes.page}>
     <div className={classes.container}>
       <Grid container className={classes.hero}>
-        <Grid xs={3} className={classes.leftBg} />
-        <Grid xs={3}>
+        <Grid xs={3} lg={4} className={classes.leftBg} />
+        <Grid xs={2} lg={2}>
           <Grid container spacing={16} direction="row">
             <div className={classes.heroImage} />
             <div className={classes.heroTextContainer}>
@@ -38,7 +38,7 @@ const LandingView = ({ classes, statsData }) => (
             </div>
           </Grid>
         </Grid>
-        <Grid xs={6} className={classes.rightBg} />
+        <Grid xs={7} lg={6} className={classes.rightBg} />
       </Grid>
     </div>
     <div className={classes.whiteSection} />
@@ -188,7 +188,7 @@ const styles = () => ({
     marginTop: '-47px',
   },
   hero: {
-    maxWidth: '1800px',
+    width: '100%',
     margin: '0 auto',
   },
   leftBg: {
@@ -212,7 +212,7 @@ const styles = () => ({
   texture: {
     backgroundSize: 'cover',
     backgroundImage: `url(${landingPageData.landingPageTile.img})`,
-    padding: '120px 0 80px 0',
+    padding: '110px 0 80px 0',
   },
   container: {
     fontFamily: 'Raleway, sans-serif',
@@ -226,7 +226,7 @@ const styles = () => ({
 
   },
   whiteSection: {
-    height: '8px',
+    height: '3px',
     background: 'white',
   },
   redButton: {
@@ -266,7 +266,7 @@ const styles = () => ({
     textDecoration: 'none',
     display: 'flex',
     borderBottom: '1.5px solid #D36000',
-    maxWidth: '166px',
+    maxWidth: '210px',
   },
 
   iconAbout: {
@@ -296,8 +296,8 @@ const styles = () => ({
     color: '#FFFFFF',
     fontSize: '26px',
     textTransform: 'capitalize',
-    lineHeight: '36px',
-    padding: '10px 75px 26px 26px',
+    lineHeight: '30px',
+    padding: '10px 75px 26px 30px',
     fontFamily: 'Lato',
   },
   landingContainer: {
@@ -449,7 +449,7 @@ const styles = () => ({
   },
   mountainMeadowContent: {
     height: '143px',
-    width: '230px',
+    width: '200px',
     color: 'white',
     fontFamily: 'Nunito',
     fontSize: '15px',
@@ -505,7 +505,7 @@ const styles = () => ({
   },
   buttonText: {
     height: '32px',
-    padding: '12px 30px 4px 0px',
+    padding: '12px 58px 4px 0px',
     background: 'transparent',
     fontSize: '12px',
     fontFamily: 'Lato',
@@ -513,6 +513,7 @@ const styles = () => ({
     color: '#D36000',
     border: 'none',
     display: 'flex',
+    letterSpacing: '1px',
   },
 });
 export default withStyles(styles, { withTheme: true })(LandingView);

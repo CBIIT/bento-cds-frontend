@@ -6,20 +6,17 @@ import PropertyItem from '../propertyItem';
 
 const CaseCard = ({ data, classes, index }) => {
   const properties = [
-
     {
-      label: 'Program ID',
-      dataField: 'program_id',
-      link: '/program/{program_id}',
-
+      label: 'Subject Id',
+      dataField: 'subject_id',
     },
     {
-      label: 'Diagnosis',
-      dataField: 'diagnosis',
+      label: 'Study',
+      dataField: 'study',
     },
     {
-      label: 'Age',
-      dataField: 'age',
+      label: 'Site',
+      dataField: 'site',
     },
   ];
 

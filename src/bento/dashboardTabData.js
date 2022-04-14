@@ -52,7 +52,6 @@ export const tabContainers = [
         dataField: 'subject_id',
         header: 'Case ID',
         sort: 'asc',
-        link: '/case/{subject_id}',
         primary: true,
         display: true,
       },
@@ -278,7 +277,6 @@ export const tabContainers = [
         dataField: 'file_type',
         header: 'File Type',
         sort: 'asc',
-        link: '/program/{program_id}',
         display: true,
       },
       {

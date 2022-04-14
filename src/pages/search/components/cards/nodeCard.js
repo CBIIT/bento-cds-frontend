@@ -9,20 +9,31 @@ const NodeCard = ({ data, classes, index }) => {
     {
       label: 'Node Name',
       dataField: 'node_name',
-      link: '/case/{subject_id}',
-
     },
     {
       label: 'Property Name',
       dataField: 'property_name',
     },
     {
-      label: 'File Name',
-      dataField: 'file_name',
+      label: 'Property Description',
+      dataField: 'property_description',
     },
     {
-      label: 'File Id',
-      dataField: 'file_id',
+      label: 'Property Required',
+      dataField: 'property_required',
+    },
+    {
+      label: 'Property Type',
+      dataField: 'property_type',
+    },
+    {
+      label: 'Value',
+      dataField: 'value',
+
+    },
+    {
+      label: 'Highlight',
+      dataField: 'highlight',
 
     },
   ];
