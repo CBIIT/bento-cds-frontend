@@ -11,8 +11,13 @@ const FileCard = ({ data, classes, index }) => {
       dataField: 'file_name',
     },
     {
-      label: 'File Format',
-      dataField: 'file_format',
+      label: 'File Type',
+      dataField: 'file_type',
+
+    },
+    {
+      label: 'File ID',
+      dataField: 'file_id',
 
     },
     {
@@ -22,15 +27,12 @@ const FileCard = ({ data, classes, index }) => {
 
     },
     {
-      label: 'Case ID',
+      label: 'Participant ID',
       dataField: 'subject_id',
-      link: '/case/{subject_id}',
-
     },
     {
       label: 'Sample ID',
       dataField: 'sample_id',
-      link: '/case/{subject_id}',
     },
   ];
   const propertiesWithLinks = prepareLinks(properties, data);

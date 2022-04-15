@@ -6,26 +6,22 @@ import PropertyItem from '../propertyItem';
 
 const SampleCard = ({ data, classes, index }) => {
   const properties = [
-    {
-      label: 'Program ID',
-      dataField: 'program_id',
-      link: '/program/{program_id}',
-
-    },
 
     {
-      label: 'Case ID',
+      label: 'Participant ID',
       dataField: 'subject_id',
-      link: '/case/{subject_id}',
-
     },
     {
-      label: 'Diagnosis',
-      dataField: 'diagnosis',
+      label: 'Sample ID',
+      dataField: 'sample_id',
     },
     {
-      label: 'Sample Anatomic Site',
-      dataField: 'sample_anatomic_site',
+      label: 'is tumor',
+      dataField: 'is_tumor',
+    },
+    {
+      label: 'Analyte Type',
+      dataField: 'analyte_type',
 
     },
     {

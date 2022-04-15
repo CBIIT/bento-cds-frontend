@@ -7,18 +7,17 @@ import PropertyItem from '../propertyItem';
 const StudyCard = ({ data, classes, index }) => {
   const properties = [
     {
-      label: 'Program ID',
-      dataField: 'program_id',
-      link: '/program/{program_id}',
-
-    },
-    {
       label: 'Study Name',
       dataField: 'study_name',
     },
     {
-      label: 'Study Type',
-      dataField: 'study_type',
+      label: 'Study Code',
+      dataField: 'study_code',
+
+    },
+    {
+      label: 'Phs Accession',
+      dataField: 'phs_accession',
 
     },
   ];
