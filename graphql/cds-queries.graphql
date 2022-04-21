@@ -27,6 +27,7 @@ type StudyDetail {
     phs_accession: String
     study_acronym: String
     study_description: String
+    data_types: String
     numberOfSubjects: Int
     numberOfSamples: Int
     numberOfDiseaseSites: Int
@@ -55,7 +56,7 @@ type QueryType {
     numberOfSubjects: Int @cypher(statement: "MATCH (n:participant) RETURN COUNT(n)")
     numberOfSamples: Int @cypher(statement: "MATCH (n:sample) RETURN COUNT(n)")
     numberOfFiles: Int @cypher(statement: "MATCH (n:file) RETURN COUNT(n)")
-    numberOfDiseaseSites: Int @cypher(statement: "MATCH (samp:sample) RETURN COUNT(DISTINCT samp.sample_anatomic_site)")
+    numberOfDiseaseSites: Int @cypher(statement: "MATCH (diag:diagnosis) RETURN COUNT(DISTINCT diag.primary_site) AS site")
 
 
     "Get lists of all subject ids, used by Local Find"
@@ -73,15 +74,17 @@ type QueryType {
         MATCH (s:study {phs_accession: $phs_accession})
         OPTIONAL MATCH (s)<--(p:participant)
         OPTIONAL MATCH (p)<--(samp:sample)
+        OPTIONAL MATCH (p)<--(diag:diagnosis)
         OPTIONAL MATCH (samp)<--(f:file)
         RETURN {
             study_name: s.study_name,
             phs_accession: s.phs_accession,
             study_acronym: s.study_acronym,
             study_description: s.study_description,
+            data_types: s.study_data_types,
             numberOfSubjects: COUNT(DISTINCT p),
             numberOfSamples: COUNT(DISTINCT samp),
-            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
+            numberOfDiseaseSites: COUNT(DISTINCT diag.primary_site),
             numberOfFiles: COUNT(DISTINCT f)
         }
     """, passThrough: true)
@@ -97,11 +100,11 @@ type QueryType {
             study_acronym: s.study_acronym,
             study_name: s.study_name,
             gender: p.gender,
-            site: COLLECT(DISTINCT samp.sample_anatomic_site),
+            site: COLLECT(DISTINCT diag.primary_site),
             samples: COLLECT(DISTINCT samp{.*}),
             files: COLLECT(DISTINCT f{.*}),
             numberOfSamples: COUNT(DISTINCT samp),
-            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
+            numberOfDiseaseSites: COUNT(DISTINCT diag.primary_site),
             numberOfFiles: COUNT(DISTINCT f)
         }
     """, passThrough: true)

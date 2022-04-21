@@ -161,6 +161,7 @@ type StudyDetail {
     phs_accession: String
     study_acronym: String
     study_description: String
+    data_types: String
     numberOfSubjects: Int
     numberOfSamples: Int
     numberOfDiseaseSites: Int
