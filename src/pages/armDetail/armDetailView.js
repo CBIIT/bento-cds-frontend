@@ -5,27 +5,28 @@ import {
   withStyles,
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { getOptions, getColumns, CustomActiveDonut } from 'bento-components';
+// import { getOptions, getColumns, CustomActiveDonut } from 'bento-components';
+import { getOptions, getColumns } from 'bento-components';
 import GridWithFooter from '../../components/GridWithFooter/GridView';
 import StatsView from '../../components/Stats/StatsView';
 import { Typography } from '../../components/Wrappers/Wrappers';
-import icon from '../../assets/icons/Arms.Icon.svg';
-import fileCountIcon from '../../assets/icons/Program_Detail.FileCount.svg';
+// import fileCountIcon from '../../assets/icons/Program_Detail.FileCount.svg';
 import globalData from '../../bento/siteWideConfig';
 import {
   header,
   subsections,
   table,
   tooltipContent,
+  rightPanel,
 } from '../../bento/armDetailData';
 import {
   singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
 } from '../dashboardTab/store/dashboardReducer';
-import Widget from '../../components/Widgets/WidgetView';
+// import Widget from '../../components/Widgets/WidgetView';
 import PropertySubsection from '../../components/PropertySubsection/armDetailSubsection';
-import NumberOfThings from '../../components/NumberOfThings';
+// import NumberOfThings from '../../components/NumberOfThings';
 import Snackbar from '../../components/Snackbar';
-import colors from '../../utils/colors';
+// import colors from '../../utils/colors';
 
 // Main case detail component
 const ArmDetail = ({ data, classes }) => {
@@ -47,9 +48,9 @@ const ArmDetail = ({ data, classes }) => {
     setDashboardTableLoading();
     singleCheckBox([{
       datafield: 'studies',
-      groupName: 'Arm',
+      groupName: 'Study',
       isChecked: true,
-      name: data.study_info,
+      name: data.study_acronym,
       section: 'Filter By Cases',
     }]);
   };
@@ -57,10 +58,10 @@ const ArmDetail = ({ data, classes }) => {
   const stat = {
     numberOfPrograms: 1,
     numberOfStudies: 1,
-    numberOfSubjects: data.num_subjects,
-    numberOfSamples: data.num_samples,
-    numberOfLabProcedures: data.num_lab_procedures,
-    numberOfFiles: data.num_files,
+    numberOfSubjects: data.numberOfSubjects,
+    numberOfSamples: data.numberOfSamples,
+    numberOfDiseaseSites: data.numberOfDiseaseSites,
+    numberOfFiles: data.numberOfFiles,
   };
 
   return (
@@ -78,7 +79,7 @@ const ArmDetail = ({ data, classes }) => {
             <div className={classes.logo}>
               <img
                 className={classes.caseIcon}
-                src={icon}
+                src={tooltipContent.src}
                 alt="Bento arm detail header logo"
               />
 
@@ -103,16 +104,16 @@ const ArmDetail = ({ data, classes }) => {
             { /* Case Count */ }
             <div className={classes.headerButton}>
               <div className={classes.headerButtonLinkArea}>
-                <span className={classes.headerButtonLinkText}>Number of cases:</span>
                 <Link
                   className={classes.headerButtonLink}
                   to={(location) => ({ ...location, pathname: '/explore' })}
                   onClick={() => redirectTo()}
                 >
                   <span className={classes.headerButtonLinkNumber} id="arm_detail_header_file_count">
-                    {data.num_subjects}
+                    {data.numberOfSubjects}
                   </span>
                 </Link>
+                <span className={classes.headerButtonLinkText}>STUDY PARTICIPANTS</span>
               </div>
             </div>
           </div>
@@ -131,9 +132,9 @@ const ArmDetail = ({ data, classes }) => {
             {/* Left panel end */}
             {/* Right panel */}
             <Grid item lg={5} sm={6} xs={12} className={[classes.detailPanel, classes.rightPanel]}>
-              <div className={classes.innerPanel}>
-                {/* Diagnosis donut */}
-                <div className={classes.widgetContainer}>
+              {/* <div className={classes.innerPanel}> */}
+              {/* Diagnosis donut */}
+              {/* <div className={classes.widgetContainer}>
                   <Widget
                     title="Diagnosis"
                     color="#0296C9"
@@ -156,9 +157,23 @@ const ArmDetail = ({ data, classes }) => {
                       titleAlignment="center"
                     />
                   </Widget>
-                </div>
-                {/* File count */}
-                <NumberOfThings classes={classes} number={data.num_files} icon={fileCountIcon} title="NUMBER OF FILES" alt="Bento file count icon" />
+                </div> */}
+              {/* File count */}
+              {/* <NumberOfThings
+                classes={classes}
+                number={data.num_files}
+                icon={fileCountIcon} title="NUMBER OF FILES" alt="Bento file count icon" /> */}
+              {/* </div> */}
+              <div style={{ paddingLeft: '7px' }} className={classes.innerPanel}>
+                <Grid container spacing={2}>
+                  {rightPanel.slice(0, 3).map((section, index) => (
+                    <PropertySubsection
+                      key={index}
+                      section={section}
+                      data={data}
+                    />
+                  ))}
+                </Grid>
               </div>
             </Grid>
             {/* Right panel end */}
@@ -230,7 +245,7 @@ const styles = (theme) => ({
   },
   header: {
     paddingRight: '12px',
-    borderBottom: '#737DB8 10px solid',
+    borderBottom: '#42779A 3px solid',
     height: '80px',
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto auto 10px auto',
@@ -280,6 +295,7 @@ const styles = (theme) => ({
     fontSize: '10px',
     textTransform: 'uppercase',
     paddingRight: '2px',
+    paddingLeft: '4px',
     fontWeight: 600,
   },
   headerButtonLinkNumber: {
@@ -307,7 +323,7 @@ const styles = (theme) => ({
     color: '#000000',
     size: '12px',
     lineHeight: '23px',
-    borderBottom: 'solid 10px #737DB8',
+    // borderBottom: 'solid 3px #42779A',
   },
   detailPanel: {
     borderRight: 'solid 1px #81A6BA',

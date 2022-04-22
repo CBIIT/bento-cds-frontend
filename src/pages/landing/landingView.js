@@ -195,6 +195,7 @@ const styles = () => ({
     backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${landingPageData.heroLeftBg.img})`,
     backgroundPosition: 'right',
+    minHeight: '470px',
   },
   rightBg: {
     backgroundRepeat: 'no-repeat',
@@ -242,7 +243,7 @@ const styles = () => ({
     letterSpacing: '0.8px',
   },
   headerTitle: {
-    paddingTop: '70px',
+    paddingTop: '90px',
     fontFamily: 'Inter, Raleway, sans-serif',
     fontSize: '42px',
     fontWeight: '600',
