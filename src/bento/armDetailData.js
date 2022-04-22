@@ -80,7 +80,7 @@ const table = {
   // Table title
   title: 'STUDY DATA',
   // Field name for files data, need to be updated only when using a different GraphQL query
-  filesField: 'fileOc',
+  filesField: 'fileOver',
   // Value must be one of the 'dataField's in "columns"
   defaultSortField: 'file_name',
   // 'asc' or 'desc'
@@ -114,7 +114,7 @@ const table = {
       header: 'File Name',
     },
     {
-      dataField: 'file_format',
+      dataField: 'file_type',
       header: 'Format',
     },
     {
@@ -165,24 +165,28 @@ query studyDetail($phs_accession: String) {
     phs_accession
     study_acronym
     study_description
-    data_types
     numberOfSubjects
     numberOfSamples
     numberOfDiseaseSites
     numberOfFiles
 }
  fileOverview(
-    studies: [$phs_accession]
+    phs_accession: [$phs_accession]
 ){
-    study_acronym
-    phs_accession
-    subject_id
-    sample_id
-    file_name
-    file_type
-    file_size
-    file_id
-    md5sum
+  study_acronym
+  phs_accession
+  subject_id
+  sample_id
+  experimental_strategy
+  gender
+  site
+  analyte_type
+  is_tumor
+  file_name
+  file_type
+  file_size
+  file_id
+  md5sum
 }
 }
 `;

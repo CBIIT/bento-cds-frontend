@@ -19,7 +19,7 @@ const ArmDetailContainer = ({ match }) => {
     );
   }
 
-  return <ArmDetailView data={data[dataRoot]} />;
+  return <ArmDetailView data={data[dataRoot]} fileData={data.fileOverview} />;
 };
 
 export default ArmDetailContainer;
