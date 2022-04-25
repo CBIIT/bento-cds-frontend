@@ -171,6 +171,7 @@ type StudyDetail {
 type StudyInfo {
     study_name: String
     phs_accession: String
+    data_type: String
     numberOfSubjects: Int
     numberOfFiles: Int
 }
@@ -255,6 +256,7 @@ type QueryType {
         RETURN {
             phs_accession: s.phs_accession,
             study_name: s.study_name,
+            data_type: s.study_data_types,
             numberOfSubjects: COUNT(DISTINCT p),
             numberOfFiles: COUNT(DISTINCT f)
         }
