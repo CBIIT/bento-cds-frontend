@@ -171,6 +171,7 @@ type StudyDetail {
 type StudyInfo {
     study_name: String
     phs_accession: String
+    data_type: String
     numberOfSubjects: Int
     numberOfFiles: Int
 }
