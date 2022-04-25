@@ -29,7 +29,7 @@ import Snackbar from '../../components/Snackbar';
 // import colors from '../../utils/colors';
 
 // Main case detail component
-const ArmDetail = ({ data, classes }) => {
+const ArmDetail = ({ data, fileData, classes }) => {
   // const dispatch = useDispatch();
 
   const [snackbarState, setsnackbarState] = React.useState({
@@ -191,7 +191,7 @@ const ArmDetail = ({ data, classes }) => {
                         <Grid item xs={12}>
                           <GridWithFooter
                             tableConfig={table}
-                            data={data[table.filesField]}
+                            data={fileData}
                             columns={getColumns(table, classes, data, '', '', () => {}, '', globalData.replaceEmptyValueWith)}
                             options={getOptions(table, classes)}
                             customOnRowsSelect={table.customOnRowsSelect}
@@ -336,7 +336,7 @@ const styles = (theme) => ({
   },
   innerPanel: {
     height: '100%',
-    minHeight: '590px',
+    minHeight: '400px',
     maxHeight: '700px',
     overflowY: 'auto',
     overflowX: 'hidden',
@@ -393,7 +393,7 @@ const styles = (theme) => ({
     width: '59px',
   },
   tableContainer: {
-    background: '#FFFFFF',
+    background: '#F2F2F2',
     padding: '0 0px',
   },
   tableHeader: {
