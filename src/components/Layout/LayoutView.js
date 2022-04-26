@@ -15,6 +15,8 @@ import Home from '../../pages/landing/landingController';
 import About from '../../pages/about/aboutController';
 import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Programs from '../../pages/programs/programsController';
+import Arms from '../../pages/arms/armsController';
+
 import ProgramDetail from '../../pages/programDetail/programDetailController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
 import fileCentricCart from '../../pages/fileCentricCart/cartController';
@@ -47,12 +49,13 @@ const Layout = ({ classes, isSidebarOpened }) => (
             <Route exact path="/home" component={Home} />
             <Route path="/explore" component={Dashboard} />
             <Route path="/programs" component={Programs} />
+            <Route path="/studies" component={Arms} />
             <Route path="/model" component={modelPage} />
             <Route path="/table" component={table} />
             <Route path="/fileCentricCart" component={fileCentricCart} />
             <Route path="/program/:id" component={ProgramDetail} />
             <Route path="/case/:id" component={CaseDetail} />
-            <Route path="/arm/:id" component={ArmDetail} />
+            <Route path="/study/:id" component={ArmDetail} />
             <Route path="/JBrowse" component={JBrowse} />
             <Route exact path="/search" component={GlobalSearch} />
             <Route path="/search/:id" component={GlobalSearchController} />
