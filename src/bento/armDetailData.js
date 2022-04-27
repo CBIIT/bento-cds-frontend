@@ -62,7 +62,7 @@ const rightPanel = [
         dataField: 'numberOfFiles',
       },
       {
-        label: 'Data type',
+        label: 'Data types',
         dataField: 'data_types',
       },
       {
