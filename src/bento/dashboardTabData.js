@@ -57,7 +57,7 @@ export const tabContainers = [
       },
       {
         dataField: 'study_acronym',
-        header: 'Study Code',
+        header: 'Study Name',
         sort: 'asc',
         display: true,
       },
@@ -218,7 +218,7 @@ export const tabContainers = [
       },
       {
         dataField: 'study_acronym',
-        header: 'Study Acronym',
+        header: 'Study Name',
         sort: 'asc',
         display: true,
       },

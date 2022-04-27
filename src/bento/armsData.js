@@ -40,7 +40,7 @@ const table = {
     },
     {
       dataField: 'data_type',
-      header: 'Data Type',
+      header: 'Data Types',
     },
     {
       dataField: 'numberOfSubjects',
