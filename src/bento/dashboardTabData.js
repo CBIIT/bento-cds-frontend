@@ -64,6 +64,7 @@ export const tabContainers = [
       {
         dataField: 'phs_accession',
         header: 'PHS Accession ',
+        link: '/study/{phs_accession}',
         sort: 'asc',
         display: true,
       },

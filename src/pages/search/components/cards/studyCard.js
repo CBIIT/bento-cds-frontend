@@ -33,7 +33,7 @@ const StudyCard = ({ data, classes, index }) => {
           <div>
             <span className={classes.detailContainerHeader}>STUDY</span>
             <span className={classes.cardTitle}>
-              <Link to={`/arm/${data.study_code}`} className={classes.cardTitle}>
+              <Link to={`/study/${data.study_code}`} className={classes.cardTitle}>
                 {data.study_id}
               </Link>
 

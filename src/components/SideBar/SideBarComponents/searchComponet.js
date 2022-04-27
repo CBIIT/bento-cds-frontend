@@ -163,7 +163,7 @@ const LocalSearchComponent = ({ classes, type }, ref) => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                placeholder="e.g. BENTO-CASE-06, BENTO-CASE-22"
+                placeholder="e.g CDS-CASE-06, CDS-CASE-22"
                 variant="outlined"
                 size="small"
                 InputProps={{

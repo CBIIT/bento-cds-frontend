@@ -33,7 +33,7 @@ function SearchPagination({
       { countField: 'subject_count', nameField: 'subjects' },
       { countField: 'sample_count', nameField: 'samples' },
       { countField: 'file_count', nameField: 'files' },
-      { countField: 'program_count', nameField: 'programs' },
+      // { countField: 'program_count', nameField: 'programs' },
       { countField: 'study_count', nameField: 'studies' },
       { countField: 'model_count', nameField: 'model' },
       { countField: 'about_count', nameField: 'about_page' },

@@ -5,7 +5,7 @@ export const statsStyling = {
     horizontalStyle: true,
     statTitleFirst: true,
     height: '47px',
-    background: '#8DCAFF',
+    background: ' #B4E2F5',
   },
 };
 
