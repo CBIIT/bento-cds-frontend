@@ -100,6 +100,8 @@ const styles = () => ({
     height: '42px',
     display: 'flex',
     borderBottom: '3px solid white',
+    minWidth: '140px',
+    justifyContent: 'center',
   },
   statTitle: {
     display: 'inline-block',
@@ -133,7 +135,7 @@ const styles = () => ({
   statsGroup: {
     // padding: '36px 48px 4px 48px',
     // borderBottom: '2px solid',
-    margin: '14px 48px',
+    margin: '8px 20px',
   },
 });
 

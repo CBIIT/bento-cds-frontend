@@ -19,7 +19,7 @@ const CustomBreadcrumb = ({ classes, data }) => (
             </Link>,
           );
         } else {
-          acc.push(<span className={classes.headerNavLink}>{current.name}</span>);
+          acc.push(<span className={classes.headerBold}>{current.name}</span>);
         }
         if (index < data.length - 1) {
           acc.push('/');
@@ -33,14 +33,28 @@ const CustomBreadcrumb = ({ classes, data }) => (
 const styles = (theme) => ({
   headerNav: {
     paddingTop: '0px',
-    color: '#00B0BD',
+    paddingBottom: '4px',
+    color: '#0D3556',
   },
   headerNavLink: {
     paddingLeft: '3px',
     paddingRight: '3px',
     textDecoration: 'none',
-    color: '#00B0BD',
+    color: '#0D3556',
     textTransform: 'uppercase',
+    fontFamily: theme.custom.fontFamilySans,
+    fontSize: '10px',
+    letterSpacing: '0.025em',
+    verticalAlign: 'text-top',
+
+  },
+  headerBold: {
+    paddingLeft: '3px',
+    paddingRight: '3px',
+    textDecoration: 'none',
+    color: '#0D3556',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
     fontFamily: theme.custom.fontFamilySans,
     fontSize: '10px',
     letterSpacing: '0.025em',
