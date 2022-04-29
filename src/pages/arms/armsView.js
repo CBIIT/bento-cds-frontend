@@ -75,7 +75,7 @@ const styles = (theme) => ({
 
   link: {
     textDecoration: 'none',
-    fontWeight: 'bold',
+    fontWeight: '300',
     color: '#7747FF',
     '&:hover': {
       textDecoration: 'underline',
@@ -103,10 +103,10 @@ const styles = (theme) => ({
     fontSize: '9pt',
     letterSpacing: '0.025em',
     color: '#000',
-    background: '#eee',
+    background: '#fff',
   },
   header: {
-    background: '#eee',
+    background: '#fff',
     paddingLeft: '20px',
     paddingRight: '50px',
     borderBottom: '#42779A 10px solid',
@@ -138,7 +138,7 @@ const styles = (theme) => ({
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   tableContainer: {
-    background: '#eee',
+    background: '#fff',
     paddingBottom: '50px',
   },
   tableDiv: {
