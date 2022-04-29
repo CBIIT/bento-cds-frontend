@@ -341,7 +341,10 @@ export default {
         fontWeight: 'bold',
         paddingLeft: '20px',
         '&:first-child': {
-          paddingLeft: '30px',
+          paddingLeft: '20px',
+        },
+        '&:last-child': {
+          paddingRight: '20px',
         },
       },
       sortActive: {

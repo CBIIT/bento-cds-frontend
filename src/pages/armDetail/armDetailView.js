@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 // import { getOptions, getColumns, CustomActiveDonut } from 'bento-components';
-import { getOptions, getColumns } from 'bento-components';
+import { getOptions, getColumns, ToolTip } from 'bento-components';
 import GridWithFooter from '../../components/GridWithFooter/GridView';
 import StatsView from '../../components/Stats/StatsView';
 import { Typography } from '../../components/Wrappers/Wrappers';
@@ -27,6 +27,7 @@ import PropertySubsection from '../../components/PropertySubsection/armDetailSub
 // import NumberOfThings from '../../components/NumberOfThings';
 import Snackbar from '../../components/Snackbar';
 // import colors from '../../utils/colors';
+import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 
 // Main case detail component
 const ArmDetail = ({ data, fileData, classes }) => {
@@ -64,6 +65,17 @@ const ArmDetail = ({ data, fileData, classes }) => {
     numberOfFiles: data.numberOfFiles,
   };
 
+  const breadCrumbJson = [{
+    name: 'ALL STUDIES',
+    to: '/studies',
+    isALink: true,
+  },
+  {
+    name: data.phs_accession,
+    isALink: false,
+  },
+  ];
+
   return (
     <>
       <Snackbar
@@ -75,6 +87,10 @@ const ArmDetail = ({ data, fileData, classes }) => {
       <StatsView data={stat} />
       <div className={classes.container}>
         <div className={classes.innerContainer}>
+          <div className={classes.breadCrumb}>
+            {' '}
+            <CustomBreadcrumb data={breadCrumbJson} />
+          </div>
           <div className={classes.header}>
             <div className={classes.logo}>
               <img
@@ -102,20 +118,23 @@ const ArmDetail = ({ data, fileData, classes }) => {
               </div>
             </div>
             { /* Case Count */ }
-            <div className={classes.headerButton}>
-              <div className={classes.headerButtonLinkArea}>
-                <Link
-                  className={classes.headerButtonLink}
-                  to={(location) => ({ ...location, pathname: '/explore' })}
-                  onClick={() => redirectTo()}
-                >
-                  <span className={classes.headerButtonLinkNumber} id="arm_detail_header_file_count">
-                    {data.numberOfSubjects}
-                  </span>
-                </Link>
-                <span className={classes.headerButtonLinkText}>STUDY PARTICIPANTS</span>
+            <ToolTip title="View full Participant Listing in Data Dashboard page">
+              <div className={classes.headerButton}>
+                <div className={classes.headerButtonLinkArea}>
+                  <Link
+                    className={classes.headerButtonLink}
+                    to={(location) => ({ ...location, pathname: '/explore' })}
+                    onClick={() => redirectTo()}
+                  >
+                    <span className={classes.headerButtonLinkNumber} id="arm_detail_header_file_count">
+                      {data.numberOfSubjects}
+                    </span>
+                  </Link>
+                  <span className={classes.headerButtonLinkText}>Study Participants</span>
+                </div>
               </div>
-            </div>
+            </ToolTip>
+
           </div>
 
           <Grid container className={classes.detailContainer}>
@@ -178,43 +197,43 @@ const ArmDetail = ({ data, fileData, classes }) => {
             </Grid>
             {/* Right panel end */}
           </Grid>
-          <div id="arm_detail_table" className={classes.tableContainer}>
-            <div className={classes.tableDiv}>
-              { table.display
-                ? (
-                  <>
-                    <div className={classes.tableTitle} id="arm_detail_table_title">
-                      <span className={classes.tableHeader}>{table.title}</span>
-                    </div>
+        </div>
+      </div>
+      <div id="arm_detail_table" className={classes.tableContainer}>
+        <div className={classes.tableDiv}>
+          { table.display
+            ? (
+              <>
+                <div className={classes.tableTitle} id="arm_detail_table_title">
+                  <span className={classes.tableHeader}>{table.title}</span>
+                </div>
+                <Grid item xs={12}>
+                  <Grid container spacing={4}>
                     <Grid item xs={12}>
-                      <Grid container spacing={4}>
-                        <Grid item xs={12}>
-                          <GridWithFooter
-                            tableConfig={table}
-                            data={fileData}
-                            columns={getColumns(table, classes, data, '', '', () => {}, '', globalData.replaceEmptyValueWith)}
-                            options={getOptions(table, classes)}
-                            customOnRowsSelect={table.customOnRowsSelect}
-                            openSnack={openSnack}
-                            closeSnack={closeSnack}
-                            disableRowSelection={table.disableRowSelection}
-                            buttonText={table.buttonText}
-                            saveButtonDefaultStyle={table.saveButtonDefaultStyle}
-                            ActiveSaveButtonDefaultStyle={table.ActiveSaveButtonDefaultStyle}
-                            DeactiveSaveButtonDefaultStyle={table.DeactiveSaveButtonDefaultStyle}
-                            tooltipMessage={table.tooltipMessage}
-                            tooltipContent={tooltipContent}
-                          />
-                        </Grid>
-                        <Grid item xs={8}>
-                          <Typography />
-                        </Grid>
-                      </Grid>
+                      <GridWithFooter
+                        tableConfig={table}
+                        data={fileData}
+                        columns={getColumns(table, classes, data, '', '', () => {}, '', globalData.replaceEmptyValueWith)}
+                        options={getOptions(table, classes)}
+                        customOnRowsSelect={table.customOnRowsSelect}
+                        openSnack={openSnack}
+                        closeSnack={closeSnack}
+                        disableRowSelection={table.disableRowSelection}
+                        buttonText={table.buttonText}
+                        saveButtonDefaultStyle={table.saveButtonDefaultStyle}
+                        ActiveSaveButtonDefaultStyle={table.ActiveSaveButtonDefaultStyle}
+                        DeactiveSaveButtonDefaultStyle={table.DeactiveSaveButtonDefaultStyle}
+                        tooltipMessage={table.tooltipMessage}
+                        tooltipContent={tooltipContent}
+                      />
                     </Grid>
-                  </>
-                ) : null}
-            </div>
-          </div>
+                    <Grid item xs={8}>
+                      <Typography />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </>
+            ) : null}
         </div>
       </div>
     </>
@@ -229,7 +248,7 @@ const styles = (theme) => ({
   innerContainer: {
     maxWidth: '1340px',
     margin: '0 auto',
-    paddingTop: '50px',
+    paddingTop: '8px',
     fontFamily: theme.custom.fontFamily,
     background: '#FFFF',
   },
@@ -248,7 +267,7 @@ const styles = (theme) => ({
     borderBottom: '#42779A 3px solid',
     height: '80px',
     maxWidth: theme.custom.maxContentWidth,
-    margin: 'auto auto 10px auto',
+    margin: 'auto',
   },
   caseIcon: {
     height: '94px',
@@ -286,7 +305,7 @@ const styles = (theme) => ({
     background: '#F4F4F4',
   },
   headerButtonLinkArea: {
-    marginLeft: '27px',
+    marginLeft: '16px',
     paddingTop: '4px',
   },
   headerButtonLinkText: {
@@ -297,14 +316,17 @@ const styles = (theme) => ({
     paddingRight: '2px',
     paddingLeft: '4px',
     fontWeight: 600,
+    letterSpacing: '1px',
   },
   headerButtonLinkNumber: {
     fontFamily: theme.custom.fontFamily,
-    borderBottom: 'solid #0077E3 3px',
+    borderBottom: 'solid #274F45 3px',
+    color: '#274F45',
     lineHeight: '30px',
     paddingBottom: '2px',
     margin: '0 4px',
     fontSize: '14px',
+    letterSpacing: '1px',
     fontWeight: 'bold',
   },
   headerButtonLink: {
@@ -332,7 +354,7 @@ const styles = (theme) => ({
     paddingLeft: '0px',
   },
   rightPanel: {
-    paddingLeft: '16px !important',
+    paddingLeft: '37px !important',
   },
   innerPanel: {
     height: '100%',
@@ -340,7 +362,7 @@ const styles = (theme) => ({
     maxHeight: '700px',
     overflowY: 'auto',
     overflowX: 'hidden',
-    paddingLeft: '0px',
+    paddingLeft: '20px',
     paddingRight: '40px',
     scrollbarColor: '#697270',
   },
@@ -394,15 +416,16 @@ const styles = (theme) => ({
   },
   tableContainer: {
     background: '#F2F2F2',
-    padding: '0 0px',
+    padding: '0 32px',
   },
   tableHeader: {
-    paddingLeft: '32px',
+    paddingLeft: '20px',
   },
   tableDiv: {
-    maxWidth: theme.custom.maxContentWidth,
+    // maxWidth: theme.custom.maxContentWidth,
     margin: '0 auto auto auto',
     paddingTop: '30px',
+    maxWidth: '1340px',
   },
   tableTitle: {
     textTransform: 'uppercase',
@@ -424,6 +447,9 @@ const styles = (theme) => ({
     verticalAlign: 'sub',
     marginLeft: '4px',
     paddingBottom: '2px',
+  },
+  breadCrumb: {
+    paddingTop: '3px',
   },
 });
 

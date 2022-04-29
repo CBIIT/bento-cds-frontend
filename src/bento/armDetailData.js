@@ -3,7 +3,7 @@ import { FileOnRowsSelect } from '../utils/fileTable';
 
 // --------------- Tooltip configuration --------------
 export const tooltipContent = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programIcon.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramIcon.svg',
   alt: 'cds study logo',
 };
 
