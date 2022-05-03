@@ -12,7 +12,7 @@ export const facetSearchData = [
     label: 'Study', field: 'group', api: 'filterSubjectCountByStudy', apiForFiltering: 'filterSubjectCountByStudy', datafield: 'studies', section: 'Cases', show: true,
   },
   {
-    label: 'Experimental Strategies', field: 'group', api: 'subjectCountByExperimentalStrategy', apiForFiltering: 'filterSubjectCountByExperimentalStrategy', datafield: 'experimental_strategies', section: 'Cases', show: true,
+    label: 'Experimental Strategy', field: 'group', api: 'subjectCountByExperimentalStrategy', apiForFiltering: 'filterSubjectCountByExperimentalStrategy', datafield: 'experimental_strategies', section: 'Cases', show: true,
   },
   {
     label: 'Accesses', field: 'group', api: 'filterSubjectCountByAccess', apiForFiltering: 'filterSubjectCountByAccess', datafield: 'accesses', section: 'Cases', show: true,

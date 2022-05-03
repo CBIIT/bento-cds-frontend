@@ -16,9 +16,9 @@ export const myCasesPageData = {
   buttonText: 'GO TO FILES',
   buttonLink: '/mycasesfiles',
   headerIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Icon-Cart-Workflow.svg',
-  headerIconAlt: 'Bento MyCases header logo',
+  headerIconAlt: 'CDS MyCases header logo',
   wizardIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Cart-Wizard-Step2.svg',
-  wizardIconAlt: 'Bento MyCases Wizard',
+  wizardIconAlt: 'CDS MyCases Wizard',
 };
 
 export const myFilesPageData = {
@@ -26,10 +26,10 @@ export const myFilesPageData = {
   subTitle: 'Files',
   buttonText: 'DOWNLOAD MANIFEST',
   headerIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Icon-Cart-Workflow.svg',
-  headerIconAlt: 'Bento MyFiles header logo',
+  headerIconAlt: 'CDS MyFiles header logo',
   wizardIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Cart-Wizard-Step3.svg',
-  wizardIconAlt: 'Bento MyFiles Wizard',
-  manifestFileName: 'BENTO File Manifest',
+  wizardIconAlt: 'CDS MyFiles Wizard',
+  manifestFileName: 'CDS File Manifest',
 };
 
 export const cartSelectionMessages = {
