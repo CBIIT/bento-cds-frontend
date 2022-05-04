@@ -366,6 +366,7 @@ const convertResultInPrevType = (result) => {
     nodeCountsFromLists: {
       numberOfFiles: result.data.searchSubjects.numberOfFiles,
       numberOfLabProcedures: result.data.searchSubjects.numberOfLabProcedures,
+      numberOfDiseaseSites: result.data.searchSubjects.numberOfDiseaseSites,
       numberOfPrograms: result.data.searchSubjects.numberOfPrograms,
       numberOfSamples: result.data.searchSubjects.numberOfSamples,
       numberOfStudies: result.data.searchSubjects.numberOfStudies,
