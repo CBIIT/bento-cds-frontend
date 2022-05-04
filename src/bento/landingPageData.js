@@ -61,7 +61,7 @@ export const landingPageData = {
     titleText: 'STUDIES',
     descriptionText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     callToActionText: 'Go to studies listing',
-    callToActionLink: '/programs', // This links to the Programs Listing Page.
+    callToActionLink: '/studies', // This links to the studies Listing Page.
   },
   tile3: {
     alt: '',

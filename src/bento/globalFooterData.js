@@ -14,32 +14,74 @@ export default {
   // Ideal size for icon is 20x20 px
   link_sections: [
     {
-      title: 'About Bento',
+      title: 'About CDS',
       items: [
         {
-          text: 'Purpose',
-          link: '/bento',
+          text: 'CDS',
+          link: '/cds',
         },
         {
-          text: 'Resources',
-          link: '/resources',
+          text: 'CRDC',
+          link: 'https://datacommons.cancer.gov/',
         },
         {
-          text: 'Documentation',
+          text: 'How to Submit Data',
           link: 'https://cbiit.github.io/bento-docs/',
         },
       ],
     },
     {
-      title: 'Support',
+      title: 'About the Data',
       items: [
         {
-          text: 'Contact Us',
+          text: 'Data Access Policies',
+          link: 'https://datacommons.cancer.gov/',
+        },
+        {
+          text: 'Data Analysis',
+          link: 'https://cbiit.github.io/bento-docs/',
+        },
+        {
+          text: 'REST APIs',
+          link: '/cds',
+        },
+      ],
+    },
+    {
+      title: 'About Data Submission',
+      items: [
+        {
+          text: 'Data Governance Advisory Board',
+          link: 'https://datacommons.cancer.gov/',
+        },
+        {
+          text: 'Process and Tools',
+          link: 'https://cbiit.github.io/bento-docs/',
+        },
+        {
+          text: 'Submission Guide',
+          link: '/cds',
+        },
+      ],
+    },
+    {
+      title: 'NIH Policies',
+      items: [
+        {
+          text: ' Disclaimer Policies Accessibility FOIA',
           link: 'bento-help@nih.gov',
         },
         {
-          link: 'https://www.linkedin.com/company/frederick-national-laboratory-for-cancer-research/',
-          icon: 'https://raw.githubusercontent.com/CBIIT/bento-tools/master/src/components/assets/footer/linkedInIcon.svg',
+          text: 'Policies',
+          link: 'bento-help@nih.gov',
+        },
+        {
+          text: 'Accessibility',
+          link: 'bento-help@nih.gov',
+        },
+        {
+          text: 'FOIA',
+          link: 'bento-help@nih.gov',
         },
       ],
     },

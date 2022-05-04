@@ -6,7 +6,9 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 // import { getOptions, getColumns, CustomActiveDonut } from 'bento-components';
-import { getOptions, getColumns, ToolTip } from 'bento-components';
+import {
+  getOptions, getColumns, ToolTip,
+} from 'bento-components';
 import GridWithFooter from '../../components/GridWithFooter/GridView';
 import StatsView from '../../components/Stats/StatsView';
 import { Typography } from '../../components/Wrappers/Wrappers';
@@ -18,6 +20,7 @@ import {
   table,
   tooltipContent,
   rightPanel,
+  armHeaderLogo,
 } from '../../bento/armDetailData';
 import {
   singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
@@ -95,8 +98,8 @@ const ArmDetail = ({ data, fileData, classes }) => {
             <div className={classes.logo}>
               <img
                 className={classes.caseIcon}
-                src={tooltipContent.src}
-                alt="Bento arm detail header logo"
+                src={armHeaderLogo.src}
+                alt="CDS arm detail header logo"
               />
 
             </div>

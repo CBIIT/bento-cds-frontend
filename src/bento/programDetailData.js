@@ -28,7 +28,7 @@ const aggregateCount = {
 // Ideal size for externalLinkIcon is 16x16 px
 const programDetailIcon = {
   src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programIcon.svg',
-  alt: 'Bento program logo',
+  alt: 'CDS program logo',
 };
 
 const externalLinkIcon = {

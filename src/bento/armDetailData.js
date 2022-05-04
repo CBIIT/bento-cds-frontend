@@ -1,10 +1,16 @@
 import gql from 'graphql-tag';
 import { FileOnRowsSelect } from '../utils/fileTable';
 
-// --------------- Tooltip configuration --------------
-export const tooltipContent = {
+// --------------- Header configuration --------------
+export const armHeaderLogo = {
   src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramIcon.svg',
   alt: 'cds study logo',
+};
+
+// --------------- Tooltip configuration --------------
+export const tooltipContent = {
+  src: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
+  alt: 'tooltip icon',
 };
 
 // -------------- Case ID area configurations --------------
