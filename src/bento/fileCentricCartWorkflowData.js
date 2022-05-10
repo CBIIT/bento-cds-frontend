@@ -73,7 +73,7 @@ export const table = {
     },
     {
       dataField: 'phs_accession',
-      header: 'PHS Accession',
+      header: 'Accession',
       sort: 'asc',
       display: true,
     },
@@ -93,7 +93,6 @@ export const table = {
       dataField: 'file_type',
       header: 'File Type',
       sort: 'asc',
-      link: '/program/{program_id}',
       display: true,
     },
     {

@@ -732,6 +732,7 @@ async function getFileIDs(
   caseIds = [],
   sampleIds = [],
   fileNames = [],
+  fileIds=[],
   apiReturnField,
 ) {
   const fetchResult = await client
@@ -741,6 +742,7 @@ async function getFileIDs(
         subject_ids: caseIds,
         sample_ids: sampleIds,
         file_names: fileNames,
+        file_ids: fileIds,
         first: fileCount,
       },
     })
@@ -778,13 +780,13 @@ export async function fetchAllFileIDs(fileCount = 100000, selectedIds = []) {
   let filesIds = [];
   switch (getState().currentActiveTab) {
     case tabIndex[2].title:
-      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL, [], [], selectedIds, 'fileIDsFromList');
+      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL, [], [],[], selectedIds, 'fileIDsFromList');
       break;
     case tabIndex[1].title:
-      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_SAMPLESTAB_FOR_SELECT_ALL, [], selectedIds, [], 'fileIDsFromList');
+      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_SAMPLESTAB_FOR_SELECT_ALL, [], selectedIds, [],[], 'fileIDsFromList');
       break;
     default:
-      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_CASESTAB_FOR_SELECT_ALL, selectedIds, [], [], 'fileIDsFromList');
+      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_CASESTAB_FOR_SELECT_ALL, selectedIds, [], [], [],'fileIDsFromList');
   }
   return filterOutFileIds(filesIds);
 }

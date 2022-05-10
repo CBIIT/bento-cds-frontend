@@ -31,7 +31,7 @@ export const landingPageData = {
       statAPI: 'numberOfStudies',
     },
     {
-      statTitle: 'sites',
+      statTitle: 'Disease Sites',
       statAPI: 'numberOfDiseaseSites',
     },
     {

@@ -63,7 +63,7 @@ export const tabContainers = [
       },
       {
         dataField: 'phs_accession',
-        header: 'PHS Accession ',
+        header: 'Accession ',
         link: '/study/{phs_accession}',
         sort: 'asc',
         display: true,
@@ -141,7 +141,7 @@ export const tabContainers = [
       },
       {
         dataField: 'phs_accession',
-        header: 'PHS accession',
+        header: 'Accession',
         link: '/study/{phs_accession}',
         sort: 'asc',
         display: true,
@@ -186,7 +186,7 @@ export const tabContainers = [
     defaultSortDirection: 'asc',
     count: 'numberOfFiles',
     buttonText: 'Add Selected Files',
-    dataKey: 'file_name',
+    dataKey: 'file_id',
     saveButtonDefaultStyle: {
       color: '#fff',
       backgroundColor: '#DC2FDA',
@@ -205,17 +205,17 @@ export const tabContainers = [
     },
     columns: [
       {
-        dataField: 'file_name',
-        header: 'File Name',
-        sort: 'asc',
-        primary: true,
-        display: true,
-      },
-      {
         dataField: 'file_id',
         header: 'File ID',
         sort: 'asc',
         display: false,
+        primary: true,
+      },
+      {
+        dataField: 'file_name',
+        header: 'File Name',
+        sort: 'asc',
+        display: true,
       },
       {
         dataField: 'study_acronym',
@@ -225,7 +225,7 @@ export const tabContainers = [
       },
       {
         dataField: 'phs_accession',
-        header: 'PHS Accession',
+        header: 'Accession',
         link: '/study/{phs_accession}',
         sort: 'asc',
         display: true,
@@ -241,7 +241,6 @@ export const tabContainers = [
         header: 'Sample Id',
         sort: 'asc',
         display: true,
-        formatBytes: true,
       },
       // {
       //   dataField: '', // This need to left empty if no data need to be displayed before file download icon
@@ -858,12 +857,12 @@ query search (
 
 export const GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL = gql`
 query search (          
-  $file_names: [String] 
+  $file_ids: [String],
 ){
   fileIDsFromList (          
-      file_names: $file_names
+      file_ids: $file_ids
   ) 
-}
+  }
   `;
 
 export const GET_ALL_FILEIDS_FROM_CASESTAB_FOR_ADD_ALL_CART = gql`

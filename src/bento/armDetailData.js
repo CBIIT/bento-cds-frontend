@@ -140,7 +140,7 @@ const table = {
       header: 'Gender',
     },
     {
-      dataField: 'gender',
+      dataField: 'site',
       header: 'Disease Site',
     },
     {
