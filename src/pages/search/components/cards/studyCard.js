@@ -16,7 +16,7 @@ const StudyCard = ({ data, classes, index }) => {
 
     },
     {
-      label: 'Phs Accession',
+      label: 'Accession',
       dataField: 'phs_accession',
 
     },
