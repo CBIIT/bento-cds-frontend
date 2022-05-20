@@ -1,26 +1,26 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { Footer } from 'bento-components';
-import gql from 'graphql-tag';
 import FooterData from '../../bento/globalFooterData';
 import env from '../../utils/env';
-import client from '../../utils/graphqlClient';
-
-const GET_BE_VERSION = gql`{
-  schemaVersion
-}
-`;
 
 const FILE_SERVICE_API = env.REACT_APP_FILE_SERVICE_API;
 
 const ICDCFooter = () => {
   const [footerUpdatedData, setFooterUpdatedData] = useState(FooterData);
+  const url = window.location.href;
+  const { hash } = window.location;
+  const indexOfHash = url.indexOf(hash) || url.length;
+  const hashlessUrl = url.substr(0, indexOfHash);
   async function getBEVersion() {
-    const schemaVersion = await client
-      .query({
-        query: GET_BE_VERSION,
+    const schemaVersion = await fetch(
+      `${hashlessUrl}version`,
+    )
+      .then((response) => response.text())
+      .then((data) => {
+        const backendObj = JSON.parse(data);
+        return backendObj.version;
       })
-      .then((result) => result.data.schemaVersion);
+      .catch(() => '0.0.0');
     return schemaVersion;
   }
   useEffect(() => {
