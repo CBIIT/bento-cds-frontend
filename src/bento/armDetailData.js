@@ -133,7 +133,7 @@ const table = {
     },
     {
       dataField: 'subject_id',
-      header: 'Paricipant ID',
+      header: 'Participant ID',
     },
     {
       dataField: 'gender',
