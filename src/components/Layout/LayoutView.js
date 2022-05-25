@@ -44,10 +44,10 @@ const Layout = ({ classes, isSidebarOpened }) => (
         >
           <Route component={ScrollToTop} />
           <Switch>
-            <Route exact path="/ICDC/" component={Home} />
+            <Route exact path="/CDS/" component={Home} />
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
-            <Route path="/explore" component={Dashboard} />
+            <Route path="/data" component={Dashboard} />
             <Route path="/programs" component={Programs} />
             <Route path="/studies" component={Arms} />
             <Route path="/model" component={modelPage} />

@@ -49,7 +49,7 @@ export const navBarData = [
   {
     labelText: 'data',
     type: 'link',
-    link: '/explore',
+    link: '/data',
   },
   {
     labelText: 'studies',
