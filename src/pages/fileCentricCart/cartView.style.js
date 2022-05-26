@@ -55,6 +55,10 @@ export default () => ({
     marginTop: '10px',
     float: 'right',
   },
+  disabledButton: {
+    cursor: 'auto !important',
+    opacity: '0.5',
+  },
   downloadButton: {
     height: '45px',
     minWidth: '191px',
