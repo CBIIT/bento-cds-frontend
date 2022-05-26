@@ -186,7 +186,8 @@ const cartView = ({
           <div className={classes.topButtonGroup}>
             <button
               type="button"
-              className={classes.downloadButton}
+              disabled={dataCartView.length === 0}
+              className={!dataCartView.length ? `${classes.downloadButton} ${classes.disabledButton}` : classes.downloadButton}
               onClick={() => prepareDownload()}
               id={`button_${myFilesPageData.downButtonText}`}
             >
