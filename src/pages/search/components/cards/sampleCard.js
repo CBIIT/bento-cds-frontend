@@ -1,7 +1,6 @@
 import { Grid, withStyles } from '@material-ui/core';
 import React from 'react';
 import { prepareLinks } from 'bento-components';
-import { Link } from 'react-router-dom';
 import PropertyItem from '../propertyItem';
 
 const SampleCard = ({ data, classes, index }) => {
@@ -37,15 +36,13 @@ const SampleCard = ({ data, classes, index }) => {
 
       <Grid item container className={classes.card}>
         <Grid item xs={1} className={classes.indexContainer}>
-          {index + 1 }
+          {index + 1}
         </Grid>
         <Grid item xs={11} className={classes.propertyContainer}>
           <div>
             <span className={classes.detailContainerHeader}>Sample</span>
             <span className={classes.cardTitle}>
-              <Link to={`/case/${data.subject_id}`} className={classes.cardTitle}>
-                {data.sample_id}
-              </Link>
+              {data.sample_id}
             </span>
 
           </div>
