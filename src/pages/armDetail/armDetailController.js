@@ -3,7 +3,10 @@ import { useQuery } from '@apollo/client';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ArmDetailView from './armDetailView';
 import { Typography } from '../../components/Wrappers/Wrappers';
-import { GET_ARM_DETAIL_DATA_QUERY, dataRoot, armIDField } from '../../bento/armDetailData';
+import {
+  GET_ARM_DETAIL_DATA_QUERY,
+  dataRoot, armIDField,
+} from '../../bento/armDetailData';
 
 const ArmDetailContainer = ({ match }) => {
   const { loading, error, data } = useQuery(GET_ARM_DETAIL_DATA_QUERY, {
@@ -19,7 +22,7 @@ const ArmDetailContainer = ({ match }) => {
     );
   }
 
-  return <ArmDetailView data={data[dataRoot]} fileData={data.fileOverview} />;
+  return <ArmDetailView studyData={data[dataRoot]} paramId={match.params.id} />;
 };
 
 export default ArmDetailContainer;

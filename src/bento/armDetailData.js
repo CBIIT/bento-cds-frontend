@@ -176,8 +176,17 @@ query studyDetail($phs_accession: String) {
     numberOfDiseaseSites
     numberOfFiles
 }
- fileOverview(
-    phs_accession: [$phs_accession]
+}
+`;
+
+export const GET_MY_FILE_OVERVIEW_QUERY = gql`
+query fileOverview(
+  $phs_accession: String
+  $first: Int, 
+){
+fileOverview(
+  first: $first, 
+  phs_accession: [$phs_accession]
 ){
   study_acronym
   phs_accession
@@ -194,8 +203,7 @@ query studyDetail($phs_accession: String) {
   file_id
   md5sum
 }
-}
-`;
+}`;
 
 export {
   header,
