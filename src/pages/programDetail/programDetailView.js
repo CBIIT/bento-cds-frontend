@@ -313,7 +313,7 @@ const ProgramView = ({ classes, data, theme }) => {
                   <Typography>
                     <CustomDataTable
                       data={data.programDetail[table.dataField]}
-                      columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectToArm, '', globalData.replaceEmptyValueWith)}
+                      columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectToArm, '', globalData.replaceEmptyValueWith)}
                       options={getOptions(table, classes)}
                     />
                   </Typography>

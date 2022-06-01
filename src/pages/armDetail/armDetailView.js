@@ -1,4 +1,6 @@
-import React from 'react';
+/*eslint-disable*/
+import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
 // import { useDispatch } from 'react-redux';
 import {
   Grid,
@@ -9,6 +11,7 @@ import { Link } from 'react-router-dom';
 import {
   getOptions, getColumns, ToolTip,
 } from 'bento-components';
+import client from '../../utils/graphqlClient';
 import GridWithFooter from '../../components/GridWithFooter/GridView';
 import StatsView from '../../components/Stats/StatsView';
 import { Typography } from '../../components/Wrappers/Wrappers';
@@ -21,6 +24,8 @@ import {
   tooltipContent,
   rightPanel,
   armHeaderLogo,
+  GET_MY_FILE_OVERVIEW_QUERY,
+  armIDField,
 } from '../../bento/armDetailData';
 import {
   singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
@@ -33,8 +38,12 @@ import Snackbar from '../../components/Snackbar';
 import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 
 // Main case detail component
-const ArmDetail = ({ data, fileData, classes }) => {
+const ArmDetail = ({studyData, paramId, classes }) => {
   // const dispatch = useDispatch();
+
+  const { loading, error, data } = useQuery(GET_MY_FILE_OVERVIEW_QUERY, {
+    variables: { [armIDField]: paramId, first: 20 },
+  });
 
   const [snackbarState, setsnackbarState] = React.useState({
     open: false,
@@ -54,7 +63,7 @@ const ArmDetail = ({ data, fileData, classes }) => {
       datafield: 'studies',
       groupName: 'Study',
       isChecked: true,
-      name: data.study_acronym,
+      name: studyData.study_acronym,
       section: 'Filter By Cases',
     }]);
   };
@@ -62,10 +71,10 @@ const ArmDetail = ({ data, fileData, classes }) => {
   const stat = {
     numberOfPrograms: 1,
     numberOfStudies: 1,
-    numberOfSubjects: data.numberOfSubjects,
-    numberOfSamples: data.numberOfSamples,
-    numberOfDiseaseSites: data.numberOfDiseaseSites,
-    numberOfFiles: data.numberOfFiles,
+    numberOfSubjects: studyData.numberOfSubjects,
+    numberOfSamples: studyData.numberOfSamples,
+    numberOfDiseaseSites: studyData.numberOfDiseaseSites,
+    numberOfFiles: studyData.numberOfFiles,
   };
 
   const breadCrumbJson = [{
@@ -74,7 +83,7 @@ const ArmDetail = ({ data, fileData, classes }) => {
     isALink: true,
   },
   {
-    name: data.phs_accession,
+    name: studyData.phs_accession,
     isALink: false,
   },
   ];
@@ -106,11 +115,11 @@ const ArmDetail = ({ data, fileData, classes }) => {
             <div className={classes.headerTitle}>
               <div className={classes.headerMainTitle} id="arm_detail_title">
                 {`${header.label} :`}
-                { data[header.dataField]
+                {studyData[header.dataField]
                   ? (
                     <span className={classes.headerMainTitleTwo}>
                       {' '}
-                      {data[header.dataField]}
+                      {studyData[header.dataField]}
                     </span>
                   )
                   : (
@@ -126,11 +135,11 @@ const ArmDetail = ({ data, fileData, classes }) => {
                 <div className={classes.headerButtonLinkArea}>
                   <Link
                     className={classes.headerButtonLink}
-                    to={(location) => ({ ...location, pathname: '/explore' })}
+                    to={(location) => ({ ...location, pathname: '/data' })}
                     onClick={() => redirectTo()}
                   >
                     <span className={classes.headerButtonLinkNumber} id="arm_detail_header_file_count">
-                      {data.numberOfSubjects}
+                      {studyData.numberOfSubjects}
                     </span>
                   </Link>
                   <span className={classes.headerButtonLinkText}>Study Participants</span>
@@ -145,8 +154,8 @@ const ArmDetail = ({ data, fileData, classes }) => {
             <Grid item lg={7} sm={6} xs={12} className={[classes.detailPanel, classes.leftPanel]}>
               <div className={classes.innerPanel}>
                 <Grid container spacing={2}>
-                  { subsections.slice(0, 6).map((section, index) => (
-                    <PropertySubsection key={index} section={section} data={data} />
+                  {subsections.slice(0, 6).map((section, index) => (
+                    <PropertySubsection key={index} section={section} data={studyData} />
                   ))}
                 </Grid>
               </div>
@@ -192,7 +201,7 @@ const ArmDetail = ({ data, fileData, classes }) => {
                     <PropertySubsection
                       key={index}
                       section={section}
-                      data={data}
+                      data={studyData}
                     />
                   ))}
                 </Grid>
@@ -204,7 +213,7 @@ const ArmDetail = ({ data, fileData, classes }) => {
       </div>
       <div id="arm_detail_table" className={classes.tableContainer}>
         <div className={classes.tableDiv}>
-          { table.display
+          {table.display
             ? (
               <>
                 <div className={classes.tableTitle} id="arm_detail_table_title">
@@ -215,8 +224,8 @@ const ArmDetail = ({ data, fileData, classes }) => {
                     <Grid item xs={12}>
                       <GridWithFooter
                         tableConfig={table}
-                        data={fileData}
-                        columns={getColumns(table, classes, data, '', '', () => {}, '', globalData.replaceEmptyValueWith)}
+                        data={(data && data.fileOverview) || []}
+                        columns={getColumns(table, classes, studyData, '', '', () => { }, '', globalData.replaceEmptyValueWith)}
                         options={getOptions(table, classes)}
                         customOnRowsSelect={table.customOnRowsSelect}
                         openSnack={openSnack}
