@@ -70,7 +70,7 @@ export const landingPageData = {
     descriptionText: 'Submitters should start by contacting the CDS Help desk',
     mailToLink: 'cdshelpdesk@mail.nih.gov',
     callToActionText: 'Start the process',
-    callToActionLink: '/resources', // Link to the "Resources" Static Page
+    callToActionLink: '/submit', // Link to the "Submit" Static Page
   },
   tile4: {
     alt: '',
