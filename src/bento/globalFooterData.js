@@ -26,7 +26,7 @@ export default {
         },
         {
           text: 'How to Submit Data',
-          link: 'https://cbiit.github.io/bento-docs/',
+          link: '/submit',
         },
       ],
     },

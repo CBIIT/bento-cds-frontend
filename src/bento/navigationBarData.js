@@ -72,6 +72,10 @@ export const navBarData = [
         labelText: 'Graphql',
         link: '/graphql',
       },
+      {
+        labelText: 'Submit Data',
+        link: '/submit',
+      },
     ],
   },
 ];

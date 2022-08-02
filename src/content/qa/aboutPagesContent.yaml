@@ -15,3 +15,8 @@
     - paragraph: "•	File and Data Loaders: $$[https://github.com/CBIIT/icdc-dataloader](https://github.com/CBIIT/icdc-dataloader)"
   secondaryZoomImageTitle: "The Bento Core Data Model"
   secondaryZoomImage: 'https://cbiit.github.io/bento-model/model-desc/bento-model.svg'
+- page: '/submit'
+  title: "Submit Data"
+  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/bento-frontend/master/src/assets/about/About_Purpose.png'
+  content:
+    - paragraph: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
