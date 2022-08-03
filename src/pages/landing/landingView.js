@@ -9,6 +9,7 @@ import StatsView from './components/statsView';
 import { landingPageData } from '../../bento/landingPageData';
 import icon from '../../assets/landing/LP_ReadMore.svg';
 import iconAbout from '../../assets/landing/LP_About_Fullarticle.Arrow.svg';
+import linkGenerator from '../../utils/linkGenerator';
 
 const LandingView = ({ classes, statsData }) => (
   <div className={classes.page}>
@@ -131,7 +132,7 @@ const LandingView = ({ classes, statsData }) => (
                     {landingPageData.tile3.titleText}
                   </div>
                   <div className={classes.contentContainer} id="tile3_description">
-                    {landingPageData.tile3.descriptionText}
+                    {linkGenerator(landingPageData.tile3.descriptionText)}
                   </div>
 
                 </div>
