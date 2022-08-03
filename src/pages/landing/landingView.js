@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Grid,
   withStyles,
@@ -9,192 +9,181 @@ import StatsView from './components/statsView';
 import { landingPageData } from '../../bento/landingPageData';
 import icon from '../../assets/landing/LP_ReadMore.svg';
 import iconAbout from '../../assets/landing/LP_About_Fullarticle.Arrow.svg';
+import linkGenerator from '../../utils/linkGenerator';
 
-const LandingView = ({ classes, statsData }) => {
-  const [isLinkDescription, setIsLinkDescription] = React.useState('');
-  useEffect(() => {
-    if (landingPageData.tile3.mailToLink) {
-      const mailToLink = `<a href=mailto:${landingPageData.tile3.mailToLink}>
-        ${landingPageData.tile3.mailToLink}
-      </a>`;
-      setIsLinkDescription(mailToLink);
-    }
-  }, []);
-  return (
-    <div className={classes.page}>
-      <div className={classes.container}>
-        <Grid container className={classes.hero}>
-          <Grid xs={3} lg={4} className={classes.leftBg} />
-          <Grid xs={2} lg={2}>
-            <Grid container spacing={16} direction="row">
-              <div className={classes.heroImage} />
-              <div className={classes.heroTextContainer}>
-                <div className={classes.heroTextWrapper}>
-                  <div className={classes.headerTitle}>
-                    { landingPageData.callToActionTitle }
-                  </div>
-                  <div className={classes.headerContent}>
-                    { landingPageData.callToActionDescription}
-                  </div>
-                  <div className={classes.headerButtonSection}>
-                    <Link to={landingPageData.callToActionLink} className={classes.headerLink}>
-                      <button className={classes.buttonText} type="button">
-                        {landingPageData.callToActionButtonText}
-                      </button>
-                      <ArrowRightIcon className={classes.iconArrowRight} />
-                    </Link>
-                  </div>
+const LandingView = ({ classes, statsData }) => (
+  <div className={classes.page}>
+    <div className={classes.container}>
+      <Grid container className={classes.hero}>
+        <Grid xs={3} lg={4} className={classes.leftBg} />
+        <Grid xs={2} lg={2}>
+          <Grid container spacing={16} direction="row">
+            <div className={classes.heroImage} />
+            <div className={classes.heroTextContainer}>
+              <div className={classes.heroTextWrapper}>
+                <div className={classes.headerTitle}>
+                  { landingPageData.callToActionTitle }
+                </div>
+                <div className={classes.headerContent}>
+                  { landingPageData.callToActionDescription}
+                </div>
+                <div className={classes.headerButtonSection}>
+                  <Link to={landingPageData.callToActionLink} className={classes.headerLink}>
+                    <button className={classes.buttonText} type="button">
+                      {landingPageData.callToActionButtonText}
+                    </button>
+                    <ArrowRightIcon className={classes.iconArrowRight} />
+                  </Link>
                 </div>
               </div>
-            </Grid>
+            </div>
           </Grid>
-          <Grid xs={7} lg={6} className={classes.rightBg} />
         </Grid>
-      </div>
-      <div className={classes.whiteSection} />
-      <StatsView stats={landingPageData.landingPageStatsBar} statsData={statsData} />
-      <div className={classes.container}>
-        <div className={classes.texture}>
-          <Grid container spacing={16} direction="row" className={classes.landingContainer}>
-            <div className={classes.contentLeft}>
-              <div className={classes.about}>
-                <div className={classes.aboutImageSection}>
+        <Grid xs={7} lg={6} className={classes.rightBg} />
+      </Grid>
+    </div>
+    <div className={classes.whiteSection} />
+    <StatsView stats={landingPageData.landingPageStatsBar} statsData={statsData} />
+    <div className={classes.container}>
+      <div className={classes.texture}>
+        <Grid container spacing={16} direction="row" className={classes.landingContainer}>
+          <div className={classes.contentLeft}>
+            <div className={classes.about}>
+              <div className={classes.aboutImageSection}>
+                <img
+                  src={landingPageData.tile1.img}
+                  className={classes.aboutImage}
+                  alt={landingPageData.tile1.alt}
+                  id="tile1_image"
+                />
+              </div>
+              <div className={classes.DCWords} id="tile1_title">
+                {landingPageData.tile1.titleText.match(/\b(\w+)\b/g).map((word) => (
+                  <>
+                    {word}
+                    <br />
+                  </>
+                ))}
+              </div>
+              <div className={classes.aboutContent} id="tile1_description">
+                {landingPageData.tile1.descriptionText}
+              </div>
+              <div className={classes.aboutButtonSection}>
+                <div className={classes.aboutButtonLeft}>
+                  <img src={iconAbout} className={classes.iconAbout} alt="CTDC about icon" />
+                </div>
+                <div className={classes.aboutButtonRight} id="tile1_button">
+                  <Link
+                    to={landingPageData.tile1.callToActionLink}
+                    className={classes.aboutButton}
+                  >
+                    {landingPageData.tile1.callToActionText}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={classes.contentRight}>
+            <div className={classes.contentRightTop}>
+              <div className={classes.program}>
+                <div className={classes.programImg}>
                   <img
-                    src={landingPageData.tile1.img}
-                    className={classes.aboutImage}
-                    alt={landingPageData.tile1.alt}
-                    id="tile1_image"
+                    className={classes.image}
+                    src={landingPageData.tile2.img}
+                    alt={landingPageData.tile2.alt}
+                    id="tile2_image"
                   />
                 </div>
-                <div className={classes.DCWords} id="tile1_title">
-                  {landingPageData.tile1.titleText.match(/\b(\w+)\b/g).map((word) => (
-                    <>
-                      {word}
-                      <br />
-                    </>
-                  ))}
-                </div>
-                <div className={classes.aboutContent} id="tile1_description">
-                  {landingPageData.tile1.descriptionText}
-                </div>
-                <div className={classes.aboutButtonSection}>
-                  <div className={classes.aboutButtonLeft}>
-                    <img src={iconAbout} className={classes.iconAbout} alt="CTDC about icon" />
+                <div className={classes.content}>
+                  <div className={classes.contentHeader} id="tile2_title">
+                    {landingPageData.tile2.titleText}
                   </div>
-                  <div className={classes.aboutButtonRight} id="tile1_button">
+                  <div className={classes.contentContainer} id="tile2_description">
+                    {landingPageData.tile2.descriptionText}
+                  </div>
+
+                </div>
+                <div className={classes.blueButton}>
+                  <div className={classes.blueButtonLeft}>
+                    <img className={classes.icon} src={icon} alt="CTDC about " />
+                    {' '}
+                  </div>
+                  <div className={classes.blueButtonRight} id="tile2_button">
                     <Link
-                      to={landingPageData.tile1.callToActionLink}
-                      className={classes.aboutButton}
+                      to={landingPageData.tile2.callToActionLink}
+                      className={classes.blueButton}
                     >
-                      {landingPageData.tile1.callToActionText}
+                      {landingPageData.tile2.callToActionText}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.studies}>
+                <div className={classes.programImg}>
+                  <img
+                    className={classes.image}
+                    src={landingPageData.tile3.img}
+                    alt={landingPageData.tile3.src}
+                    id="tile3_image"
+                  />
+                </div>
+                <div className={classes.content}>
+                  <div className={classes.contentHeader} id="tile3_title">
+                    {landingPageData.tile3.titleText}
+                  </div>
+                  <div className={classes.contentContainer} id="tile3_description">
+                    {linkGenerator(landingPageData.tile3.descriptionText)}
+                  </div>
+
+                </div>
+                <div className={classes.blueButton}>
+                  <div className={classes.blueButtonLeft}>
+                    <img className={classes.icon} src={icon} alt="CTDC about " />
+                    {' '}
+                  </div>
+                  <div className={classes.blueButtonRight} id="tile3_button">
+                    <Link
+                      to={landingPageData.tile3.callToActionLink}
+                      className={classes.blueButton}
+                    >
+                      {landingPageData.tile3.callToActionText}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div className={classes.contentRightBottom}>
+              <div className={classes.cases} id="tile4_image">
+                <div className={classes.mountainMeadowContentHeader} id="tile4_title">
+                  {landingPageData.tile4.titleText}
+                </div>
+                <div className={classes.mountainMeadowContent} id="tile4_description">
+                  {landingPageData.tile4.descriptionText}
+                </div>
+                <div className={classes.mountainMeadowButtonSection}>
+                  <div className={classes.blueButtonLeft}>
+                    <img className={classes.mountainMeadowIcon} src={icon} alt="CTDC about " />
+                    {' '}
+                  </div>
+                  <div className={classes.blueButtonRight} id="tile4_button">
+                    <Link
+                      to={landingPageData.tile4.callToActionLink}
+                      className={classes.mountainMeadowButton}
+                    >
+                      {landingPageData.tile4.callToActionText}
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
-            <div className={classes.contentRight}>
-              <div className={classes.contentRightTop}>
-                <div className={classes.program}>
-                  <div className={classes.programImg}>
-                    <img
-                      className={classes.image}
-                      src={landingPageData.tile2.img}
-                      alt={landingPageData.tile2.alt}
-                      id="tile2_image"
-                    />
-                  </div>
-                  <div className={classes.content}>
-                    <div className={classes.contentHeader} id="tile2_title">
-                      {landingPageData.tile2.titleText}
-                    </div>
-                    <div className={classes.contentContainer} id="tile2_description">
-                      {landingPageData.tile2.descriptionText}
-                    </div>
-
-                  </div>
-                  <div className={classes.blueButton}>
-                    <div className={classes.blueButtonLeft}>
-                      <img className={classes.icon} src={icon} alt="CTDC about " />
-                      {' '}
-                    </div>
-                    <div className={classes.blueButtonRight} id="tile2_button">
-                      <Link
-                        to={landingPageData.tile2.callToActionLink}
-                        className={classes.blueButton}
-                      >
-                        {landingPageData.tile2.callToActionText}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className={classes.studies}>
-                  <div className={classes.programImg}>
-                    <img
-                      className={classes.image}
-                      src={landingPageData.tile3.img}
-                      alt={landingPageData.tile3.src}
-                      id="tile3_image"
-                    />
-                  </div>
-                  <div className={classes.content}>
-                    <div className={classes.contentHeader} id="tile3_title">
-                      {landingPageData.tile3.titleText}
-                    </div>
-                    <div className={classes.contentContainer} id="tile3_description">
-                      {landingPageData.tile3.descriptionText}
-                      <span dangerouslySetInnerHTML={{ __html: isLinkDescription }} />
-                    </div>
-
-                  </div>
-                  <div className={classes.blueButton}>
-                    <div className={classes.blueButtonLeft}>
-                      <img className={classes.icon} src={icon} alt="CTDC about " />
-                      {' '}
-                    </div>
-                    <div className={classes.blueButtonRight} id="tile3_button">
-                      <Link
-                        to={landingPageData.tile3.callToActionLink}
-                        className={classes.blueButton}
-                      >
-                        {landingPageData.tile3.callToActionText}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div className={classes.contentRightBottom}>
-                <div className={classes.cases} id="tile4_image">
-                  <div className={classes.mountainMeadowContentHeader} id="tile4_title">
-                    {landingPageData.tile4.titleText}
-                  </div>
-                  <div className={classes.mountainMeadowContent} id="tile4_description">
-                    {landingPageData.tile4.descriptionText}
-                  </div>
-                  <div className={classes.mountainMeadowButtonSection}>
-                    <div className={classes.blueButtonLeft}>
-                      <img className={classes.mountainMeadowIcon} src={icon} alt="CTDC about " />
-                      {' '}
-                    </div>
-                    <div className={classes.blueButtonRight} id="tile4_button">
-                      <Link
-                        to={landingPageData.tile4.callToActionLink}
-                        className={classes.mountainMeadowButton}
-                      >
-                        {landingPageData.tile4.callToActionText}
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Grid>
-        </div>
-
+          </div>
+        </Grid>
       </div>
+
     </div>
-  );
-};
+  </div>
+);
 const styles = () => ({
   page: {
     marginTop: '-47px',
