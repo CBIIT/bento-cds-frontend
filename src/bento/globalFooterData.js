@@ -18,11 +18,11 @@ export default {
       items: [
         {
           text: 'CDS',
-          link: '/cds',
+          link: '/cancerDataService',
         },
         {
           text: 'CRDC',
-          link: 'https://datacommons.cancer.gov/',
+          link: '/crdc',
         },
         {
           text: 'How to Submit Data',
