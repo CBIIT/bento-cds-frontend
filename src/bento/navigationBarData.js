@@ -61,6 +61,18 @@ export const navBarData = [
     type: 'dropdown',
     dropDownLinks: [
       {
+        labelText: 'CDS',
+        link: '/cancerDataService',
+      },
+      {
+        labelText: 'CRDC',
+        link: '/crdc',
+      },
+      {
+        labelText: 'How To Submit Data',
+        link: '/submit',
+      },
+      {
         labelText: 'Bento',
         link: '/bento',
       },
@@ -71,10 +83,6 @@ export const navBarData = [
       {
         labelText: 'Graphql',
         link: '/graphql',
-      },
-      {
-        labelText: 'Submit Data',
-        link: '/submit',
       },
     ],
   },

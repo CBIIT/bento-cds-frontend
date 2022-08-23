@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core';
 import Stats from '../../components/Stats/AllStatsController';
 
 const AboutView = ({ classes, data }) => {
-  const getImage = (imgPath, alt) => <img className={classes.img} src={imgPath != null ? imgPath : ''} alt={alt} />;
+  const getImage = (imgPath, alt) => (imgPath !== '' ? <img className={classes.img} src={imgPath != null ? imgPath : ''} alt={alt} /> : <></>);
 
   return (
     <>
