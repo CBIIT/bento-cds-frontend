@@ -180,12 +180,32 @@ type IdsLists {
     subjectIds: [String]
 }
 
+type ProgramDetail {
+    program: String
+    program_name: String
+    program_url: String
+    num_studies: Int
+    num_participants: Int
+    num_files: Int
+    studies: [ProgramDetailStudy]
+}
+
+type ProgramDetailStudy {
+    accession: String
+    study_name: String
+    study_description: String
+    short_description: String
+    experimental_strategy_and_data_subtypes: String
+    num_participants: Int
+    num_samples: Int
+}
+
 schema {
     query: QueryType
 }
 
 type QueryType {
-    schemaVersion: String @cypher(statement: "RETURN '1.0.0'")
+    schemaVersion: String @cypher(statement: "RETURN '1.1.0'")
 
     numberOfStudies: Int @cypher(statement: "MATCH (n:study) RETURN COUNT(n)")
     numberOfSubjects: Int @cypher(statement: "MATCH (n:participant) RETURN COUNT(n)")
@@ -262,4 +282,37 @@ type QueryType {
         }
     """, passThrough: true)
 
+    programDetail(program_name: String!): ProgramDetail @cypher(statement: """
+        MATCH (p:program {program_name: $program_name})
+        OPTIONAL MATCH (p)<-[:of_program]-(s:study)
+        OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
+        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)<-[:from_sample]-(f:file)
+        WITH p,
+            COUNT(DISTINCT s) AS num_studies,
+            COUNT(DISTINCT part) AS num_participants,
+            COUNT(DISTINCT f) AS num_files
+        OPTIONAL MATCH (p)<-[:of_program]-(s:study)
+        OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
+        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)<-[:from_sample]-(f:file)
+        WITH p, num_studies, num_participants, num_files, 
+            {
+                accession: s.phs_accession, 
+                study_name: s.study_name,
+                study_description: s.study_description,
+                short_description: s.short_description,
+                experimental_strategy_and_data_subtypes: s.experimental_strategy_and_data_subtypes,
+                num_participants: COUNT(DISTINCT part),
+                num_samples: COUNT(DISTINCT samp)
+            } AS study
+        WITH p, num_studies, num_participants, num_files, COLLECT(DISTINCT study) AS studies
+        RETURN {
+            program: p.program_acronym,
+            program_name: p.program_name,
+            program_url: p.program_external_url,
+            num_studies: num_studies,
+            num_participants: num_participants,
+            num_files: num_files,
+            studies: studies
+        }
+    """, passThrough: true) 
 }

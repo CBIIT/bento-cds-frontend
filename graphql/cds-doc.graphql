@@ -180,6 +180,26 @@ type IdsLists {
     subjectIds: [String]
 }
 
+type ProgramDetail {
+    program: String
+    program_name: String
+    program_url: String
+    num_studies: Int
+    num_participants: Int
+    num_files: Int
+    studies: [ProgramDetailStudy]
+}
+
+type ProgramDetailStudy {
+    accession: String
+    study_name: String
+    study_description: String
+    short_description: String
+    experimental_strategy_and_data_subtypes: String
+    num_participants: Int
+    num_samples: Int
+}
+
 schema {
     query: QueryType
 }
@@ -209,4 +229,5 @@ type QueryType {
 
     studyList: [StudyInfo] 
 
+    programDetail(program_name: String!): ProgramDetail 
 }
