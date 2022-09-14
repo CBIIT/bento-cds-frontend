@@ -66,6 +66,13 @@ type ProgramDetailStudy {
     num_samples: Int
 }
 
+type ProgramListEntry {
+    acronym: String
+    name: String
+    website: String
+    num_studies: Int
+}
+
 schema {
     query: QueryType
 }
@@ -181,4 +188,15 @@ type QueryType {
             studies: studies
         }
     """, passThrough: true) 
+
+    programList: [ProgramListEntry] @cypher(statement: """
+        MATCH (p:program)
+        OPTIONAL MATCH (p)<-[:of_program]-(s:study)
+        RETURN DISTINCT {
+            acronym: p.program_acronym,
+            name: p.program_name,
+            website: p.program_external_url,
+            num_studies: COUNT(DISTINCT s)
+        }
+    """, passThrough: true)
 }
