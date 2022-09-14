@@ -64,6 +64,16 @@ type participant {
   samples: [sample] 
 }
 
+type program {
+  program_name: String
+  program_acronym: String
+  program_short_description: String
+  program_full_description: String
+  program_external_url: String
+  program_sort_order: Int
+  studies: [study] 
+}
+
 type sample {
   sample_id: String
   sample_type: String
@@ -121,6 +131,7 @@ type study {
   size_of_data_being_uploaded_unit: String
   size_of_data_being_uploaded_original: Float
   size_of_data_being_uploaded_original_unit: String
+  program: program 
   participants: [participant] 
 }
 
@@ -180,6 +191,33 @@ type IdsLists {
     subjectIds: [String]
 }
 
+type ProgramDetail {
+    program: String
+    program_name: String
+    program_url: String
+    num_studies: Int
+    num_participants: Int
+    num_files: Int
+    studies: [ProgramDetailStudy]
+}
+
+type ProgramDetailStudy {
+    accession: String
+    study_name: String
+    study_description: String
+    short_description: String
+    experimental_strategy_and_data_subtypes: String
+    num_participants: Int
+    num_samples: Int
+}
+
+type ProgramListEntry {
+    acronym: String
+    name: String
+    website: String
+    num_studies: Int
+}
+
 schema {
     query: QueryType
 }
@@ -209,4 +247,7 @@ type QueryType {
 
     studyList: [StudyInfo] 
 
+    programDetail(program_name: String!): ProgramDetail 
+
+    programList: [ProgramListEntry] 
 }
