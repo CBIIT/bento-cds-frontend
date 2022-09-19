@@ -195,6 +195,7 @@ type ProgramDetail {
     program: String
     program_name: String
     program_url: String
+    program_short_description: String
     num_studies: Int
     num_participants: Int
     num_files: Int
@@ -216,6 +217,11 @@ type ProgramListEntry {
     name: String
     website: String
     num_studies: Int
+}
+
+type GroupCountNeo4j {
+    group: String
+    subjects: Int
 }
 
 schema {
@@ -250,4 +256,6 @@ type QueryType {
     programDetail(program_name: String!): ProgramDetail 
 
     programList: [ProgramListEntry] 
+
+    participantCountByStudyOfProgram(program_name: String!): [GroupCountNeo4j] 
 }

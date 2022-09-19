@@ -50,6 +50,7 @@ type ProgramDetail {
     program: String
     program_name: String
     program_url: String
+    program_short_description: String
     num_studies: Int
     num_participants: Int
     num_files: Int
@@ -71,6 +72,11 @@ type ProgramListEntry {
     name: String
     website: String
     num_studies: Int
+}
+
+type GroupCountNeo4j {
+    group: String
+    subjects: Int
 }
 
 schema {
@@ -182,6 +188,7 @@ type QueryType {
             program: p.program_acronym,
             program_name: p.program_name,
             program_url: p.program_external_url,
+            program_short_description: p.program_short_description,
             num_studies: num_studies,
             num_participants: num_participants,
             num_files: num_files,
@@ -199,4 +206,14 @@ type QueryType {
             num_studies: COUNT(DISTINCT s)
         }
     """, passThrough: true)
+
+    participantCountByStudyOfProgram(program_name: String!): [GroupCountNeo4j] @cypher(statement: """
+        MATCH (p:program {program_name: $program_name})
+        OPTIONAL MATCH (p)<-[:of_program]-(s:study)
+        OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
+        RETURN DISTINCT{
+            group: s.study_name,
+            subjects: COUNT(DISTINCT part)
+        }
+    """)
 }
