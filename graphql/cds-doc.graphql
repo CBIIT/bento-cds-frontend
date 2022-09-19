@@ -199,6 +199,9 @@ type ProgramDetail {
     num_studies: Int
     num_participants: Int
     num_files: Int
+    num_samples: Int
+    num_disease_sites: Int
+    study_participants: [GroupCountNeo4j]
     studies: [ProgramDetailStudy]
 }
 
@@ -256,6 +259,4 @@ type QueryType {
     programDetail(program_name: String!): ProgramDetail 
 
     programList: [ProgramListEntry] 
-
-    participantCountByStudyOfProgram(program_name: String!): [GroupCountNeo4j] 
 }

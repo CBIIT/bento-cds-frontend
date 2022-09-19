@@ -54,6 +54,9 @@ type ProgramDetail {
     num_studies: Int
     num_participants: Int
     num_files: Int
+    num_samples: Int
+    num_disease_sites: Int
+    study_participants: [GroupCountNeo4j]
     studies: [ProgramDetailStudy]
 }
 
@@ -165,15 +168,24 @@ type QueryType {
         MATCH (p:program {program_name: $program_name})
         OPTIONAL MATCH (p)<-[:of_program]-(s:study)
         OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
-        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)<-[:from_sample]-(f:file)
+        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)
+        OPTIONAL MATCH (samp)<-[:from_sample]-(f:file)
+        OPTIONAL MATCH (part)<-[:of_participant]-(d:diagnosis)
         WITH p,
             COUNT(DISTINCT s) AS num_studies,
             COUNT(DISTINCT part) AS num_participants,
-            COUNT(DISTINCT f) AS num_files
+            COUNT(DISTINCT f) AS num_files,
+            COUNT(DISTINCT samp) AS num_samples,
+            COUNT(DISTINCT d.primary_site) AS num_disease_sites
         OPTIONAL MATCH (p)<-[:of_program]-(s:study)
         OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
-        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)<-[:from_sample]-(f:file)
-        WITH p, num_studies, num_participants, num_files, 
+        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)
+        OPTIONAL MATCH (samp)<-[:from_sample]-(f:file)
+        WITH p, num_studies, num_participants, num_files, num_samples, num_disease_sites,
+            {
+                group: s.study_name,
+                subjects: COUNT(DISTINCT part)
+            } AS study_participants,
             {
                 accession: s.phs_accession, 
                 study_name: s.study_name,
@@ -183,7 +195,8 @@ type QueryType {
                 num_participants: COUNT(DISTINCT part),
                 num_samples: COUNT(DISTINCT samp)
             } AS study
-        WITH p, num_studies, num_participants, num_files, COLLECT(DISTINCT study) AS studies
+        WITH p, num_studies, num_participants, num_files, num_samples, num_disease_sites,
+            COLLECT(DISTINCT study_participants) AS study_participants, COLLECT(DISTINCT study) AS studies
         RETURN {
             program: p.program_acronym,
             program_name: p.program_name,
@@ -192,6 +205,9 @@ type QueryType {
             num_studies: num_studies,
             num_participants: num_participants,
             num_files: num_files,
+            num_samples: num_samples,
+            num_disease_sites: num_disease_sites,
+            study_participants: study_participants,
             studies: studies
         }
     """, passThrough: true) 
@@ -206,14 +222,4 @@ type QueryType {
             num_studies: COUNT(DISTINCT s)
         }
     """, passThrough: true)
-
-    participantCountByStudyOfProgram(program_name: String!): [GroupCountNeo4j] @cypher(statement: """
-        MATCH (p:program {program_name: $program_name})
-        OPTIONAL MATCH (p)<-[:of_program]-(s:study)
-        OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
-        RETURN DISTINCT{
-            group: s.study_name,
-            subjects: COUNT(DISTINCT part)
-        }
-    """)
 }
