@@ -16,7 +16,7 @@ export const tooltipContent = {
 // -------------- Case ID area configurations --------------
 const header = {
   label: 'Study',
-  dataField: 'study_acronym',
+  dataField: 'study_name',
 };
 
 // --------------- Data panel configuration --------------

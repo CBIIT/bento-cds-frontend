@@ -33,7 +33,7 @@ export const tabContainers = [
     buttonText: 'Add Selected Files',
     saveButtonDefaultStyle: {
       color: '#fff',
-      backgroundColor: '#09A175',
+      backgroundColor: '#0B4E75',
       opacity: '1',
       border: '0px',
       cursor: 'pointer',

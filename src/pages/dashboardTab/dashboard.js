@@ -106,7 +106,7 @@ const Dashboard = ({
                             >
                               <CustomActiveDonut
                                 data={data[widget.dataName]}
-                                titleText={widget.titleText || 'Cases'}
+                                titleText={widget.titleText || 'Participants'}
                                 width={400}
                                 height={225}
                                 innerRadius={50}

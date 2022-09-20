@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 // --------------- Page title configuration --------------
 const pageTitle = {
   label: 'Program :',
-  dataField: 'program_acronym',
+  dataField: 'program',
 };
 
 const pageSubTitle = {
@@ -17,10 +17,10 @@ const breadCrumb = {
 
 // --------------- Aggregated count configuration --------------
 const aggregateCount = {
-  labelText: 'Cases',
-  dataField: 'num_subjects',
+  labelText: 'Participants',
+  dataField: 'num_participants',
   link: '/data',
-  display: true,
+  display: false,
 };
 
 // --------------- Icons configuration --------------
@@ -41,19 +41,19 @@ const externalLinkIcon = {
 const leftPanel = {
   attributes: [
     {
-      dataField: 'program_acronym',
+      dataField: 'program',
       label: 'Program',
     },
     {
       dataField: 'program_name',
       label: 'Program Name',
     },
+    // {
+    //   dataField: 'program_id',
+    //   label: 'Program Id',
+    // },
     {
-      dataField: 'program_id',
-      label: 'Program Id',
-    },
-    {
-      dataField: 'program_full_description',
+      dataField: 'program_short_description',
       label: 'Program Description',
     },
     {
@@ -61,7 +61,7 @@ const leftPanel = {
       label: 'Institution',
     },
     {
-      dataField: 'program_external_url',
+      dataField: 'program_url',
       label: 'External Link to Program',
       externalLinkToLabel: true,
     },
@@ -73,8 +73,8 @@ const leftPanel = {
 const rightPanel = {
   widget: [
     {
-      dataField: 'diagnoses',
-      label: 'Diagnosis',
+      dataField: 'study_participants',
+      label: 'Studies',
       display: true,
     },
   ],
@@ -94,11 +94,11 @@ const table = {
   // Set 'display' to false to hide the table entirely
   display: true,
   // Table title
-  title: 'ARMS',
+  title: 'STUDIES',
   // Field name for table data, need to be updated only when using a different GraphQL query
   dataField: 'studies',
   // Value must be one of the 'field' in columns
-  defaultSortField: 'study_acronym',
+  defaultSortField: 'study_name',
   // 'asc' or 'desc'
   defaultSortDirection: 'asc',
   // Set 'selectableRows' to true to show the row selection
@@ -106,57 +106,61 @@ const table = {
   // A maximum of 10 columns are allowed
   columns: [
     {
-      dataField: 'study_acronym',
-      header: 'Arm',
-      link: '/arm/{study_acronym}',
+      dataField: 'accession',
+      header: 'Study',
+      link: '/study/{accession}',
     },
     {
       dataField: 'study_name',
-      header: 'Arm Name',
+      header: 'Study Name',
     },
     {
-      dataField: 'study_full_description',
-      header: 'Arm Description',
+      dataField: 'study_description',
+      header: 'Study Description',
     },
     {
-      dataField: 'study_type',
-      header: 'Arm Type',
+      dataField: 'experimental_strategy_and_data_subtypes',
+      header: 'Experimental Strategy',
     },
     {
-      dataField: 'num_subjects',
-      header: 'Associated Cases',
+      dataField: 'num_samples',
+      header: 'Number Samples',
+    },
+    {
+      dataField: 'num_participants',
+      header: 'Number Participants',
     },
   ],
 };
 
 // --------------- GraphQL query - Retrieve program details --------------
 const GET_PROGRAM_DETAIL_DATA_QUERY = gql`
-query programDetail($program_id: String!) {
-  programDetail(program_id: $program_id) {
-    program_acronym
-    program_id
-    program_name
-    program_full_description
-    institution_name
-    program_external_url
-    num_subjects
-    num_files
-    num_samples
-    num_lab_procedures
-    disease_subtypes
-    diagnoses {
-      group
-      subjects
-    }
-    studies { 
-      study_name
-      study_type
-      study_acronym
-      study_info
-      study_full_description
-      num_subjects
-    }
+query programDetailQuery($program_name: String!){
+  programDetail(program_name:$program_name){
+      program
+      program_name
+      program_url
+      program_short_description
+      num_studies
+      num_participants
+      num_files
+      num_samples
+      num_disease_sites
+      study_participants{
+          group
+          subjects
+      }
+      studies{
+          accession
+          study_name
+          study_description
+          short_description
+          experimental_strategy_and_data_subtypes
+          num_participants
+          num_samples
+      }
   }
+  
 }`;
 
 export {
