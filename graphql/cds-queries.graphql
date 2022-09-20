@@ -93,7 +93,7 @@ type QueryType {
     numberOfSubjects: Int @cypher(statement: "MATCH (n:participant) RETURN COUNT(n)")
     numberOfSamples: Int @cypher(statement: "MATCH (n:sample) RETURN COUNT(n)")
     numberOfFiles: Int @cypher(statement: "MATCH (n:file) RETURN COUNT(n)")
-    numberOfDiseaseSites: Int @cypher(statement: "MATCH (diag:diagnosis) RETURN COUNT(DISTINCT diag.primary_site) AS site")
+    numberOfDiseaseSites: Int @cypher(statement: "MATCH (samp:sample) RETURN COUNT(DISTINCT samp.sample_anatomic_site) AS site")
 
 
     "Get lists of all subject ids, used by Local Find"
@@ -111,7 +111,6 @@ type QueryType {
         MATCH (s:study {phs_accession: $phs_accession})
         OPTIONAL MATCH (s)<--(p:participant)
         OPTIONAL MATCH (p)<--(samp:sample)
-        OPTIONAL MATCH (p)<--(diag:diagnosis)
         OPTIONAL MATCH (samp)<--(f:file)
         RETURN {
             study_name: s.study_name,
@@ -121,7 +120,7 @@ type QueryType {
             data_types: s.study_data_types,
             numberOfSubjects: COUNT(DISTINCT p),
             numberOfSamples: COUNT(DISTINCT samp),
-            numberOfDiseaseSites: COUNT(DISTINCT diag.primary_site),
+            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
             numberOfFiles: COUNT(DISTINCT f)
         }
     """, passThrough: true)
@@ -137,11 +136,11 @@ type QueryType {
             study_acronym: s.study_acronym,
             study_name: s.study_name,
             gender: p.gender,
-            site: COLLECT(DISTINCT diag.primary_site),
+            site: COLLECT(DISTINCT samp.sample_anatomic_site),
             samples: COLLECT(DISTINCT samp{.*}),
             files: COLLECT(DISTINCT f{.*}),
             numberOfSamples: COUNT(DISTINCT samp),
-            numberOfDiseaseSites: COUNT(DISTINCT diag.primary_site),
+            numberOfDiseaseSites: COUNT(DISTINCT samp.sample_anatomic_site),
             numberOfFiles: COUNT(DISTINCT f)
         }
     """, passThrough: true)
@@ -170,13 +169,12 @@ type QueryType {
         OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
         OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)
         OPTIONAL MATCH (samp)<-[:from_sample]-(f:file)
-        OPTIONAL MATCH (part)<-[:of_participant]-(d:diagnosis)
         WITH p,
             COUNT(DISTINCT s) AS num_studies,
             COUNT(DISTINCT part) AS num_participants,
             COUNT(DISTINCT f) AS num_files,
             COUNT(DISTINCT samp) AS num_samples,
-            COUNT(DISTINCT d.primary_site) AS num_disease_sites
+            COUNT(DISTINCT samp.sample_anatomic_site) AS num_disease_sites
         OPTIONAL MATCH (p)<-[:of_program]-(s:study)
         OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
         OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)
