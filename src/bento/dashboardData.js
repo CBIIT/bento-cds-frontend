@@ -129,7 +129,7 @@ export const widgetsData = [
     label: 'Experimental Strategy',
     dataName: 'subjectCountByExperimentalStrategy',
     datatable_field: 'experimental_strategies',
-    titleText: 'Cases',
+    titleText: 'Participants',
     show: true,
   },
   {
@@ -137,7 +137,7 @@ export const widgetsData = [
     label: 'Gender',
     dataName: 'subjectCountByGender',
     datatable_field: 'genders',
-    titleText: 'Cases',
+    titleText: 'Participants',
     show: true,
   },
   {
@@ -145,7 +145,7 @@ export const widgetsData = [
     label: 'Tumor',
     dataName: 'subjectCountByIsTumor',
     datatable_field: 'is_tumor',
-    titleText: 'Cases',
+    titleText: 'Participants',
     show: true,
   },
   {
@@ -153,7 +153,7 @@ export const widgetsData = [
     label: 'Analyte Type',
     dataName: 'subjectCountByAnalyteType',
     datatable_field: 'analyteType',
-    titleText: 'Cases',
+    titleText: 'Participants',
     show: true,
   },
 ];
@@ -273,10 +273,6 @@ export const GET_DASHBOARD_DATA_QUERY = gql`{
   numberOfSamples
   numberOfLabProcedures
   numberOfFiles
-  subjectCountByProgram{
-        group
-        subjects
-      }
     subjectCountByStudy{
         group
         subjects
