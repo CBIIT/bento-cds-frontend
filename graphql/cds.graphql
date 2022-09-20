@@ -232,7 +232,7 @@ schema {
 }
 
 type QueryType {
-    schemaVersion: String @cypher(statement: "RETURN '1.1.0'")
+    schemaVersion: String @cypher(statement: "RETURN '1.2.0'")
 
     numberOfStudies: Int @cypher(statement: "MATCH (n:study) RETURN COUNT(n)")
     numberOfSubjects: Int @cypher(statement: "MATCH (n:participant) RETURN COUNT(n)")
@@ -297,13 +297,13 @@ type QueryType {
 
     studyList: [StudyInfo] @cypher(statement: """
         MATCH (s:study)
-        OPTIONAL MATCH (s)<--(p:participant)
-        OPTIONAL MATCH (s)<-[*]-(f:file)
+        OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
+        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)<-[:from_sample]-(f:file)
         RETURN {
             phs_accession: s.phs_accession,
             study_name: s.study_name,
             data_type: s.study_data_types,
-            numberOfSubjects: COUNT(DISTINCT p),
+            numberOfSubjects: COUNT(DISTINCT part),
             numberOfFiles: COUNT(DISTINCT f)
         }
     """, passThrough: true)
