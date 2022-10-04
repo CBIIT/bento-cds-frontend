@@ -133,6 +133,7 @@ const ArmDetail = ({studyData, paramId, classes }) => {
             <ToolTip title="View full Participant Listing in Data Dashboard page">
               <div className={classes.headerButton}>
                 <div className={classes.headerButtonLinkArea}>
+                  <span className={classes.headerButtonLinkText}>Study Participants</span>
                   <Link
                     className={classes.headerButtonLink}
                     to={(location) => ({ ...location, pathname: '/data' })}
@@ -142,7 +143,6 @@ const ArmDetail = ({studyData, paramId, classes }) => {
                       {studyData.numberOfSubjects}
                     </span>
                   </Link>
-                  <span className={classes.headerButtonLinkText}>Study Participants</span>
                 </div>
               </div>
             </ToolTip>
@@ -276,7 +276,7 @@ const styles = (theme) => ({
   },
   header: {
     paddingRight: '12px',
-    borderBottom: '#42779A 3px solid',
+    borderBottom: '#F0BDEE 10px solid',
     height: '80px',
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
@@ -293,7 +293,7 @@ const styles = (theme) => ({
   },
   headerMainTitle: {
     fontFamily: 'Lato',
-    color: '#274FA5',
+    color: '#B431B0',
     fontSize: '26px',
     lineHeight: '24px',
     paddingLeft: '0px',
@@ -314,7 +314,8 @@ const styles = (theme) => ({
     width: '186px',
     height: '39px',
     marginTop: '20px',
-    background: '#F4F4F4',
+    background: '#FFF',
+    boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
   },
   headerButtonLinkArea: {
     marginLeft: '16px',
@@ -322,7 +323,7 @@ const styles = (theme) => ({
   },
   headerButtonLinkText: {
     fontFamily: theme.custom.fontFamily,
-    color: '#7747FF',
+    color: '#0E6292',
     fontSize: '10px',
     textTransform: 'uppercase',
     paddingRight: '2px',
@@ -332,8 +333,8 @@ const styles = (theme) => ({
   },
   headerButtonLinkNumber: {
     fontFamily: theme.custom.fontFamily,
-    borderBottom: 'solid #274F45 3px',
-    color: '#274F45',
+    borderBottom: 'solid #900F89 3px',
+    color: '#900F89',
     lineHeight: '30px',
     paddingBottom: '2px',
     margin: '0 4px',
@@ -444,7 +445,7 @@ const styles = (theme) => ({
     fontFamily: 'Lato',
     fontSize: '18px',
     letterSpacing: '0.025em',
-    color: '#3695A9',
+    color: '#AE6CAB',
     paddingBottom: '19px',
   },
   link: {

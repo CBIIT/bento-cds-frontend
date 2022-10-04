@@ -76,7 +76,7 @@ const styles = (theme) => ({
   link: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: '#7747FF',
+    color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
     },
@@ -109,15 +109,16 @@ const styles = (theme) => ({
     background: '#eee',
     paddingLeft: '20px',
     paddingRight: '50px',
-    borderBottom: '#42779A 10px solid',
+    borderBottom: '#9FD8F0 10px solid',
     height: '128px',
     paddingTop: '35px',
   },
   headerMainTitle: {
     fontFamily: 'Lato',
-    letterSpacing: '0.025em',
-    color: '#274FA5',
-    fontSize: '24pt',
+    letterSpacing: '0.01em',
+    fontWeight: 'bold',
+    color: '#0E6292',
+    fontSize: '26px',
     position: 'absolute',
     marginTop: '16px',
     lineHeight: '25px',
@@ -143,9 +144,6 @@ const styles = (theme) => ({
   },
   tableDiv: {
     margin: 'auto',
-  },
-  tableCell6: {
-    width: '120px',
   },
   externalLinkIcon: {
     width: '14.5px',

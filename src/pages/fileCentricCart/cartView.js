@@ -228,6 +228,14 @@ const cartView = ({
               localRowsPerPage={localRowsPerPageCartView}
               isLoading={isLoading}
             />
+            <div className={classes.tableWrapperText}>
+              To access and analyze file click "Download File Manifest" button
+              and upload resulting file to
+              {' '}
+              <a className={classes.tableWrapperAnchor} href="https://www.sevenbridges.com/">Seven Bridges Genomics</a>
+              {' '}
+              account
+            </div>
             <CartFooter
               placeholder={myFilesPageData.textareaPlaceholder}
               ref={commentRef}

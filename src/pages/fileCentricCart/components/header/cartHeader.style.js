@@ -8,7 +8,7 @@ export default (theme) => ({
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   header: {
-    borderBottom: '#42779A 10px solid',
+    borderBottom: '#F0C8A6 10px solid',
     height: '77px',
     maxWidth: '100%',
     marginLeft: '3%',
@@ -27,7 +27,7 @@ export default (theme) => ({
     fontFamily: theme.custom.fontFamilySans,
     fontWeight: '300',
     letterSpacing: '0.017em',
-    color: '#03A383',
+    color: '#AE5E1B',
     fontSize: '18pt',
     lineHeight: '75px',
     '& $headerMainTitleTwo': {

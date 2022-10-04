@@ -62,7 +62,7 @@ const styles = (theme) => ({
     marginTop: '30px',
   },
   title: {
-    color: '#0296C9',
+    color: '#AE6CAB',
     fontFamily: theme.custom.fontFamily,
     fontSize: '17px',
     lineHeight: '12px',

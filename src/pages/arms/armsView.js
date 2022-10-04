@@ -76,7 +76,7 @@ const styles = (theme) => ({
   link: {
     textDecoration: 'none',
     fontWeight: '600',
-    color: '#7747FF',
+    color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
     },
@@ -109,14 +109,15 @@ const styles = (theme) => ({
     background: '#fff',
     paddingLeft: '20px',
     paddingRight: '50px',
-    borderBottom: '#42779A 10px solid',
+    borderBottom: '#F0BDEE 10px solid',
     height: '128px',
     paddingTop: '35px',
   },
   headerMainTitle: {
     fontFamily: 'Lato',
-    letterSpacing: '0.025em',
-    color: '#274FA5',
+    fontWeight: 'bold',
+    letterSpacing: '0.02em',
+    color: '#B431B0',
     fontSize: '24pt',
     position: 'absolute',
     marginTop: '16px',
