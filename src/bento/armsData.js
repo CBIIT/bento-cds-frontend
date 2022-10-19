@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 // Ideal size for armListingIcon is 100x100 px
 // Ideal size for externalLinkIcon is 16x16 px
 const armListingIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramIcon.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/studiesIcon.png',
   alt: 'CDS Arm logo',
 };
 

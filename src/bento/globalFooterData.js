@@ -31,58 +31,46 @@ export default {
       ],
     },
     {
-      title: 'About the Data',
+      title: 'Resources',
       items: [
         {
-          text: 'Data Access Policies',
-          link: 'https://datacommons.cancer.gov/',
+          text: 'CDS Data Model',
+          link: '/cancerDataService',
         },
         {
-          text: 'Data Analysis',
-          link: 'https://cbiit.github.io/bento-docs/',
+          text: 'GraphQL',
+          link: '/graphql',
         },
         {
-          text: 'REST APIs',
-          link: '/cds',
+          text: 'Bento',
+          link: '/bento',
         },
       ],
     },
     {
-      title: 'About Data Submission',
+      title: 'More Information',
       items: [
-        {
-          text: 'Data Governance Advisory Board',
-          link: 'https://datacommons.cancer.gov/',
-        },
-        {
-          text: 'Process and Tools',
-          link: 'https://cbiit.github.io/bento-docs/',
-        },
-        {
-          text: 'Submission Guide',
-          link: '/cds',
-        },
-      ],
-    },
-    {
-      title: 'NIH Policies',
-      items: [
-        {
-          text: ' Disclaimer Policies Accessibility FOIA',
-          link: 'bento-help@nih.gov',
-        },
         {
           text: 'Policies',
-          link: 'bento-help@nih.gov',
+          link: 'https://www.cancer.gov/policies',
+        },
+        {
+          text: ' Disclaimer',
+          link: 'https://www.cancer.gov/policies/disclaimer',
         },
         {
           text: 'Accessibility',
-          link: 'bento-help@nih.gov',
+          link: 'https://www.cancer.gov/policies/accessibility',
         },
         {
           text: 'FOIA',
-          link: 'bento-help@nih.gov',
+          link: 'https://www.cancer.gov/policies/foia',
         },
+        {
+          text: 'HHS Vulnerability Disclosure',
+          link: 'https://www.hhs.gov/vulnerability-disclosure-policy/index.html',
+        },
+
       ],
     },
   ],

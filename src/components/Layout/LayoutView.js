@@ -20,8 +20,8 @@ import Arms from '../../pages/arms/armsController';
 import ProgramDetail from '../../pages/programDetail/programDetailController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
 import fileCentricCart from '../../pages/fileCentricCart/cartController';
-import JBrowse from '../JBrowse/JBrowseView';
-import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
+// import JBrowse from '../JBrowse/JBrowseView';
+// import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
 import GlobalSearch from '../../pages/search/searchView';
 import GlobalSearchController from '../../pages/search/searchViewController';
 
@@ -56,10 +56,10 @@ const Layout = ({ classes, isSidebarOpened }) => (
             <Route path="/program/:id" component={ProgramDetail} />
             <Route path="/case/:id" component={CaseDetail} />
             <Route path="/study/:id" component={ArmDetail} />
-            <Route path="/JBrowse" component={JBrowse} />
+            {/* <Route path="/JBrowse" component={JBrowse} /> */}
             <Route exact path="/search" component={GlobalSearch} />
             <Route path="/search/:id" component={GlobalSearchController} />
-            <Route path="/fileViewer/:id" component={JBrowseDetail} />
+            {/* <Route path="/fileViewer/:id" component={JBrowseDetail} /> */}
             {aboutPageRoutes.map(
               (aboutPageRoute, index) => (
                 <Route
