@@ -14,7 +14,7 @@ import {
   singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
 } from '../dashboardTab/store/dashboardReducer';
 
-const Programs = ({ classes, data }) => {
+const Arms = ({ classes, data }) => {
   const redirectTo = (program) => {
     setSideBarToLoading();
     setDashboardTableLoading();
@@ -111,7 +111,7 @@ const styles = (theme) => ({
     paddingRight: '50px',
     borderBottom: '#F0BDEE 10px solid',
     height: '128px',
-    paddingTop: '35px',
+    paddingTop: '28px',
   },
   headerMainTitle: {
     fontFamily: 'Lato',
@@ -120,9 +120,9 @@ const styles = (theme) => ({
     color: '#B431B0',
     fontSize: '24pt',
     position: 'absolute',
-    marginTop: '16px',
+    marginTop: '20px',
     lineHeight: '25px',
-    marginLeft: '-3px',
+    marginLeft: '4px',
   },
 
   headerTitle: {
@@ -159,4 +159,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { withTheme: true })(Programs);
+export default withStyles(styles, { withTheme: true })(Arms);

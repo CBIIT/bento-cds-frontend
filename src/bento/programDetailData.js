@@ -27,7 +27,7 @@ const aggregateCount = {
 // Ideal size for programDetailIcon is 107x107 px
 // Ideal size for externalLinkIcon is 16x16 px
 const programDetailIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programIcon.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/programIcon.png',
   alt: 'CDS program logo',
 };
 
@@ -124,11 +124,11 @@ const table = {
     },
     {
       dataField: 'num_samples',
-      header: 'Number Samples',
+      header: 'Number Of Samples',
     },
     {
       dataField: 'num_participants',
-      header: 'Number Participants',
+      header: 'Number Of Participants',
     },
   ],
 };

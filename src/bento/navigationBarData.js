@@ -36,6 +36,13 @@ export const navBarstyling = {
       },
     },
   },
+  cart: {
+    iconSize: '26px',
+    padding: '6px 16px 0px 5px',
+  },
+  cartLabel: {
+    color: '#FFAC20',
+  },
 };
 
 export const navBarData = [
@@ -94,8 +101,13 @@ export const navBarData = [
 ];
 
 export const navBarCartData = {
-  cartLabel: 'My Files',
+  // cartLabel: 'My Files',
+  // cartLink: '/fileCentricCart',
+  // cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/cartIcon.svg',
+  // cartIconAlt: 'cart_logo',
+  cartLabel: '',
   cartLink: '/fileCentricCart',
-  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/cartIcon.svg',
+  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/navBarCartIcon.svg',
   cartIconAlt: 'cart_logo',
+  cartLabelType: 'labelUnderCount',
 };

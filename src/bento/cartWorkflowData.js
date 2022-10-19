@@ -15,7 +15,7 @@ export const myCasesPageData = {
   myCasesSubTitle: 'Cases',
   buttonText: 'GO TO FILES',
   buttonLink: '/mycasesfiles',
-  headerIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Icon-Cart-Workflow.svg',
+  headerIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/cartIcon.png',
   headerIconAlt: 'CDS MyCases header logo',
   wizardIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Cart-Wizard-Step2.svg',
   wizardIconAlt: 'CDS MyCases Wizard',

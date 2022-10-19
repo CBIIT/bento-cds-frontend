@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 // Ideal size for programListingIcon is 100x100 px
 // Ideal size for externalLinkIcon is 16x16 px
 const programListingIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programIcon.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/programIcon.png',
   alt: 'CDS program logo',
 };
 
@@ -31,7 +31,7 @@ const table = {
   columns: [
     {
       dataField: 'acronym',
-      header: 'Program Acronym',
+      header: 'Program Alias',
       link: '/program/{name}',
       display: true,
     },

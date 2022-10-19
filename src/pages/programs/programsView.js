@@ -122,7 +122,7 @@ const styles = (theme) => ({
     position: 'absolute',
     marginTop: '16px',
     lineHeight: '25px',
-    marginLeft: '-3px',
+    marginLeft: '2px',
   },
 
   headerTitle: {

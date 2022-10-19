@@ -3,7 +3,7 @@ import { FileOnRowsSelect } from '../utils/fileTable';
 
 // --------------- Header configuration --------------
 export const armHeaderLogo = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramIcon.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/studiesIcon.png',
   alt: 'cds study logo',
 };
 
