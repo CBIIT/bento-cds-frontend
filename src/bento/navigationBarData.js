@@ -3,6 +3,9 @@ export const navBarstyling = {
     backgroundColor: '#0E6292;',
     height: '39px',
     padding: '9px 20px 0px 20px',
+    fontColor: '#bbefff',
+    activeLabel: '1px solid #bbefff',
+    textTransform: 'capitalize',
   },
   dropDownIcon: {
     displayIcon: false,

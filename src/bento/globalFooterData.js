@@ -35,7 +35,7 @@ export default {
       items: [
         {
           text: 'CDS Data Model',
-          link: '/cancerDataService',
+          link: 'https://github.com/CBIIT/cds-model',
         },
         {
           text: 'GraphQL',

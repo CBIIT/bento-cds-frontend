@@ -21,15 +21,16 @@ const lightenRate = 7.5;
 const darkenRate = 15;
 const tableHeaderBorder = '#42779A 3px solid';
 const tableHeaderFontColor = '#13344A';
-const tableFontFamily = "'Lato Regular','Raleway', sans-serif";
+const tableFontFamily = "'Nunito','Lato Regular','Raleway', sans-serif";
 const white = '#FFFFFF';
 
 export default {
   custom: {
     maxContentWidth: '1440px',
     maxContent: 'white',
-    bodyBackGround: '#E5F0FA',
+    bodyBackGround: 'white',
     cardBackGround: '#f0f6f8',
+    fontFamilyInter: 'Inter',
     fontFamilySans: '"Open Sans", sans-serif',
     footorBackground: '#325068',
     fontFamily: 'Lato,"Open Sans", sans-serif',
@@ -334,10 +335,11 @@ export default {
         color: tableHeaderFontColor,
         backgroundColor: tableHeader,
         textDecoration: 'underline',
+        textUnderlineOffset: '2.5px',
         fontFamily: tableFontFamily,
-        letterSpacing: '0.06em',
+        letterSpacing: '0.02em',
         fontStyle: 'normal',
-        fontSize: '11pt',
+        fontSize: '14px',
         fontWeight: 'bold',
         paddingLeft: '20px',
         '&:first-child': {
@@ -372,7 +374,7 @@ export default {
           color: '#004C73',
         },
         '&:nth-child(even) td': {
-          background: '#f5f5f5',
+          background: '#ebebeb',
         },
         '&:nth-child(odd)': {
           color: '#004C73 !important',

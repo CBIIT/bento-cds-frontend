@@ -64,7 +64,7 @@ const styles = (theme) => ({
   },
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296C9',
@@ -99,6 +99,7 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
     '&:visited': {
       color: '#9F3D26',

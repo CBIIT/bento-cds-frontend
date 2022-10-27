@@ -53,6 +53,7 @@ const styles = () => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
     '&:visited': {
       color: '#9F3D26',

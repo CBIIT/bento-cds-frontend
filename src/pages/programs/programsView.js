@@ -3,6 +3,7 @@ import {
   Grid,
   withStyles,
 } from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CustomDataTable, getOptions, getColumns } from 'bento-components';
 import globalData from '../../bento/siteWideConfig';
 import {
@@ -13,8 +14,15 @@ import { Typography } from '../../components/Wrappers/Wrappers';
 import {
   singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
 } from '../dashboardTab/store/dashboardReducer';
+import themes, { overrides } from '../../themes';
 
 const Programs = ({ classes, data }) => {
+  const overridesObj = themes.light.overrides;
+
+  overridesObj.MUIDataTableBodyRow.root.height = '90px';
+
+  const computedTheme = createMuiTheme({ ...themes.light, ...overrides });
+
   const redirectTo = (program) => {
     setSideBarToLoading();
     setDashboardTableLoading();
@@ -55,11 +63,14 @@ const Programs = ({ classes, data }) => {
             <div id="table_programs" className={classes.tableDiv}>
               <Grid container>
                 <Grid item xs={12}>
-                  <CustomDataTable
-                    data={data[table.dataField]}
-                    columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectTo, '', globalData.replaceEmptyValueWith)}
-                    options={getOptions(table, classes)}
-                  />
+                  <MuiThemeProvider theme={computedTheme}>
+
+                    <CustomDataTable
+                      data={data[table.dataField]}
+                      columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectTo, '', globalData.replaceEmptyValueWith)}
+                      options={getOptions(table, classes)}
+                    />
+                  </MuiThemeProvider>
                 </Grid>
               </Grid>
             </div>
@@ -79,6 +90,7 @@ const styles = (theme) => ({
     color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   card: {
@@ -103,10 +115,10 @@ const styles = (theme) => ({
     fontSize: '9pt',
     letterSpacing: '0.025em',
     color: '#000',
-    background: '#eee',
+    background: 'white',
   },
   header: {
-    background: '#eee',
+    background: 'white',
     paddingLeft: '20px',
     paddingRight: '50px',
     borderBottom: '#9FD8F0 10px solid',
@@ -114,7 +126,7 @@ const styles = (theme) => ({
     paddingTop: '35px',
   },
   headerMainTitle: {
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     letterSpacing: '0.01em',
     fontWeight: 'bold',
     color: '#0E6292',
@@ -139,7 +151,7 @@ const styles = (theme) => ({
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   tableContainer: {
-    background: '#eee',
+    background: 'white',
     paddingBottom: '50px',
   },
   tableDiv: {

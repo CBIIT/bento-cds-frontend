@@ -131,7 +131,7 @@ const styles = () => ({
   },
   input: {
     borderRadius: '8px',
-    color: '#4A8ECB',
+    color: '#5384c1',
     fontFamily: 'Lato',
     fontSize: '16px',
     borderColor: 'red',

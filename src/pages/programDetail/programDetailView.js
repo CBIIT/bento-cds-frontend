@@ -27,7 +27,7 @@ import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 import Widget from '../../components/Widgets/WidgetView';
 import colors from '../../utils/colors';
 
-const ProgramView = ({ classes, data, theme }) => {
+const ProgramDetailView = ({ classes, data, theme }) => {
   const programData = data.programDetail;
 
   const redirectTo = () => {
@@ -361,6 +361,7 @@ const styles = (theme) => ({
     color: '#7747FF',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   paddingLeft8: {
@@ -371,7 +372,7 @@ const styles = (theme) => ({
   },
   container: {
     paddingTop: '50px',
-    fontFamily: theme.custom.fontFamily,
+    fontFamily: 'Nunito',
     paddingLeft: '32px',
     paddingRight: '32px',
     background: '#FFFF',
@@ -379,7 +380,7 @@ const styles = (theme) => ({
   },
   content: {
     fontSize: '15px',
-    fontFamily: theme.custom.fontFamily,
+    fontFamily: 'Nunito',
     lineHeight: '14px',
   },
   warning: {
@@ -422,7 +423,7 @@ const styles = (theme) => ({
       fontWeight: 'bold',
       letterSpacing: '0.025em',
     },
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     letterSpacing: '0.025em',
     color: '#0E6292 ',
     fontSize: '26px',
@@ -499,7 +500,7 @@ const styles = (theme) => ({
     position: 'absolute',
     float: 'left',
     marginLeft: '-23px',
-    marginTop: '-21px',
+    marginTop: '-12px',
     width: '107px',
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
@@ -519,16 +520,16 @@ const styles = (theme) => ({
   },
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296C9',
   },
   detailContainerHeaderLink: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Lato',
     fontSize: '14px',
     letterSpacing: '0.025em',
-    color: '#0077E3',
+    color: '#7747FF',
   },
   detailContainerBottom: {
     borderTop: '#81a6b9 1px solid',
@@ -565,7 +566,7 @@ const styles = (theme) => ({
     background: '#f3f3f3',
   },
   tableHeader: {
-    paddingLeft: '30px',
+    paddingLeft: '0px',
   },
   paddingTop12: {
     paddingTop: '12px',
@@ -585,6 +586,7 @@ const styles = (theme) => ({
     color: '#c32c2e',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   button: {
@@ -619,7 +621,7 @@ const styles = (theme) => ({
   },
   tableTitle: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296c9',
@@ -682,4 +684,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { withTheme: true })(ProgramView);
+export default withStyles(styles, { withTheme: true })(ProgramDetailView);

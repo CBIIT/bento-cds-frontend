@@ -280,9 +280,10 @@ const styles = (theme) => ({
     height: '80px',
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
+    marginTop: '24px',
   },
   caseIcon: {
-    height: '94px',
+    height: '114px',
   },
   headerTitle: {
     maxWidth: theme.custom.maxContentWidth,
@@ -292,7 +293,7 @@ const styles = (theme) => ({
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     color: '#B431B0',
     fontSize: '26px',
     lineHeight: '24px',
@@ -306,7 +307,7 @@ const styles = (theme) => ({
   logo: {
     position: 'absolute',
     float: 'left',
-    marginTop: '-6px',
+    marginTop: '-14px',
     filter: 'drop-shadow( 2px 2px 2px rgba(0, 0, 0, 0.2))',
   },
   headerButton: {
@@ -353,7 +354,7 @@ const styles = (theme) => ({
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
     padding: '5px 0 10px 0px',
-    fontFamily: theme.custom.fontFamily,
+    fontFamily: 'Nunito',
     letterSpacing: '0.014em',
     color: '#000000',
     size: '12px',
@@ -432,7 +433,7 @@ const styles = (theme) => ({
     padding: '0 32px',
   },
   tableHeader: {
-    paddingLeft: '20px',
+    paddingLeft: '0px',
   },
   tableDiv: {
     // maxWidth: theme.custom.maxContentWidth,
@@ -442,7 +443,7 @@ const styles = (theme) => ({
   },
   tableTitle: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '18px',
     letterSpacing: '0.025em',
     color: '#AE6CAB',
@@ -453,7 +454,7 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
-    },
+textUnderlineOffset: '2.5px',    },
   },
   externalLinkIcon: {
     width: '14.5px',

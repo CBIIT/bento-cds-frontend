@@ -48,7 +48,7 @@ const PropertySubsection = ({ section: config, data, classes }) => {
 const styles = (theme) => ({
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     fontWeight: 'bold',
     color: '#2f519f',
@@ -77,6 +77,7 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
     '&:visited': {
       color: '#9F3D26',

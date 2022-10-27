@@ -332,7 +332,7 @@ const styles = () => ({
 
     '&:hover': {
       textDecoration: 'underline',
-    },
+textUnderlineOffset: '2.5px',    },
   },
   cartlink: {
     fontFamily: 'Lato',
