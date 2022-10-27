@@ -9,7 +9,7 @@ export const armHeaderLogo = {
 
 // --------------- Tooltip configuration --------------
 export const tooltipContent = {
-  src: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/infoTooltip.svg',
   alt: 'tooltip icon',
 };
 
@@ -28,7 +28,7 @@ const subsections = [
       // Each object here represents a set of label:value pair of a property
       // A maximum of 10 properties are allowed
       {
-        label: 'Accession',
+        label: 'Study Name',
         dataField: 'phs_accession',
         // link property specify URL value should link to
         // space holder "{study_acronym}" will be replaced by
@@ -99,7 +99,7 @@ const table = {
   buttonText: 'Add Selected Files',
   saveButtonDefaultStyle: {
     color: '#fff',
-    backgroundColor: '#09A175',
+    backgroundColor: '#0B4E75',
     opacity: '1',
     border: '0px',
     cursor: 'pointer',

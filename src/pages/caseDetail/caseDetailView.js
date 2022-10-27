@@ -266,7 +266,7 @@ const styles = (theme) => ({
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     color: '#274FA5',
     fontSize: '26px',
     lineHeight: '24px',
@@ -288,6 +288,7 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   detailContainer: {
@@ -334,7 +335,7 @@ const styles = (theme) => ({
   },
   tableTitle: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#3695A9',

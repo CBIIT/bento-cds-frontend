@@ -42,9 +42,9 @@ const styles = (theme) => ({
     textDecoration: 'none',
     color: '#0D3556',
     textTransform: 'uppercase',
-    fontFamily: theme.custom.fontFamilySans,
-    fontSize: '10px',
-    letterSpacing: '0.025em',
+    fontFamily: 'Nunito',
+    fontSize: '16px',
+    letterSpacing: '0.01em',
     verticalAlign: 'text-top',
 
   },

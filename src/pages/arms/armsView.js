@@ -4,6 +4,8 @@ import {
   withStyles,
 } from '@material-ui/core';
 import { CustomDataTable, getOptions, getColumns } from 'bento-components';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 import globalData from '../../bento/siteWideConfig';
 import {
   table, armListingIcon, externalLinkIcon,
@@ -13,8 +15,15 @@ import { Typography } from '../../components/Wrappers/Wrappers';
 import {
   singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
 } from '../dashboardTab/store/dashboardReducer';
+import themes, { overrides } from '../../themes';
 
 const Arms = ({ classes, data }) => {
+  const overridesObj = themes.light.overrides;
+
+  overridesObj.MUIDataTableBodyRow.root.height = '90px';
+
+  const computedTheme = createMuiTheme({ ...themes.light, ...overrides });
+
   const redirectTo = (program) => {
     setSideBarToLoading();
     setDashboardTableLoading();
@@ -55,11 +64,13 @@ const Arms = ({ classes, data }) => {
             <div id="table_programs" className={classes.tableDiv}>
               <Grid container>
                 <Grid item xs={12}>
-                  <CustomDataTable
-                    data={data[table.dataField]}
-                    columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectTo, '', globalData.replaceEmptyValueWith)}
-                    options={getOptions(table, classes)}
-                  />
+                  <MuiThemeProvider theme={computedTheme}>
+                    <CustomDataTable
+                      data={data[table.dataField]}
+                      columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectTo, '', globalData.replaceEmptyValueWith)}
+                      options={getOptions(table, classes)}
+                    />
+                  </MuiThemeProvider>
                 </Grid>
               </Grid>
             </div>
@@ -79,6 +90,7 @@ const styles = (theme) => ({
     color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   card: {
@@ -114,11 +126,11 @@ const styles = (theme) => ({
     paddingTop: '28px',
   },
   headerMainTitle: {
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontWeight: 'bold',
     letterSpacing: '0.02em',
     color: '#B431B0',
-    fontSize: '24pt',
+    fontSize: '26px',
     position: 'absolute',
     marginTop: '20px',
     lineHeight: '25px',

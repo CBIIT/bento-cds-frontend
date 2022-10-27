@@ -268,6 +268,7 @@ const styles = () => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   caseTitle: {
@@ -322,6 +323,7 @@ const styles = () => ({
   helpIcon: {
     verticalAlign: 'top',
     zIndex: '600',
+    height: '16px',
   },
   topButtonGroup: {
     textAlign: 'right',

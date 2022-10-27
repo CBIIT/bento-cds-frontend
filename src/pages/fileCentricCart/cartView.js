@@ -166,7 +166,7 @@ const cartView = ({
   );
 
   return (
-    <Grid>
+    <Grid className={classes.marginTopNegative20}>
       <DialogBox
         isOpen={modalStatus}
         closeModal={closeDialogBox}
@@ -174,8 +174,9 @@ const cartView = ({
         acceptAction={deleteSubjectsAndCloseModal}
         numberOfFilesBeDeleted={numberOfFilesBeDeleted}
       />
+      <div className={classes.emptyWrapper} />
       <div className={classes.myFilesWrapper}>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={[classes.headerGrid, classes.paddingBottom28]}>
           <CartHeader
             headerIconSrc={myFilesPageData.headerIconSrc}
             headerIconAlt={myFilesPageData.headerIconAlt}

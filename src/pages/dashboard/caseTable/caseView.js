@@ -261,6 +261,7 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
     '&:visited': {
       color: '#588eb2',
@@ -270,7 +271,7 @@ const styles = (theme) => ({
     color: '#039970',
     fontSize: '18pt',
     fontStyle: 'normal',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontWeight: 'bold',
     letterSpacing: '0.025em',
     backgroundColor: '#FFFFFF',

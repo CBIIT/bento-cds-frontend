@@ -22,7 +22,7 @@ export default () => ({
   myFilesWrapper: {
     border: '#dc762f 3px solid',
     borderRadius: '35px',
-    marginTop: '200px',
+    // marginTop: '200px',
     marginBottom: '80px',
     marginLeft: '3%',
     marginRight: '3%',
@@ -80,7 +80,7 @@ export default () => ({
     cursor: 'pointer',
   },
   popUpWindowText: {
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     size: '16px',
   },
   tableDeleteButton: {
@@ -120,6 +120,8 @@ export default () => ({
     cursor: 'pointer',
     display: 'flex',
     verticalAlign: 'top',
+    textDecoration: 'underline',
+    textUnderlineOffset: '2.5px',
   },
   removeHeadCellText: {
     display: 'inline-block',
@@ -158,13 +160,20 @@ export default () => ({
     color: '#BB5500',
     fontFamily: 'Nunito',
     fontSize: '14px',
-    fontWeight: '300',
-    letterSpacing: '0',
+    fontWeight: '200',
+    letterSpacing: '-0.02em',
 
   },
   tableWrapperAnchor: {
     color: '#900F89',
     fontWeight: 'bold',
     textDecoration: 'none',
+  },
+  marginTopNegative20: {
+    marginTop: '-60px',
+  },
+  emptyWrapper: {
+    height: '60px',
+    background: 'white',
   },
 });
