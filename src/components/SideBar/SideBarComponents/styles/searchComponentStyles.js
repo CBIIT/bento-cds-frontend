@@ -66,13 +66,13 @@ const styles = () => ({
     height: 32,
     width: '100%',
     '& .MuiOutlinedInput-notchedOutline': {
-      border: '1.25px solid #0D8461',
+      border: '1.25px solid #29ABE2',
     },
     '&:hover .MuiOutlinedInput-notchedOutline': {
-      border: '1.25px solid #0D8461',
+      border: '1.25px solid #29ABE2',
     },
     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      border: '1.25px solid #0D8461',
+      border: '1.25px solid #29ABE2',
     },
     '& .MuiInputBase-input': {
       height: '7px',
@@ -90,7 +90,7 @@ const styles = () => ({
     justifyContent: 'space-between',
   },
   searchResultDetailText: {
-    color: '#0D8662',
+    color: '#0E6292',
     lineHeight: '20px',
     fontFamily: 'Lato',
     fontSize: '11px',

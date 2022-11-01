@@ -22,7 +22,7 @@ const CustomBreadcrumb = ({ classes, data }) => (
           acc.push(<span className={classes.headerBold}>{current.name}</span>);
         }
         if (index < data.length - 1) {
-          acc.push('/');
+          acc.push('>');
         }
         return acc;
       }, []).map((item) => (item))
@@ -30,20 +30,24 @@ const CustomBreadcrumb = ({ classes, data }) => (
   </div>
 );
 
-const styles = (theme) => ({
+const styles = () => ({
   headerNav: {
     paddingTop: '0px',
     paddingBottom: '4px',
-    color: '#0D3556',
+    // color: '#0D3556',
+    color: '#0F4478',
+    fontFamily: 'Lato',
+    fontSize: '15px',
+    fontWeight: '500',
   },
   headerNavLink: {
     paddingLeft: '3px',
     paddingRight: '3px',
     textDecoration: 'none',
-    color: '#0D3556',
-    textTransform: 'uppercase',
-    fontFamily: 'Nunito',
-    fontSize: '16px',
+    color: '#0F4478',
+    textTransform: 'Capitalize',
+    fontFamily: 'Lato',
+    fontSize: '12px',
     letterSpacing: '0.01em',
     verticalAlign: 'text-top',
 
@@ -52,11 +56,11 @@ const styles = (theme) => ({
     paddingLeft: '3px',
     paddingRight: '3px',
     textDecoration: 'none',
-    color: '#0D3556',
+    color: '#000',
     textTransform: 'uppercase',
-    fontWeight: 'bold',
-    fontFamily: theme.custom.fontFamilySans,
-    fontSize: '10px',
+    // fontWeight: 'bold',
+    fontFamily: 'Lato',
+    fontSize: '12px',
     letterSpacing: '0.025em',
     verticalAlign: 'text-top',
 

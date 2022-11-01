@@ -1,5 +1,4 @@
-/*eslint-disable*/
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from '@apollo/client';
 // import { useDispatch } from 'react-redux';
 import {
@@ -11,7 +10,6 @@ import { Link } from 'react-router-dom';
 import {
   getOptions, getColumns, ToolTip,
 } from 'bento-components';
-import client from '../../utils/graphqlClient';
 import GridWithFooter from '../../components/GridWithFooter/GridView';
 import StatsView from '../../components/Stats/StatsView';
 import { Typography } from '../../components/Wrappers/Wrappers';
@@ -38,9 +36,10 @@ import Snackbar from '../../components/Snackbar';
 import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 
 // Main case detail component
-const ArmDetail = ({studyData, paramId, classes }) => {
+const ArmDetail = ({ studyData, paramId, classes }) => {
   // const dispatch = useDispatch();
 
+  // eslint-disable-next-line no-unused-vars
   const { loading, error, data } = useQuery(GET_MY_FILE_OVERVIEW_QUERY, {
     variables: { [armIDField]: paramId, first: 20 },
   });
@@ -63,7 +62,7 @@ const ArmDetail = ({studyData, paramId, classes }) => {
       datafield: 'studies',
       groupName: 'Study',
       isChecked: true,
-      name: studyData.study_acronym,
+      name: studyData.study_name,
       section: 'Filter By Cases',
     }]);
   };
@@ -77,15 +76,21 @@ const ArmDetail = ({studyData, paramId, classes }) => {
     numberOfFiles: studyData.numberOfFiles,
   };
 
-  const breadCrumbJson = [{
-    name: 'ALL STUDIES',
-    to: '/studies',
-    isALink: true,
-  },
-  {
-    name: studyData.phs_accession,
-    isALink: false,
-  },
+  const breadCrumbJson = [
+    {
+      name: 'Home',
+      to: '/home',
+      isALink: true,
+    },
+    {
+      name: 'All Studies',
+      to: '/studies',
+      isALink: true,
+    },
+    {
+      name: studyData.phs_accession,
+      isALink: false,
+    },
   ];
 
   return (
@@ -114,7 +119,7 @@ const ArmDetail = ({studyData, paramId, classes }) => {
             </div>
             <div className={classes.headerTitle}>
               <div className={classes.headerMainTitle} id="arm_detail_title">
-                {`${header.label} :`}
+                {`${header.label}:`}
                 {studyData[header.dataField]
                   ? (
                     <span className={classes.headerMainTitleTwo}>
@@ -130,22 +135,23 @@ const ArmDetail = ({studyData, paramId, classes }) => {
               </div>
             </div>
             { /* Case Count */ }
-            <ToolTip title="View full Participant Listing in Data Dashboard page">
-              <div className={classes.headerButton}>
-                <div className={classes.headerButtonLinkArea}>
-                  <span className={classes.headerButtonLinkText}>Study Participants</span>
-                  <Link
-                    className={classes.headerButtonLink}
-                    to={(location) => ({ ...location, pathname: '/data' })}
-                    onClick={() => redirectTo()}
-                  >
+            <Link
+              className={classes.headerButtonLink}
+              to={(location) => ({ ...location, pathname: '/data' })}
+              onClick={() => redirectTo()}
+            >
+              <ToolTip title="View full Participant Listing in Data Dashboard page">
+                <div className={classes.headerButton}>
+                  <div className={classes.headerButtonLinkArea}>
+                    <span className={classes.headerButtonLinkText}>Study Participants</span>
+
                     <span className={classes.headerButtonLinkNumber} id="arm_detail_header_file_count">
                       {studyData.numberOfSubjects}
                     </span>
-                  </Link>
+                  </div>
                 </div>
-              </div>
-            </ToolTip>
+              </ToolTip>
+            </Link>
 
           </div>
 
@@ -280,10 +286,9 @@ const styles = (theme) => ({
     height: '80px',
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
-    marginTop: '24px',
   },
   caseIcon: {
-    height: '114px',
+    height: '94px',
   },
   headerTitle: {
     maxWidth: theme.custom.maxContentWidth,
@@ -293,12 +298,12 @@ const styles = (theme) => ({
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
-    fontFamily: 'Inter',
+    fontFamily: 'Lato',
     color: '#B431B0',
     fontSize: '26px',
     lineHeight: '24px',
     paddingLeft: '0px',
-    paddingTop: '20px',
+    paddingTop: '12px',
   },
   headerMainTitleTwo: {
     fontWeight: 'bold',
@@ -307,12 +312,12 @@ const styles = (theme) => ({
   logo: {
     position: 'absolute',
     float: 'left',
-    marginTop: '-14px',
+    marginTop: '-6px',
     filter: 'drop-shadow( 2px 2px 2px rgba(0, 0, 0, 0.2))',
   },
   headerButton: {
     float: 'right',
-    width: '186px',
+    width: '196px',
     height: '39px',
     marginTop: '20px',
     background: '#FFF',
@@ -330,7 +335,7 @@ const styles = (theme) => ({
     paddingRight: '2px',
     paddingLeft: '4px',
     fontWeight: 600,
-    letterSpacing: '1px',
+    letterSpacing: '0px',
   },
   headerButtonLinkNumber: {
     fontFamily: theme.custom.fontFamily,
@@ -354,7 +359,7 @@ const styles = (theme) => ({
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
     padding: '5px 0 10px 0px',
-    fontFamily: 'Nunito',
+    fontFamily: theme.custom.fontFamily,
     letterSpacing: '0.014em',
     color: '#000000',
     size: '12px',
@@ -433,7 +438,7 @@ const styles = (theme) => ({
     padding: '0 32px',
   },
   tableHeader: {
-    paddingLeft: '0px',
+    paddingLeft: '20px',
   },
   tableDiv: {
     // maxWidth: theme.custom.maxContentWidth,
@@ -443,7 +448,7 @@ const styles = (theme) => ({
   },
   tableTitle: {
     textTransform: 'uppercase',
-    fontFamily: 'Inter',
+    fontFamily: 'Lato',
     fontSize: '18px',
     letterSpacing: '0.025em',
     color: '#AE6CAB',
@@ -454,7 +459,7 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
-textUnderlineOffset: '2.5px',    },
+    },
   },
   externalLinkIcon: {
     width: '14.5px',
@@ -463,7 +468,8 @@ textUnderlineOffset: '2.5px',    },
     paddingBottom: '2px',
   },
   breadCrumb: {
-    paddingTop: '3px',
+    paddingTop: '16px',
+    paddingBottom: '30px',
   },
 });
 

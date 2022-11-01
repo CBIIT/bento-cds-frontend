@@ -65,17 +65,31 @@ const ProgramDetailView = ({ classes, data, theme }) => {
 
   };
 
-  const breadCrumbJson = [{
-    name: `${breadCrumb.label}`,
-    to: `${breadCrumb.link}`,
-    isALink: true,
-  }];
+  const breadCrumbJson = [
+    {
+      name: 'Home',
+      to: '/home',
+      isALink: true,
+    },
+    {
+      name: `${breadCrumb.label}`,
+      to: `${breadCrumb.link}`,
+      isALink: true,
+    },
+    {
+      name: programData.program,
+      isALink: false,
+    },
+  ];
 
   const updatedAttributesData = manipulateLinks(leftPanel.attributes);
 
   return (
     <>
       <StatsView data={stat} />
+      <div className={classes.breadCrumb}>
+        <CustomBreadcrumb data={breadCrumbJson} />
+      </div>
       <div className={classes.container}>
         <div className={classes.header}>
           <div className={classes.logo}>
@@ -104,7 +118,6 @@ const ProgramDetailView = ({ classes, data, theme }) => {
               </span>
 
             </div>
-            <CustomBreadcrumb className={classes.breadCrumb} data={breadCrumbJson} />
           </div>
 
           {aggregateCount.display ? (
@@ -167,14 +180,15 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                               <div>
                                 <span className={classes.content}>
                                   {' '}
-                                  <a
+                                  <Link
                                     href={`${attribute.actualLink}${programData[updatedAttributesData[attribute.actualLinkId].dataField]}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    style={{ color: 'red' }}
                                     className={classes.link}
                                   >
                                     {programData[attribute.dataField]}
-                                  </a>
+                                  </Link>
                                   <img
                                     src={externalLinkIcon.src}
                                     alt={externalLinkIcon.alt}
@@ -191,7 +205,7 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                                 <span
                                   className={classes.detailContainerHeaderLink}
                                 >
-                                  <a href={`${programData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</a>
+                                  <Link className={classes.link} href={`${programData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</Link>
                                 </span>
                               </div>
                             )
@@ -201,7 +215,7 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                                   <span
                                     className={classes.detailContainerHeaderLink}
                                   >
-                                    <a href={`${programData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</a>
+                                    <Link className={classes.link} href={`${programData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</Link>
                                     <img
                                       src={externalLinkIcon.src}
                                       alt={externalLinkIcon.alt}
@@ -274,7 +288,40 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                     </Widget>
                   </Grid>
                 ) : ''}
-
+                { rightPanel.participants[0].display ? (
+                  <Grid item xs={12}>
+                    <div className={classes.fileContainer}>
+                      <span
+                        className={classes.detailContainerHeader}
+                      >
+                        {rightPanel.participants[0].label}
+                      </span>
+                      <Widget
+                        title=""
+                        upperTitle
+                        bodyClass={classes.fullHeightBody}
+                        className={classes.card}
+                        color={theme.palette.dodgeBlue.main}
+                        titleClass={classes.widgetTitle}
+                        noPaddedTitle
+                      >
+                        <div className={classes.fileContent}>
+                          <div className={classes.blockCenter}>
+                            <div className={classes.fileIcon}>
+                              <img
+                                src={rightPanel.participants[0].fileIconSrc}
+                                alt={rightPanel.participants[0].fileIconAlt}
+                              />
+                            </div>
+                            <div className={classes.participantsCount} id="program_detail_participants_count">
+                              {programData[rightPanel.participants[0].dataField]}
+                            </div>
+                          </div>
+                        </div>
+                      </Widget>
+                    </div>
+                  </Grid>
+                ) : ''}
                 { rightPanel.files[0].display ? (
                   <Grid item xs={12}>
                     <div className={classes.fileContainer}>
@@ -283,17 +330,29 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                       >
                         {rightPanel.files[0].label}
                       </span>
-                      <div className={classes.fileContent}>
-                        <div className={classes.fileIcon}>
-                          <img
-                            src={rightPanel.files[0].fileIconSrc}
-                            alt={rightPanel.files[0].fileIconAlt}
-                          />
+                      <Widget
+                        title=""
+                        upperTitle
+                        bodyClass={classes.fullHeightBody}
+                        className={classes.card}
+                        color={theme.palette.dodgeBlue.main}
+                        titleClass={classes.widgetTitle}
+                        noPaddedTitle
+                      >
+                        <div className={classes.fileContent}>
+                          <div className={classes.blockCenter}>
+                            <div className={classes.fileIcon}>
+                              <img
+                                src={rightPanel.files[0].fileIconSrc}
+                                alt={rightPanel.files[0].fileIconAlt}
+                              />
+                            </div>
+                            <div className={classes.fileCount} id="program_detail_file_count">
+                              {programData[rightPanel.files[0].dataField]}
+                            </div>
+                          </div>
                         </div>
-                        <div className={classes.fileCount} id="program_detail_file_count">
-                          {programData[rightPanel.files[0].dataField]}
-                        </div>
-                      </div>
+                      </Widget>
                     </div>
                   </Grid>
                 ) : ''}
@@ -334,6 +393,9 @@ const ProgramDetailView = ({ classes, data, theme }) => {
 };
 
 const styles = (theme) => ({
+  a: {
+    color: 'red',
+  },
   firstColumn: {
     maxWidth: '45%',
   },
@@ -358,7 +420,7 @@ const styles = (theme) => ({
   link: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: '#7747FF',
+    color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
       textUnderlineOffset: '2.5px',
@@ -371,12 +433,11 @@ const styles = (theme) => ({
     paddingBottm: '17px',
   },
   container: {
-    paddingTop: '50px',
+    paddingTop: '32px',
     fontFamily: 'Nunito',
-    paddingLeft: '32px',
-    paddingRight: '32px',
+    paddingLeft: '52px',
+    paddingRight: '52px',
     background: '#FFFF',
-    paddingBottom: '16px',
   },
   content: {
     fontSize: '15px',
@@ -432,18 +493,18 @@ const styles = (theme) => ({
 
   },
   headerSubTitleCate: {
-    color: '#00B0BD',
+    color: '#0B4E75',
     fontWeight: '300',
-    fontFamily: 'Poppins',
+    fontFamily: 'Nunito',
     textTransform: 'uppercase',
     letterSpacing: '0.023em',
-    fontSize: '15px',
+    fontSize: '16px',
     overflow: 'hidden',
     lineHeight: '24px',
     paddingLeft: '2px',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    paddingRight: '200px',
+    // paddingRight: '200px',
   },
   headerSubTitleContent: {
     color: '#000000',
@@ -458,7 +519,10 @@ const styles = (theme) => ({
     paddingTop: '3px',
   },
   breadCrumb: {
-    color: '#00B0BD',
+    // height: '11px',
+    // letterSpacing: 10px;
+    // line-height: 29px;
+    padding: '16px 52px 0px 52px',
   },
   headerButton: {
     fontFamily: theme.custom.fontFamily,
@@ -507,15 +571,14 @@ const styles = (theme) => ({
   detailContainer: {
     maxWidth: '1340px',
     margin: 'auto',
-    marginBlockEnd: '24px',
-    paddingTop: '24px',
+    paddingTop: '8px',
     paddingLeft: '5px',
     fontFamily: theme.custom.fontFamily,
     letterSpacing: '0.014em',
     color: '#000000',
     size: '12px',
     lineHeight: '23px',
-    height: '525px',
+    height: '516px',
 
   },
   detailContainerHeader: {
@@ -529,7 +592,7 @@ const styles = (theme) => ({
     fontFamily: 'Lato',
     fontSize: '14px',
     letterSpacing: '0.025em',
-    color: '#7747FF',
+    color: '#900F89',
   },
   detailContainerBottom: {
     borderTop: '#81a6b9 1px solid',
@@ -538,7 +601,7 @@ const styles = (theme) => ({
   },
   detailContainerLeft: {
     display: 'block',
-    padding: '5px  20px 5px 0px !important',
+    padding: '5px  20px 5px 32px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -550,7 +613,7 @@ const styles = (theme) => ({
     borderRight: '#81a6b9 1px solid',
   },
   detailContainerRight: {
-    padding: '5px 0 5px 36px !important',
+    padding: '5px 36px 5px 36px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -631,29 +694,45 @@ const styles = (theme) => ({
     paddingTop: '4px',
   },
   fileContent: {
+    marginTop: '24px',
     backgroundColor: '#F3F3F3',
     borderRadius: '50%',
     height: '162px',
     width: '162px',
-    paddingLeft: '48px',
-    marginLeft: '36%',
-    marginTop: '25px',
+  },
+  blockCenter: {
+    width: '42%',
+    margin: '0 auto',
   },
   fileIcon: {
     '& img': {
-      width: '163%',
-      padding: '21px 120px 0px 0px',
+      width: '60px',
+      height: '60px',
+      marginTop: '30px',
+      marginLeft: '4px',
     },
+  },
+  participantsCount: {
+    lineHeight: '31.7px',
+    fontSize: '30px',
+    color: '#0B7562',
+    fontWeight: '600',
+    borderBottom: '#0B7562 solid 4px',
+    fontFamily: 'Oswald',
+    width: 'max-content',
+    margin: '0 auto',
+    paddingBottom: '8px',
   },
   fileCount: {
     lineHeight: '31.7px',
     fontSize: '30px',
-    color: '#BB5500',
+    color: '#D86B01',
     fontWeight: '600',
-    borderBottom: '#BB5500 solid 5px',
+    borderBottom: '#D86B01 solid 4px',
     fontFamily: 'Oswald',
     width: 'max-content',
-    padding: '15px 0px 12px 0px',
+    margin: '0 auto',
+    paddingBottom: '8px',
   },
   paddingTop32: {
     paddingTop: '36px !important',
@@ -662,7 +741,7 @@ const styles = (theme) => ({
     marginTop: '15px',
   },
   tableCell1: {
-    paddingLeft: '25px',
+    // paddingLeft: '25px',
     width: '200px',
   },
   tableCell2: {
@@ -678,7 +757,7 @@ const styles = (theme) => ({
     width: '160px',
   },
   externalLinkIcon: {
-    width: '16px',
+    width: '14px',
     verticalAlign: 'sub',
     marginLeft: '4px',
   },

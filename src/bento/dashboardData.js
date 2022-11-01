@@ -31,10 +31,10 @@ export const facetSearchData = [
 // --------------- Dashboard Sidebar Sections styling --------------
 export const facetSectionVariables = {
   Cases: {
-    color: '#10A075',
-    backgroundColor: '#C0E9D7',
-    checkBoxColorsOne: '#E8F7DC',
-    checkBoxColorsTwo: '#F5FDEE',
+    color: '#0E6292',
+    backgroundColor: '#C3E8F7',
+    checkBoxColorsOne: '#C3E8F7',
+    checkBoxColorsTwo: '#C3E8F7',
     height: '5px',
     isExpanded: true,
   },
