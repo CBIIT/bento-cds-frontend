@@ -1,6 +1,7 @@
 import React from 'react';
-import { AboutHeader, AboutBody } from 'bento-components';
+import { AboutHeader } from 'bento-components';
 import { withStyles } from '@material-ui/core';
+import AboutBody from '../../components/about/aboutBodyView';
 import Stats from '../../components/Stats/AllStatsController';
 
 const AboutView = ({ classes, data }) => {
@@ -26,6 +27,7 @@ const AboutView = ({ classes, data }) => {
             }}
             titleColor="#1280AE"
             linkColor="#900F89"
+            externalIconImage="https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/externalLinkIcon.svg"
           />
         </div>
       </div>

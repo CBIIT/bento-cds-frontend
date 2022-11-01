@@ -7,11 +7,11 @@ const pageTitle = {
 };
 
 const pageSubTitle = {
-  dataField: 'program_id',
+  dataField: 'program_name',
 };
 
 const breadCrumb = {
-  label: 'ALL PROGRAMS',
+  label: 'All Programs',
   link: '/programs',
 };
 
@@ -32,7 +32,7 @@ const programDetailIcon = {
 };
 
 const externalLinkIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/externalLinkIcon.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/externalLinkIcon.svg',
   alt: 'External link icon',
 };
 
@@ -75,6 +75,15 @@ const rightPanel = {
     {
       dataField: 'study_participants',
       label: 'Studies',
+      display: false,
+    },
+  ],
+  participants: [
+    {
+      dataField: 'num_participants',
+      label: 'Number of Participants',
+      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramDetail.ParticipantCount.svg',
+      fileIconAlt: 'Number of participants icon',
       display: true,
     },
   ],
@@ -82,7 +91,7 @@ const rightPanel = {
     {
       dataField: 'num_files',
       label: 'Number of files',
-      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programNumberofFilesIcon.svg',
+      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramDetailFileCount.svg',
       fileIconAlt: 'Number of files icon',
       display: true,
     },

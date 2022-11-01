@@ -489,7 +489,7 @@ export default {
         fontSize: '10px',
       },
       actions: {
-        marginRight: '39px',
+        marginRight: '8px',
       },
     },
     MuiSwitch: {
@@ -505,7 +505,7 @@ export default {
     MUIDataTableBodyCell: {
       stackedParent: {
         '&:first-child': {
-          paddingLeft: '30px',
+          paddingLeft: '20px',
         },
       },
     },

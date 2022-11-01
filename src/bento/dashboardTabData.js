@@ -110,7 +110,7 @@ export const tabContainers = [
     defaultSortDirection: 'asc',
     saveButtonDefaultStyle: {
       color: '#fff',
-      backgroundColor: '#00AEEF',
+      backgroundColor: '#0B4E75',
       opacity: '1',
       border: '0px',
       cursor: 'pointer',
