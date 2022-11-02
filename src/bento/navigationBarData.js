@@ -76,11 +76,11 @@ export const navBarData = [
     type: 'dropdown',
     dropDownLinks: [
       {
-        labelText: 'CDS',
+        labelText: 'About CDS',
         link: '/cancerDataService',
       },
       {
-        labelText: 'CRDC',
+        labelText: 'About CRDC',
         link: '/crdc',
       },
       {
@@ -88,16 +88,12 @@ export const navBarData = [
         link: '/submit',
       },
       {
-        labelText: 'Bento',
-        link: '/bento',
-      },
-      {
-        labelText: 'Resources',
-        link: '/resources',
-      },
-      {
         labelText: 'Graphql',
         link: '/graphql',
+      },
+      {
+        labelText: 'Bento Framework',
+        link: '/bento',
       },
     ],
   },

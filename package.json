@@ -33,7 +33,7 @@
     "font-awesome": "4.7.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.1",
-    "graphiql": "^1.0.3",
+    "graphiql": "^1.0.4",
     "graphql": "^14.7.0",
     "graphql-tag": "^2.11.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
