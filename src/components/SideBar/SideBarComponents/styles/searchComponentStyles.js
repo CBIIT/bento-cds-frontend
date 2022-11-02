@@ -51,7 +51,7 @@ const styles = () => ({
       },
       '& :hover': {
         color: 'white',
-        backgroundColor: '#10A075',
+        backgroundColor: '#0E6292',
       },
     },
   },

@@ -147,7 +147,7 @@ const styles = () => ({
     paddingLeft: 16,
     paddingRight: 12,
     '&:hover': {
-      backgroundColor: '#10A075',
+      backgroundColor: '#0E6292',
     },
   },
   findCaseIcon: {
@@ -166,14 +166,14 @@ const styles = () => ({
   thumb: {
     height: 16,
     width: 16,
-    background: '#10A075',
+    background: '#0E6292',
   },
   track: {
     borderRadius: 4,
     height: 6,
-    background: '#10A075',
+    background: '#0E6292',
     '&~&': {
-      background: '#10A075',
+      background: '#0E6292',
     },
   },
   sliderRoot: {
@@ -225,7 +225,7 @@ const styles = () => ({
   },
   sliderText: {
     marginTop: '1.5px',
-    color: '#10a075',
+    color: '#0E6292',
     lineHeight: '120%',
     fontFamily: 'Nunito',
     fontSize: '14px',

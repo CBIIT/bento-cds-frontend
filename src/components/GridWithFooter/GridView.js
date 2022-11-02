@@ -97,7 +97,7 @@ const GridView = ({
     textTransform: 'uppercase',
     fontFamily: 'Lato',
     color: '#fff',
-    backgroundColor: '#10A075',
+    backgroundColor: '#0E6292',
     marginTop: '6px',
     marginBottom: '10px',
     marginRight: '4px',

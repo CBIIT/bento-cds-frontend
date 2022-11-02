@@ -181,10 +181,9 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                                 <span className={classes.content}>
                                   {' '}
                                   <Link
-                                    href={`${attribute.actualLink}${programData[updatedAttributesData[attribute.actualLinkId].dataField]}`}
+                                    href={`${programData[attribute.dataField]}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    style={{ color: 'red' }}
                                     className={classes.link}
                                   >
                                     {programData[attribute.dataField]}
@@ -471,7 +470,8 @@ const styles = (theme) => ({
   headerTitle: {
     margin: 'auto',
     float: 'left',
-    marginLeft: '85px',
+    marginLeft: '92px',
+    marginTop: '12px',
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
@@ -691,7 +691,7 @@ const styles = (theme) => ({
     paddingBottom: '20px',
   },
   fileContainer: {
-    paddingTop: '4px',
+    paddingTop: '15px',
   },
   fileContent: {
     marginTop: '24px',

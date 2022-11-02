@@ -79,7 +79,7 @@ export const search = {
     isExpanded: false,
   },
   subjectIds: {
-    color: '#10A075',
+    color: '#0E6292',
     checkBoxColorsOne: '#E8F7DC',
     checkBoxColorsTwo: '#F5FDEE',
     height: '5px',
