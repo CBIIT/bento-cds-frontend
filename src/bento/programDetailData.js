@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 // --------------- Page title configuration --------------
 const pageTitle = {
-  label: 'Program :',
+  label: 'Program:',
   dataField: 'program',
 };
 
@@ -62,8 +62,9 @@ const leftPanel = {
     },
     {
       dataField: 'program_url',
-      label: 'External Link to Program',
-      externalLinkToLabel: true,
+      label: 'Program Website',
+      externalLink: true,
+
     },
   ],
 };

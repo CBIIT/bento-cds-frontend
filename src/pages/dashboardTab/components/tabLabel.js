@@ -21,7 +21,7 @@ const tabLabel = ({
 
 const styles = () => ({
   defaultStyle: {
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     textTransform: 'capitalize',
     fontSize: '21px',
   },

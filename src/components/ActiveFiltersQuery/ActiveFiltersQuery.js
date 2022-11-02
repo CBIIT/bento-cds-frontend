@@ -399,7 +399,7 @@ const styles = () => ({
     width: 'fit-content',
     backgroundColor: '#fff',
     cursor: 'pointer',
-    // borderBottom: '2px solid #10A075',
+    // borderBottom: '2px solid #0E6292',
   },
   bracketsOpen: {
     fontSize: 18,

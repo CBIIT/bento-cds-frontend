@@ -281,6 +281,7 @@ const styles = () => ({
   title: (props) => ({
     color: props.titleColor,
     fontWeight: '500',
+    fontSize: '24px',
   }),
   email: (props) => ({
     color: props.linkColor,
@@ -303,7 +304,7 @@ const styles = () => ({
   linkIcon: {
     width: '0.8em',
     verticalAlign: 'sub',
-    margin: '0px 0px 0px 4px',
+    margin: '0px 0px 2px 4px',
   },
   link: (props) => ({
     color: props.linkColor,
