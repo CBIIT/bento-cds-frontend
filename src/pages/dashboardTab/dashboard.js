@@ -118,6 +118,7 @@ const Dashboard = ({
                                 colors={colors}
                                 titleLocation="bottom"
                                 titleAlignment="center"
+                                textOverflowLength={14}
                               />
                             </Widget>
                           </Grid>
