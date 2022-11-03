@@ -12,6 +12,7 @@ export default () => ({
     padding: '15px',
     fontSize: '10px',
     marginLeft: '20px',
+    marginBottom: '20px',
   },
   manifestTextarea: {
     marginTop: '20px',

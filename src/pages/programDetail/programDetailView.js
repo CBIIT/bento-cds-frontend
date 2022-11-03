@@ -470,7 +470,7 @@ const styles = (theme) => ({
   headerTitle: {
     margin: 'auto',
     float: 'left',
-    marginLeft: '92px',
+    marginLeft: '90px',
     marginTop: '12px',
     width: 'calc(100% - 265px)',
   },

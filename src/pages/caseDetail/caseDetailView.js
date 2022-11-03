@@ -262,7 +262,7 @@ const styles = (theme) => ({
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
     float: 'left',
-    paddingLeft: '98px',
+    paddingLeft: '90px',
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
