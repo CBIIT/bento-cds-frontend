@@ -180,14 +180,14 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                               <div>
                                 <span className={classes.content}>
                                   {' '}
-                                  <Link
-                                    href={`${programData[attribute.dataField]}`}
+                                  <a
+                                    href={programData[attribute.dataField]}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={classes.link}
                                   >
                                     {programData[attribute.dataField]}
-                                  </Link>
+                                  </a>
                                   <img
                                     src={externalLinkIcon.src}
                                     alt={externalLinkIcon.alt}
