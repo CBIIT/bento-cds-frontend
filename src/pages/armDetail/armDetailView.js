@@ -317,7 +317,7 @@ const styles = (theme) => ({
   },
   headerButton: {
     float: 'right',
-    width: '168px',
+    width: '190px',
     height: '39px',
     marginTop: '20px',
     background: '#FFF',
