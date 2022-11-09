@@ -41,7 +41,7 @@ const ArmDetail = ({ studyData, paramId, classes }) => {
 
   // eslint-disable-next-line no-unused-vars
   const { loading, error, data } = useQuery(GET_MY_FILE_OVERVIEW_QUERY, {
-    variables: { [armIDField]: paramId, first: 20 },
+    variables: { [armIDField]: paramId, first: studyData.numberOfFiles },
   });
 
   const [snackbarState, setsnackbarState] = React.useState({
