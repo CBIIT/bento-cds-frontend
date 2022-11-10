@@ -118,7 +118,7 @@ const styles = () => ({
     fontSize: '10px',
   },
   findCaseButton: {
-    marginLeft: '105px',
+    marginLeft: '75px',
     backgroundColor: '#0B4E75',
     boxSizing: 'border-box',
     height: 30,

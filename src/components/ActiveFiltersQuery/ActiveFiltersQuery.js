@@ -206,7 +206,7 @@ const ActiveFiltersQuery = ({ classes }) => {
                         }}
                         onClick={removeCaseIds}
                       >
-                        Case IDs
+                        Participant IDs
                       </span>
                       {' '}
                       {' '}

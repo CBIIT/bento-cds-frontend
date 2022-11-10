@@ -323,7 +323,7 @@ const FacetModal = ({
           <div className={classes.textSection}>
             <div className={classes.inputLabel}>
               <Typography>
-                <p className={classes.listTitle}>Add a list of Case IDs:</p>
+                <p className={classes.listTitle}>Add a list of Participant IDs:</p>
               </Typography>
               {getToolTip('Add the case indentifier.')}
             </div>

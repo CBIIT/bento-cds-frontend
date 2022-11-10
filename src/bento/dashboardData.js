@@ -185,7 +185,7 @@ export const dashboardTable = {
     // A maximum of 10 columns (tableData) are allowed
     {
       dataField: 'subject_id',
-      header: 'Case ID',
+      header: 'Participant ID',
       sort: 'asc',
       link: '/case/{subject_id}',
       primary: true,

@@ -45,7 +45,7 @@ const Dashboard = ({
                         </Button>
                       )}
                     />
-                    <Switch
+                    {/* <Switch
                       classes={{
                         root: classes.switchRoot,
                         switchBase: classes.switchBase,
@@ -58,7 +58,7 @@ const Dashboard = ({
                       onChange={() => {
                         themeChanger.toggleTheme();
                       }}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <Collapse in={collapse} className={classes.backgroundWidgets}>

@@ -119,7 +119,7 @@ const SummaryTable = (props) => {
       id="uploadCaseSetSummarySection"
     >
       <p className={classes.summary} id="uploadCaseSetSummaryCount">
-        {`${matchedContent.length + unmatchedContent.length} submitted Case IDs mapped to ${matchedContent.length} unique Bento Case IDs`}
+        {`${matchedContent.length + unmatchedContent.length} submitted Participant IDs mapped to ${matchedContent.length} unique Bento Participant IDs`}
       </p>
       <p className={classes.title}>
         Summary Table
@@ -152,7 +152,7 @@ const SummaryTable = (props) => {
           matchedContent.length ? (
             <table className={classes.tableContainer} id="uploadCaseSetMatchedTable">
               <tr id="uploadCaseSetMatchedHeader">
-                <th className={classes.header}>SUBMITTED CASE ID</th>
+                <th className={classes.header}>SUBMITTED PARTICIPANT  ID</th>
                 <td className={classes.emptyCell} />
                 <th className={classes.header}>ASSOCIATED PROGRAM</th>
               </tr>
@@ -176,7 +176,7 @@ const SummaryTable = (props) => {
           : (
             unmatchedContent.length ? (
               <table className={classes.tableContainer} id="uploadCaseSetUnMatchedTable">
-                <th id="uploadCaseSetUnMatchedHeader" className={classes.heading} style={{ textAlign: 'left', paddingLeft: 50 }}>SUBMITTED CASE ID</th>
+                <th id="uploadCaseSetUnMatchedHeader" className={classes.heading} style={{ textAlign: 'left', paddingLeft: 50 }}>SUBMITTED PARTICIPANT ID</th>
                 <tr className={classes.heading} style={{ width: '180' }}><Divider className={classes.divider} style={{ width: '48%' }} /></tr>
                 {unmatchedContent.map((unmatched, id) => (
                   <tr key={id} style={id % 2 ? { backgroundColor: '#fff' } : { backgroundColor: '#F8F8F8' }}>
