@@ -75,12 +75,6 @@ export const tabContainers = [
         display: true,
       },
       {
-        dataField: 'site',
-        header: 'Site',
-        sort: 'asc',
-        display: true,
-      },
-      {
         dataField: 'samples',
         header: 'Samples',
         sort: 'asc',
@@ -148,7 +142,7 @@ export const tabContainers = [
       },
       {
         dataField: 'subject_id',
-        header: 'subject id',
+        header: 'Participant id',
         sort: 'asc',
         display: false,
       },
@@ -232,7 +226,7 @@ export const tabContainers = [
       },
       {
         dataField: 'subject_id',
-        header: 'Subject Id',
+        header: 'Participant Id',
         sort: 'asc',
         display: true,
       },

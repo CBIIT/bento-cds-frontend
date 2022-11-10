@@ -140,10 +140,6 @@ const table = {
       header: 'Gender',
     },
     {
-      dataField: 'site',
-      header: 'Disease Site',
-    },
-    {
       dataField: 'analyte_type',
       header: 'Analyte Type',
     },

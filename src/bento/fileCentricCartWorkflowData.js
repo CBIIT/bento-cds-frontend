@@ -79,7 +79,7 @@ export const table = {
     },
     {
       dataField: 'subject_id',
-      header: 'Subject Id',
+      header: 'Participant Id',
       sort: 'asc',
       display: true,
     },

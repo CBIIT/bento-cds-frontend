@@ -17,11 +17,6 @@ export const globalStatsData = [
     statAPI: 'numberOfStudies',
   },
   {
-    statTitle: 'Disease Sites',
-    type: 'field',
-    statAPI: 'numberOfDiseaseSites',
-  },
-  {
     statTitle: 'Participants',
     type: 'field',
     statAPI: 'numberOfSubjects',

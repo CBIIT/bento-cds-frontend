@@ -7,17 +7,17 @@ import PropertyItem from '../propertyItem';
 const CaseCard = ({ data, classes, index }) => {
   const properties = [
     {
-      label: 'Subject Id',
+      label: 'Participant Id',
       dataField: 'subject_id',
     },
     {
       label: 'Study',
       dataField: 'study',
     },
-    {
-      label: 'Site',
-      dataField: 'site',
-    },
+    // {
+    //   label: 'Site',
+    //   dataField: 'site',
+    // },
   ];
 
   const propertiesWithLinks = prepareLinks(properties, data);

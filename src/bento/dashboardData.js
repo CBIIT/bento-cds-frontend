@@ -15,9 +15,6 @@ export const facetSearchData = [
     label: 'Experimental Strategy', field: 'group', api: 'subjectCountByExperimentalStrategy', apiForFiltering: 'filterSubjectCountByExperimentalStrategy', datafield: 'experimental_strategies', section: 'Cases', show: true,
   },
   {
-    label: 'Accesses', field: 'group', api: 'filterSubjectCountByAccess', apiForFiltering: 'filterSubjectCountByAccess', datafield: 'accesses', section: 'Cases', show: true,
-  },
-  {
     label: 'Gender', field: 'group', api: 'filterSubjectCountByGender', apiForFiltering: 'filterSubjectCountByGender', datafield: 'genders', section: 'Cases', show: true,
   },
   {
@@ -145,14 +142,6 @@ export const widgetsData = [
     label: 'Tumor',
     dataName: 'subjectCountByIsTumor',
     datatable_field: 'is_tumor',
-    titleText: 'Participants',
-    show: true,
-  },
-  {
-    type: 'donut',
-    label: 'Analyte Type',
-    dataName: 'subjectCountByAnalyteType',
-    datatable_field: 'analyteType',
     titleText: 'Participants',
     show: true,
   },
