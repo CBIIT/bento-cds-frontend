@@ -477,7 +477,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
                     className={classes.sectionSummaryTextCase}
                   >
                     <div className={classes.sectionSummaryTextContainer}>
-                      {currentSection.sectionName}
+                      Participants
                       <div className={classes.findCaseButton} onClick={toggleAutocomplete}>
                         <img src="https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/FacetLocalFindSearchIcon.svg" className={classes.findCaseIcon} alt="search" />
                       </div>

@@ -93,7 +93,7 @@ export const navBarData = [
       },
       {
         labelText: 'Graphql',
-        link: '/graphql',
+        link: '/graphQl',
       },
       {
         labelText: 'Bento Framework',

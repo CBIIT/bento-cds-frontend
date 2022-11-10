@@ -50,7 +50,7 @@ export const tabContainers = [
     columns: [
       {
         dataField: 'subject_id',
-        header: 'Case ID',
+        header: 'Participant ID',
         sort: 'asc',
         primary: true,
         display: true,
@@ -305,7 +305,7 @@ export const tabContainers = [
 export const tabs = [
   {
     id: 'case_tab',
-    title: 'Cases',
+    title: 'Participants',
     dataField: 'dataCase',
     count: 'numberOfSubjects',
   },
