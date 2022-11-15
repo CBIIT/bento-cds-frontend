@@ -175,14 +175,62 @@ query studyDetail($phs_accession: String) {
 }
 `;
 
+// export const GET_MY_FILE_OVERVIEW_QUERY = gql`
+// query fileOverview(
+//   $phs_accession: String
+//   $first: Int,
+// ){
+// fileOverview(
+//   first: $first,
+//   phs_accession: [$phs_accession]
+// ){
+//   study_acronym
+//   phs_accession
+//   subject_id
+//   sample_id
+//   experimental_strategy
+//   gender
+//   site
+//   analyte_type
+//   is_tumor
+//   file_name
+//   file_type
+//   file_size
+//   file_id
+//   md5sum
+// }
+// }`;
+
 export const GET_MY_FILE_OVERVIEW_QUERY = gql`
 query fileOverview(
-  $phs_accession: String
+  $subject_ids: [String],
+  $sample_ids: [String],
+  $file_ids: [String],
+  $studies: [String],
+  $file_types: [String],
+  $genders: [String],
+  $experimental_strategies: [String],
+  $is_tumor: [String],
+  $accesses: [String],
   $first: Int, 
+  $offset: Int, 
+  $order_by:  String
+  $sort_direction: String 
 ){
 fileOverview(
+  subject_ids: $subject_ids,
+  sample_ids: $sample_ids,
+  file_ids: $file_ids
+  studies: $studies,
+  file_types: $file_types,
+  genders: $genders,
+  experimental_strategies: $experimental_strategies,
+  is_tumor: $is_tumor,
+  accesses: $accesses,
   first: $first, 
-  phs_accession: [$phs_accession]
+  offset: $offset, 
+  order_by: $order_by,
+  sort_direction: $sort_direction
 ){
   study_acronym
   phs_accession
@@ -199,7 +247,8 @@ fileOverview(
   file_id
   md5sum
 }
-}`;
+}
+`;
 
 export {
   header,
