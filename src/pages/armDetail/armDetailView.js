@@ -41,7 +41,7 @@ const ArmDetail = ({ studyData, paramId, classes }) => {
 
   // eslint-disable-next-line no-unused-vars
   const { loading, error, data } = useQuery(GET_MY_FILE_OVERVIEW_QUERY, {
-    variables: { [armIDField]: paramId, first: studyData.numberOfFiles },
+    variables: { [armIDField]: paramId, first: 10 },
   });
 
   const [snackbarState, setsnackbarState] = React.useState({
@@ -243,6 +243,9 @@ const ArmDetail = ({ studyData, paramId, classes }) => {
                         DeactiveSaveButtonDefaultStyle={table.DeactiveSaveButtonDefaultStyle}
                         tooltipMessage={table.tooltipMessage}
                         tooltipContent={tooltipContent}
+                        count={studyData.numberOfFiles}
+                        queryCustomVaribles={{ [armIDField]: paramId }}
+                        query={GET_MY_FILE_OVERVIEW_QUERY}
                       />
                     </Grid>
                     <Grid item xs={8}>

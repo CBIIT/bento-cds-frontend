@@ -5,17 +5,17 @@ import {
 } from '@material-ui/core';
 import _ from 'lodash';
 import { useSelector } from 'react-redux';
-import { CustomDataTable } from 'bento-components';
 import HelpIcon from '@material-ui/icons/Help';
 import IconButton from '@material-ui/core/IconButton';
 import { addToCart, cartWillFull } from '../../pages/fileCentricCart/store/cart';
 import Message from '../Message';
 import AddToCartAlertDialog from '../AddToCartDialog';
+import CustomDataTable from '../serverPaginatedTable/serverPaginatedTable';
+import { customFilesTabDownloadCSV } from '../../bento/tableDownloadCSV';
 
 const GridView = ({
   classes,
   data,
-  title,
   columns,
   customOnRowsSelect,
   openSnack,
@@ -27,6 +27,9 @@ const GridView = ({
   saveButtonDefaultStyle,
   DeactiveSaveButtonDefaultStyle,
   ActiveSaveButtonDefaultStyle,
+  count,
+  queryCustomVaribles,
+  query,
 }) => {
   // Get the existing files ids from  cart state
   const fileIDs = useSelector((state) => state.cart.fileIds);
@@ -214,8 +217,14 @@ const GridView = ({
           <CustomDataTable
             data={_.cloneDeep(data)}
             columns={columns}
-            title={title}
             options={finalOptions}
+            overview={query}
+            paginationAPIField="fileOverview"
+            count={count}
+            queryCustomVaribles={queryCustomVaribles}
+            defaultSortCoulmn="file_name"
+            defaultSortDirection="asc"
+            tableDownloadCSV={customFilesTabDownloadCSV}
           />
         </Grid>
 

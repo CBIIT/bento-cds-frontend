@@ -14,7 +14,7 @@
     - paragraph: "•	Metadata manifest indexing: $$[https://github.com/CBIIT/CancerDataServices-Indexing_Manifest_CreatoR](https://github.com/CBIIT/CancerDataServices-Indexing_Manifest_CreatoR)$$"
     - paragraph: "•	dbGap SRA submission template: $$[https://github.com/CBIIT/CancerDataServices-CDS_to_SRA]( https://github.com/CBIIT/CancerDataServices-CDS_to_SRA)$$"
   secondaryZoomImageTitle: "The CDS Core Data Model"
-  secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/model-desc/cds-model.svg'
+  secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/docs/model-desc/cds-model.svg'
 - page: '/cancerDataService'
   title: "About Your Data Source"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
