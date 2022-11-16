@@ -207,6 +207,7 @@ query fileOverview(
   $sample_ids: [String],
   $file_ids: [String],
   $studies: [String],
+  $phs_accession:String,
   $file_types: [String],
   $genders: [String],
   $experimental_strategies: [String],
@@ -222,6 +223,7 @@ fileOverview(
   sample_ids: $sample_ids,
   file_ids: $file_ids
   studies: $studies,
+  phs_accession: [$phs_accession],
   file_types: $file_types,
   genders: $genders,
   experimental_strategies: $experimental_strategies,

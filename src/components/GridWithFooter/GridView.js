@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from 'react';
 import {
   Grid,
@@ -41,7 +42,7 @@ const GridView = ({
   });
 
   // Store current page selected info
-  const [selectedIDs, setSelectedIDs] = React.useState([]);
+  // let [selectedIDs, setSelectedIDs] = React.useState([]);
   const AddToCartAlertDialogRef = useRef();
   const [cartIsFull, setCartIsFull] = React.useState(false);
   const saveButton = useRef(null);
@@ -109,7 +110,7 @@ const GridView = ({
   useEffect(() => {
     initSaveButtonDefaultStyle(saveButton);
 
-    if (selectedIDs.length === 0) {
+    if (rowSelection.selectedRowInfo.length === 0) {
       updateActiveSaveButtonStyle(true, saveButton);
     } else {
       updateActiveSaveButtonStyle(false, saveButton);
@@ -118,17 +119,18 @@ const GridView = ({
 
   function exportFiles() {
     // Find the newly added files by comparing
-    const newFileIDS = fileIDs !== null ? selectedIDs.filter(
+    const newFileIDS = fileIDs !== null ? rowSelection.selectedRowInfo.filter(
       (e) => !fileIDs.find((a) => e === a),
-    ).length : selectedIDs.length;
+    ).length : rowSelection.selectedRowInfo.length;
     if (cartWillFull(newFileIDS)) {
       // throw an alert
       setCartIsFull(true);
       AddToCartAlertDialogRef.current.open();
     } else if (newFileIDS >= 0) {
-      addToCart({ fileIds: selectedIDs });
+      addToCart({ fileIds: rowSelection.selectedRowInfo });
       openSnack(newFileIDS);
-      setSelectedIDs([]);
+      rowSelection.selectedRowInfo = [];
+      rowSelection.selectedRowIndex = [];
     }
   }
 
@@ -172,10 +174,12 @@ const GridView = ({
       }, [],
     );
 
-    setRowSelection({
-      selectedRowInfo: newSelectedRowInfo,
-      selectedRowIndex: newSelectedRowIndex,
-    });
+    // setRowSelection({
+    //   selectedRowInfo: newSelectedRowInfo,
+    //   selectedRowIndex: newSelectedRowIndex,
+    // });
+    rowSelection.selectedRowInfo = newSelectedRowInfo;
+    rowSelection.selectedRowIndex = newSelectedRowIndex;
   }
 
   /*
@@ -183,9 +187,12 @@ const GridView = ({
   */
   function onRowsSelect(curr, allRowsSelected, rowsSelected, displayData) {
     rowSelectionEvent(displayData.map((d) => d.data[0]), rowsSelected);
-    setSelectedIDs([...new Set(
-      customOnRowsSelect(data, allRowsSelected),
-    )]);
+    // setSelectedIDs([...new Set(
+    //   customOnRowsSelect(displayData.map((d) => d.data[0]), allRowsSelected),
+    // )]);
+    // selectedIDs = [...new Set(
+    //   customOnRowsSelect(displayData.map((d) => d.data[0]), allRowsSelected),
+    // )];
 
     if (allRowsSelected.length === 0) {
       updateActiveSaveButtonStyle(true, saveButton);
@@ -196,13 +203,12 @@ const GridView = ({
 
   // overwrite default options
   const defaultOptions = () => ({
-    rowsSelected: rowSelection.selectedRowIndex,
-    onRowSelectionChange: (curr, allRowsSelected, rowsSelected, displayData) => onRowsSelect(
-      curr,
-      allRowsSelected,
-      rowsSelected,
+    rowsSelectedTrigger: (displayData, rowsSelected) => rowSelectionEvent(
       displayData,
+      rowsSelected,
     ),
+    rowsSelected: rowSelection.selectedRowIndex,
+    onRowSelectionChange: onRowsSelect,
     isRowSelectable: (dataIndex) => (disableRowSelection
       ? disableRowSelection(data[dataIndex], fileIDs) : true),
   });
