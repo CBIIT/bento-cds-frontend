@@ -240,7 +240,6 @@ fileOverview(
   sample_id
   experimental_strategy
   gender
-  site
   analyte_type
   is_tumor
   file_name
