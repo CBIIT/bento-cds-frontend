@@ -124,10 +124,6 @@ const table = {
       header: 'Format',
     },
     {
-      dataField: 'experimental_strategy',
-      header: 'Experimental Strategy',
-    },
-    {
       dataField: 'sample_id',
       header: 'Sample ID',
     },
@@ -210,7 +206,6 @@ query fileOverview(
   $phs_accession:String,
   $file_types: [String],
   $genders: [String],
-  $experimental_strategies: [String],
   $is_tumor: [String],
   $accesses: [String],
   $first: Int, 
@@ -238,7 +233,6 @@ fileOverview(
   phs_accession
   subject_id
   sample_id
-  experimental_strategy
   gender
   analyte_type
   is_tumor

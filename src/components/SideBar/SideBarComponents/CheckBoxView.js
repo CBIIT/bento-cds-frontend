@@ -24,7 +24,7 @@ const styles = {
     lineHeight: '120%',
     fontFamily: 'Nunito',
     fontSize: '14px',
-    lineBreak: 'anywhere',
+    lineBreak: 'auto',
   },
   panelSubjectText: {
     color: '#000000',
