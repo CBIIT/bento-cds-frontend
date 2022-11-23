@@ -142,7 +142,7 @@ export const widgetsData = [
     label: 'Tumor',
     dataName: 'subjectCountByIsTumor',
     datatable_field: 'is_tumor',
-    titleText: 'Participants',
+    titleText: 'Samples',
     show: true,
   },
 ];
