@@ -27,6 +27,7 @@ type file {
   file_size: Int
   md5sum: String
   file_url_in_cds: String
+  experimental_strategy_and_data_subtypes: String
   samples: [sample] 
   genomic_info: genomic_info 
 }
@@ -125,7 +126,6 @@ type study {
   number_of_participants: Float
   number_of_samples: Float
   study_data_types: String
-  experimental_strategy_and_data_subtypes: String
   file_types_and_format: String
   size_of_data_being_uploaded: Float
   size_of_data_being_uploaded_unit: String
@@ -210,7 +210,6 @@ type ProgramDetailStudy {
     study_name: String
     study_description: String
     short_description: String
-    experimental_strategy_and_data_subtypes: String
     num_participants: Int
     num_samples: Int
 }
