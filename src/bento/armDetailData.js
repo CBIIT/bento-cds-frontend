@@ -116,6 +116,12 @@ const table = {
   },
   columns: [
     {
+      dataField: 'file_id',
+      header: 'File Id',
+      primary: true,
+      display: false,
+    },
+    {
       dataField: 'file_name',
       header: 'File Name',
     },

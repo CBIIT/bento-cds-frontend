@@ -8,13 +8,12 @@ import {
 import { Link } from 'react-router-dom';
 // import { getOptions, getColumns, CustomActiveDonut } from 'bento-components';
 import {
-  getOptions, getColumns, ToolTip,
+  getOptions, ToolTip,
 } from 'bento-components';
 import GridWithFooter from '../../components/GridWithFooter/GridView';
 import StatsView from '../../components/Stats/StatsView';
 import { Typography } from '../../components/Wrappers/Wrappers';
 // import fileCountIcon from '../../assets/icons/Program_Detail.FileCount.svg';
-import globalData from '../../bento/siteWideConfig';
 import {
   header,
   subsections,
@@ -231,7 +230,7 @@ const ArmDetail = ({ studyData, paramId, classes }) => {
                       <GridWithFooter
                         tableConfig={table}
                         data={(data && data.fileOverview) || []}
-                        columns={getColumns(table, classes, studyData, '', '', () => { }, '', globalData.replaceEmptyValueWith)}
+                        columns={table}
                         options={getOptions(table, classes)}
                         customOnRowsSelect={table.customOnRowsSelect}
                         openSnack={openSnack}
