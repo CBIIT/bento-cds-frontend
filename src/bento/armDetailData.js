@@ -162,6 +162,7 @@ query studyDetail($phs_accession: String) {
     study_name
     phs_accession
     study_acronym
+    data_types
     study_description
     numberOfSubjects
     numberOfSamples
@@ -221,7 +222,6 @@ fileOverview(
   phs_accession: [$phs_accession],
   file_types: $file_types,
   genders: $genders,
-  experimental_strategies: $experimental_strategies,
   is_tumor: $is_tumor,
   accesses: $accesses,
   first: $first, 

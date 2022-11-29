@@ -10,7 +10,7 @@
   content:
     - paragraph: "CDS, originally envisioned to be a simple data repository, continues to evolve to cater data needs for various NCI funded programs. The CDS model is developed to work with diverse data types thus adhering to robust yet flexible infrastructure to accommodate this diversity while adhering to FAIR data principles."
     - paragraph: "All code necessary to use Bento is provided in the form of Docker containers. However, we do provide our code to the public for research, usage, forking and pull requests. Here are the repos for:"
-    - paragraph: "•	Core Data Model: $$[https://github.com/CBIIT/cds-model/blob/main/model-desc/cds-model.svg](https://github.com/CBIIT/cds-model/blob/main/model-desc/cds-model.svg)$$"
+    - paragraph: "•	Core Data Model: $$[https://github.com/CBIIT/cds-model](https://github.com/CBIIT/cds-model)$$"
     - paragraph: "•	Metadata manifest indexing: $$[https://github.com/CBIIT/CancerDataServices-Indexing_Manifest_CreatoR](https://github.com/CBIIT/CancerDataServices-Indexing_Manifest_CreatoR)$$"
     - paragraph: "•	dbGap SRA submission template: $$[https://github.com/CBIIT/CancerDataServices-CDS_to_SRA]( https://github.com/CBIIT/CancerDataServices-CDS_to_SRA)$$"
   secondaryZoomImageTitle: "The CDS Core Data Model"
@@ -25,7 +25,7 @@
     - paragraph: "-   Studies with data that do not have a Data Commons set up for the data type"
     - paragraph: "-   Studies which are on a waiting list on a specific Data Commons for storage such as the Genomics Data Commons (GDC). "
     - paragraph: "-   Studies which are still evolving and do not have a place to store their data and analyze it during acquisition phase. "
-    - paragraph: "CDS hosts both controlled and open access data. Permission to access most controlled data on CDS is obtained through the familiar $$[dbGaP](https://www.osp.pitt.edu/ncbi-dbgap-project-requests)$$ system.   If a controlled access project is not listed in the dbGaP system, contact the $$[CDS Helpdesk](cdshelpdesk@mail.nih.gov)$$ for more information.  Open access datasets do not require authorization and are freely accessible."
+    - paragraph: "CDS hosts both controlled and open access data. Permission to access most controlled data on CDS is obtained through the familiar $$[dbGaP](https://www.ncbi.nlm.nih.gov/gap/)$$ system.   If a controlled access project is not listed in the dbGaP system, contact the $$[CDS Helpdesk](cdshelpdesk@mail.nih.gov)$$ for more information.  Open access datasets do not require authorization and are freely accessible."
     - paragraph: "CDS is hosted on AWS and is part of NCI's CloudOne infrastructure. The patients, samples, and derived mutation files for most projects are stored in the $$[Database for Genotypes and Phenotypes](https://www.ncbi.nlm.nih.gov/gap)$$ (dbGaP) database provided by National Center for Biotechnology Information (NCBI). "
     - paragraph: ""
     - paragraph: "$$#DATA ANALYSIS #$$"
