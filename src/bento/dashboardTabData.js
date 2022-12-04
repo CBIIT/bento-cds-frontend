@@ -128,6 +128,12 @@ export const tabContainers = [
         display: true,
       },
       {
+        dataField: 'subject_id',
+        header: 'Participant ID',
+        sort: 'asc',
+        display: true,
+      },
+      {
         dataField: 'study_acronym',
         header: 'Study Name',
         sort: 'asc',
@@ -780,7 +786,6 @@ sampleOverview(
   phs_accession
   subject_id
   sample_id
-
   is_tumor
   analyte_type
 
