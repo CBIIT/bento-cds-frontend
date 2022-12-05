@@ -126,7 +126,7 @@ export const widgetsData = [
     label: 'Experimental Strategy',
     dataName: 'subjectCountByExperimentalStrategy',
     datatable_field: 'experimental_strategies',
-    titleText: 'Participants',
+    titleText: 'Files',
     show: true,
   },
   {
