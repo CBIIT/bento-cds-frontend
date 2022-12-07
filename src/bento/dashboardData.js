@@ -139,7 +139,7 @@ export const widgetsData = [
   },
   {
     type: 'donut',
-    label: 'Tumor',
+    label: 'Sample Tumor Status',
     dataName: 'subjectCountByIsTumor',
     datatable_field: 'is_tumor',
     titleText: 'Samples',
