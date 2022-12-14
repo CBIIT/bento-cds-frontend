@@ -18,7 +18,7 @@ export const facetSearchData = [
     label: 'Gender', field: 'group', api: 'filterSubjectCountByGender', apiForFiltering: 'filterSubjectCountByGender', datafield: 'genders', section: 'Cases', show: true,
   },
   {
-    label: 'Tumor', field: 'group', api: 'filterSubjectCountByIsTumor', apiForFiltering: 'filterSubjectCountByIsTumor', datafield: 'is_tumor', section: 'Cases', show: true,
+    label: 'Sample Tumor Status', field: 'group', api: 'filterSubjectCountByIsTumor', apiForFiltering: 'filterSubjectCountByIsTumor', datafield: 'is_tumor', section: 'Cases', show: true,
   },
   {
     label: 'FileType', field: 'group', api: 'filterSubjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_types', section: 'Cases', show: true,
