@@ -23,6 +23,45 @@ export const facetSearchData = [
   {
     label: 'FileType', field: 'group', api: 'filterSubjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_types', section: 'Cases', show: true,
   },
+  {
+    label: 'PHS Accession ', field: 'group', api: 'filterSubjectCountByPhsAccession', apiForFiltering: 'filterSubjectCountByPhsAccession', datafield: 'phs_accession', section: 'Cases', show: true,
+  },
+  {
+    label: 'Num of Study Participants', api: 'filterSubjectCountByNumberOfStudyParticipants', apiForFiltering: 'filterSubjectCountByNumberOfStudyParticipants', datafield: 'number_of_study_participants', section: 'Cases', show: true, slider: true, quantifier: 'Study Participants',
+  },
+  {
+    label: 'Num of study Samples', api: 'filterSubjectCountByNumberOfStudySamples', apiForFiltering: 'filterSubjectCountByNumberOfStudySamples', datafield: 'number_of_study_samples', section: 'Cases', show: true, slider: true, quantifier: 'Study Samples',
+  },
+  {
+    label: 'study datatypes ', field: 'group', api: 'filterSubjectCountByStudyDataType', apiForFiltering: 'filterSubjectCountByStudyDataType', datafield: 'study_data_types', section: 'Cases', show: true,
+  },
+  {
+    label: 'acl ', field: 'group', api: 'filterSubjectCountByAcl', apiForFiltering: 'filterSubjectCountByAcl', datafield: 'acl', section: 'Cases', show: true,
+  },
+  {
+    label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategy', section: 'Cases', show: true,
+  },
+  {
+    label: 'library sources ', field: 'group', api: 'filterSubjectCountByLibrarySource', apiForFiltering: 'filterSubjectCountByLibrarySource', datafield: 'library_sources', section: 'Cases', show: true,
+  },
+  {
+    label: 'library selections ', field: 'group', api: 'filterSubjectCountByLibrarySelection', apiForFiltering: 'filterSubjectCountByLibrarySelection', datafield: 'library_selections', section: 'Cases', show: true,
+  },
+  {
+    label: 'library layouts ', field: 'group', api: 'filterSubjectCountByLibraryLayout', apiForFiltering: 'filterSubjectCountByLibraryLayout', datafield: 'library_layouts', section: 'Cases', show: true,
+  },
+  {
+    label: 'platforms ', field: 'group', api: 'filterSubjectCountByPlatform', apiForFiltering: 'filterSubjectCountByPlatform', datafield: 'platforms', section: 'Cases', show: true,
+  },
+  {
+    label: 'instrument models ', field: 'group', api: 'filterSubjectCountByInstrumentModel', apiForFiltering: 'filterSubjectCountByInstrumentModel', datafield: 'instrument_models', section: 'Cases', show: true,
+  },
+  {
+    label: 'reference genome assemblies', field: 'group', api: 'filterSubjectCountByReferenceGenomeAssembly', apiForFiltering: 'filterSubjectCountByReferenceGenomeAssembly', datafield: 'reference_genome_assemblies', section: 'Cases', show: true,
+  },
+  {
+    label: 'Diagnoses', field: 'group', api: 'filterSubjectCountByPrimaryDiagnosis', apiForFiltering: 'filterSubjectCountByPrimaryDiagnosis', datafield: 'primary_diagnoses', section: 'Cases', show: true,
+  },
 ];
 
 // --------------- Dashboard Sidebar Sections styling --------------

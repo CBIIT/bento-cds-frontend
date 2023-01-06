@@ -263,9 +263,9 @@ export const FacetPanelComponent = ({ classes }, ref) => {
       ]);
     }
   };
-  // slice 16
+  // slice 15
   const sideBarDisplay = sideBarContent.data.filter((sideBar) => sideBar.show === true)
-    .slice(0, 16);
+    .slice(0, 25);
 
   const arrangeBySections = (arr) => {
     const sideBar = {};
@@ -612,6 +612,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
                                 </span>
                               </div>
                             ) : (
+                              sideBarItem.slider !== true && (
                               <div className={classes.sortGroup}>
                                 <span
                                   className={classes.sortGroupItem}
@@ -620,6 +621,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
                                   No data for this field
                                 </span>
                               </div>
+                              )
                             )}
                           {sideBarItem.slider === true
                             && (

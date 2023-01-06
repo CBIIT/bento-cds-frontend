@@ -28,114 +28,288 @@ export const GET_IDS_BY_TYPE = (type) => gql`{
 `;
 
 export const GET_SEARCH_NODES_BY_FACET = gql`
-query searchSubjects(        
-     
-  $subject_ids: [String]
-  $studies: [String]
-  $file_types: [String]
-  $genders: [String]
-  $experimental_strategies: [String]
-  $is_tumor: [String]
-  $accesses: [String]
+query searchSubjects(
+  $subject_ids: [String],
+  $accesses:[String],
+  $acl:[String],
+  $experimental_strategies:[String],
+  $file_types:[String],
+  $genders:[String],
+  $instrument_models:[String],
+  $is_tumor:[String],
+  $library_layouts:[String],
+  $library_selections:[String],
+  $library_sources:[String],
+  $library_strategies:[String],
+  $number_of_study_participants:[Float],
+  $number_of_study_samples:[Float],
+  $phs_accession:[String],
+  $platforms:[String],
+  $primary_diagnoses:[String],
+  $reference_genome_assemblies:[String],
+  $site:[String],
+  $studies:[String],
+  $study_data_types:[String]
 ){
-searchSubjects (           
-  subject_ids: $subject_ids
-  studies: $studies
-  file_types: $file_types
-  genders: $genders
-  experimental_strategies: $experimental_strategies
-  is_tumor: $is_tumor
-  accesses: $accesses
-) {
-  numberOfStudies
-  numberOfSubjects
-  numberOfSamples
-  numberOfFiles
-  numberOfDiseaseSites
-
-  subjectCountByExperimentalStrategy{
-      group
-      subjects
+  searchSubjects(
+      subject_ids: $subject_ids,
+      accesses:$accesses,
+      acl:$acl,
+      experimental_strategies:$experimental_strategies,
+      file_types:$file_types,
+      genders:$genders,
+      instrument_models:$instrument_models,
+      is_tumor:$is_tumor,
+      library_layouts:$library_layouts,
+      library_selections:$library_selections,
+      library_sources:$library_sources,
+      library_strategies:$library_strategies,
+      number_of_study_participants:$number_of_study_participants,
+      number_of_study_samples:$number_of_study_samples,
+      phs_accession:$phs_accession,
+      platforms:$platforms,
+      primary_diagnoses:$primary_diagnoses,
+      reference_genome_assemblies:$reference_genome_assemblies,
+      site:$site,
+      studies:$studies,
+      study_data_types:$study_data_types
+  ){
+      numberOfStudies
+      numberOfSubjects
+      numberOfSamples
+      numberOfFiles
+      numberOfDiseaseSites
+      subjectCountByStudy{
+          group
+          subjects
+      }
+      subjectCountByExperimentalStrategy{
+          group
+          subjects
+      }
+      subjectCountByAccess{
+          group
+          subjects
+      }
+      subjectCountByGender{
+          group
+          subjects
+      }
+      subjectCountByIsTumor{
+          group
+          subjects
+      }
+      subjectCountByAnalyteType{
+          group
+          subjects
+      }
+      subjectCountByFileType{
+          group
+          subjects
+      }
+      subjectCountByDiseaseSite{
+          group
+          subjects
+      }
+      subjectCountByLibraryStrategy{
+          group
+          subjects
+      }
+      subjectCountByLibrarySource{
+          group
+          subjects
+      }
+      subjectCountByLibrarySelection{
+          group
+          subjects
+      }
+      subjectCountByLibraryLayout{
+          group
+          subjects
+      }
+      subjectCountByPlatform{
+          group
+          subjects
+      }
+      subjectCountByInstrumentModel{
+          group
+          subjects
+      }
+      subjectCountByReferenceGenomeAssembly{
+          group
+          subjects
+      }
+      subjectCountByPrimaryDiagnosis{
+          group
+          subjects
+      }
+      subjectCountByPhsAccession{
+          group
+          subjects
+      }
+      subjectCountByStudyDataType{
+          group
+          subjects
+      }
+      subjectCountByAcl{
+          group
+          subjects
+      }
+      filterSubjectCountByStudy{
+          group
+          subjects
+      }
+      filterSubjectCountByExperimentalStrategy{
+          group
+          subjects
+      }
+      filterSubjectCountByAccess{
+          group
+          subjects
+      }
+      filterSubjectCountByGender{
+          group
+          subjects
+      }
+      filterSubjectCountByIsTumor{
+          group
+          subjects
+      }
+      filterSubjectCountByFileType{
+          group
+          subjects
+      }
+      filterSubjectCountByAnalyteType{
+          group
+          subjects
+      }
+      filterSubjectCountByDiseaseSite{
+          group
+          subjects
+      }
+      filterSubjectCountByLibraryStrategy{
+          group
+          subjects
+      }
+      filterSubjectCountByLibrarySource{
+          group
+          subjects
+      }
+      filterSubjectCountByLibrarySelection{
+          group
+          subjects
+      }
+      filterSubjectCountByLibraryLayout{
+          group
+          subjects
+      }
+      filterSubjectCountByPlatform{
+          group
+          subjects
+      }
+      filterSubjectCountByInstrumentModel{
+          group
+          subjects
+      }
+      filterSubjectCountByReferenceGenomeAssembly{
+          group
+          subjects
+      }
+      filterSubjectCountByPrimaryDiagnosis{
+          group
+          subjects
+      }
+      filterSubjectCountByPhsAccession{
+          group
+          subjects
+      }
+      filterSubjectCountByStudyDataType{
+          group
+          subjects
+      }
+      filterSubjectCountByAcl{
+          group
+          subjects
+      }
+      filterSubjectCountByNumberOfStudyParticipants{
+          lowerBound
+          upperBound
+          subjects
+      }
+      filterSubjectCountByNumberOfStudySamples{
+          lowerBound
+          upperBound
+          subjects
+      }
   }
-  subjectCountByGender{
-      group
-      subjects
-  }
-  subjectCountByIsTumor{
-      group
-      subjects
-  }
-  subjectCountByAnalyteType{
-      group
-      subjects
-  }
-
-  filterSubjectCountByStudy{
-      group
-      subjects
-  }
-  filterSubjectCountByExperimentalStrategy{
-      group
-      subjects
-  }
-  filterSubjectCountByAccess{
-      group
-      subjects
-  }
-  filterSubjectCountByGender{
-      group
-      subjects
-  }
-  filterSubjectCountByIsTumor{
-      group
-      subjects
-  }
-  filterSubjectCountByFileType{
-      group
-      subjects
-  }
-}
 }
 `;
 
 export const SUBJECT_OVERVIEW_QUERY = gql`
 query subjectOverview(
   $subject_ids: [String],
-  $studies: [String],
-  $file_types: [String],
-  $genders: [String],
-  $experimental_strategies: [String],
-  $is_tumor: [String],
-  $accesses: [String],
-  $first: Int, 
-  $offset: Int, 
-  $order_by:  String,
-  $sort_direction: String 
-){
-subjectOverview(
-  subject_ids: $subject_ids,
-  studies: $studies,
-  file_types: $file_types,
-  genders: $genders,
-  experimental_strategies: $experimental_strategies,
-  is_tumor: $is_tumor,
-  accesses: $accesses,
-  first: $first, 
-  offset: $offset, 
-  order_by: $order_by,
-  sort_direction: $sort_direction
-  
-  ) {
-  subject_id
-  study_acronym
-  phs_accession
-  gender
-  site
+  $accesses:[String],
+  $acl:[String],
+  $experimental_strategies:[String],
+  $file_types:[String],
+  $genders:[String],
+  $instrument_models:[String],
+  $is_tumor:[String],
+  $library_layouts:[String],
+  $library_selections:[String],
+  $library_sources:[String],
+  $library_strategies:[String],
+  $number_of_study_participants:[Float],
+  $number_of_study_samples:[Float],
+  $phs_accession:[String],
+  $platforms:[String],
+  $primary_diagnoses:[String],
+  $reference_genome_assemblies:[String],
+  $site:[String],
+  $studies:[String],
+  $study_data_types:[String],
 
-  samples
-  files
-  
-}
+  $order_by: String,
+  $sort_direction: String,
+  $first: Int,
+  $offset: Int
+){
+  subjectOverview(
+      subject_ids: $subject_ids,
+      accesses:$accesses,
+      acl:$acl,
+      experimental_strategies:$experimental_strategies,
+      file_types:$file_types,
+      genders:$genders,
+      instrument_models:$instrument_models,
+      is_tumor:$is_tumor,
+      library_layouts:$library_layouts,
+      library_selections:$library_selections,
+      library_sources:$library_sources,
+      library_strategies:$library_strategies,
+      number_of_study_participants:$number_of_study_participants,
+      number_of_study_samples:$number_of_study_samples,
+      phs_accession:$phs_accession,
+      platforms:$platforms,
+      primary_diagnoses:$primary_diagnoses,
+      reference_genome_assemblies:$reference_genome_assemblies,
+      site:$site,
+      studies:$studies,
+      study_data_types:$study_data_types,
+
+      order_by:$order_by,
+      sort_direction:$sort_direction,
+      first:$first,
+      offset:$offset
+  ){
+      subject_id
+      study_acronym
+      phs_accession
+      gender
+      site
+      samples
+      files
+  }
 }
 `;
 
