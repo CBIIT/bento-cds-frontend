@@ -22,6 +22,7 @@ import {
   fetchAllFileIDs,
   getFilesCount,
 } from '../store/dashboardReducer';
+import GA from '../../../utils/googleAnalytics';
 
 function TabContainer({ children, dir }) {
   return (
@@ -71,6 +72,11 @@ const tabController = (classes) => {
   const { isCaseSelected } = useSelector((state) => state.dashboardTab);
 
   const handleTabChange = (event, value) => {
+    if (currentTab !== value) {
+      const currentTabTitle = tabIndex[currentTab].title;
+      const newTabTitle = tabIndex[value].title;
+      GA.sendEvent('Tab Change', tabIndex[value].title, `${currentTabTitle} -> ${newTabTitle}`, null);
+    }
     setCurrentTab(value);
     if (!isCaseSelected) {
       fetchDataForDashboardTab(tabIndex[value].title);

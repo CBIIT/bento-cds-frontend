@@ -24,6 +24,7 @@ import fileCentricCart from '../../pages/fileCentricCart/cartController';
 // import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
 import GlobalSearch from '../../pages/search/searchView';
 import GlobalSearchController from '../../pages/search/searchViewController';
+import GA from '../../utils/googleAnalytics';
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -43,6 +44,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
           className={classes.content}
         >
           <Route component={ScrollToTop} />
+          { GA.init() && <GA.RouteTracker /> }
           <Switch>
             <Route exact path="/CDS/" component={Home} />
             <Route exact path="/" component={Home} />

@@ -47,6 +47,7 @@ import InputViewMax from './InputViewMax';
 import AutoComplete from './searchComponet';
 import FacetModal from './CasesModal';
 import styles from './styles/FacetFiltersStyles';
+import GA from '../../../utils/googleAnalytics';
 
 const size = '10px';
 if (resetIconFilter.src === '') {
@@ -237,6 +238,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
 
   const handleToggle = (value) => () => {
     const valueList = value.split('$$');
+    GA.sendEvent('Facets', 'Filter', valueList[1]);
     setSideBarToLoading();
     setDashboardTableLoading();
     // dispatch toggleCheckBox action

@@ -16,6 +16,7 @@ import {
 } from '../../bento/fileCentricCartWorkflowData';
 import { deleteFromCart } from './store/cart';
 import { downloadJson } from './utils';
+import GA from '../../utils/googleAnalytics';
 
 const CustomHeaderRemove = ({
   openDialogBox,
@@ -104,6 +105,7 @@ const cartView = ({
 
   function deleteSubjectsAndCloseModal() {
     closeDialogBox();
+    GA.sendEvent('File', 'Removed', null, `${fileIDs.length} Files`);
     deleteFromCart({ fileIds: fileIDs });
   }
   const numberOfFilesBeDeleted = myFilesPageData.popUpWindow.showNumberOfFileBeRemoved
@@ -114,6 +116,7 @@ const cartView = ({
     // get the user Comments value from the footer,
     const userComments = commentRef.current.getValue();
     const data1 = await fetchData();
+    GA.sendEvent('Manifest', 'Download', 'cart');
     return downloadJson(
       data1,
       userComments,
