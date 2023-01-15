@@ -227,10 +227,6 @@ query searchSubjects(
           group
           subjects
       }
-      filterSubjectCountByAcl{
-          group
-          subjects
-      }
       filterSubjectCountByNumberOfStudyParticipants{
           lowerBound
           upperBound

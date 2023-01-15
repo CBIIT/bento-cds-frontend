@@ -36,9 +36,6 @@ export const facetSearchData = [
     label: 'study datatypes ', field: 'group', api: 'filterSubjectCountByStudyDataType', apiForFiltering: 'filterSubjectCountByStudyDataType', datafield: 'study_data_types', section: 'Cases', show: true,
   },
   {
-    label: 'acl ', field: 'group', api: 'filterSubjectCountByAcl', apiForFiltering: 'filterSubjectCountByAcl', datafield: 'acl', section: 'Cases', show: true,
-  },
-  {
     label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategy', section: 'Cases', show: true,
   },
   {
@@ -60,7 +57,7 @@ export const facetSearchData = [
     label: 'reference genome assemblies', field: 'group', api: 'filterSubjectCountByReferenceGenomeAssembly', apiForFiltering: 'filterSubjectCountByReferenceGenomeAssembly', datafield: 'reference_genome_assemblies', section: 'Cases', show: true,
   },
   {
-    label: 'Diagnoses', field: 'group', api: 'filterSubjectCountByPrimaryDiagnosis', apiForFiltering: 'filterSubjectCountByPrimaryDiagnosis', datafield: 'primary_diagnoses', section: 'Cases', show: true,
+    label: 'PRIMARY DIAGNOSIS', field: 'group', api: 'filterSubjectCountByPrimaryDiagnosis', apiForFiltering: 'filterSubjectCountByPrimaryDiagnosis', datafield: 'primary_diagnoses', section: 'Cases', show: true,
   },
 ];
 

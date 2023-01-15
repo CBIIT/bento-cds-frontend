@@ -236,7 +236,7 @@ const cartView = ({
               To access and analyze file click "Download File Manifest" button
               and upload resulting file to
               {' '}
-              <a className={classes.tableWrapperAnchor} href="https://www.sevenbridges.com/">Seven Bridges Genomics</a>
+              <a className={classes.tableWrapperAnchor} href="https://www.cancergenomicscloud.org">Seven Bridges Genomics</a>
               {' '}
               account
             </div>
