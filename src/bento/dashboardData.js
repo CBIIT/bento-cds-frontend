@@ -15,13 +15,13 @@ export const facetSearchData = [
     label: 'Experimental Strategy', field: 'group', api: 'subjectCountByExperimentalStrategy', apiForFiltering: 'filterSubjectCountByExperimentalStrategy', datafield: 'experimental_strategies', section: 'Cases', show: true,
   },
   {
-    label: 'Gender', field: 'group', api: 'filterSubjectCountByGender', apiForFiltering: 'filterSubjectCountByGender', datafield: 'genders', section: 'Cases', show: true,
-  },
-  {
     label: 'Sample Tumor Status', field: 'group', api: 'filterSubjectCountByIsTumor', apiForFiltering: 'filterSubjectCountByIsTumor', datafield: 'is_tumor', section: 'Cases', show: true,
   },
   {
-    label: 'FileType', field: 'group', api: 'filterSubjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_types', section: 'Cases', show: true,
+    label: 'Gender', field: 'group', api: 'filterSubjectCountByGender', apiForFiltering: 'filterSubjectCountByGender', datafield: 'genders', section: 'Cases', show: true,
+  },
+  {
+    label: 'File Type', field: 'group', api: 'filterSubjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_types', section: 'Cases', show: true,
   },
   {
     label: 'PHS Accession ', field: 'group', api: 'filterSubjectCountByPhsAccession', apiForFiltering: 'filterSubjectCountByPhsAccession', datafield: 'phs_accession', section: 'Cases', show: true,
@@ -33,7 +33,7 @@ export const facetSearchData = [
     label: 'Num of study Samples', api: 'filterSubjectCountByNumberOfStudySamples', apiForFiltering: 'filterSubjectCountByNumberOfStudySamples', datafield: 'number_of_study_samples', section: 'Cases', show: true, slider: true, quantifier: 'Study Samples',
   },
   {
-    label: 'study datatypes ', field: 'group', api: 'filterSubjectCountByStudyDataType', apiForFiltering: 'filterSubjectCountByStudyDataType', datafield: 'study_data_types', section: 'Cases', show: true,
+    label: 'study data types ', field: 'group', api: 'filterSubjectCountByStudyDataType', apiForFiltering: 'filterSubjectCountByStudyDataType', datafield: 'study_data_types', section: 'Cases', show: true,
   },
   {
     label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategy', section: 'Cases', show: true,
