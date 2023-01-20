@@ -39,22 +39,22 @@ export const facetSearchData = [
     label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategy', section: 'Cases', show: true,
   },
   {
-    label: 'library sources ', field: 'group', api: 'filterSubjectCountByLibrarySource', apiForFiltering: 'filterSubjectCountByLibrarySource', datafield: 'library_sources', section: 'Cases', show: true,
+    label: 'library source', field: 'group', api: 'filterSubjectCountByLibrarySource', apiForFiltering: 'filterSubjectCountByLibrarySource', datafield: 'library_sources', section: 'Cases', show: true,
   },
   {
-    label: 'library selections ', field: 'group', api: 'filterSubjectCountByLibrarySelection', apiForFiltering: 'filterSubjectCountByLibrarySelection', datafield: 'library_selections', section: 'Cases', show: true,
+    label: 'library selection', field: 'group', api: 'filterSubjectCountByLibrarySelection', apiForFiltering: 'filterSubjectCountByLibrarySelection', datafield: 'library_selections', section: 'Cases', show: true,
   },
   {
-    label: 'library layouts ', field: 'group', api: 'filterSubjectCountByLibraryLayout', apiForFiltering: 'filterSubjectCountByLibraryLayout', datafield: 'library_layouts', section: 'Cases', show: true,
+    label: 'library layout', field: 'group', api: 'filterSubjectCountByLibraryLayout', apiForFiltering: 'filterSubjectCountByLibraryLayout', datafield: 'library_layouts', section: 'Cases', show: true,
   },
   {
-    label: 'platforms ', field: 'group', api: 'filterSubjectCountByPlatform', apiForFiltering: 'filterSubjectCountByPlatform', datafield: 'platforms', section: 'Cases', show: true,
+    label: 'platform', field: 'group', api: 'filterSubjectCountByPlatform', apiForFiltering: 'filterSubjectCountByPlatform', datafield: 'platforms', section: 'Cases', show: true,
   },
   {
-    label: 'instrument models ', field: 'group', api: 'filterSubjectCountByInstrumentModel', apiForFiltering: 'filterSubjectCountByInstrumentModel', datafield: 'instrument_models', section: 'Cases', show: true,
+    label: 'instrument model', field: 'group', api: 'filterSubjectCountByInstrumentModel', apiForFiltering: 'filterSubjectCountByInstrumentModel', datafield: 'instrument_models', section: 'Cases', show: true,
   },
   {
-    label: 'reference genome assemblies', field: 'group', api: 'filterSubjectCountByReferenceGenomeAssembly', apiForFiltering: 'filterSubjectCountByReferenceGenomeAssembly', datafield: 'reference_genome_assemblies', section: 'Cases', show: true,
+    label: 'reference genome assembly', field: 'group', api: 'filterSubjectCountByReferenceGenomeAssembly', apiForFiltering: 'filterSubjectCountByReferenceGenomeAssembly', datafield: 'reference_genome_assemblies', section: 'Cases', show: true,
   },
   {
     label: 'PRIMARY DIAGNOSIS', field: 'group', api: 'filterSubjectCountByPrimaryDiagnosis', apiForFiltering: 'filterSubjectCountByPrimaryDiagnosis', datafield: 'primary_diagnoses', section: 'Cases', show: true,
