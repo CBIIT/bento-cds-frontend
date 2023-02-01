@@ -24,6 +24,7 @@ import fileCentricCart from '../../pages/fileCentricCart/cartController';
 // import JBrowse from '../JBrowse/JBrowseView';
 // import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
 import GlobalSearch from '../../pages/search/searchView';
+import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import GlobalSearchController from '../../pages/search/searchViewController';
 import GA from '../../utils/googleAnalytics';
 
@@ -39,6 +40,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
       <>
         <LinkBar url="https://datacommons.cancer.gov/?cid=caninecommons.cancer.gov" />
         <Header />
+        <OverlayWindow />
         <NavBar />
         {/* Reminder: Ajay need to replace the ICDC with env variable and
           change build npm to read env variable */}
