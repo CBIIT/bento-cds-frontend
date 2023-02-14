@@ -63,7 +63,7 @@ export const landingPageData = {
     alt: '',
     img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/landingTile3.png',
     titleText: 'SUBMIT DATA',
-    descriptionText: 'Submitters should start by contacting the CDS Help desk $$[cdshelpdesk@mail.nih.gov](cdshelpdesk@mail.nih.gov)$$',
+    descriptionText: 'Submitters should start by contacting the CDS Helpdesk $$[cdshelpdesk@mail.nih.gov](cdshelpdesk@mail.nih.gov)$$',
     callToActionText: 'Start the process',
     callToActionLink: '/submit', // Link to the "Submit" Static Page
   },
