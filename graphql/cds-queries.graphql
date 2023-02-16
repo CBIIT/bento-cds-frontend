@@ -28,6 +28,7 @@ type StudyDetail {
     study_acronym: String
     study_description: String
     data_types: String
+    study_external_url: String
     numberOfSubjects: Int
     numberOfSamples: Int
     numberOfDiseaseSites: Int
@@ -119,6 +120,7 @@ type QueryType {
             study_acronym: s.study_acronym,
             study_description: s.study_description,
             data_types: s.study_data_types,
+            study_external_url: s.study_external_url,
             numberOfSubjects: COUNT(DISTINCT p),
             numberOfSamples: COUNT(DISTINCT samp),
             numberOfDiseaseSites: COUNT(DISTINCT diag.primary_site),

@@ -27,8 +27,12 @@ type file {
   file_size: Int
   md5sum: String
   file_url_in_cds: String
+  experimental_strategy_and_data_subtypes: String
+  study: study 
   samples: [sample] 
   genomic_info: genomic_info 
+  methylation: methylation 
+  NONE: [methylation] 
 }
 
 type genomic_info {
@@ -50,6 +54,14 @@ type genomic_info {
   files: [file] 
   samples: [sample] 
   file: file 
+}
+
+type methylation {
+  reporter_label: String
+  methylation_platform: String
+  file: file 
+  files: [file] 
+  samples: [sample] 
 }
 
 type participant {
@@ -82,10 +94,12 @@ type sample {
   sample_age_at_collection: Int
   derived_from_specimen: String
   biosample_accession: String
+  experimental_strategy_and_data_subtypes: String
   participant: participant 
   specimen: specimen 
   files: [file] 
   genomic_info: [genomic_info] 
+  NONE: [methylation] 
 }
 
 type specimen {
@@ -125,14 +139,15 @@ type study {
   number_of_participants: Float
   number_of_samples: Float
   study_data_types: String
-  experimental_strategy_and_data_subtypes: String
   file_types_and_format: String
   size_of_data_being_uploaded: Float
   size_of_data_being_uploaded_unit: String
   size_of_data_being_uploaded_original: Float
   size_of_data_being_uploaded_original_unit: String
+  acl: String
   program: program 
   participants: [participant] 
+  files: [file] 
 }
 
 type treatment {
@@ -173,6 +188,7 @@ type StudyDetail {
     study_acronym: String
     study_description: String
     data_types: String
+    study_external_url: String
     numberOfSubjects: Int
     numberOfSamples: Int
     numberOfDiseaseSites: Int
