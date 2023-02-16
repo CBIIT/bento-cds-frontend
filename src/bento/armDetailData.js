@@ -73,7 +73,9 @@ const rightPanel = [
       },
       {
         label: 'External Resources',
-        dataField: 'external_resources',
+        dataField: 'study_external_url',
+        link: '{study_external_url}',
+        // labelLink: true,
       },
     ],
   },
@@ -168,6 +170,7 @@ query studyDetail($phs_accession: String) {
     study_name
     phs_accession
     study_acronym
+    study_external_url
     data_types
     study_description
     numberOfSubjects
