@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {
   Grid, withStyles, Button, Switch, Collapse, FormControlLabel,
@@ -44,7 +45,7 @@ const Dashboard = ({
                         </Button>
                       )}
                     />
-                    <Switch
+                    {/* <Switch
                       classes={{
                         root: classes.switchRoot,
                         switchBase: classes.switchBase,
@@ -57,7 +58,7 @@ const Dashboard = ({
                       onChange={() => {
                         themeChanger.toggleTheme();
                       }}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <Collapse in={collapse} className={classes.backgroundWidgets}>
@@ -106,7 +107,7 @@ const Dashboard = ({
                             >
                               <CustomActiveDonut
                                 data={data[widget.dataName]}
-                                titleText={widget.titleText || 'Cases'}
+                                titleText={widget.titleText || 'Participants'}
                                 width={400}
                                 height={225}
                                 innerRadius={50}
@@ -117,6 +118,7 @@ const Dashboard = ({
                                 colors={colors}
                                 titleLocation="bottom"
                                 titleAlignment="center"
+                                textOverflowLength={14}
                               />
                             </Widget>
                           </Grid>

@@ -9,62 +9,65 @@ export const searchTabTitleText = 'Search';
 // A maximum of 12 facetSearchData are allowed
 export const facetSearchData = [
   {
-    label: 'Program', field: 'group', api: 'subjectCountByProgram', apiForFiltering: 'filterSubjectCountByProgram', datafield: 'programs', section: 'Cases', show: true,
+    label: 'Study', field: 'group', api: 'filterSubjectCountByStudy', apiForFiltering: 'filterSubjectCountByStudy', datafield: 'studies', section: 'Cases', show: true,
   },
   {
-    label: 'Arm', field: 'group', api: 'subjectCountByStudy', apiForFiltering: 'filterSubjectCountByStudy', datafield: 'studies', section: 'Cases', show: true,
+    label: 'Experimental Strategy', field: 'group', api: 'subjectCountByExperimentalStrategy', apiForFiltering: 'filterSubjectCountByExperimentalStrategy', datafield: 'experimental_strategies', section: 'Cases', show: true,
   },
   {
-    label: 'Diagnosis', field: 'group', api: 'subjectCountByDiagnoses', apiForFiltering: 'filterSubjectCountByDiagnoses', datafield: 'diagnoses', section: 'Cases', show: true,
+    label: 'Sample Tumor Status', field: 'group', api: 'filterSubjectCountByIsTumor', apiForFiltering: 'filterSubjectCountByIsTumor', datafield: 'is_tumor', section: 'Cases', show: true,
   },
   {
-    label: 'Recurrence Score', field: 'group', api: 'subjectCountByRecurrenceScore', apiForFiltering: 'filterSubjectCountByRecurrenceScore', datafield: 'rc_scores', section: 'Cases', show: true, customNumberSort: true,
+    label: 'Gender', field: 'group', api: 'filterSubjectCountByGender', apiForFiltering: 'filterSubjectCountByGender', datafield: 'genders', section: 'Cases', show: true,
   },
   {
-    label: 'Tumor Size', field: 'group', api: 'subjectCountByTumorSize', apiForFiltering: 'filterSubjectCountByTumorSize', datafield: 'tumor_sizes', section: 'Cases', show: true, customNumberSort: true,
+    label: 'File Type', field: 'group', api: 'filterSubjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_types', section: 'Cases', show: true,
   },
   {
-    label: 'Chemotherapy', field: 'group', api: 'subjectCountByChemotherapyRegimen', apiForFiltering: 'filterSubjectCountByChemotherapyRegimen', datafield: 'chemo_regimen', section: 'Cases', show: true,
+    label: 'PHS Accession ', field: 'group', api: 'filterSubjectCountByPhsAccession', apiForFiltering: 'filterSubjectCountByPhsAccession', datafield: 'phs_accession', section: 'Cases', show: true,
   },
   {
-    label: 'Tumor Grade', field: 'group', api: 'subjectCountByTumorGrade', apiForFiltering: 'filterSubjectCountByTumorGrade', datafield: 'tumor_grades', section: 'Cases', show: true,
+    label: 'Num of Study Participants', api: 'filterSubjectCountByNumberOfStudyParticipants', apiForFiltering: 'filterSubjectCountByNumberOfStudyParticipants', datafield: 'number_of_study_participants', section: 'Cases', show: true, slider: true, quantifier: 'Study Participants',
   },
   {
-    label: 'ER Status', field: 'group', api: 'subjectCountByErStatus', apiForFiltering: 'filterSubjectCountByErStatus', datafield: 'er_status', section: 'Cases', show: true,
+    label: 'Num of study Samples', api: 'filterSubjectCountByNumberOfStudySamples', apiForFiltering: 'filterSubjectCountByNumberOfStudySamples', datafield: 'number_of_study_samples', section: 'Cases', show: true, slider: true, quantifier: 'Study Samples',
   },
   {
-    label: 'PR Status', field: 'group', api: 'subjectCountByPrStatus', apiForFiltering: 'filterSubjectCountByPrStatus', datafield: 'pr_status', section: 'Cases', show: true,
+    label: 'study data types ', field: 'group', api: 'filterSubjectCountByStudyDataType', apiForFiltering: 'filterSubjectCountByStudyDataType', datafield: 'study_data_types', section: 'Cases', show: true,
   },
   {
-    label: 'Endocrine Therapy', field: 'group', api: 'subjectCountByEndocrineTherapy', apiForFiltering: 'filterSubjectCountByEndocrineTherapy', datafield: 'endo_therapies', section: 'Cases', show: true,
+    label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategy', section: 'Cases', show: true,
   },
   {
-    label: 'Menopause Status', field: 'group', api: 'subjectCountByMenopauseStatus', apiForFiltering: 'filterSubjectCountByMenopauseStatus', datafield: 'meno_status', section: 'Cases', show: true,
+    label: 'library source', field: 'group', api: 'filterSubjectCountByLibrarySource', apiForFiltering: 'filterSubjectCountByLibrarySource', datafield: 'library_sources', section: 'Cases', show: true,
   },
   {
-    label: 'Tissue Type', field: 'group', api: 'subjectCountByTissueType', apiForFiltering: 'filterSubjectCountByTissueType', datafield: 'tissue_type', section: 'Samples', show: true,
+    label: 'library selection', field: 'group', api: 'filterSubjectCountByLibrarySelection', apiForFiltering: 'filterSubjectCountByLibrarySelection', datafield: 'library_selections', section: 'Cases', show: true,
   },
   {
-    label: 'Tissue Composition', field: 'group', api: 'subjectCountByTissueComposition', apiForFiltering: 'filterSubjectCountByTissueComposition', datafield: 'composition', section: 'Samples', show: true,
+    label: 'library layout', field: 'group', api: 'filterSubjectCountByLibraryLayout', apiForFiltering: 'filterSubjectCountByLibraryLayout', datafield: 'library_layouts', section: 'Cases', show: true,
   },
   {
-    label: 'File Association', field: 'group', api: 'subjectCountByFileAssociation', apiForFiltering: 'filterSubjectCountByFileAssociation', datafield: 'association', section: 'Files', show: true,
+    label: 'platform', field: 'group', api: 'filterSubjectCountByPlatform', apiForFiltering: 'filterSubjectCountByPlatform', datafield: 'platforms', section: 'Cases', show: true,
   },
   {
-    label: 'File Type', field: 'group', api: 'subjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_type', section: 'Files', show: true,
+    label: 'instrument model', field: 'group', api: 'filterSubjectCountByInstrumentModel', apiForFiltering: 'filterSubjectCountByInstrumentModel', datafield: 'instrument_models', section: 'Cases', show: true,
   },
   {
-    label: 'Age', api: 'filterSubjectCountByAge', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'age_at_index', section: 'Cases', show: true, slider: true, quantifier: 'Years',
+    label: 'reference genome assembly', field: 'group', api: 'filterSubjectCountByReferenceGenomeAssembly', apiForFiltering: 'filterSubjectCountByReferenceGenomeAssembly', datafield: 'reference_genome_assemblies', section: 'Cases', show: true,
+  },
+  {
+    label: 'PRIMARY DIAGNOSIS', field: 'group', api: 'filterSubjectCountByPrimaryDiagnosis', apiForFiltering: 'filterSubjectCountByPrimaryDiagnosis', datafield: 'primary_diagnoses', section: 'Cases', show: true,
   },
 ];
 
 // --------------- Dashboard Sidebar Sections styling --------------
 export const facetSectionVariables = {
   Cases: {
-    color: '#10A075',
-    backgroundColor: '#C0E9D7',
-    checkBoxColorsOne: '#E8F7DC',
-    checkBoxColorsTwo: '#F5FDEE',
+    color: '#0E6292',
+    backgroundColor: '#C3E8F7',
+    checkBoxColorsOne: '#C3E8F7',
+    checkBoxColorsTwo: '#C3E8F7',
     height: '5px',
     isExpanded: true,
   },
@@ -109,7 +112,7 @@ export const search = {
     isExpanded: false,
   },
   subjectIds: {
-    color: '#10A075',
+    color: '#0E6292',
     checkBoxColorsOne: '#E8F7DC',
     checkBoxColorsTwo: '#F5FDEE',
     height: '5px',
@@ -155,52 +158,27 @@ export const displayActiveFiltersQuery = true;
 // A maximum of 6 widgets are allowed
 export const widgetsData = [
   {
-    type: 'sunburst',
-    label: 'Programs and Arms',
-    dataName: 'armsByPrograms',
-    datatable_level1_field: 'program',
-    datatable_level2_field: 'study_acronym',
-    titleText: 'Cases',
+    type: 'donut',
+    label: 'Experimental Strategy',
+    dataName: 'subjectCountByExperimentalStrategy',
+    datatable_field: 'experimental_strategies',
+    titleText: 'Files',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Diagnosis',
-    dataName: 'subjectCountByDiagnoses',
-    datatable_field: 'diagnosis',
-    titleText: 'Cases',
+    label: 'Gender',
+    dataName: 'subjectCountByGender',
+    datatable_field: 'genders',
+    titleText: 'Participants',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Recurrence Score',
-    dataName: 'subjectCountByRecurrenceScore',
-    datatable_field: 'recurrence_score',
-    titleText: 'Cases',
-    show: true,
-  },
-  {
-    type: 'donut',
-    label: 'Tumor Size',
-    dataName: 'subjectCountByTumorSize',
-    datatable_field: 'tumor_size',
-    titleText: 'Cases',
-    show: true,
-  },
-  {
-    type: 'donut',
-    label: 'Chemotherapy',
-    dataName: 'subjectCountByChemotherapyRegimen',
-    datatable_field: 'chemotherapy',
-    titleText: 'Cases',
-    show: true,
-  },
-  {
-    type: 'donut',
-    label: 'Endocrine Therapy',
-    dataName: 'subjectCountByEndocrineTherapy',
-    datatable_field: 'endocrine_therapy',
-    titleText: 'Cases',
+    label: 'Sample Tumor Status',
+    dataName: 'subjectCountByIsTumor',
+    datatable_field: 'is_tumor',
+    titleText: 'Samples',
     show: true,
   },
 ];
@@ -232,7 +210,7 @@ export const dashboardTable = {
     // A maximum of 10 columns (tableData) are allowed
     {
       dataField: 'subject_id',
-      header: 'Case ID',
+      header: 'Participant ID',
       sort: 'asc',
       link: '/case/{subject_id}',
       primary: true,
@@ -320,10 +298,6 @@ export const GET_DASHBOARD_DATA_QUERY = gql`{
   numberOfSamples
   numberOfLabProcedures
   numberOfFiles
-  subjectCountByProgram{
-        group
-        subjects
-      }
     subjectCountByStudy{
         group
         subjects

@@ -1,31 +1,26 @@
 import { Grid, withStyles } from '@material-ui/core';
 import React from 'react';
 import { prepareLinks } from 'bento-components';
-import { Link } from 'react-router-dom';
 import PropertyItem from '../propertyItem';
 
 const SampleCard = ({ data, classes, index }) => {
   const properties = [
-    {
-      label: 'Program ID',
-      dataField: 'program_id',
-      link: '/program/{program_id}',
-
-    },
 
     {
-      label: 'Case ID',
+      label: 'Participant ID',
       dataField: 'subject_id',
-      link: '/case/{subject_id}',
-
     },
     {
-      label: 'Diagnosis',
-      dataField: 'diagnosis',
+      label: 'Sample ID',
+      dataField: 'sample_id',
     },
     {
-      label: 'Sample Anatomic Site',
-      dataField: 'sample_anatomic_site',
+      label: 'is tumor',
+      dataField: 'is_tumor',
+    },
+    {
+      label: 'Analyte Type',
+      dataField: 'analyte_type',
 
     },
     {
@@ -41,15 +36,13 @@ const SampleCard = ({ data, classes, index }) => {
 
       <Grid item container className={classes.card}>
         <Grid item xs={1} className={classes.indexContainer}>
-          {index + 1 }
+          {index + 1}
         </Grid>
         <Grid item xs={11} className={classes.propertyContainer}>
           <div>
             <span className={classes.detailContainerHeader}>Sample</span>
             <span className={classes.cardTitle}>
-              <Link to={`/case/${data.subject_id}`} className={classes.cardTitle}>
-                {data.sample_id}
-              </Link>
+              {data.sample_id}
             </span>
 
           </div>

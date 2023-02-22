@@ -61,7 +61,7 @@ const cartController = () => {
       localPage={localPage}
       localRowsPerPage={localRowsPerPage}
       data={
-        data.filesInList === null || data.filesInList === '' ? [] : data.filesInList
+        data.fileOverview === null || data.fileOverview === '' ? [] : data.fileOverview
         }
     />
   );

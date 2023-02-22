@@ -1,35 +1,47 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 // import { useDispatch } from 'react-redux';
 import {
   Grid,
   withStyles,
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { getOptions, getColumns, CustomActiveDonut } from 'bento-components';
+// import { getOptions, getColumns, CustomActiveDonut } from 'bento-components';
+import {
+  getOptions, ToolTip,
+} from 'bento-components';
 import GridWithFooter from '../../components/GridWithFooter/GridView';
 import StatsView from '../../components/Stats/StatsView';
 import { Typography } from '../../components/Wrappers/Wrappers';
-import icon from '../../assets/icons/Arms.Icon.svg';
-import fileCountIcon from '../../assets/icons/Program_Detail.FileCount.svg';
-import globalData from '../../bento/siteWideConfig';
+// import fileCountIcon from '../../assets/icons/Program_Detail.FileCount.svg';
 import {
   header,
   subsections,
   table,
   tooltipContent,
+  rightPanel,
+  armHeaderLogo,
+  GET_MY_FILE_OVERVIEW_QUERY,
+  armIDField,
 } from '../../bento/armDetailData';
 import {
   singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
 } from '../dashboardTab/store/dashboardReducer';
-import Widget from '../../components/Widgets/WidgetView';
+// import Widget from '../../components/Widgets/WidgetView';
 import PropertySubsection from '../../components/PropertySubsection/armDetailSubsection';
-import NumberOfThings from '../../components/NumberOfThings';
+// import NumberOfThings from '../../components/NumberOfThings';
 import Snackbar from '../../components/Snackbar';
-import colors from '../../utils/colors';
+// import colors from '../../utils/colors';
+import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 
 // Main case detail component
-const ArmDetail = ({ data, classes }) => {
+const ArmDetail = ({ studyData, paramId, classes }) => {
   // const dispatch = useDispatch();
+
+  // eslint-disable-next-line no-unused-vars
+  const { loading, error, data } = useQuery(GET_MY_FILE_OVERVIEW_QUERY, {
+    variables: { [armIDField]: paramId, first: 10 },
+  });
 
   const [snackbarState, setsnackbarState] = React.useState({
     open: false,
@@ -47,9 +59,9 @@ const ArmDetail = ({ data, classes }) => {
     setDashboardTableLoading();
     singleCheckBox([{
       datafield: 'studies',
-      groupName: 'Arm',
+      groupName: 'Study',
       isChecked: true,
-      name: data.study_info,
+      name: studyData.study_name,
       section: 'Filter By Cases',
     }]);
   };
@@ -57,11 +69,28 @@ const ArmDetail = ({ data, classes }) => {
   const stat = {
     numberOfPrograms: 1,
     numberOfStudies: 1,
-    numberOfSubjects: data.num_subjects,
-    numberOfSamples: data.num_samples,
-    numberOfLabProcedures: data.num_lab_procedures,
-    numberOfFiles: data.num_files,
+    numberOfSubjects: studyData.numberOfSubjects,
+    numberOfSamples: studyData.numberOfSamples,
+    numberOfDiseaseSites: studyData.numberOfDiseaseSites,
+    numberOfFiles: studyData.numberOfFiles,
   };
+
+  const breadCrumbJson = [
+    {
+      name: 'Home',
+      to: '/home',
+      isALink: true,
+    },
+    {
+      name: 'All Studies',
+      to: '/studies',
+      isALink: true,
+    },
+    {
+      name: studyData.phs_accession,
+      isALink: false,
+    },
+  ];
 
   return (
     <>
@@ -74,23 +103,27 @@ const ArmDetail = ({ data, classes }) => {
       <StatsView data={stat} />
       <div className={classes.container}>
         <div className={classes.innerContainer}>
+          <div className={classes.breadCrumb}>
+            {' '}
+            <CustomBreadcrumb data={breadCrumbJson} />
+          </div>
           <div className={classes.header}>
             <div className={classes.logo}>
               <img
                 className={classes.caseIcon}
-                src={icon}
-                alt="Bento arm detail header logo"
+                src={armHeaderLogo.src}
+                alt="CDS arm detail header logo"
               />
 
             </div>
             <div className={classes.headerTitle}>
               <div className={classes.headerMainTitle} id="arm_detail_title">
-                {`${header.label} :`}
-                { data[header.dataField]
+                {`${header.label}:`}
+                {studyData[header.dataField]
                   ? (
                     <span className={classes.headerMainTitleTwo}>
                       {' '}
-                      {data[header.dataField]}
+                      {studyData[header.dataField]}
                     </span>
                   )
                   : (
@@ -101,20 +134,24 @@ const ArmDetail = ({ data, classes }) => {
               </div>
             </div>
             { /* Case Count */ }
-            <div className={classes.headerButton}>
-              <div className={classes.headerButtonLinkArea}>
-                <span className={classes.headerButtonLinkText}>Number of cases:</span>
-                <Link
-                  className={classes.headerButtonLink}
-                  to={(location) => ({ ...location, pathname: '/explore' })}
-                  onClick={() => redirectTo()}
-                >
-                  <span className={classes.headerButtonLinkNumber} id="arm_detail_header_file_count">
-                    {data.num_subjects}
-                  </span>
-                </Link>
-              </div>
-            </div>
+            <Link
+              className={classes.headerButtonLink}
+              to={(location) => ({ ...location, pathname: '/data' })}
+              onClick={() => redirectTo()}
+            >
+              <ToolTip title="View full Participant Listing in Data Dashboard page">
+                <div className={classes.headerButton}>
+                  <div className={classes.headerButtonLinkArea}>
+                    <span className={classes.headerButtonLinkText}>Study Participants</span>
+
+                    <span className={classes.headerButtonLinkNumber} id="arm_detail_header_file_count">
+                      {studyData.numberOfSubjects}
+                    </span>
+                  </div>
+                </div>
+              </ToolTip>
+            </Link>
+
           </div>
 
           <Grid container className={classes.detailContainer}>
@@ -122,8 +159,8 @@ const ArmDetail = ({ data, classes }) => {
             <Grid item lg={7} sm={6} xs={12} className={[classes.detailPanel, classes.leftPanel]}>
               <div className={classes.innerPanel}>
                 <Grid container spacing={2}>
-                  { subsections.slice(0, 6).map((section, index) => (
-                    <PropertySubsection key={index} section={section} data={data} />
+                  {subsections.slice(0, 6).map((section, index) => (
+                    <PropertySubsection key={index} section={section} data={studyData} />
                   ))}
                 </Grid>
               </div>
@@ -131,9 +168,9 @@ const ArmDetail = ({ data, classes }) => {
             {/* Left panel end */}
             {/* Right panel */}
             <Grid item lg={5} sm={6} xs={12} className={[classes.detailPanel, classes.rightPanel]}>
-              <div className={classes.innerPanel}>
-                {/* Diagnosis donut */}
-                <div className={classes.widgetContainer}>
+              {/* <div className={classes.innerPanel}> */}
+              {/* Diagnosis donut */}
+              {/* <div className={classes.widgetContainer}>
                   <Widget
                     title="Diagnosis"
                     color="#0296C9"
@@ -156,50 +193,67 @@ const ArmDetail = ({ data, classes }) => {
                       titleAlignment="center"
                     />
                   </Widget>
-                </div>
-                {/* File count */}
-                <NumberOfThings classes={classes} number={data.num_files} icon={fileCountIcon} title="NUMBER OF FILES" alt="Bento file count icon" />
+                </div> */}
+              {/* File count */}
+              {/* <NumberOfThings
+                classes={classes}
+                number={data.num_files}
+                icon={fileCountIcon} title="NUMBER OF FILES" alt="Bento file count icon" /> */}
+              {/* </div> */}
+              <div style={{ paddingLeft: '7px' }} className={classes.innerPanel}>
+                <Grid container spacing={2}>
+                  {rightPanel.slice(0, 3).map((section, index) => (
+                    <PropertySubsection
+                      key={index}
+                      section={section}
+                      data={studyData}
+                    />
+                  ))}
+                </Grid>
               </div>
             </Grid>
             {/* Right panel end */}
           </Grid>
-          <div id="arm_detail_table" className={classes.tableContainer}>
-            <div className={classes.tableDiv}>
-              { table.display
-                ? (
-                  <>
-                    <div className={classes.tableTitle} id="arm_detail_table_title">
-                      <span className={classes.tableHeader}>{table.title}</span>
-                    </div>
+        </div>
+      </div>
+      <div id="arm_detail_table" className={classes.tableContainer}>
+        <div className={classes.tableDiv}>
+          {table.display
+            ? (
+              <>
+                <div className={classes.tableTitle} id="arm_detail_table_title">
+                  <span className={classes.tableHeader}>{table.title}</span>
+                </div>
+                <Grid item xs={12}>
+                  <Grid container spacing={4}>
                     <Grid item xs={12}>
-                      <Grid container spacing={4}>
-                        <Grid item xs={12}>
-                          <GridWithFooter
-                            tableConfig={table}
-                            data={data[table.filesField]}
-                            columns={getColumns(table, classes, data, '', '', () => {}, '', globalData.replaceEmptyValueWith)}
-                            options={getOptions(table, classes)}
-                            customOnRowsSelect={table.customOnRowsSelect}
-                            openSnack={openSnack}
-                            closeSnack={closeSnack}
-                            disableRowSelection={table.disableRowSelection}
-                            buttonText={table.buttonText}
-                            saveButtonDefaultStyle={table.saveButtonDefaultStyle}
-                            ActiveSaveButtonDefaultStyle={table.ActiveSaveButtonDefaultStyle}
-                            DeactiveSaveButtonDefaultStyle={table.DeactiveSaveButtonDefaultStyle}
-                            tooltipMessage={table.tooltipMessage}
-                            tooltipContent={tooltipContent}
-                          />
-                        </Grid>
-                        <Grid item xs={8}>
-                          <Typography />
-                        </Grid>
-                      </Grid>
+                      <GridWithFooter
+                        tableConfig={table}
+                        data={(data && data.fileOverview) || []}
+                        columns={table}
+                        options={getOptions(table, classes)}
+                        customOnRowsSelect={table.customOnRowsSelect}
+                        openSnack={openSnack}
+                        closeSnack={closeSnack}
+                        disableRowSelection={table.disableRowSelection}
+                        buttonText={table.buttonText}
+                        saveButtonDefaultStyle={table.saveButtonDefaultStyle}
+                        ActiveSaveButtonDefaultStyle={table.ActiveSaveButtonDefaultStyle}
+                        DeactiveSaveButtonDefaultStyle={table.DeactiveSaveButtonDefaultStyle}
+                        tooltipMessage={table.tooltipMessage}
+                        tooltipContent={tooltipContent}
+                        count={studyData.numberOfFiles}
+                        queryCustomVaribles={{ [armIDField]: paramId }}
+                        query={GET_MY_FILE_OVERVIEW_QUERY}
+                      />
                     </Grid>
-                  </>
-                ) : null}
-            </div>
-          </div>
+                    <Grid item xs={8}>
+                      <Typography />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </>
+            ) : null}
         </div>
       </div>
     </>
@@ -214,7 +268,7 @@ const styles = (theme) => ({
   innerContainer: {
     maxWidth: '1340px',
     margin: '0 auto',
-    paddingTop: '50px',
+    paddingTop: '8px',
     fontFamily: theme.custom.fontFamily,
     background: '#FFFF',
   },
@@ -230,10 +284,10 @@ const styles = (theme) => ({
   },
   header: {
     paddingRight: '12px',
-    borderBottom: '#737DB8 10px solid',
+    borderBottom: '#F0BDEE 10px solid',
     height: '80px',
     maxWidth: theme.custom.maxContentWidth,
-    margin: 'auto auto 10px auto',
+    margin: 'auto',
   },
   caseIcon: {
     height: '94px',
@@ -242,16 +296,16 @@ const styles = (theme) => ({
     maxWidth: theme.custom.maxContentWidth,
     margin: 'auto',
     float: 'left',
-    paddingLeft: '98px',
+    paddingLeft: '90px',
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
     fontFamily: 'Lato',
-    color: '#274FA5',
+    color: '#B431B0',
     fontSize: '26px',
     lineHeight: '24px',
     paddingLeft: '0px',
-    paddingTop: '20px',
+    paddingTop: '12px',
   },
   headerMainTitleTwo: {
     fontWeight: 'bold',
@@ -265,30 +319,35 @@ const styles = (theme) => ({
   },
   headerButton: {
     float: 'right',
-    width: '186px',
+    width: '190px',
     height: '39px',
     marginTop: '20px',
-    background: '#F4F4F4',
+    background: '#FFF',
+    boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
   },
   headerButtonLinkArea: {
-    marginLeft: '27px',
+    marginLeft: '16px',
     paddingTop: '4px',
   },
   headerButtonLinkText: {
     fontFamily: theme.custom.fontFamily,
-    color: '#7747FF',
+    color: '#0E6292',
     fontSize: '10px',
     textTransform: 'uppercase',
     paddingRight: '2px',
+    paddingLeft: '4px',
     fontWeight: 600,
+    letterSpacing: '0px',
   },
   headerButtonLinkNumber: {
     fontFamily: theme.custom.fontFamily,
-    borderBottom: 'solid #0077E3 3px',
+    borderBottom: 'solid #900F89 3px',
+    color: '#900F89',
     lineHeight: '30px',
     paddingBottom: '2px',
     margin: '0 4px',
     fontSize: '14px',
+    letterSpacing: '1px',
     fontWeight: 'bold',
   },
   headerButtonLink: {
@@ -307,7 +366,7 @@ const styles = (theme) => ({
     color: '#000000',
     size: '12px',
     lineHeight: '23px',
-    borderBottom: 'solid 10px #737DB8',
+    // borderBottom: 'solid 3px #42779A',
   },
   detailPanel: {
     borderRight: 'solid 1px #81A6BA',
@@ -316,15 +375,15 @@ const styles = (theme) => ({
     paddingLeft: '0px',
   },
   rightPanel: {
-    paddingLeft: '16px !important',
+    paddingLeft: '37px !important',
   },
   innerPanel: {
     height: '100%',
-    minHeight: '590px',
+    minHeight: '400px',
     maxHeight: '700px',
     overflowY: 'auto',
     overflowX: 'hidden',
-    paddingLeft: '0px',
+    paddingLeft: '20px',
     paddingRight: '40px',
     scrollbarColor: '#697270',
   },
@@ -377,23 +436,24 @@ const styles = (theme) => ({
     width: '59px',
   },
   tableContainer: {
-    background: '#FFFFFF',
-    padding: '0 0px',
+    background: '#F2F2F2',
+    padding: '0 32px',
   },
   tableHeader: {
-    paddingLeft: '32px',
+    paddingLeft: '20px',
   },
   tableDiv: {
-    maxWidth: theme.custom.maxContentWidth,
+    // maxWidth: theme.custom.maxContentWidth,
     margin: '0 auto auto auto',
     paddingTop: '30px',
+    maxWidth: '1340px',
   },
   tableTitle: {
     textTransform: 'uppercase',
     fontFamily: 'Lato',
     fontSize: '18px',
     letterSpacing: '0.025em',
-    color: '#3695A9',
+    color: '#AE6CAB',
     paddingBottom: '19px',
   },
   link: {
@@ -408,6 +468,10 @@ const styles = (theme) => ({
     verticalAlign: 'sub',
     marginLeft: '4px',
     paddingBottom: '2px',
+  },
+  breadCrumb: {
+    paddingTop: '16px',
+    paddingBottom: '30px',
   },
 });
 

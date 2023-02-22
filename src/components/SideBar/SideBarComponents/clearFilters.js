@@ -57,8 +57,9 @@ const styles = (theme) => ({
   resetText: {
     marginTop: '0px',
     marginLeft: '8px',
-    color: '#638fb5',
-    fontSize: 14,
+    color: '#0E6292',
+    fontFamily: 'Nunito',
+    fontSize: '14px',
   },
   resetTextDisabled: {
     marginTop: '0px',

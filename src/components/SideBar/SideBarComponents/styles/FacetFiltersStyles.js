@@ -60,11 +60,11 @@ const styles = () => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     zIndex: 2,
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: 20,
     fontWeight: 300,
     marginLeft: 10,
-    color: 'gray',
+    color: 'black',
   },
   searchContainer: {
     zIndex: 3,
@@ -118,12 +118,12 @@ const styles = () => ({
     fontSize: '10px',
   },
   findCaseButton: {
-    marginLeft: '105px',
-    backgroundColor: '#10A075',
+    marginLeft: '75px',
+    backgroundColor: '#0B4E75',
     boxSizing: 'border-box',
     height: 30,
     width: 40,
-    border: '1.25px solid #0D8461',
+    border: '1.25px solid #0B4E75',
     cursor: 'pointer',
     borderRadius: 11,
     display: 'flex',
@@ -137,9 +137,9 @@ const styles = () => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-    backgroundColor: '#10A075',
+    backgroundColor: '#0B4E75',
     color: '#fff',
-    border: '1px solid #0D8461',
+    border: '1px solid #0B4E75',
     borderRadius: 10,
     fontFamily: 'Lato',
     fontSize: 11,
@@ -147,7 +147,7 @@ const styles = () => ({
     paddingLeft: 16,
     paddingRight: 12,
     '&:hover': {
-      backgroundColor: '#10A075',
+      backgroundColor: '#0E6292',
     },
   },
   findCaseIcon: {
@@ -166,14 +166,14 @@ const styles = () => ({
   thumb: {
     height: 16,
     width: 16,
-    background: '#10A075',
+    background: '#0E6292',
   },
   track: {
     borderRadius: 4,
     height: 6,
-    background: '#10A075',
+    background: '#0E6292',
     '&~&': {
-      background: '#10A075',
+      background: '#0E6292',
     },
   },
   sliderRoot: {
@@ -225,7 +225,7 @@ const styles = () => ({
   },
   sliderText: {
     marginTop: '1.5px',
-    color: '#10a075',
+    color: '#0E6292',
     lineHeight: '120%',
     fontFamily: 'Nunito',
     fontSize: '14px',

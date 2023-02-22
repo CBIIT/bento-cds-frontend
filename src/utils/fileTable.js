@@ -23,5 +23,5 @@ export function FileDisableRowSelection(data, cartData) {
 */
 
 export function FileOnRowsSelect(data, allRowsSelected) {
-  return allRowsSelected.map((row) => data[row.dataIndex].file_id);
+  return allRowsSelected.map((row) => data[row.dataIndex]);
 }

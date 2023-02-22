@@ -4,6 +4,19 @@ import { withRouter } from 'react-router-dom';
 import headerData from '../../bento/globalHeaderData';
 import SearchAUtoFill from '../Search/searchAutoFillComponent';
 
+const customStyle = {
+  headerBar: {
+    top: '20px',
+    zIndex: '999',
+  },
+  nihLogoImg: {
+    height: '54px',
+    width: '463px',
+    marginLeft: '8px',
+    minHeight: '54px',
+  },
+};
+
 const ICDCHeader = (props) => {
   const { location } = props;
   return location.pathname.match('/search') ? (
@@ -11,6 +24,8 @@ const ICDCHeader = (props) => {
       logo={headerData.globalHeaderLogo}
       alt={headerData.globalHeaderLogoAltText}
       homeLink={headerData.globalHeaderLogoLink}
+      customStyle={customStyle}
+
     />
   ) : (
     <Header
@@ -18,6 +33,7 @@ const ICDCHeader = (props) => {
       alt={headerData.globalHeaderLogoAltText}
       homeLink={headerData.globalHeaderLogoLink}
       SearchComponent={SearchAUtoFill}
+      customStyle={customStyle}
     />
   );
 };

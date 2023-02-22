@@ -65,8 +65,8 @@ function searchComponent({ classes, searchparam = '' }) {
     }
     setInputValue(newValue);
     const searchResp = await getSearch(newValue);
-    const keys = ['programs', 'studies', 'subjects', 'samples', 'files', 'model'];
-    const datafields = ['program_id', 'study_id', 'subject_id', 'sample_id', 'file_id', 'node_name'];
+    const keys = ['studies', 'subjects', 'samples', 'files', 'model'];
+    const datafields = ['study_code', 'subject_id', 'sample_id', 'file_id', 'node_name'];
 
     const mapOption = keys.map(
       (key, index) => searchResp[key].map((id) => (id[datafields[index]])),
@@ -84,7 +84,7 @@ function searchComponent({ classes, searchparam = '' }) {
   }, [open]);
 
   // eslint-disable-next-line max-len
-  const allCount = () => (searchResults.subject_count + searchResults.sample_count + searchResults.program_count + searchResults.study_count + searchResults.file_count + searchResults.model_count + searchResults.about_count);
+  const allCount = () => (searchResults.subject_count + searchResults.sample_count + searchResults.study_count + searchResults.file_count + searchResults.model_count + searchResults.about_count);
 
   return (
     <>
@@ -155,7 +155,7 @@ function searchComponent({ classes, searchparam = '' }) {
             <Box sx={{ borderBottom: '1px solid #828282' }}>
               <TabList onChange={handleChange} aria-label="tabs" classes={{ root: classes.tabContainter, indicator: classes.indicator }}>
                 <Tab label={AllLabel()} classes={{ root: classes.buttonRoot, wrapper: classes.allTab }} value="1" />
-                <Tab classes={{ root: classes.buttonRoot, wrapper: classes.subjectTab }} label={`Cases ${searchResults.subject_count || 0}`} value="2" />
+                <Tab classes={{ root: classes.buttonRoot, wrapper: classes.subjectTab }} label={`Participants ${searchResults.subject_count || 0}`} value="2" />
                 <Tab classes={{ root: classes.buttonRoot, wrapper: classes.sampleTab }} label={`Samples ${searchResults.sample_count || 0}`} value="3" />
                 <Tab classes={{ root: classes.buttonRoot, wrapper: classes.fileTab }} label={`Files ${searchResults.file_count || 0}`} value="4" />
                 <Tab classes={{ root: classes.buttonRoot, wrapper: classes.programTab }} label={`Programs ${searchResults.program_count || 0}`} value="5" />

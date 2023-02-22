@@ -5,17 +5,14 @@ import gql from 'graphql-tag';
 // Ideal size for externalLinkIcon is 16x16 px
 export const programListingIcon = {
   src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programIcon.svg',
-  alt: 'Bento program logo',
+  alt: 'CDS program logo',
 };
 
 export const SEARCH = gql`
 query globalSearch($input: String){
     globalSearch(input: $input) {
-        programs {
-            program_id
-        }
         studies {
-            study_id
+            study_code
         }
         subjects {
             subject_id
@@ -28,6 +25,9 @@ query globalSearch($input: String){
         }
         model {
             node_name
+        }
+        about_page {
+            text
         }
     }
 }
@@ -59,10 +59,8 @@ query globalSearch($input: String, $first: Int, $offset: Int){
     ) {
         studies {
             type
-            study_id
-            program_id
+            phs_accession
             study_name
-            study_type
             study_code
         }
 }
@@ -79,9 +77,8 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         subjects {
             type
             subject_id
-            program_id
-            diagnosis
-            age
+            study
+            site
         }
 }
 }
@@ -96,12 +93,10 @@ query globalSearch($input: String, $first: Int, $offset: Int){
     ) {
         samples {
             type
-            sample_id
-            program_id
             subject_id
-            diagnosis
-            sample_anatomic_site
-            tissue_type
+            sample_id
+            is_tumor
+            analyte_type
         }
 }
 }
@@ -116,12 +111,11 @@ query globalSearch($input: String, $first: Int, $offset: Int){
     ) {
         files {
             type
-            file_id
-            file_name
-            file_format
-            program_id
             subject_id
             sample_id
+            file_id
+            file_name
+            file_type
         }
 }
 }
@@ -173,7 +167,6 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         first: $first
         offset: $offset
     ) {
-        program_count
         study_count
         subject_count
         sample_count

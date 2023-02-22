@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
   },
   modalTitle: {
-    fontFamily: 'lato',
+    fontFamily: 'Inter',
     borderBottom: '1px solid rgba(#000,0.3)',
     fontSize: 20,
     color: '#4D6787',
@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     marginLeft: -36,
     backgroundColor: '#CCD4DD',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontWeight: 'bold',
     marginTop: 5,
   },
@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 11,
     textAlign: 'center',
     color: '#fff',
-    fontFamily: 'lato',
+    fontFamily: 'Inter',
     boxShadow: 'none',
   },
   uploadButton: {
@@ -129,13 +129,13 @@ const useStyles = makeStyles((theme) => ({
     border: '1.5px solid #437BBE',
     borderRadius: 10,
     fontSize: 15,
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontStyle: 'italic',
     color: '#437BBE',
     padding: '9px 13px',
     '&::placeholder': {
       fontSize: 15,
-      fontFamily: 'Lato',
+      fontFamily: 'Inter',
       fontStyle: 'italic',
       color: '#437BBE',
     },
@@ -310,7 +310,7 @@ const FacetModal = ({
     >
       <div className={classes.paper}>
         <h1 className={classes.modalTitle}>
-          <span>Upload Case Set</span>
+          <span>Upload Participant Set</span>
           <span
             className={classes.closeIcon}
             onClick={cancelModal}
@@ -323,15 +323,15 @@ const FacetModal = ({
           <div className={classes.textSection}>
             <div className={classes.inputLabel}>
               <Typography>
-                <p className={classes.listTitle}>Add a list of Case IDs:</p>
+                <p className={classes.listTitle}>Add a list of Participant IDs:</p>
               </Typography>
-              {getToolTip('Add the case indentifier.')}
+              {getToolTip('Add the participant indentifier.')}
             </div>
             <TextareaAutosize
               value={fileContent}
               name="caseDescription"
               onChange={handleChange}
-              placeholder="eg. BENTO-CASE-06, BENTO-CASE-22"
+              placeholder="eg. CDS-PARTICIPANT-06, CDS-PARTICIPANT-22"
               className={classes.textArea}
             />
           </div>
@@ -341,7 +341,7 @@ const FacetModal = ({
               <Typography>
                 <p className={classes.listTitle}>Choose a file to upload:</p>
               </Typography>
-              {getToolTip('Add the case indentifier.')}
+              {getToolTip('Add the participant indentifier.')}
             </div>
             <FileUploader
               clearData={clearData}

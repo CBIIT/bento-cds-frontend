@@ -4,43 +4,73 @@ import env from '../utils/env';
 export default {
   footerLogoImage: 'https://raw.githubusercontent.com/cbiit/datacommons-assets/main/bento/images/icons/png/footerlogo.png',
   footerLogoAltText: 'Footer Logo',
-  footerLogoHyperlink: 'https://frederick.cancer.gov/',
+  footerLogoHyperlink: 'https://www.cancer.gov/',
   footerStaticText: 'NIH … Turning Discovery Into Health®',
   version: env.REACT_APP_FE_VERSION,
-  BEversion: env.REACT_APP_BE_VERSION,
+  // BEversion: env.REACT_APP_BE_VERSION,
   // A maximum of 3 Subsections (link_sections) are allowed
   // A maximum of 4 Subsection Links ('items' under link_sections) are allowed
   // A maximum of 4 Anchor Links (global_footer_links) are allowed
   // Ideal size for icon is 20x20 px
   link_sections: [
     {
-      title: 'About Bento',
+      title: 'About CDS',
       items: [
         {
-          text: 'Purpose',
-          link: '/bento',
+          text: 'CDS',
+          link: '/cancerDataService',
         },
         {
-          text: 'Resources',
-          link: '/resources',
+          text: 'CRDC',
+          link: '/crdc',
         },
         {
-          text: 'Documentation',
-          link: 'https://cbiit.github.io/bento-docs/',
+          text: 'How to Submit Data',
+          link: '/submit',
         },
       ],
     },
     {
-      title: 'Support',
+      title: 'Resources',
       items: [
         {
-          text: 'Contact Us',
-          link: 'bento-help@nih.gov',
+          text: 'CDS Data Model',
+          link: 'https://github.com/CBIIT/cds-model',
         },
         {
-          link: 'https://www.linkedin.com/company/frederick-national-laboratory-for-cancer-research/',
-          icon: 'https://raw.githubusercontent.com/CBIIT/bento-tools/master/src/components/assets/footer/linkedInIcon.svg',
+          text: 'GraphQL',
+          link: '/graphql',
         },
+        {
+          text: 'Bento',
+          link: '/bento',
+        },
+      ],
+    },
+    {
+      title: 'More Information',
+      items: [
+        {
+          text: 'Policies',
+          link: 'https://www.cancer.gov/policies',
+        },
+        {
+          text: ' Disclaimer',
+          link: 'https://www.cancer.gov/policies/disclaimer',
+        },
+        {
+          text: 'Accessibility',
+          link: 'https://www.cancer.gov/policies/accessibility',
+        },
+        {
+          text: 'FOIA',
+          link: 'https://www.cancer.gov/policies/foia',
+        },
+        {
+          text: 'HHS Vulnerability Disclosure',
+          link: 'https://www.hhs.gov/vulnerability-disclosure-policy/index.html',
+        },
+
       ],
     },
   ],

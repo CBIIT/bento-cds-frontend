@@ -27,7 +27,7 @@ import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 import Widget from '../../components/Widgets/WidgetView';
 import colors from '../../utils/colors';
 
-const ProgramView = ({ classes, data, theme }) => {
+const ProgramDetailView = ({ classes, data, theme }) => {
   const programData = data.programDetail;
 
   const redirectTo = () => {
@@ -56,24 +56,40 @@ const ProgramView = ({ classes, data, theme }) => {
 
   const stat = {
     numberOfPrograms: 1,
-    numberOfStudies: programData.num_subjects !== undefined ? programData.studies.length : 'undefined',
-    numberOfSubjects: programData.num_subjects !== undefined ? programData.num_subjects : 'undefined',
+    numberOfStudies: programData.num_studies !== undefined ? programData.num_studies : 'undefined',
+    numberOfSubjects: programData.num_participants !== undefined ? programData.num_participants : 'undefined',
     numberOfSamples: programData.num_samples !== undefined ? programData.num_samples : 'undefined',
     numberOfLabProcedures: programData.num_lab_procedures !== undefined ? programData.num_lab_procedures : 'undefined',
     numberOfFiles: programData.num_files !== undefined ? programData.num_files : 'undefined',
+    numberOfDiseaseSites: programData.num_disease_sites !== undefined ? programData.num_disease_sites : 'undefined',
+
   };
 
-  const breadCrumbJson = [{
-    name: `${breadCrumb.label}`,
-    to: `${breadCrumb.link}`,
-    isALink: true,
-  }];
+  const breadCrumbJson = [
+    {
+      name: 'Home',
+      to: '/home',
+      isALink: true,
+    },
+    {
+      name: `${breadCrumb.label}`,
+      to: `${breadCrumb.link}`,
+      isALink: true,
+    },
+    {
+      name: programData.program,
+      isALink: false,
+    },
+  ];
 
   const updatedAttributesData = manipulateLinks(leftPanel.attributes);
 
   return (
     <>
       <StatsView data={stat} />
+      <div className={classes.breadCrumb}>
+        <CustomBreadcrumb data={breadCrumbJson} />
+      </div>
       <div className={classes.container}>
         <div className={classes.header}>
           <div className={classes.logo}>
@@ -102,7 +118,6 @@ const ProgramView = ({ classes, data, theme }) => {
               </span>
 
             </div>
-            <CustomBreadcrumb className={classes.breadCrumb} data={breadCrumbJson} />
           </div>
 
           {aggregateCount.display ? (
@@ -166,7 +181,7 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <span className={classes.content}>
                                   {' '}
                                   <a
-                                    href={`${attribute.actualLink}${programData[updatedAttributesData[attribute.actualLinkId].dataField]}`}
+                                    href={programData[attribute.dataField]}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={classes.link}
@@ -189,7 +204,7 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <span
                                   className={classes.detailContainerHeaderLink}
                                 >
-                                  <a href={`${programData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</a>
+                                  <Link className={classes.link} href={`${programData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</Link>
                                 </span>
                               </div>
                             )
@@ -199,7 +214,7 @@ const ProgramView = ({ classes, data, theme }) => {
                                   <span
                                     className={classes.detailContainerHeaderLink}
                                   >
-                                    <a href={`${programData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</a>
+                                    <Link className={classes.link} href={`${programData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</Link>
                                     <img
                                       src={externalLinkIcon.src}
                                       alt={externalLinkIcon.alt}
@@ -257,6 +272,7 @@ const ProgramView = ({ classes, data, theme }) => {
                     >
                       <CustomActiveDonut
                         data={programData[rightPanel.widget[0].dataField] || []}
+                        titleText="Participants"
                         width={400}
                         height={225}
                         innerRadius={50}
@@ -271,7 +287,40 @@ const ProgramView = ({ classes, data, theme }) => {
                     </Widget>
                   </Grid>
                 ) : ''}
-
+                { rightPanel.participants[0].display ? (
+                  <Grid item xs={12}>
+                    <div className={classes.fileContainer}>
+                      <span
+                        className={classes.detailContainerHeader}
+                      >
+                        {rightPanel.participants[0].label}
+                      </span>
+                      <Widget
+                        title=""
+                        upperTitle
+                        bodyClass={classes.fullHeightBody}
+                        className={classes.card}
+                        color={theme.palette.dodgeBlue.main}
+                        titleClass={classes.widgetTitle}
+                        noPaddedTitle
+                      >
+                        <div className={classes.fileContent}>
+                          <div className={classes.blockCenter}>
+                            <div className={classes.fileIcon}>
+                              <img
+                                src={rightPanel.participants[0].fileIconSrc}
+                                alt={rightPanel.participants[0].fileIconAlt}
+                              />
+                            </div>
+                            <div className={classes.participantsCount} id="program_detail_participants_count">
+                              {programData[rightPanel.participants[0].dataField]}
+                            </div>
+                          </div>
+                        </div>
+                      </Widget>
+                    </div>
+                  </Grid>
+                ) : ''}
                 { rightPanel.files[0].display ? (
                   <Grid item xs={12}>
                     <div className={classes.fileContainer}>
@@ -280,17 +329,29 @@ const ProgramView = ({ classes, data, theme }) => {
                       >
                         {rightPanel.files[0].label}
                       </span>
-                      <div className={classes.fileContent}>
-                        <div className={classes.fileIcon}>
-                          <img
-                            src={rightPanel.files[0].fileIconSrc}
-                            alt={rightPanel.files[0].fileIconAlt}
-                          />
+                      <Widget
+                        title=""
+                        upperTitle
+                        bodyClass={classes.fullHeightBody}
+                        className={classes.card}
+                        color={theme.palette.dodgeBlue.main}
+                        titleClass={classes.widgetTitle}
+                        noPaddedTitle
+                      >
+                        <div className={classes.fileContent}>
+                          <div className={classes.blockCenter}>
+                            <div className={classes.fileIcon}>
+                              <img
+                                src={rightPanel.files[0].fileIconSrc}
+                                alt={rightPanel.files[0].fileIconAlt}
+                              />
+                            </div>
+                            <div className={classes.fileCount} id="program_detail_file_count">
+                              {programData[rightPanel.files[0].dataField]}
+                            </div>
+                          </div>
                         </div>
-                        <div className={classes.fileCount} id="program_detail_file_count">
-                          {programData[rightPanel.files[0].dataField]}
-                        </div>
-                      </div>
+                      </Widget>
                     </div>
                   </Grid>
                 ) : ''}
@@ -313,7 +374,7 @@ const ProgramView = ({ classes, data, theme }) => {
                   <Typography>
                     <CustomDataTable
                       data={data.programDetail[table.dataField]}
-                      columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectToArm, '', globalData.replaceEmptyValueWith)}
+                      columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectToArm, '', globalData.replaceEmptyValueWith)}
                       options={getOptions(table, classes)}
                     />
                   </Typography>
@@ -331,6 +392,9 @@ const ProgramView = ({ classes, data, theme }) => {
 };
 
 const styles = (theme) => ({
+  a: {
+    color: 'red',
+  },
   firstColumn: {
     maxWidth: '45%',
   },
@@ -355,9 +419,10 @@ const styles = (theme) => ({
   link: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: '#7747FF',
+    color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   paddingLeft8: {
@@ -367,16 +432,15 @@ const styles = (theme) => ({
     paddingBottm: '17px',
   },
   container: {
-    paddingTop: '50px',
-    fontFamily: theme.custom.fontFamily,
-    paddingLeft: '32px',
-    paddingRight: '32px',
+    paddingTop: '32px',
+    fontFamily: 'Nunito',
+    paddingLeft: '52px',
+    paddingRight: '52px',
     background: '#FFFF',
-    paddingBottom: '16px',
   },
   content: {
     fontSize: '15px',
-    fontFamily: theme.custom.fontFamily,
+    fontFamily: 'Nunito',
     lineHeight: '14px',
   },
   warning: {
@@ -398,7 +462,7 @@ const styles = (theme) => ({
   header: {
     paddingLeft: '21px',
     paddingRight: '35px',
-    borderBottom: '#4B619A 10px solid',
+    borderBottom: '#9FD8F0 10px solid',
     height: '80px',
     maxWidth: '1340px',
     margin: 'auto',
@@ -406,7 +470,8 @@ const styles = (theme) => ({
   headerTitle: {
     margin: 'auto',
     float: 'left',
-    marginLeft: '85px',
+    marginLeft: '90px',
+    marginTop: '12px',
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
@@ -419,27 +484,27 @@ const styles = (theme) => ({
       fontWeight: 'bold',
       letterSpacing: '0.025em',
     },
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     letterSpacing: '0.025em',
-    color: '#274FA5 ',
+    color: '#0E6292 ',
     fontSize: '26px',
     lineHeight: '24px',
     paddingLeft: '0px',
 
   },
   headerSubTitleCate: {
-    color: '#00B0BD',
+    color: '#0B4E75',
     fontWeight: '300',
-    fontFamily: 'Poppins',
+    fontFamily: 'Nunito',
     textTransform: 'uppercase',
     letterSpacing: '0.023em',
-    fontSize: '15px',
+    fontSize: '16px',
     overflow: 'hidden',
     lineHeight: '24px',
     paddingLeft: '2px',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    paddingRight: '200px',
+    // paddingRight: '200px',
   },
   headerSubTitleContent: {
     color: '#000000',
@@ -454,13 +519,16 @@ const styles = (theme) => ({
     paddingTop: '3px',
   },
   breadCrumb: {
-    color: '#00B0BD',
+    // height: '11px',
+    // letterSpacing: 10px;
+    // line-height: 29px;
+    padding: '16px 52px 0px 52px',
   },
   headerButton: {
     fontFamily: theme.custom.fontFamily,
     float: 'right',
     marginTop: '15px',
-    width: '104px',
+    width: '182px',
     height: '33px',
     background: '#F6F4F4',
     textAlign: 'center',
@@ -496,36 +564,35 @@ const styles = (theme) => ({
     position: 'absolute',
     float: 'left',
     marginLeft: '-23px',
-    marginTop: '-21px',
+    marginTop: '-12px',
     width: '107px',
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   detailContainer: {
     maxWidth: '1340px',
     margin: 'auto',
-    marginBlockEnd: '24px',
-    paddingTop: '24px',
+    paddingTop: '8px',
     paddingLeft: '5px',
     fontFamily: theme.custom.fontFamily,
     letterSpacing: '0.014em',
     color: '#000000',
     size: '12px',
     lineHeight: '23px',
-    height: '525px',
+    height: '516px',
 
   },
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296C9',
   },
   detailContainerHeaderLink: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Lato',
     fontSize: '14px',
     letterSpacing: '0.025em',
-    color: '#0077E3',
+    color: '#900F89',
   },
   detailContainerBottom: {
     borderTop: '#81a6b9 1px solid',
@@ -534,7 +601,7 @@ const styles = (theme) => ({
   },
   detailContainerLeft: {
     display: 'block',
-    padding: '5px  20px 5px 0px !important',
+    padding: '5px  20px 5px 32px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -546,7 +613,7 @@ const styles = (theme) => ({
     borderRight: '#81a6b9 1px solid',
   },
   detailContainerRight: {
-    padding: '5px 0 5px 36px !important',
+    padding: '5px 36px 5px 36px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -562,7 +629,7 @@ const styles = (theme) => ({
     background: '#f3f3f3',
   },
   tableHeader: {
-    paddingLeft: '30px',
+    paddingLeft: '0px',
   },
   paddingTop12: {
     paddingTop: '12px',
@@ -582,6 +649,7 @@ const styles = (theme) => ({
     color: '#c32c2e',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   button: {
@@ -616,39 +684,55 @@ const styles = (theme) => ({
   },
   tableTitle: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296c9',
     paddingBottom: '20px',
   },
   fileContainer: {
-    paddingTop: '4px',
+    paddingTop: '15px',
   },
   fileContent: {
+    marginTop: '24px',
     backgroundColor: '#F3F3F3',
     borderRadius: '50%',
     height: '162px',
     width: '162px',
-    paddingLeft: '48px',
-    marginLeft: '36%',
-    marginTop: '25px',
+  },
+  blockCenter: {
+    width: '42%',
+    margin: '0 auto',
   },
   fileIcon: {
     '& img': {
-      width: '163%',
-      padding: '21px 120px 0px 0px',
+      width: '60px',
+      height: '60px',
+      marginTop: '30px',
+      marginLeft: '4px',
     },
+  },
+  participantsCount: {
+    lineHeight: '31.7px',
+    fontSize: '30px',
+    color: '#0B7562',
+    fontWeight: '600',
+    borderBottom: '#0B7562 solid 4px',
+    fontFamily: 'Oswald',
+    width: 'max-content',
+    margin: '0 auto',
+    paddingBottom: '8px',
   },
   fileCount: {
     lineHeight: '31.7px',
     fontSize: '30px',
-    color: '#7A297D',
+    color: '#D86B01',
     fontWeight: '600',
-    borderBottom: '#7A297D solid 5px',
+    borderBottom: '#D86B01 solid 4px',
     fontFamily: 'Oswald',
     width: 'max-content',
-    padding: '15px 0px 12px 0px',
+    margin: '0 auto',
+    paddingBottom: '8px',
   },
   paddingTop32: {
     paddingTop: '36px !important',
@@ -657,7 +741,7 @@ const styles = (theme) => ({
     marginTop: '15px',
   },
   tableCell1: {
-    paddingLeft: '25px',
+    // paddingLeft: '25px',
     width: '200px',
   },
   tableCell2: {
@@ -673,10 +757,10 @@ const styles = (theme) => ({
     width: '160px',
   },
   externalLinkIcon: {
-    width: '16px',
+    width: '14px',
     verticalAlign: 'sub',
     marginLeft: '4px',
   },
 });
 
-export default withStyles(styles, { withTheme: true })(ProgramView);
+export default withStyles(styles, { withTheme: true })(ProgramDetailView);

@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/destructuring-assignment */
 import _ from 'lodash';
@@ -38,7 +39,6 @@ import {
 import {
   GET_IDS_BY_TYPE,
   GET_SUBJECT_IDS,
-  widgetsSearchData,
   SUBJECT_OVERVIEW_QUERY,
   GET_SEARCH_NODES_BY_FACET,
   ageAtIndex,
@@ -60,6 +60,7 @@ const initialState = {
     },
     isDataTableUptoDate: false,
     isFetched: false,
+    isOverlayOpen: false,
     isLoading: false,
     isDashboardTableLoading: false,
     setSideBarLoading: false,
@@ -366,6 +367,7 @@ const convertResultInPrevType = (result) => {
     nodeCountsFromLists: {
       numberOfFiles: result.data.searchSubjects.numberOfFiles,
       numberOfLabProcedures: result.data.searchSubjects.numberOfLabProcedures,
+      numberOfDiseaseSites: result.data.searchSubjects.numberOfDiseaseSites,
       numberOfPrograms: result.data.searchSubjects.numberOfPrograms,
       numberOfSamples: result.data.searchSubjects.numberOfSamples,
       numberOfStudies: result.data.searchSubjects.numberOfStudies,
@@ -579,17 +581,17 @@ export function fetchDataForDashboardTab(
   const { QUERY, sortfield, sortDirection } = getQueryAndDefaultSort(payload);
   const newFilters = filters;
   // deal with empty string inside the age_at_index filter
-  if (filters && filters.age_at_index.length === 2) {
-    if (filters.age_at_index.includes('')) {
-      newFilters.age_at_index = [];
-    }
-    if (typeof filters.age_at_index[0] === 'string') {
-      newFilters.age_at_index[0] = Number(newFilters.age_at_index[0]);
-    }
-    if (typeof filters.age_at_index[1] === 'string') {
-      newFilters.age_at_index[1] = Number(newFilters.age_at_index[1]);
-    }
-  }
+  // if (filters && filters.age_at_index.length === 2) {
+  //   if (filters.age_at_index.includes('')) {
+  //     newFilters.age_at_index = [];
+  //   }
+  //   if (typeof filters.age_at_index[0] === 'string') {
+  //     newFilters.age_at_index[0] = Number(newFilters.age_at_index[0]);
+  //   }
+  //   if (typeof filters.age_at_index[1] === 'string') {
+  //     newFilters.age_at_index[1] = Number(newFilters.age_at_index[1]);
+  //   }
+  // }
   const activeFilters = newFilters === null
     ? (getState().allActiveFilters !== {}
       ? {
@@ -731,6 +733,7 @@ async function getFileIDs(
   caseIds = [],
   sampleIds = [],
   fileNames = [],
+  fileIds=[],
   apiReturnField,
 ) {
   const fetchResult = await client
@@ -740,6 +743,7 @@ async function getFileIDs(
         subject_ids: caseIds,
         sample_ids: sampleIds,
         file_names: fileNames,
+        file_ids: fileIds,
         first: fileCount,
       },
     })
@@ -777,13 +781,13 @@ export async function fetchAllFileIDs(fileCount = 100000, selectedIds = []) {
   let filesIds = [];
   switch (getState().currentActiveTab) {
     case tabIndex[2].title:
-      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL, [], [], selectedIds, 'fileIDsFromList');
+      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL, [], [],[], selectedIds, 'fileIDsFromList');
       break;
     case tabIndex[1].title:
-      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_SAMPLESTAB_FOR_SELECT_ALL, [], selectedIds, [], 'fileIDsFromList');
+      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_SAMPLESTAB_FOR_SELECT_ALL, [], selectedIds, [],[], 'fileIDsFromList');
       break;
     default:
-      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_CASESTAB_FOR_SELECT_ALL, selectedIds, [], [], 'fileIDsFromList');
+      filesIds = await getFileIDs(fileCount, GET_ALL_FILEIDS_CASESTAB_FOR_SELECT_ALL, selectedIds, [], [], [],'fileIDsFromList');
   }
   return filterOutFileIds(filesIds);
 }
@@ -1140,6 +1144,10 @@ export function setSearchCriteria(payload) {
   });
 }
 
+export function setOverLayWindow(item) {
+  store.dispatch({ type: 'SET_OVERLAY_WINDOW', payload: item });
+}
+
 // reducers
 const reducers = {
   DASHBOARDTAB_QUERY_ERR: (state, item) => ({
@@ -1148,6 +1156,10 @@ const reducers = {
     error: item,
     isLoading: false,
     isFetched: false,
+  }),
+  SET_OVERLAY_WINDOW: (state, item) => ({
+    ...state,
+    isOverlayOpen: item,
   }),
   READY_DASHBOARDTAB: (state) => {
     return {
@@ -1212,8 +1224,8 @@ const reducers = {
         variables: item.variables,
       },
       stats: getFilteredStat(item.result.data.nodeCountsFromLists, statsCount),
-      widgets: getSearchWidgetsData(item.result.data, widgetsSearchData),
-
+      // widgets: getSearchWidgetsData(item.result.data, widgetsData),
+      widgets: getWidgetsInitData(item.result.data, widgetsData),
     };
   },
   UPDATE_CURRRENT_TAB_DATA: (state, item) => (
@@ -1277,6 +1289,7 @@ const reducers = {
         ...state.dashboard,
         isFetched: true,
         isLoading: false,
+        isOverlayOpen: false,
         hasError: false,
         setSideBarLoading: false,
         searchCriteria: null,

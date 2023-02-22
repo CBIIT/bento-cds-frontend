@@ -58,7 +58,7 @@ function InputViewMin(props) {
           : sideBarItem.checkboxItems.upperBound,
         event,
       )}
-      style={{ width: '40px' }}
+      style={{ width: '50px' }}
       inputProps={{
         step: 1,
         min: sideBarItem.checkboxItems.lowerBound,

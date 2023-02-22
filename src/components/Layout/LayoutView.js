@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles, CssBaseline } from '@material-ui/core';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import { LinkBar } from 'bento-components';
 import aboutPageRoutes from '../../bento/aboutPagesRoutes';
 import Header from '../Header/HeaderView';
 import NavBar from '../NavBar/NavBarContainer';
@@ -15,13 +16,17 @@ import Home from '../../pages/landing/landingController';
 import About from '../../pages/about/aboutController';
 import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Programs from '../../pages/programs/programsController';
+import Arms from '../../pages/arms/armsController';
+
 import ProgramDetail from '../../pages/programDetail/programDetailController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
 import fileCentricCart from '../../pages/fileCentricCart/cartController';
-import JBrowse from '../JBrowse/JBrowseView';
-import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
+// import JBrowse from '../JBrowse/JBrowseView';
+// import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
 import GlobalSearch from '../../pages/search/searchView';
+import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import GlobalSearchController from '../../pages/search/searchViewController';
+import GA from '../../utils/googleAnalytics';
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -33,7 +38,9 @@ const Layout = ({ classes, isSidebarOpened }) => (
     <CssBaseline />
     <HashRouter>
       <>
+        <LinkBar url="https://datacommons.cancer.gov/?cid=caninecommons.cancer.gov" />
         <Header />
+        <OverlayWindow />
         <NavBar />
         {/* Reminder: Ajay need to replace the ICDC with env variable and
           change build npm to read env variable */}
@@ -41,22 +48,24 @@ const Layout = ({ classes, isSidebarOpened }) => (
           className={classes.content}
         >
           <Route component={ScrollToTop} />
+          { GA.init() && <GA.RouteTracker /> }
           <Switch>
-            <Route exact path="/ICDC/" component={Home} />
+            <Route exact path="/CDS/" component={Home} />
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
-            <Route path="/explore" component={Dashboard} />
+            <Route path="/data" component={Dashboard} />
             <Route path="/programs" component={Programs} />
+            <Route path="/studies" component={Arms} />
             <Route path="/model" component={modelPage} />
             <Route path="/table" component={table} />
             <Route path="/fileCentricCart" component={fileCentricCart} />
             <Route path="/program/:id" component={ProgramDetail} />
             <Route path="/case/:id" component={CaseDetail} />
-            <Route path="/arm/:id" component={ArmDetail} />
-            <Route path="/JBrowse" component={JBrowse} />
+            <Route path="/study/:id" component={ArmDetail} />
+            {/* <Route path="/JBrowse" component={JBrowse} /> */}
             <Route exact path="/search" component={GlobalSearch} />
             <Route path="/search/:id" component={GlobalSearchController} />
-            <Route path="/fileViewer/:id" component={JBrowseDetail} />
+            {/* <Route path="/fileViewer/:id" component={JBrowseDetail} /> */}
             {aboutPageRoutes.map(
               (aboutPageRoute, index) => (
                 <Route
@@ -88,7 +97,7 @@ const styles = (theme) => ({
     // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
     width: 'calc(100%)', // Remove this on adding sidebar
     background: theme.custom.bodyBackGround,
-    marginTop: '185px',
+    marginTop: '205px',
   },
   '@global': {
     '*::-webkit-scrollbar': {

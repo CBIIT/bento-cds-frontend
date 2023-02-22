@@ -7,7 +7,22 @@ const FILE_SERVICE_API = env.REACT_APP_FILE_SERVICE_API;
 
 const ICDCFooter = () => {
   const [footerUpdatedData, setFooterUpdatedData] = useState(FooterData);
-
+  const url = window.location.href;
+  const { hash } = window.location;
+  const indexOfHash = url.indexOf(hash) || url.length;
+  const hashlessUrl = url.substr(0, indexOfHash);
+  async function getBEVersion() {
+    const schemaVersion = await fetch(
+      `${hashlessUrl}version`,
+    )
+      .then((response) => response.text())
+      .then((data) => {
+        const backendObj = JSON.parse(data);
+        return backendObj.version;
+      })
+      .catch(() => '0.0.0');
+    return schemaVersion;
+  }
   useEffect(() => {
     const getSystems = async () => {
       const response = await fetch(
@@ -15,7 +30,8 @@ const ICDCFooter = () => {
       ).then((resp) => (resp))
         .catch(() => ({ version: '' }));
       const data = response.json();
-      setFooterUpdatedData({ ...FooterData, ...{ FileServiceVersion: data.version || '' } });
+      const beVersion = await getBEVersion();
+      setFooterUpdatedData({ ...FooterData, ...{ FileServiceVersion: data.version || '' }, ...{ BEversion: beVersion } });
     };
     getSystems();
   }, [FooterData]);

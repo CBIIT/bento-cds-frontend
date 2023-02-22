@@ -1,10 +1,10 @@
 export default () => ({
   customTooltip: {
-    border: '#03A383 1px solid',
+    border: '#dc762f 1px solid',
   },
   customArrow: {
     '&::before': {
-      border: '#03A383 1px solid',
+      border: '#dc762f 1px solid',
     },
   },
   tableWrapper: {
@@ -20,9 +20,9 @@ export default () => ({
     paddingTop: '8px',
   },
   myFilesWrapper: {
-    border: '#03A383 4px solid',
+    border: '#dc762f 3px solid',
     borderRadius: '35px',
-    marginTop: '200px',
+    // marginTop: '200px',
     marginBottom: '80px',
     marginLeft: '3%',
     marginRight: '3%',
@@ -55,12 +55,16 @@ export default () => ({
     marginTop: '10px',
     float: 'right',
   },
+  disabledButton: {
+    cursor: 'auto !important',
+    opacity: '0.5',
+  },
   downloadButton: {
     height: '45px',
     minWidth: '191px',
     color: '#fff',
     boxShadow: 'none',
-    backgroundColor: '#03A383',
+    backgroundColor: '#BB5500',
     padding: '6px 16px',
     fontSize: '0.875rem',
     boxSizing: 'border-box',
@@ -76,7 +80,7 @@ export default () => ({
     cursor: 'pointer',
   },
   popUpWindowText: {
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     size: '16px',
   },
   tableDeleteButton: {
@@ -116,6 +120,8 @@ export default () => ({
     cursor: 'pointer',
     display: 'flex',
     verticalAlign: 'top',
+    textDecoration: 'underline',
+    textUnderlineOffset: '2.5px',
   },
   removeHeadCellText: {
     display: 'inline-block',
@@ -147,5 +153,27 @@ export default () => ({
     width: '110px',
     height: '48px',
     padding: '5px 0px',
+  },
+  tableWrapperText: {
+    padding: '20px',
+    width: '538px',
+    color: '#BB5500',
+    fontFamily: 'Nunito',
+    fontSize: '14px',
+    fontWeight: '200',
+    letterSpacing: '-0.02em',
+
+  },
+  tableWrapperAnchor: {
+    color: '#900F89',
+    fontWeight: 'bold',
+    textDecoration: 'none',
+  },
+  marginTopNegative20: {
+    marginTop: '-60px',
+  },
+  emptyWrapper: {
+    height: '60px',
+    background: 'white',
   },
 });

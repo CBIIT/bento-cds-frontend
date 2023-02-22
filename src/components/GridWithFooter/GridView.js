@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from 'react';
 import {
   Grid,
@@ -5,17 +7,21 @@ import {
 } from '@material-ui/core';
 import _ from 'lodash';
 import { useSelector } from 'react-redux';
-import { CustomDataTable } from 'bento-components';
 import HelpIcon from '@material-ui/icons/Help';
 import IconButton from '@material-ui/core/IconButton';
+import { getColumns } from 'bento-components';
+
 import { addToCart, cartWillFull } from '../../pages/fileCentricCart/store/cart';
 import Message from '../Message';
 import AddToCartAlertDialog from '../AddToCartDialog';
+import CustomDataTable from '../serverPaginatedTable/serverPaginatedTable';
+import { customFilesTabDownloadCSV } from '../../bento/tableDownloadCSV';
+import DocumentDownload from '../DocumentDownload/DocumentDownloadView';
+import globalData from '../../bento/siteWideConfig';
 
 const GridView = ({
   classes,
   data,
-  title,
   columns,
   customOnRowsSelect,
   openSnack,
@@ -27,6 +33,9 @@ const GridView = ({
   saveButtonDefaultStyle,
   DeactiveSaveButtonDefaultStyle,
   ActiveSaveButtonDefaultStyle,
+  count,
+  queryCustomVaribles,
+  query,
 }) => {
   // Get the existing files ids from  cart state
   const fileIDs = useSelector((state) => state.cart.fileIds);
@@ -38,7 +47,7 @@ const GridView = ({
   });
 
   // Store current page selected info
-  const [selectedIDs, setSelectedIDs] = React.useState([]);
+  // let [selectedIDs, setSelectedIDs] = React.useState([]);
   const AddToCartAlertDialogRef = useRef();
   const [cartIsFull, setCartIsFull] = React.useState(false);
   const saveButton = useRef(null);
@@ -97,7 +106,7 @@ const GridView = ({
     textTransform: 'uppercase',
     fontFamily: 'Lato',
     color: '#fff',
-    backgroundColor: '#10A075',
+    backgroundColor: '#0E6292',
     marginTop: '6px',
     marginBottom: '10px',
     marginRight: '4px',
@@ -106,7 +115,7 @@ const GridView = ({
   useEffect(() => {
     initSaveButtonDefaultStyle(saveButton);
 
-    if (selectedIDs.length === 0) {
+    if (rowSelection.selectedRowInfo.length === 0) {
       updateActiveSaveButtonStyle(true, saveButton);
     } else {
       updateActiveSaveButtonStyle(false, saveButton);
@@ -115,17 +124,18 @@ const GridView = ({
 
   function exportFiles() {
     // Find the newly added files by comparing
-    const newFileIDS = fileIDs !== null ? selectedIDs.filter(
+    const newFileIDS = fileIDs !== null ? rowSelection.selectedRowInfo.filter(
       (e) => !fileIDs.find((a) => e === a),
-    ).length : selectedIDs.length;
+    ).length : rowSelection.selectedRowInfo.length;
     if (cartWillFull(newFileIDS)) {
       // throw an alert
       setCartIsFull(true);
       AddToCartAlertDialogRef.current.open();
     } else if (newFileIDS >= 0) {
-      addToCart({ fileIds: selectedIDs });
+      addToCart({ fileIds: rowSelection.selectedRowInfo });
       openSnack(newFileIDS);
-      setSelectedIDs([]);
+      rowSelection.selectedRowInfo = [];
+      rowSelection.selectedRowIndex = [];
     }
   }
 
@@ -169,10 +179,12 @@ const GridView = ({
       }, [],
     );
 
-    setRowSelection({
-      selectedRowInfo: newSelectedRowInfo,
-      selectedRowIndex: newSelectedRowIndex,
-    });
+    // setRowSelection({
+    //   selectedRowInfo: newSelectedRowInfo,
+    //   selectedRowIndex: newSelectedRowIndex,
+    // });
+    rowSelection.selectedRowInfo = newSelectedRowInfo;
+    rowSelection.selectedRowIndex = newSelectedRowIndex;
   }
 
   /*
@@ -180,9 +192,12 @@ const GridView = ({
   */
   function onRowsSelect(curr, allRowsSelected, rowsSelected, displayData) {
     rowSelectionEvent(displayData.map((d) => d.data[0]), rowsSelected);
-    setSelectedIDs([...new Set(
-      customOnRowsSelect(data, allRowsSelected),
-    )]);
+    // setSelectedIDs([...new Set(
+    //   customOnRowsSelect(displayData.map((d) => d.data[0]), allRowsSelected),
+    // )]);
+    // selectedIDs = [...new Set(
+    //   customOnRowsSelect(displayData.map((d) => d.data[0]), allRowsSelected),
+    // )];
 
     if (allRowsSelected.length === 0) {
       updateActiveSaveButtonStyle(true, saveButton);
@@ -193,13 +208,12 @@ const GridView = ({
 
   // overwrite default options
   const defaultOptions = () => ({
-    rowsSelected: rowSelection.selectedRowIndex,
-    onRowSelectionChange: (curr, allRowsSelected, rowsSelected, displayData) => onRowsSelect(
-      curr,
-      allRowsSelected,
-      rowsSelected,
+    rowsSelectedTrigger: (displayData, rowsSelected) => rowSelectionEvent(
       displayData,
+      rowsSelected,
     ),
+    rowsSelected: rowSelection.selectedRowIndex,
+    onRowSelectionChange: onRowsSelect,
     isRowSelectable: (dataIndex) => (disableRowSelection
       ? disableRowSelection(data[dataIndex], fileIDs) : true),
   });
@@ -212,10 +226,16 @@ const GridView = ({
       <Grid container>
         <Grid item xs={12} id="table_file">
           <CustomDataTable
-            data={_.cloneDeep(data)}
-            columns={columns}
-            title={title}
+            data={data}
+            columns={getColumns(columns, classes, _.cloneDeep(data), 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/externalLinkIcon.svg', '', () => {}, DocumentDownload, globalData.replaceEmptyValueWith)}
             options={finalOptions}
+            count={count}
+            overview={query}
+            paginationAPIField="fileOverview"
+            queryCustomVaribles={queryCustomVaribles}
+            defaultSortCoulmn="file_name"
+            defaultSortDirection="asc"
+            tableDownloadCSV={customFilesTabDownloadCSV}
           />
         </Grid>
 
@@ -268,6 +288,7 @@ const styles = () => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   caseTitle: {
@@ -322,6 +343,7 @@ const styles = () => ({
   helpIcon: {
     verticalAlign: 'top',
     zIndex: '600',
+    height: '16px',
   },
   topButtonGroup: {
     textAlign: 'right',

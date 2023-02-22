@@ -16,6 +16,7 @@ import {
 } from '../../bento/fileCentricCartWorkflowData';
 import { deleteFromCart } from './store/cart';
 import { downloadJson } from './utils';
+import GA from '../../utils/googleAnalytics';
 
 const CustomHeaderRemove = ({
   openDialogBox,
@@ -94,7 +95,7 @@ const cartView = ({
           ...{ file_ids: fileIDs },
         },
       })
-      .then((result) => result.data.filesInList);
+      .then((result) => result.data.fileOverview);
     return fetchResult;
   }
 
@@ -104,6 +105,7 @@ const cartView = ({
 
   function deleteSubjectsAndCloseModal() {
     closeDialogBox();
+    GA.sendEvent('File', 'Removed', null, `${fileIDs.length} Files`);
     deleteFromCart({ fileIds: fileIDs });
   }
   const numberOfFilesBeDeleted = myFilesPageData.popUpWindow.showNumberOfFileBeRemoved
@@ -114,6 +116,7 @@ const cartView = ({
     // get the user Comments value from the footer,
     const userComments = commentRef.current.getValue();
     const data1 = await fetchData();
+    GA.sendEvent('Manifest', 'Download', 'cart');
     return downloadJson(
       data1,
       userComments,
@@ -166,7 +169,7 @@ const cartView = ({
   );
 
   return (
-    <Grid>
+    <Grid className={classes.marginTopNegative20}>
       <DialogBox
         isOpen={modalStatus}
         closeModal={closeDialogBox}
@@ -174,8 +177,9 @@ const cartView = ({
         acceptAction={deleteSubjectsAndCloseModal}
         numberOfFilesBeDeleted={numberOfFilesBeDeleted}
       />
+      <div className={classes.emptyWrapper} />
       <div className={classes.myFilesWrapper}>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={[classes.headerGrid, classes.paddingBottom28]}>
           <CartHeader
             headerIconSrc={myFilesPageData.headerIconSrc}
             headerIconAlt={myFilesPageData.headerIconAlt}
@@ -186,7 +190,8 @@ const cartView = ({
           <div className={classes.topButtonGroup}>
             <button
               type="button"
-              className={classes.downloadButton}
+              disabled={dataCartView.length === 0}
+              className={!dataCartView.length ? `${classes.downloadButton} ${classes.disabledButton}` : classes.downloadButton}
               onClick={() => prepareDownload()}
               id={`button_${myFilesPageData.downButtonText}`}
             >
@@ -227,6 +232,14 @@ const cartView = ({
               localRowsPerPage={localRowsPerPageCartView}
               isLoading={isLoading}
             />
+            <div className={classes.tableWrapperText}>
+              To access and analyze file click "Download File Manifest" button
+              and upload resulting file to
+              {' '}
+              <a className={classes.tableWrapperAnchor} href="https://www.cancergenomicscloud.org">Seven Bridges Genomics</a>
+              {' '}
+              account
+            </div>
             <CartFooter
               placeholder={myFilesPageData.textareaPlaceholder}
               ref={commentRef}

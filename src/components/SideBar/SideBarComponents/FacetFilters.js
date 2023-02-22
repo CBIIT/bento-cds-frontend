@@ -47,6 +47,7 @@ import InputViewMax from './InputViewMax';
 import AutoComplete from './searchComponet';
 import FacetModal from './CasesModal';
 import styles from './styles/FacetFiltersStyles';
+import GA from '../../../utils/googleAnalytics';
 
 const size = '10px';
 if (resetIconFilter.src === '') {
@@ -237,6 +238,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
 
   const handleToggle = (value) => () => {
     const valueList = value.split('$$');
+    GA.sendEvent('Facets', 'Filter', valueList[1]);
     setSideBarToLoading();
     setDashboardTableLoading();
     // dispatch toggleCheckBox action
@@ -263,9 +265,9 @@ export const FacetPanelComponent = ({ classes }, ref) => {
       ]);
     }
   };
-  // slice 16
+  // slice 15
   const sideBarDisplay = sideBarContent.data.filter((sideBar) => sideBar.show === true)
-    .slice(0, 16);
+    .slice(0, 25);
 
   const arrangeBySections = (arr) => {
     const sideBar = {};
@@ -477,7 +479,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
                     className={classes.sectionSummaryTextCase}
                   >
                     <div className={classes.sectionSummaryTextContainer}>
-                      {currentSection.sectionName}
+                      Participants
                       <div className={classes.findCaseButton} onClick={toggleAutocomplete}>
                         <img src="https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/FacetLocalFindSearchIcon.svg" className={classes.findCaseIcon} alt="search" />
                       </div>
@@ -498,7 +500,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
                             className={classes.uploadButton}
                             id="localFindUploadCaseSetButton"
                           >
-                            { bulkUpload.subject_ids.length !== 0 ? 'View Case Set' : 'Upload Case Set' }
+                            { bulkUpload.subject_ids.length !== 0 ? 'View Participant Set' : 'Upload Participant Set' }
                             <span className={classes.iconSpan}>
                               <img
                                 className={classes.uploadIcon}
@@ -612,6 +614,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
                                 </span>
                               </div>
                             ) : (
+                              sideBarItem.slider !== true && (
                               <div className={classes.sortGroup}>
                                 <span
                                   className={classes.sortGroupItem}
@@ -620,6 +623,7 @@ export const FacetPanelComponent = ({ classes }, ref) => {
                                   No data for this field
                                 </span>
                               </div>
+                              )
                             )}
                           {sideBarItem.slider === true
                             && (
