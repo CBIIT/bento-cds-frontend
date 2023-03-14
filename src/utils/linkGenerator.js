@@ -7,15 +7,18 @@ const linkGenerator = (paragraph) => {
       fontFamily: 'Nunito',
       fontSize: '16px',
       lineHeight: '30px',
+      fontWeight: 'bold',
     },
     email: {
-      color: '#0296C9',
+      color: '#900F89',
       fontWeight: 'bold',
     },
     link: {
-      color: '#0296C9',
+      color: '#900F89',
+      fontWeight: 'bold',
       '&:hover': {
-        color: '#0296C9',
+        color: '#900F89',
+        textDecoration: 'underline',
       },
     },
   });
@@ -27,11 +30,21 @@ const linkGenerator = (paragraph) => {
         if (splitedParagraph != null && ((/\[(.+)\]\((.+)\)/g.test(splitedParagraph)) || (/\((.+)\)\[(.+)\]/g.test(splitedParagraph)))) {
           const title = splitedParagraph.match(/\[(.*)\]/).pop();
           const mailTo = `mailto:${title}`;
+          const linkAttrs = splitedParagraph.match(/\((.*)\)/).pop().split(' ');
 
-          const link = (
+          const link = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+\.[A-Za-z]+$/.test(linkAttrs) ? (
             <a
               title={title}
               href={mailTo}
+              color="inherit"
+              className={styles.link}
+            >
+              {title}
+            </a>
+          ) : (
+            <a
+              title={title}
+              href={linkAttrs}
               color="inherit"
               className={styles.link}
             >

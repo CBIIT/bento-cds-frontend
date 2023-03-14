@@ -24,6 +24,9 @@ const AboutView = ({ classes, data }) => {
               secondaryImageData: getImage(data.secondaryZoomImage, 'secondary zoominout'),
               secondaryZoomImageTitle: data.secondaryZoomImageTitle
                 ? data.secondaryZoomImageTitle : null,
+              downloadableContentTitle: data.downloadableContentTitle
+                ? data.downloadableContentTitle : null,
+              downloadableContent: data.downloadableContent ? data.downloadableContent : '',
             }}
             titleColor="#1280AE"
             linkColor="#900F89"

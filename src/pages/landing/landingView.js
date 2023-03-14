@@ -25,7 +25,7 @@ const LandingView = ({ classes, statsData }) => (
                   { landingPageData.callToActionTitle }
                 </div>
                 <div className={classes.headerContent}>
-                  { landingPageData.callToActionDescription}
+                  {linkGenerator(landingPageData.callToActionDescription)}
                 </div>
                 <div className={classes.headerButtonSection}>
                   <Link to={landingPageData.callToActionLink} className={classes.headerLink}>
@@ -505,7 +505,7 @@ const styles = () => ({
     },
   },
   heroTextWrapper: {
-    width: '360px',
+    width: '500px',
   },
   buttonText: {
     height: '32px',

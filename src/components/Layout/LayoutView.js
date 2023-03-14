@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles, CssBaseline } from '@material-ui/core';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import { LinkBar } from 'bento-components';
 import aboutPageRoutes from '../../bento/aboutPagesRoutes';
 import Header from '../Header/HeaderView';
 import NavBar from '../NavBar/NavBarContainer';
@@ -23,7 +24,9 @@ import fileCentricCart from '../../pages/fileCentricCart/cartController';
 // import JBrowse from '../JBrowse/JBrowseView';
 // import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
 import GlobalSearch from '../../pages/search/searchView';
+import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import GlobalSearchController from '../../pages/search/searchViewController';
+import GA from '../../utils/googleAnalytics';
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -35,7 +38,9 @@ const Layout = ({ classes, isSidebarOpened }) => (
     <CssBaseline />
     <HashRouter>
       <>
+        <LinkBar url="https://datacommons.cancer.gov/?cid=caninecommons.cancer.gov" />
         <Header />
+        <OverlayWindow />
         <NavBar />
         {/* Reminder: Ajay need to replace the ICDC with env variable and
           change build npm to read env variable */}
@@ -43,6 +48,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
           className={classes.content}
         >
           <Route component={ScrollToTop} />
+          { GA.init() && <GA.RouteTracker /> }
           <Switch>
             <Route exact path="/CDS/" component={Home} />
             <Route exact path="/" component={Home} />
@@ -91,7 +97,7 @@ const styles = (theme) => ({
     // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
     width: 'calc(100%)', // Remove this on adding sidebar
     background: theme.custom.bodyBackGround,
-    marginTop: '185px',
+    marginTop: '205px',
   },
   '@global': {
     '*::-webkit-scrollbar': {

@@ -6,6 +6,7 @@ export const statsStyling = {
     statTitleFirst: true,
     height: '47px',
     background: ' #B4E2F5',
+    top: '159px',
   },
 };
 

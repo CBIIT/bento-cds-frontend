@@ -60,6 +60,7 @@ const initialState = {
     },
     isDataTableUptoDate: false,
     isFetched: false,
+    isOverlayOpen: false,
     isLoading: false,
     isDashboardTableLoading: false,
     setSideBarLoading: false,
@@ -1143,6 +1144,10 @@ export function setSearchCriteria(payload) {
   });
 }
 
+export function setOverLayWindow(item) {
+  store.dispatch({ type: 'SET_OVERLAY_WINDOW', payload: item });
+}
+
 // reducers
 const reducers = {
   DASHBOARDTAB_QUERY_ERR: (state, item) => ({
@@ -1151,6 +1156,10 @@ const reducers = {
     error: item,
     isLoading: false,
     isFetched: false,
+  }),
+  SET_OVERLAY_WINDOW: (state, item) => ({
+    ...state,
+    isOverlayOpen: item,
   }),
   READY_DASHBOARDTAB: (state) => {
     return {
@@ -1280,6 +1289,7 @@ const reducers = {
         ...state.dashboard,
         isFetched: true,
         isLoading: false,
+        isOverlayOpen: false,
         hasError: false,
         setSideBarLoading: false,
         searchCriteria: null,

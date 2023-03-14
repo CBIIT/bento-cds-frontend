@@ -129,10 +129,6 @@ const table = {
       header: 'Study Description',
     },
     {
-      dataField: 'experimental_strategy_and_data_subtypes',
-      header: 'Experimental Strategy',
-    },
-    {
       dataField: 'num_samples',
       header: 'Number Of Samples',
     },
@@ -165,7 +161,6 @@ query programDetailQuery($program_name: String!){
           study_name
           study_description
           short_description
-          experimental_strategy_and_data_subtypes
           num_participants
           num_samples
       }

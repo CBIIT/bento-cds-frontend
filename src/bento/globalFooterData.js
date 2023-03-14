@@ -4,7 +4,7 @@ import env from '../utils/env';
 export default {
   footerLogoImage: 'https://raw.githubusercontent.com/cbiit/datacommons-assets/main/bento/images/icons/png/footerlogo.png',
   footerLogoAltText: 'Footer Logo',
-  footerLogoHyperlink: 'https://frederick.cancer.gov/',
+  footerLogoHyperlink: 'https://www.cancer.gov/',
   footerStaticText: 'NIH … Turning Discovery Into Health®',
   version: env.REACT_APP_FE_VERSION,
   // BEversion: env.REACT_APP_BE_VERSION,
