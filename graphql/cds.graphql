@@ -227,6 +227,7 @@ type ProgramDetailStudy {
     study_description: String
     short_description: String
     num_participants: Int
+    experimental_strategy_and_data_subtypes: String
     num_samples: Int
 }
 
@@ -353,6 +354,7 @@ type QueryType {
                 study_name: s.study_name,
                 study_description: s.study_description,
                 short_description: s.short_description,
+                experimental_strategy_and_data_subtypes: s.experimental_strategy_and_data_subtypes,
                 num_participants: COUNT(DISTINCT part),
                 num_samples: COUNT(DISTINCT samp)
             } AS study
