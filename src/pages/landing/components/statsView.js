@@ -49,7 +49,7 @@ const styles = () => ({
     right: 0,
     margin: '-24px auto auto auto',
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
   },
   statsSectionCenter: {
     background: 'transparent',
@@ -82,7 +82,7 @@ const styles = () => ({
     direction: 'ltr',
     display: 'inline-flex',
     borderBottom: '74px solid #0084BD',
-    borderLeft: '50px solid transparent',
+    borderLeft: '0px solid transparent',
     height: '74px',
   },
   box: {

@@ -73,7 +73,9 @@ const rightPanel = [
       },
       {
         label: 'External Resources',
-        dataField: 'external_resources',
+        dataField: 'study_external_url',
+        link: '{study_external_url}',
+        // labelLink: true,
       },
     ],
   },
@@ -117,16 +119,18 @@ const table = {
   },
   columns: [
     {
+      dataField: 'file_id',
+      header: 'File Id',
+      primary: true,
+      display: false,
+    },
+    {
       dataField: 'file_name',
       header: 'File Name',
     },
     {
       dataField: 'file_type',
       header: 'Format',
-    },
-    {
-      dataField: 'experimental_strategy',
-      header: 'Experimental Strategy',
     },
     {
       dataField: 'sample_id',
@@ -167,6 +171,8 @@ query studyDetail($phs_accession: String) {
     study_name
     phs_accession
     study_acronym
+    study_external_url
+    data_types
     study_description
     numberOfSubjects
     numberOfSamples
@@ -211,7 +217,6 @@ query fileOverview(
   $phs_accession:String,
   $file_types: [String],
   $genders: [String],
-  $experimental_strategies: [String],
   $is_tumor: [String],
   $accesses: [String],
   $first: Int, 
@@ -227,7 +232,6 @@ fileOverview(
   phs_accession: [$phs_accession],
   file_types: $file_types,
   genders: $genders,
-  experimental_strategies: $experimental_strategies,
   is_tumor: $is_tumor,
   accesses: $accesses,
   first: $first, 
@@ -239,9 +243,7 @@ fileOverview(
   phs_accession
   subject_id
   sample_id
-  experimental_strategy
   gender
-  site
   analyte_type
   is_tumor
   file_name

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from 'react';
 import {
@@ -8,11 +9,15 @@ import _ from 'lodash';
 import { useSelector } from 'react-redux';
 import HelpIcon from '@material-ui/icons/Help';
 import IconButton from '@material-ui/core/IconButton';
+import { getColumns } from 'bento-components';
+
 import { addToCart, cartWillFull } from '../../pages/fileCentricCart/store/cart';
 import Message from '../Message';
 import AddToCartAlertDialog from '../AddToCartDialog';
 import CustomDataTable from '../serverPaginatedTable/serverPaginatedTable';
 import { customFilesTabDownloadCSV } from '../../bento/tableDownloadCSV';
+import DocumentDownload from '../DocumentDownload/DocumentDownloadView';
+import globalData from '../../bento/siteWideConfig';
 
 const GridView = ({
   classes,
@@ -221,12 +226,12 @@ const GridView = ({
       <Grid container>
         <Grid item xs={12} id="table_file">
           <CustomDataTable
-            data={_.cloneDeep(data)}
-            columns={columns}
+            data={data}
+            columns={getColumns(columns, classes, _.cloneDeep(data), 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/externalLinkIcon.svg', '', () => {}, DocumentDownload, globalData.replaceEmptyValueWith)}
             options={finalOptions}
+            count={count}
             overview={query}
             paginationAPIField="fileOverview"
-            count={count}
             queryCustomVaribles={queryCustomVaribles}
             defaultSortCoulmn="file_name"
             defaultSortDirection="asc"

@@ -30,7 +30,7 @@ const CaseCard = ({ data, classes, index }) => {
         </Grid>
         <Grid item xs={11} className={classes.propertyContainer}>
           <div>
-            <span className={classes.detailContainerHeader}>CASE</span>
+            <span className={classes.detailContainerHeader}>PARTICPANT</span>
             <span>
               <span className={classes.cardTitle}>
                 {data.subject_id}

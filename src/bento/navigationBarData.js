@@ -1,6 +1,7 @@
 export const navBarstyling = {
   global: {
     backgroundColor: '#0E6292;',
+    marginTop: '120px',
     height: '39px',
     padding: '9px 20px 0px 20px',
     fontColor: '#bbefff',
@@ -102,6 +103,15 @@ export const navBarData = [
     ],
   },
 ];
+
+export const externalLinks = {
+  about: [
+    {
+      title: 'CDS Release Notes',
+      link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+    },
+  ],
+};
 
 export const navBarCartData = {
   // cartLabel: 'My Files',

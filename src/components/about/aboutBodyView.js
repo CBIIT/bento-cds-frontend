@@ -229,6 +229,66 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
                 </>
               )) : ''}
             </span>
+            {data.downloadableContentTitle
+        && (
+        <div className={classes.downloadableContentContainer}>
+          <div className={classes.downloadableContentTitle}>{data.downloadableContentTitle}</div>
+          <span className={classes.text}>
+            {data.downloadableContent ? data.downloadableContent.map((contentObj) => (
+              <>
+                {/* Ordered List with Numbers logic */}
+
+                {/* Paragraphs */}
+                {contentObj.paragraph && (
+                <div className={classes.text}>
+                  { contentObj.paragraph.split('$$').map((splitedParagraph) => {
+                    // Checking for regex ()[] pattern
+                    if (splitedParagraph != null && ((/\[(.+)\]\((.+)\)/g.test(splitedParagraph)) || (/\((.+)\)\[(.+)\]/g.test(splitedParagraph)))) {
+                      const title = splitedParagraph.match(/\[(.*)\]/).pop();
+                      const linkAttrs = splitedParagraph.match(/\((.*)\)/).pop().split(' ');
+                      const target = linkAttrs.find((link) => link.includes('target:'));
+                      const url = linkAttrs.find((link) => link.includes('url:'));
+                      const type = linkAttrs.find((link) => link.includes('type:')); // 0 : no img
+                      const href = splitedParagraph.match(/\((.*)\)/).pop();
+
+                      const link = (
+                        <Link
+                          title={title}
+                          target={target ? target.replace('target:', '') : '_blank'}
+                          rel="noreferrer"
+                          href={url ? url.replace('url:', '') : (href && href.includes('@') ? `mailto:${href}` : href)}
+                          color="inherit"
+                          className={classes.link}
+                        >
+                          {title}
+                        </Link>
+                      );
+
+                      return (
+                        <>
+                          {link}
+                          {type ? '' : (
+                            <img
+                              src={externalIconImage}
+                                  // externalIconImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/common/images/logos/svgs/externalLinkIcon.svg',
+                              alt="outbounnd web site icon"
+                              className={classes.linkIcon}
+                            />
+                          )}
+
+                        </>
+                      );
+                    }
+
+                    return splitedParagraph;
+                  })}
+                </div>
+                )}
+              </>
+            )) : ''}
+          </span>
+        </div>
+        )}
           </Grid>
           {data.imageLocation === 'right'
             && (
@@ -241,6 +301,7 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
       {data.secondaryZoomImageTitle
         && <div className={classes.secondayTitle}>{data.secondaryZoomImageTitle}</div>}
       {data.secondaryImage && <XoomInOut>{data.secondaryImageData}</XoomInOut>}
+
     </>
   );
 };
@@ -308,6 +369,7 @@ const styles = () => ({
   },
   link: (props) => ({
     color: props.linkColor,
+    fontWeight: '600',
     '&:hover': {
       color: props.linkColor,
     },
@@ -329,7 +391,6 @@ const styles = () => ({
     borderCollapse: 'collapse',
     fontSize: '12px',
     fontWeight: 'bold',
-    letterSpacing: '0.025em',
     lineHeight: '30px',
     textAlign: 'left',
     width: '100%',
@@ -359,6 +420,19 @@ const styles = () => ({
   },
   MyCasesWizardStep4: {
     width: '600px',
+  },
+  downloadableContentContainer: {
+    background: '#ebebeb',
+    padding: '32px',
+    borderRadius: '8px',
+  },
+  downloadableContentTitle: {
+    fontWeight: 'bold',
+    marginBottom: '20px',
+    color: '#1280AE',
+    fontSize: '20px',
+    fontFamily: 'Lato',
+    letterSpacing: '0.025em',
   },
 });
 

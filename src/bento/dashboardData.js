@@ -15,13 +15,49 @@ export const facetSearchData = [
     label: 'Experimental Strategy', field: 'group', api: 'subjectCountByExperimentalStrategy', apiForFiltering: 'filterSubjectCountByExperimentalStrategy', datafield: 'experimental_strategies', section: 'Cases', show: true,
   },
   {
+    label: 'Sample Tumor Status', field: 'group', api: 'filterSubjectCountByIsTumor', apiForFiltering: 'filterSubjectCountByIsTumor', datafield: 'is_tumor', section: 'Cases', show: true,
+  },
+  {
     label: 'Gender', field: 'group', api: 'filterSubjectCountByGender', apiForFiltering: 'filterSubjectCountByGender', datafield: 'genders', section: 'Cases', show: true,
   },
   {
-    label: 'Tumor', field: 'group', api: 'filterSubjectCountByIsTumor', apiForFiltering: 'filterSubjectCountByIsTumor', datafield: 'is_tumor', section: 'Cases', show: true,
+    label: 'File Type', field: 'group', api: 'filterSubjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_types', section: 'Cases', show: true,
   },
   {
-    label: 'FileType', field: 'group', api: 'filterSubjectCountByFileType', apiForFiltering: 'filterSubjectCountByFileType', datafield: 'file_types', section: 'Cases', show: true,
+    label: 'PHS Accession ', field: 'group', api: 'filterSubjectCountByPhsAccession', apiForFiltering: 'filterSubjectCountByPhsAccession', datafield: 'phs_accession', section: 'Cases', show: true,
+  },
+  {
+    label: 'Num of Study Participants', api: 'filterSubjectCountByNumberOfStudyParticipants', apiForFiltering: 'filterSubjectCountByNumberOfStudyParticipants', datafield: 'number_of_study_participants', section: 'Cases', show: true, slider: true, quantifier: 'Study Participants',
+  },
+  {
+    label: 'Num of study Samples', api: 'filterSubjectCountByNumberOfStudySamples', apiForFiltering: 'filterSubjectCountByNumberOfStudySamples', datafield: 'number_of_study_samples', section: 'Cases', show: true, slider: true, quantifier: 'Study Samples',
+  },
+  {
+    label: 'study data types ', field: 'group', api: 'filterSubjectCountByStudyDataType', apiForFiltering: 'filterSubjectCountByStudyDataType', datafield: 'study_data_types', section: 'Cases', show: true,
+  },
+  {
+    label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategy', section: 'Cases', show: true,
+  },
+  {
+    label: 'library source', field: 'group', api: 'filterSubjectCountByLibrarySource', apiForFiltering: 'filterSubjectCountByLibrarySource', datafield: 'library_sources', section: 'Cases', show: true,
+  },
+  {
+    label: 'library selection', field: 'group', api: 'filterSubjectCountByLibrarySelection', apiForFiltering: 'filterSubjectCountByLibrarySelection', datafield: 'library_selections', section: 'Cases', show: true,
+  },
+  {
+    label: 'library layout', field: 'group', api: 'filterSubjectCountByLibraryLayout', apiForFiltering: 'filterSubjectCountByLibraryLayout', datafield: 'library_layouts', section: 'Cases', show: true,
+  },
+  {
+    label: 'platform', field: 'group', api: 'filterSubjectCountByPlatform', apiForFiltering: 'filterSubjectCountByPlatform', datafield: 'platforms', section: 'Cases', show: true,
+  },
+  {
+    label: 'instrument model', field: 'group', api: 'filterSubjectCountByInstrumentModel', apiForFiltering: 'filterSubjectCountByInstrumentModel', datafield: 'instrument_models', section: 'Cases', show: true,
+  },
+  {
+    label: 'reference genome assembly', field: 'group', api: 'filterSubjectCountByReferenceGenomeAssembly', apiForFiltering: 'filterSubjectCountByReferenceGenomeAssembly', datafield: 'reference_genome_assemblies', section: 'Cases', show: true,
+  },
+  {
+    label: 'PRIMARY DIAGNOSIS', field: 'group', api: 'filterSubjectCountByPrimaryDiagnosis', apiForFiltering: 'filterSubjectCountByPrimaryDiagnosis', datafield: 'primary_diagnoses', section: 'Cases', show: true,
   },
 ];
 
@@ -126,7 +162,7 @@ export const widgetsData = [
     label: 'Experimental Strategy',
     dataName: 'subjectCountByExperimentalStrategy',
     datatable_field: 'experimental_strategies',
-    titleText: 'Participants',
+    titleText: 'Files',
     show: true,
   },
   {
@@ -139,10 +175,10 @@ export const widgetsData = [
   },
   {
     type: 'donut',
-    label: 'Tumor',
+    label: 'Sample Tumor Status',
     dataName: 'subjectCountByIsTumor',
     datatable_field: 'is_tumor',
-    titleText: 'Participants',
+    titleText: 'Samples',
     show: true,
   },
 ];

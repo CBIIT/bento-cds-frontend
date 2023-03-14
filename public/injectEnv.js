@@ -8,4 +8,5 @@ window.injectedEnv = {
 	REACT_APP_FE_VERSION: '0.0.0',
 	REACT_APP_ABOUT_CONTENT_URL:'https://raw.githubusercontent.com/CBIIT/bento-frontend/deveslop/src/content/dev/aboutPagesContent.yaml',
 	REACT_APP_FILE_SERVICE_API:'https://bento-dev.bento-tools.org/api/files/',
+  REACT_APP_GA_TRACKING_ID: 'UA-256831155-1',
 };
