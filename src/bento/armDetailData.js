@@ -92,6 +92,7 @@ const table = {
   // 'asc' or 'desc'
   defaultSortDirection: 'asc',
   // Set 'selectableRows' to true to show the row selection
+  headerPagination: true,
   selectableRows: true,
   tooltipMessage: 'Click button to add selected files.',
   helpMessage: 'Here help message',

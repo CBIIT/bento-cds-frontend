@@ -6,9 +6,9 @@ import { customCasesTabDownloadCSV, customFilesTabDownloadCSV, customSamplesTabD
 export const tooltipContent = {
   icon: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
   alt: 'tooltipIcon',
-  0: 'Click button to add selected files associated with the selected case(s).',
-  1: 'Click button to add selected files associated with the selected sample(s).',
-  2: 'Click button to add selected files.',
+  0: 'Select to add participant files.',
+  1: 'Select to add sample files.',
+  2: 'Select to add files.',
 };
 
 // --------------- Dahboard Table external link configuration --------------

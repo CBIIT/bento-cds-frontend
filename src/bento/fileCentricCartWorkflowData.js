@@ -9,8 +9,8 @@ export const navBarCartData = {
 };
 
 // --------------- Files limit configuration --------------
-export const alertMessage = 'The cart is limited to 1000 files. Please narrow the search criteria or remove some files from the cart to add more.';
-export const maximumNumberOfFilesAllowedInTheCart = 1000;
+export const alertMessage = 'The cart is limited to 6000 files. Please narrow the search criteria or remove some files from the cart to add more.';
+export const maximumNumberOfFilesAllowedInTheCart = 6000;
 
 export const myFilesPageData = {
   mainTitle: 'Cart >',
