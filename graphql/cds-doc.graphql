@@ -226,7 +226,6 @@ type ProgramDetailStudy {
     study_name: String
     study_description: String
     short_description: String
-    experimental_strategy_and_data_subtypes: String
     num_participants: Int
     num_samples: Int
 }
