@@ -20,6 +20,9 @@ query globalSearch($input: String){
         samples {
             sample_id
         }
+        samples {
+            sample_id
+        }
         files {
             file_id
         }

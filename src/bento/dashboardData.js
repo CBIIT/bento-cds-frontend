@@ -175,10 +175,18 @@ export const widgetsData = [
   },
   {
     type: 'donut',
-    label: 'Sample Tumor Status',
-    dataName: 'subjectCountByIsTumor',
-    datatable_field: 'is_tumor',
-    titleText: 'Samples',
+    label: 'File Type',
+    dataName: 'subjectCountByFileType',
+    datatable_field: 'file_types',
+    titleText: 'Participants',
+    show: true,
+  },
+  {
+    type: 'donut',
+    label: 'Study Data Types',
+    dataName: 'subjectCountByStudyDataType',
+    datatable_field: 'study_data_types',
+    titleText: 'Participants',
     show: true,
   },
 ];
