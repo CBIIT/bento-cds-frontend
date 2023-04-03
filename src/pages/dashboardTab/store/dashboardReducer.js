@@ -172,7 +172,15 @@ function getFilteredStat(input, statCountVariables) {
  * @param {object} data
  *  @param {object}
  */
-const removeEmptySubjectsFromDonutData = (data) => data.filter((item) => item.subjects !== 0);
+function removeEmptySubjectsFromDonutDataAndSort(data) { 
+  data = data.filter((item) => item.subjects !== 0);
+  data = data.sort((a, b) => {
+    if (a.group > b.group) {
+      return -1;
+    }
+  });
+  return data;
+};
 
 /**
  * Returns the widgets data.
@@ -182,7 +190,7 @@ const removeEmptySubjectsFromDonutData = (data) => data.filter((item) => item.su
  */
 function getWidgetsInitData(data, widgetsInfoFromCustConfig) {
   const donut = widgetsInfoFromCustConfig.reduce((acc, widget) => {
-    const Data = widget.type === 'sunburst' ? transformInitialDataForSunburst(data[widget.dataName]) : removeEmptySubjectsFromDonutData(data[widget.dataName]);
+    const Data = widget.type === 'sunburst' ? transformInitialDataForSunburst(data[widget.dataName]) : removeEmptySubjectsFromDonutDataAndSort(data[widget.dataName]);
     const label = widget.dataName;
     return { ...acc, [label]: Data };
   }, {});

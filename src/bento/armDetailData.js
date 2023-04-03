@@ -28,7 +28,7 @@ const subsections = [
       // Each object here represents a set of label:value pair of a property
       // A maximum of 10 properties are allowed
       {
-        label: 'Study Name',
+        label: 'Study Accession',
         dataField: 'phs_accession',
         // link property specify URL value should link to
         // space holder "{study_acronym}" will be replaced by
