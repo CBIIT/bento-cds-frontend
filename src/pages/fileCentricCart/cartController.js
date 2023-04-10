@@ -13,10 +13,12 @@ const cartController = () => {
   const CART_QUERY = GET_MY_CART_DATA_QUERY;
   const defaultSortColumnValue = cart.sortColumn === '' || !cart.sortColumn ? table.defaultSortField || '' : cart.sortColumn;
   // if the user open the webpage for the first time.
-  if (!localStorage.getItem('sortColumn') || !localStorage.getItem('page') || !localStorage.getItem('rowsPerPage')) {
+  localStorage.setItem('data', []);
+  if (!localStorage.getItem('sortColumn') || !localStorage.getItem('page') || !localStorage.getItem('rowsPerPage') || !localStorage.getItem('data')) {
     localStorage.setItem('sortColumn', defaultSortColumnValue);
     localStorage.setItem('page', '0');
     localStorage.setItem('rowsPerPage', '10');
+    localStorage.setItem('data', []);
   }
   const localPage = localStorage.getItem('page');
   const localRowsPerPage = localStorage.getItem('rowsPerPage');

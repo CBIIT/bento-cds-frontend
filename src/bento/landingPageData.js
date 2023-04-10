@@ -29,18 +29,22 @@ export const landingPageData = {
     {
       statTitle: 'Studies',
       statAPI: 'numberOfStudies',
+      callToActionLink: '/studies',
     },
     {
       statTitle: 'participants',
       statAPI: 'numberOfSubjects',
+      callToActionLink: '/data',
     },
     {
       statTitle: 'samples',
       statAPI: 'numberOfSamples',
+      callToActionLink: '/data',
     },
     {
       statTitle: 'files',
       statAPI: 'numberOfFiles',
+      callToActionLink: '/data',
     },
   ],
   tile1: {

@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 import {
   withStyles,
 } from '@material-ui/core';
@@ -21,16 +22,18 @@ const LandingStatsView = ({ classes, stats, statsData }) => (
 
         {
         stats.map((stat, index) => (
-          <div className={classes.statsGroup}>
-            <div className={classes.statsText}>
-              <div className={classes.statTitle} id={`title_${index + 1}`}>
-                {stat.statTitle}
-              </div>
-              <div className={classes.statCount} id={`count_${index + 1}`}>
-                {statsData[stat.statAPI]}
+          <Link to={stat.callToActionLink} className={classes.statLink}>
+            <div className={classes.statsGroup}>
+              <div className={classes.statsText}>
+                <div className={classes.statTitle} id={`title_${index + 1}`}>
+                  {stat.statTitle}
+                </div>
+                <div className={classes.statCount} id={`count_${index + 1}`}>
+                  {statsData[stat.statAPI]}
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))
         }
       </div>
@@ -65,6 +68,9 @@ const styles = () => ({
     '@media (min-width: 900px)': {
       overflow: 'inherit',
     },
+  },
+  statLink: {
+    textDecoration: 'none',
   },
   bannerTexture: {
     color: '#4898B4',
@@ -102,6 +108,10 @@ const styles = () => ({
     borderBottom: '3px solid white',
     minWidth: '140px',
     justifyContent: 'center',
+    '&:hover': {
+      borderBottom: '3px solid #88EDFF',
+
+    },
   },
   statTitle: {
     display: 'inline-block',
