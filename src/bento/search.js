@@ -44,10 +44,11 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         offset: $offset
     ) {
         programs {
-            type
-            program_id
-            program_name
-            program_code
+          program_name
+          program_short_description
+          program_full_description
+          program_external_url
+          program_sort_order
         }
 }
 }
@@ -176,6 +177,7 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         file_count
         model_count
         about_count
+        program_count
 }
 }
 `;

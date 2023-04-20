@@ -60,14 +60,14 @@ const styles = () => ({
     margin: '0 auto',
   },
   leftBg: {
-    backgroundImage: 'url(\'https://raw.githubusercontent.com/CBIIT/datacommons-assets/cds/cds/about/leftBg.jpg\')',
+    backgroundImage: 'url(\'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/leftBg.jpg\')',
     // backgroundImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/LeftSide.png',
     backgroundPosition: 'left top, left top',
     backgroundRepeat: 'no-repeat, repeat',
   },
   rightBg: {
     paddingBottom: '30px',
-    backgroundImage: 'url(\'https://raw.githubusercontent.com/CBIIT/datacommons-assets/cds/cds/about/rightBg.png\')',
+    backgroundImage: 'url(\'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/rightBg.png\')',
     backgroundPosition: 'right bottom, left top',
     backgroundRepeat: 'no-repeat, repeat',
   },

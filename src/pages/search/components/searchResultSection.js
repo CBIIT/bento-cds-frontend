@@ -7,7 +7,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import Components from './component';
 import client from '../../../utils/graphqlClient';
 import {
-  // SEARCH_PAGE_RESULT_PROGRAM,
+  SEARCH_PAGE_RESULT_PROGRAM,
   SEARCH_PAGE_RESULT_STUDIES,
   SEARCH_PAGE_RESULT_SUBJECTS,
   SEARCH_PAGE_RESULT_SAMPLES,
@@ -68,8 +68,8 @@ function SearchPagination({
         return { QUERY: SEARCH_PAGE_RESULT_SAMPLES, field: 'samples' };
       case 'files':
         return { QUERY: SEARCH_PAGE_RESULT_FILES, field: 'files' };
-      // case 'programs':
-      //   return { QUERY: SEARCH_PAGE_RESULT_PROGRAM, field: 'programs' };
+      case 'programs':
+        return { QUERY: SEARCH_PAGE_RESULT_PROGRAM, field: 'programs' };
       case 'studies':
         return { QUERY: SEARCH_PAGE_RESULT_STUDIES, field: 'studies' };
       case 'model':
