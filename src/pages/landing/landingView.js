@@ -223,8 +223,8 @@ const styles = () => ({
 
   },
   iconArrowRight: {
-    color: '#D36000',
-    marginTop: '6px',
+    color: '#FFF',
+    marginTop: '4px',
 
   },
   whiteSection: {
@@ -267,8 +267,10 @@ const styles = () => ({
   headerLink: {
     textDecoration: 'none',
     display: 'flex',
-    borderBottom: '1.5px solid #D36000',
-    maxWidth: '210px',
+    // borderBottom: '1.5px solid #D36000',
+    maxWidth: '228px',
+    background: '#D36000',
+    borderRadius: '8px',
   },
 
   iconAbout: {
@@ -509,12 +511,12 @@ const styles = () => ({
   },
   buttonText: {
     height: '32px',
-    padding: '12px 58px 4px 0px',
+    padding: '8px 58px 8px 16px',
     background: 'transparent',
     fontSize: '12px',
     fontFamily: 'Lato',
     fontWeight: '600',
-    color: '#D36000',
+    color: '#FFF',
     border: 'none',
     display: 'flex',
     letterSpacing: '1px',

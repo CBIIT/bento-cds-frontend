@@ -84,7 +84,7 @@ function searchComponent({ classes, searchparam = '' }) {
   }, [open]);
 
   // eslint-disable-next-line max-len
-  const allCount = () => (searchResults.subject_count + searchResults.sample_count + searchResults.study_count + searchResults.file_count + searchResults.model_count + searchResults.about_count);
+  const allCount = () => (searchResults.subject_count + searchResults.sample_count + searchResults.study_count + searchResults.file_count + searchResults.model_count + searchResults.about_count + searchResults.program_count);
 
   return (
     <>

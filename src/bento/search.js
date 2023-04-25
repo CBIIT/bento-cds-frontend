@@ -32,6 +32,9 @@ query globalSearch($input: String){
         about_page {
             text
         }
+        program {
+            program_name
+        }
     }
 }
 `;
@@ -44,6 +47,7 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         offset: $offset
     ) {
         programs {
+          type
           program_name
           program_short_description
           program_full_description
