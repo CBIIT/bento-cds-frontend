@@ -100,6 +100,10 @@ export const navBarData = [
         labelText: 'Bento Framework',
         link: '/bento',
       },
+      {
+        labelText: 'Data Submit',
+        link: '/datasubmit',
+      },
     ],
   },
 ];
