@@ -129,7 +129,13 @@ const LandingView = ({ classes, statsData }) => (
                 </div>
                 <div className={classes.content}>
                   <div className={classes.contentHeader} id="tile3_title">
-                    {landingPageData.tile3.titleText}
+                    {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
+                      <>
+                        {word}
+                        {<span>&nbsp;</span>}
+                        {index === 2 && <br />}
+                      </>
+                    ))}
                   </div>
                   <div className={classes.contentContainer} id="tile3_description">
                     {linkGenerator(landingPageData.tile3.descriptionText)}
@@ -142,12 +148,12 @@ const LandingView = ({ classes, statsData }) => (
                     {' '}
                   </div>
                   <div className={classes.blueButtonRight} id="tile3_button">
-                    <Link
-                      to={landingPageData.tile3.callToActionLink}
+                    <a
+                      href={landingPageData.tile3.callToActionLink}
                       className={classes.blueButton}
                     >
                       {landingPageData.tile3.callToActionText}
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
