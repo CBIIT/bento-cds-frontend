@@ -66,10 +66,10 @@ export const landingPageData = {
   tile3: {
     alt: '',
     img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/landingTile3.png',
-    titleText: 'SUBMIT DATA',
-    descriptionText: 'Submitters should start by contacting the CDS Helpdesk $$[cdshelpdesk@mail.nih.gov](cdshelpdesk@mail.nih.gov)$$',
+    titleText: 'CLICK HERE TO GET STARTED',
+    descriptionText: 'Click to Get Started or reach out to the CDS Helpdesk for any information.',
     callToActionText: 'Start the process',
-    callToActionLink: '/submit', // Link to the "Submit" Static Page
+    callToActionLink: 'https://forms.office.com/Pages/ResponsePage.aspx?id=eHW3FHOX1UKFByUcotwrBnhZjQVraVhBjSilypWqINtURThaVktJNkJVSjc1SlkxMkUwMVNBVzYwTi4u', // Link to the "Submit" Static Page
   },
   tile4: {
     alt: '',
