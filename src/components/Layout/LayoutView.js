@@ -23,9 +23,11 @@ import GraphqlClient from '../GraphqlClient/GraphqlView';
 import fileCentricCart from '../../pages/fileCentricCart/cartController';
 // import JBrowse from '../JBrowse/JBrowseView';
 // import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
+import ReleaseVersions from '../ReleaseVersions';
 import GlobalSearch from '../../pages/search/searchView';
 import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import GlobalSearchController from '../../pages/search/searchViewController';
+
 import GA from '../../utils/googleAnalytics';
 
 const ScrollToTop = () => {
@@ -66,6 +68,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
             <Route exact path="/search" component={GlobalSearch} />
             <Route path="/search/:id" component={GlobalSearchController} />
             <Route path="/datasubmit" component={Questionaire} />
+            <Route path="/releases" component={ReleaseVersions} />
 
             {/* <Route path="/fileViewer/:id" component={JBrowseDetail} /> */}
             {aboutPageRoutes.map(

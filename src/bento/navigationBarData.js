@@ -104,6 +104,10 @@ export const navBarData = [
         labelText: 'Data Submit',
         link: '/datasubmit',
       },
+      {
+        labelText: 'Releases',
+        link: '/releases',
+      },
     ],
   },
 ];
