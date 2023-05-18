@@ -41,6 +41,7 @@ type StudyInfo {
     data_type: String
     numberOfSubjects: Int
     numberOfFiles: Int
+    study_access: String
 }
 
 type IdsLists {
@@ -161,6 +162,7 @@ type QueryType {
             phs_accession: s.phs_accession,
             study_name: s.study_name,
             data_type: s.study_data_types,
+            study_access: s.study_access,
             numberOfSubjects: COUNT(DISTINCT part),
             numberOfFiles: COUNT(DISTINCT f)
         }
