@@ -213,6 +213,7 @@ type ProgramDetail {
 
 type ProgramDetailStudy {
     accession: String
+    study_access: String
     study_name: String
     study_description: String
     short_description: String
@@ -341,6 +342,7 @@ type QueryType {
             } AS study_participants,
             {
                 accession: s.phs_accession, 
+                study_access: s.study_access,
                 study_name: s.study_name,
                 study_description: s.study_description,
                 short_description: s.short_description,
