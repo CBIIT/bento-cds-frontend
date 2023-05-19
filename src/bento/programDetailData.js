@@ -125,10 +125,6 @@ const table = {
       header: 'Study Name',
     },
     {
-      dataField: 'study_description',
-      header: 'Study Description',
-    },
-    {
       dataField: 'num_samples',
       header: 'Number Of Samples',
     },

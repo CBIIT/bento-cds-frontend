@@ -90,6 +90,12 @@ export const table = {
       display: true,
     },
     {
+      dataField: 'accesses',
+      header: 'Study Access',
+      sort: 'asc',
+      display: true,
+    },
+    {
       dataField: 'file_type',
       header: 'File Type',
       sort: 'asc',
@@ -142,6 +148,7 @@ fileOverview(
   sort_direction: $sort_direction
 ){
   study_acronym
+  accesses
   phs_accession
   subject_id
   sample_id
