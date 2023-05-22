@@ -125,6 +125,10 @@ const table = {
       header: 'Study Name',
     },
     {
+      dataField: 'study_access',
+      header: 'Study Access',
+    },
+    {
       dataField: 'num_samples',
       header: 'Number Of Samples',
     },
@@ -154,6 +158,7 @@ query programDetailQuery($program_name: String!){
       }
       studies{
           accession
+          study_access
           study_name
           study_description
           short_description
