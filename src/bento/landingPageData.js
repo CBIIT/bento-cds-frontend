@@ -69,7 +69,7 @@ export const landingPageData = {
     titleText: 'CLICK HERE TO GET STARTED',
     descriptionText: 'Click to Get Started or reach out to the CDS Helpdesk for any information.',
     callToActionText: 'Start the process',
-    callToActionLink: 'https://forms.office.com/Pages/ResponsePage.aspx?id=eHW3FHOX1UKFByUcotwrBnhZjQVraVhBjSilypWqINtURThaVktJNkJVSjc1SlkxMkUwMVNBVzYwTi4u', // Link to the "Submit" Static Page
+    callToActionLink: '/datasubmit', // Link to the "Submit" Static Page
   },
   tile4: {
     alt: '',

@@ -128,15 +128,17 @@ const LandingView = ({ classes, statsData }) => (
                   />
                 </div>
                 <div className={classes.content}>
-                  <div className={classes.contentHeader} id="tile3_title">
-                    {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
-                      <>
-                        {word}
-                        {<span>&nbsp;</span>}
-                        {index === 2 && <br />}
-                      </>
-                    ))}
-                  </div>
+                  <a href="mailto:cdshelpdesk@mail.nih.gov" className={classes.mailLink}>
+                    <div className={classes.contentHeader} id="tile3_title">
+                      {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
+                        <>
+                          {word}
+                          {<span>&nbsp;</span>}
+                          {index === 2 && <br />}
+                        </>
+                      ))}
+                    </div>
+                  </a>
                   <div className={classes.contentContainer} id="tile3_description">
                     {linkGenerator(landingPageData.tile3.descriptionText)}
                   </div>
@@ -405,6 +407,9 @@ const styles = () => ({
   },
   studies: {
     float: 'left',
+  },
+  mailLink: {
+    textDecoration: 'none',
   },
 
   contentRightBottom: {
