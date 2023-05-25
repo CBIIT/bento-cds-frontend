@@ -189,7 +189,7 @@ export const tabContainers = [
     dataKey: 'file_id',
     saveButtonDefaultStyle: {
       color: '#fff',
-      backgroundColor: '#DC2FDA',
+      backgroundColor: '#0B4E75',
       opacity: '1',
       border: '0px',
       cursor: 'pointer',

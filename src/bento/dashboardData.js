@@ -170,7 +170,7 @@ export const widgetsData = [
     label: 'Gender',
     dataName: 'subjectCountByGender',
     datatable_field: 'genders',
-    titleText: 'Participants',
+    titleText: 'Files',
     show: true,
   },
   {
@@ -178,7 +178,7 @@ export const widgetsData = [
     label: 'File Type',
     dataName: 'subjectCountByFileType',
     datatable_field: 'file_types',
-    titleText: 'Participants',
+    titleText: 'Files',
     show: true,
   },
   {
@@ -186,7 +186,7 @@ export const widgetsData = [
     label: 'Study Data Types',
     dataName: 'subjectCountByStudyDataType',
     datatable_field: 'study_data_types',
-    titleText: 'Participants',
+    titleText: 'Files',
     show: true,
   },
 ];

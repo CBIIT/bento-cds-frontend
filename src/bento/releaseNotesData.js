@@ -10,22 +10,15 @@ export const VERSIONS = [
     content: `<div>
     <p>LCCC 1108: Development of a Tumor Molecular Analyses Program and Its Use to Support Treatment Decisions (UNCseqTM) - phs001713.v1.p1</p>
     <ul>
-      <li>Participants – 2,074</li>
-      <li>Files – 11,340</li>
+      <li>2,074 Participants</li>
+      <li>11,340 Files</li>
     </ul>
   </div>
   <div>
     <p>DCCPS CIDR: The Genetic Basis of Aggressive Prostate Cancer: The Role of Rare Variation - phs001524.v1.p1</p>
     <ul>
-      <li>Participants – 13,891</li>
-      <li>Files – 27,782</li>
-    </ul>
-  </div>
-  <div>
-    <p>PDXNet: Washington University PDX Development and Trial Center -phs002305.v1.p</p>
-    <ul>
-      <li>Participants – 110</li>
-      <li>Files – 990</li>
+      <li>13,891 Participants</li>
+      <li>27,782 Files</li>
     </ul>
   </div>
   <div>
@@ -36,10 +29,37 @@ export const VERSIONS = [
     </ul>
   </div>
   <div>
+    <p>PDXNet: Washington University PDX Development and Trial Center -phs002305.v1.p</p>
+    <ul>
+      <li>110 Participants</li>
+      <li>990 Files</li>
+    </ul>
+  </div>
+  <div>
     <p>CCDI: Molecular Characterization Initiative – phs002731.v2.p1</p>
     <ul>
-      <li>Participants – 108</li>
-      <li>Files – 1,987</li>
+      <li>108Participants</li>
+      <li>1,987 Files</li>
+    </ul>
+  </div>
+  `,
+  },
+  {
+    id: 'TBD',
+    versionNumber: 'TBD',
+    releaseDate: 'Upcoming',
+    subHeading: 'Studies',
+    heading: 'Coming Soon',
+    content: `<div>
+    <ul>
+      <li>CCDI: Feasibility and Clinical Utility of Whole Genome Profiling in Pediatric and Young Adult Cancers - phs002620.v1.p1</li>
+      <li>CCDI: NCI CCSG CCDI Supplement Additional Genomic Submission - phs002599.v1.p1</li>
+      <li>PDXNet: Wistar PDX Development and Trial Center - phs002432.v1.p1</li>
+      <li>Whole Genome Sequencing to Discover Familial Myeloma Risk Genes - phs001819.v2.p1</li>
+      <li>Limited Use Pilot Test Data. The PHS002011 manifest file is available for download the CGC documentation - phs002011.v1.p1</li>
+      <li>HTAN Imaging 1st and 2nd submission</li>
+      <li>HTAN 1st Genomic phs002371</li>
+      <li>CCDI, CHoP - phs002517.v1.p1</li>
     </ul>
   </div>
   `,
@@ -90,7 +110,7 @@ export const VERSIONS = [
     <p>HTAN: Human Tumor Atlas Network Primary Sequencing Data - phs002371.v2.p1 – phs002371.v3.p1</p>
     <ul>
       <li>660 participants</li>
-      <li>3781 files</li>
+      <li>3,781 files</li>
     </ul>
   </div>
   <div>
@@ -112,7 +132,7 @@ export const VERSIONS = [
     <p>DCCPS GECCO OICR: Molecular Pathological Epidemiology of Cancer - phs002050.v2.p</p>
     <ul>
       <li>2,528 participants</li>
-      <li>5,056 file</li>
+      <li>5,056 files</li>
     </ul>
   </div>
   <div>

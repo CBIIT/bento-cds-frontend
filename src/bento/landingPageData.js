@@ -83,10 +83,11 @@ export const landingPageData = {
 
 // --------------- GraphQL query - Retrieve Landing page data --------------
 export const GET_LANDING_PAGE_DATA_QUERY = gql`{
-  numberOfStudies
-  numberOfSubjects 
-  numberOfSamples 
-  numberOfFiles 
-  numberOfDiseaseSites 
+  searchSubjects{
+    numberOfFiles
+    numberOfSamples
+    numberOfStudies
+    numberOfSubjects
+} 
   }
   `;

@@ -17,7 +17,7 @@ const landingController = () => {
     );
   }
 
-  return <LandingView statsData={data} />;
+  return <LandingView statsData={data.searchSubjects} />;
 };
 
 export default landingController;

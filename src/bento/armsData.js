@@ -44,7 +44,7 @@ const table = {
     },
     {
       dataField: 'study_access',
-      header: 'Access',
+      header: 'Study Access',
     },
     {
       dataField: 'numberOfSubjects',
