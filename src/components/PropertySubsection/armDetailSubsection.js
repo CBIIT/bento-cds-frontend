@@ -6,6 +6,10 @@ const PropertyItem = ({
   label, value, link, labelLink, classes, index,
 }) => {
   const defaultValue = '';
+  function isNumeric(value1) {
+    return /^-?\d+$/.test(value1);
+  }
+
   return (
     <Grid item>
       <Grid container>
@@ -16,7 +20,7 @@ const PropertyItem = ({
         </Grid>
         <Grid item xs={12} className={classes.content} d={`case_detail_left_section_description_${index + 1}`}>
           {value || value === 0 ? (
-            link ? <Anchor text={value} link={link} classes={classes} /> : value
+            link ? <Anchor text={value} link={link} classes={classes} /> : isNumeric(value) ? value.toLocaleString('en-US') : value
           ) : defaultValue}
         </Grid>
       </Grid>

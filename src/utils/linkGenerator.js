@@ -14,10 +14,10 @@ const linkGenerator = (paragraph) => {
       fontWeight: 'bold',
     },
     link: {
-      color: '#900F89',
+      color: '#7747ff',
       fontWeight: 'bold',
       '&:hover': {
-        color: '#900F89',
+        color: '#7747ff',
         textDecoration: 'underline',
       },
     },

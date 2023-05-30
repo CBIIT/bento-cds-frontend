@@ -66,7 +66,8 @@ const LandingView = ({ classes, statsData }) => (
                 ))}
               </div>
               <div className={classes.aboutContent} id="tile1_description">
-                {landingPageData.tile1.descriptionText}
+                {linkGenerator(landingPageData.tile1.descriptionText)}
+
               </div>
               <div className={classes.aboutButtonSection}>
                 <div className={classes.aboutButtonLeft}>
