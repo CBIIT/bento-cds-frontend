@@ -44,6 +44,14 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
                       </ol>
                     </div>
                   )}
+                  {contentObj.listWithBullets && (
+                    <div className={classes.text}>
+                      {/* Alphabetised ordered list */}
+                      <ul>
+                        { contentObj.listWithBullets.map((listObj) => <li>{listObj.includes('$$') ? boldText(listObj) : listObj}</li>)}
+                      </ul>
+                    </div>
+                  )}
                   {/* Ordered List with Alphabets logic */}
                   {contentObj.listWithAlpahbets && (
                     <div className={classes.text}>
