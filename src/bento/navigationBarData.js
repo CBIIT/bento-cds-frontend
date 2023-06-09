@@ -81,8 +81,8 @@ export const navBarData = [
         link: '/cancerDataService',
       },
       {
-        labelText: 'About CRDC',
-        link: '/crdc',
+        labelText: 'NCIs Cloud Services',
+        link: '/cloudresources',
       },
       {
         labelText: 'How To Submit Data',

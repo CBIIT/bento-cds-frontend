@@ -3,5 +3,7 @@ export default [
   '/resources',
   '/submit',
   '/cancerDataService',
-  '/crdc',
+  '/cloudresources',
+  '/analysis',
+  '/support',
 ];
