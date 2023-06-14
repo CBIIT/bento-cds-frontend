@@ -101,11 +101,11 @@ export const navBarData = [
         link: '/bento',
       },
       {
-        labelText: 'Data Submit',
+        labelText: 'CDS New Request Questionnaire',
         link: '/datasubmit',
       },
       {
-        labelText: 'Releases',
+        labelText: 'CDS Data Releases',
         link: '/releases',
       },
     ],
@@ -115,7 +115,7 @@ export const navBarData = [
 export const externalLinks = {
   about: [
     {
-      title: 'CDS Release Notes',
+      title: 'CDS Software Release Notes',
       link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
     },
   ],

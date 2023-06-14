@@ -9,11 +9,7 @@
   title: "CDS Data Model"
   content:
     - paragraph: "CDS was originally envisioned to be a simple data repository. It continues to evolve to meet data needs for various NCI-funded programs. The CDS model has been developed to work with diverse data types, offering robust yet flexible infrastructure to accommodate this diversity while adhering to FAIR data principles."
-    - paragraph: "All code necessary to use the Bento (https://bento-dev.bento-tools.org/#/home) platform on which CDS is built is provided in the form of Docker containers. However, we do provide our code to the public for research, usage, forking and pull requests."
-    - paragraph: "Here are the repos for:"
-    - paragraph: "•	Core Data Model: $$[https://github.com/CBIIT/cds-model](https://github.com/CBIIT/cds-model)$$"
-    - paragraph: "•	Metadata manifest indexing: $$[https://github.com/CBIIT/CancerDataServices-Indexing_Manifest_CreatoR](https://github.com/CBIIT/CancerDataServices-Indexing_Manifest_CreatoR)$$"
-    - paragraph: "•	dbGap SRA submission template: $$[https://github.com/CBIIT/CancerDataServices-CDS_to_SRA]( https://github.com/CBIIT/CancerDataServices-CDS_to_SRA)$$"
+    - paragraph: "All code necessary to use the $$[Bento platform](/#/home)$$  on which CDS is built is provided in the form of Docker containers.  However, the Bento code is also available to the public for research and forking and pull requests.  There are a number of  CDS resources to explore on the CDS GitHub page including the CDS Core Data Model: $$[https://github.com/CBIIT/cds-model](https://github.com/CBIIT/cds-model)$$."
   secondaryZoomImageTitle: "The CDS Core Data Model"
   secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/docs/model-desc/cds-model.svg'
 - page: '/cancerDataService'
@@ -36,14 +32,14 @@
   title: "How to Submit Data"
   primaryContentImage: ''
   content:
-    - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$ The prospective submitters should complete the CDS Questionnaire (asking to link the PDF), this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
+    - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$ The prospective submitters should complete the CDS Questionnaire, this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
     - paragraph: "Once the CDS reviews questionnaire responses, CDS will schedule a short interview to discuss the responses and the requirements, to make sure that CDS is a good fit for the data sharing needs."
     - paragraph: "If the submission request is approved , the submitter has to"
     - listWithBullets: 
-        - "Fill out a $$[CDS metadata template](https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_submission_metadata_template-v1.3.1.xlsx?raw=true)$$ that includes information regarding samples, filenames, file size, MD5 checksums etc. for the data/files planned to be submitted to CDS. "
+        - "Fill out a CDS metadata template in the CDS Documents section, that includes information regarding samples, filenames, file size, MD5 checksums etc. for the data/files planned to be submitted to CDS."
         - "Provide a ‘List of Uploaders’, these are submitters who will need access to the cloud buckets to upload the data."
     - paragraph: "Once the CDS team validates the submitted metadata manifest and accepts the metadata, a cloud bucket will be created, and the study PI and the submission POC is sent credentials and instructions on how to upload data."
-    - paragraph: "The CDS team conducts online office hours for questions about how to get started. Please contact the $$[CDS Helpdesk] (cdshelpdesk@mail.nih.gov)$$ to schedule office hours."
+    - paragraph: "The CDS team conducts online office hours for questions about how to get started. Please contact the $$[CDS Helpdesk](cdshelpdesk@mail.nih.gov)$$ to schedule office hours."
     - paragraph: "For a full step-by-step process and timeline, consult the $$[CDS Users Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
   downloadableContentTitle: "CDS Documents"
   downloadableContent:
@@ -55,11 +51,10 @@
   title: "NCI's Cloud Services"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/crdc.png'
   content:
-    - paragraph: "The CRDC has three Cloud Resources (Velsera/$$[Seven Bridges Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$  ,$$[ISB Cancer Genomics Cloud](https://isb-cgc.appspot.com/)$$ ), each providing analysis platforms when working with data."
+    - paragraph: "The CRDC has three Cloud Resources ($$[Velsera/Seven Bridges Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$  ,$$[ISB Cancer Genomics Cloud](https://isb-cgc.appspot.com/)$$ ), each providing analysis platforms when working with data."
     - paragraph: "These cloud-based platforms eliminate the need for researchers to download and store extremely large data sets by allowing them to bring analysis tools to the data in the cloud. These cloud resources provide access to on-demand computational capacity to analyze data. They also allow users to run best practice tools and pipelines already implemented or to upload their own data or analysis methods to secure workspaces."
     - paragraph: "All cloud resources provide support for data access through a web-based user interface in addition to programmatic access to analytic tools and workflows, and the capability of sharing results with collaborators. Each cloud resource is continually developing new functionality to improve the user experience and add new tools for researchers."
-    - paragraph: "CDS currently has a collaboration with VELSERA/$$[SEVEN BRIDGES CANCER GENOMICS CLOUD](https://www.cancergenomicscloud.org)$$(SBG), which is hosted on Amazon Web Services and has a rich user interface that allows researchers to find data of interest and combine it with their own private data. Data can be analyzed using more than 200 preinstalled, curated bioinformatics tools and workflows. Researchers can also extend the functionality of the platform by adding their own data and tools via an intuitive software development kit."
-    - paragraph: "A collaboration in development with the $$[INSTITUTE FOR SYSTEMS BIOLOGY CANCER GENOMICS CLOUD](https://isb-cgc.appspot.com/)$$(ISB-CGC), which leverages the Google Cloud Platform, and allows scientists to interactively define and compare cohorts, examine underlying molecular data for specific genes and pathways, and share insights with collaborators. For computational users, Application Program Interfaces (APIs) and Google Cloud Platform (GCP) resources such as BigQuery and Google Pipeline service, allow complex queries from R or Python scripts, or Dockerized workflows, to run on data available in Google Cloud Storage."
+    - paragraph: "CDS currently has a collaboration with $$[VELSERA/SEVEN BRIDGES CANCER GENOMICS CLOUD](https://www.cancergenomicscloud.org)$$(SBG), which is hosted on Amazon Web Services and has a rich user interface that allows researchers to find data of interest and combine it with their own private data. Data can be analyzed using more than 200 preinstalled, curated bioinformatics tools and workflows. Researchers can also extend the functionality of the platform by adding their own data and tools via an intuitive software development kit."
 
 - page: '/analysis'
   title: "Accessing and Analyzing Data"
@@ -71,11 +66,11 @@
       - "Search by participant IDs by uploading a list of known IDs to have the data associated with those participants returned"
       - "Search using filters including Study, Experimental Strategy, Gender, Tumor, and File Type"
       - "Search using a programmatic approach by querying the entire CDS schema using the GraphQL endpoint"
-    - paragraph: "Once a researcher has filtered down to a set of files of interest, that set can be saved to the portal “shopping cart,” from which an export manifest can be generated. That manifest contains all the information needed to import files to the Velsera/ $$[Seven Bridges Genomic CGC] (https://www.cancergenomicscloud.org/)$$ to carry out analysis."
+    - paragraph: "Once a researcher has filtered down to a set of files of interest, that set can be saved to the portal “shopping cart,” from which an export manifest can be generated. That manifest contains all the information needed to import files to the $$[Velsera/Seven Bridges Genomic CGC](https://www.cancergenomicscloud.org/)$$ to carry out analysis."
     - paragraph: "The CDS Data Portal also hosts descriptions and additional information about the studies and programs that have deposited data in the CDS. These are linked to the search page making it easy to find all the data from a specific study."
     - paragraph: ""
     - paragraph: "$$#DATA ANALYSIS #$$"
-    - paragraph: "$$#Velsera/Seven Bridges Genomic GCG for data analysis #$$"
+    - paragraph: "$$#Velsera-CGC for data analysis#$$"
     - paragraph: "Velsera is one of the NCI funded Cloud Resources which is another component of CRDC. Velsera can be used as a primary resource for analyzing data"
     - paragraph: "•  Read more about tools for data analysis on the $$[Velsera website](https://docs.cancergenomicscloud.org/docs/workflows-and-tools)$$."
     - paragraph: "•  Learn more about importing files from CDS to Velsera ($$[SBG-CGC](https://docs.cancergenomicscloud.org/docs/import-cds-data)$$)"
