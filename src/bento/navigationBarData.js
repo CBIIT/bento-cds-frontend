@@ -105,9 +105,14 @@ export const navBarData = [
         link: '/datasubmit',
       },
       {
+        labelText: 'Accessing and Analyzing Data',
+        link: '/analysis',
+      },
+      {
         labelText: 'CDS Data Releases',
         link: '/releases',
       },
+
     ],
   },
 ];
