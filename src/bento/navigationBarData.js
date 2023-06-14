@@ -89,6 +89,10 @@ export const navBarData = [
         link: '/submit',
       },
       {
+        labelText: 'Accessing and Analyzing Data',
+        link: '/analysis',
+      },
+      {
         labelText: 'CDS Data Model',
         link: '/resources',
       },

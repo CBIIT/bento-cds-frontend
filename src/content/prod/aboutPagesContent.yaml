@@ -8,7 +8,7 @@
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/bento-frontend/master/src/assets/about/About_Resources.png'
   title: "CDS Data Model"
   content:
-    - paragraph: "CDS was originally envisioned to be a simple data repository. It continues to evolve to meet data needs for various NCI-funded programs. The CDS model has been developed to work with diverse data types, offering robust yet flexible infrastructure to accommodate this diversity while adhering to FAIR data principles."
+    - paragraph: "The CDS model works with diverse data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CDS continues to evolve to meet the data needs for various NCI-funded programs."
     - paragraph: "All code necessary to use the $$[Bento platform](/#/home)$$  on which CDS is built is provided in the form of Docker containers.  However, the Bento code is also available to the public for research and forking and pull requests.  There are a number of  CDS resources to explore on the CDS GitHub page including the CDS Core Data Model: $$[https://github.com/CBIIT/cds-model](https://github.com/CBIIT/cds-model)$$."
   secondaryZoomImageTitle: "The CDS Core Data Model"
   secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/docs/model-desc/cds-model.svg'
