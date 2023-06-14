@@ -66,7 +66,7 @@
       - "Search by participant IDs by uploading a list of known IDs to have the data associated with those participants returned"
       - "Search using filters including Study, Experimental Strategy, Gender, Tumor, and File Type"
       - "Search using a programmatic approach by querying the entire CDS schema using the GraphQL endpoint"
-    - paragraph: "Once a researcher has filtered down to a set of files of interest, that set can be saved to the portal “shopping cart,” from which an export manifest can be generated. That manifest contains all the information needed to import files to the $$[Velsera/Seven Bridges Genomic CGC](https://www.cancergenomicscloud.org/)$$ to carry out analysis."
+    - paragraph: "Once a researcher has filtered down to a set of files of interest, that set can be saved to the portal “shopping cart,” from which an export manifest can be generated. That manifest contains all the information needed to import files to the $$[Velsera-CGC](https://www.cancergenomicscloud.org/)$$ to carry out analysis."
     - paragraph: "The CDS Data Portal also hosts descriptions and additional information about the studies and programs that have deposited data in the CDS. These are linked to the search page making it easy to find all the data from a specific study."
     - paragraph: ""
     - paragraph: "$$#DATA ANALYSIS #$$"
