@@ -1,6 +1,6 @@
 - page: '/bento'
   title: "Bento"
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/bento-frontend/master/src/assets/about/About_Purpose.png'
+  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/purpose.png'
   content:
     - paragraph: "Bento is an open source framework developed by the Frederick National Laboratory for Cancer Research to support data sharing. It provides a structure to enable groups to quickly stand up and then configure a data sharing environment for life science data - groups can use Bento to share data amongst themselves or with a larger community. Bento's reference implementation contains a data model that is compatible with the Cancer Research Data Commons' Harmonized model (CRDC-H) such that Bento instances can be connected into and inter-operate with the CRDC. Users can customize the data model for their own needs. Bento also contains a User Interface and an API for programmatic access."
     - paragraph: "$$*CONTACT:*$$ bento-help@nih.gov"
@@ -22,7 +22,6 @@
     - listWithBullets: 
       - "Studies with data that do not match any existing CRDC data commons"
       - "Studies with data that do not fit current data type criteria and/or the minimum metadata standards for any CRDC data commons"
-      - "Studies with data that are on a waiting list to get into a CRDC commons or another NIH repository"
     - paragraph: "The CDS is home to a combination of open and controlled access data, however, the CDS Portal is accessible for users to search and browse with no required login. This allows users to check if CDS has data of interest before going through the process of requesting access to controlled access data through the NCBI’s $$[dbGaP](https://www.ncbi.nlm.nih.gov/gap/)$$ system"
     - paragraph: "Open access data is publicly accessible; it does not require any approvals. Being a cloud repository, CDS does not facilitate direct downloads of data, owing to high data download charges. However, programs/initiatives can reach out to $$[CDSHelpDesk@mail.nih.gov](CDSHelpDesk@mail.nih.gov)$$ to request downloads if willing to fund the download for users approved to access their data. Please contact the CDS helpdesk for further informatio"
     - paragraph: ""
@@ -30,7 +29,7 @@
     - paragraph: "$$[Learn how to Submit Data](/#/submit)$$"
 - page: '/submit'
   title: "How to Submit Data"
-  primaryContentImage: ''
+  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/submit.png'
   content:
     - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$ The prospective submitters should complete the CDS Questionnaire, this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
     - paragraph: "Once the CDS reviews questionnaire responses, CDS will schedule a short interview to discuss the responses and the requirements, to make sure that CDS is a good fit for the data sharing needs."
@@ -76,7 +75,7 @@
     - paragraph: "•  Learn more about importing files from CDS to Velsera ($$[SBG-CGC](https://docs.cancergenomicscloud.org/docs/import-cds-data)$$)"
 - page: /support
   title: Support
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/icdc/aboutPages/About_Support.jpeg'
+  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/support.png'
   content: 
     - 
       paragraph: "If you have any questions, please contact us at $$@cdshelpdesk@mail.nih.gov@$$."

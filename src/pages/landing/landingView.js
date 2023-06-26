@@ -277,7 +277,7 @@ const styles = () => ({
     textDecoration: 'none',
     display: 'flex',
     // borderBottom: '1.5px solid #D36000',
-    maxWidth: '228px',
+    maxWidth: '244px',
     background: '#D36000',
     borderRadius: '8px',
   },
@@ -532,6 +532,7 @@ const styles = () => ({
     border: 'none',
     display: 'flex',
     letterSpacing: '1px',
+    whiteSpace: 'pre',
   },
 });
 export default withStyles(styles, { withTheme: true })(LandingView);
