@@ -75,7 +75,7 @@
     - paragraph: "•  Learn more about importing files from CDS to Velsera ($$[SBG-CGC](https://docs.cancergenomicscloud.org/docs/import-cds-data)$$)"
 - page: /support
   title: Support
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/support.png'
+  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/support.jpeg'
   content: 
     - 
       paragraph: "If you have any questions, please contact us at $$@cdshelpdesk@mail.nih.gov@$$."
