@@ -36,7 +36,7 @@ export const facetSearchData = [
     label: 'study data types ', field: 'group', api: 'filterSubjectCountByStudyDataType', apiForFiltering: 'filterSubjectCountByStudyDataType', datafield: 'study_data_types', section: 'Cases', show: true,
   },
   {
-    label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategy', section: 'Cases', show: true,
+    label: 'library strategy', field: 'group', api: 'filterSubjectCountByLibraryStrategy', apiForFiltering: 'filterSubjectCountByLibraryStrategy', datafield: 'library_strategies', section: 'Cases', show: true,
   },
   {
     label: 'library source', field: 'group', api: 'filterSubjectCountByLibrarySource', apiForFiltering: 'filterSubjectCountByLibrarySource', datafield: 'library_sources', section: 'Cases', show: true,
@@ -170,15 +170,23 @@ export const widgetsData = [
     label: 'Gender',
     dataName: 'subjectCountByGender',
     datatable_field: 'genders',
-    titleText: 'Participants',
+    titleText: 'Files',
     show: true,
   },
   {
     type: 'donut',
-    label: 'Sample Tumor Status',
-    dataName: 'subjectCountByIsTumor',
-    datatable_field: 'is_tumor',
-    titleText: 'Samples',
+    label: 'File Type',
+    dataName: 'subjectCountByFileType',
+    datatable_field: 'file_types',
+    titleText: 'Files',
+    show: true,
+  },
+  {
+    type: 'donut',
+    label: 'Study Data Types',
+    dataName: 'subjectCountByStudyDataType',
+    datatable_field: 'study_data_types',
+    titleText: 'Files',
     show: true,
   },
 ];

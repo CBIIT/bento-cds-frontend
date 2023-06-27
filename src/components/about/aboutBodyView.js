@@ -44,6 +44,14 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
                       </ol>
                     </div>
                   )}
+                  {contentObj.listWithBullets && (
+                    <div className={classes.text}>
+                      {/* Alphabetised ordered list */}
+                      <ul>
+                        { contentObj.listWithBullets.map((listObj) => <li>{listObj.includes('$$') ? boldText(listObj) : listObj}</li>)}
+                      </ul>
+                    </div>
+                  )}
                   {/* Ordered List with Alphabets logic */}
                   {contentObj.listWithAlpahbets && (
                     <div className={classes.text}>
@@ -350,14 +358,15 @@ const styles = () => ({
   }),
   contentSection: {
     padding: (props) => (props.data.imageLocation === 'right'
-      ? '8px 25px 8px 0px !important' : '8px 0px 8px 25px !important'),
+      ? '8px 25px 8px 25px !important' : '8px 0px 8px 25px !important'),
     float: 'left',
+    background: 'white',
   },
   imageSection: {
     float: 'left',
   },
   aboutSection: {
-    padding: '60px 45px',
+    padding: '0px 45px',
   },
   img: {
     width: '100%',

@@ -202,7 +202,7 @@ const styles = () => ({
   },
   minValue: {
     fontFamily: 'Nunito',
-    fontSize: '15px',
+    fontSize: '14px',
     color: '#000000',
     float: 'left',
     marginLeft: 'Auto',
@@ -211,7 +211,7 @@ const styles = () => ({
   },
   maxValue: {
     fontFamily: 'Nunito',
-    fontSize: '15px',
+    fontSize: '14px',
     color: '#000000',
     float: 'right',
     marginLeft: 'Auto',

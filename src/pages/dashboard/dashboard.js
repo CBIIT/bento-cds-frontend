@@ -153,7 +153,7 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.widgetBackground.main,
   },
   rightContent: {
-    maxWidth: 'calc(100% - 250px)',
+    width: 'calc(100% - 250px)',
   },
   content: {
     // padding: theme.spacing.unit * 3,

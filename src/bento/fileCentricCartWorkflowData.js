@@ -9,8 +9,8 @@ export const navBarCartData = {
 };
 
 // --------------- Files limit configuration --------------
-export const alertMessage = 'The cart is limited to 1000 files. Please narrow the search criteria or remove some files from the cart to add more.';
-export const maximumNumberOfFilesAllowedInTheCart = 1000;
+export const alertMessage = 'The cart is limited to 6000 files. Please narrow the search criteria or remove some files from the cart to add more.';
+export const maximumNumberOfFilesAllowedInTheCart = 6000;
 
 export const myFilesPageData = {
   mainTitle: 'Cart >',
@@ -90,6 +90,12 @@ export const table = {
       display: true,
     },
     {
+      dataField: 'accesses',
+      header: 'Study Access',
+      sort: 'asc',
+      display: true,
+    },
+    {
       dataField: 'file_type',
       header: 'File Type',
       sort: 'asc',
@@ -142,6 +148,7 @@ fileOverview(
   sort_direction: $sort_direction
 ){
   study_acronym
+  accesses
   phs_accession
   subject_id
   sample_id

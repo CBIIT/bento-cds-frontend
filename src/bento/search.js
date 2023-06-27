@@ -20,6 +20,9 @@ query globalSearch($input: String){
         samples {
             sample_id
         }
+        samples {
+            sample_id
+        }
         files {
             file_id
         }
@@ -28,6 +31,9 @@ query globalSearch($input: String){
         }
         about_page {
             text
+        }
+        program {
+            program_name
         }
     }
 }
@@ -41,10 +47,12 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         offset: $offset
     ) {
         programs {
-            type
-            program_id
-            program_name
-            program_code
+          type
+          program_name
+          program_short_description
+          program_full_description
+          program_external_url
+          program_sort_order
         }
 }
 }
@@ -173,6 +181,7 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         file_count
         model_count
         about_count
+        program_count
 }
 }
 `;

@@ -17,15 +17,17 @@ import About from '../../pages/about/aboutController';
 import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Programs from '../../pages/programs/programsController';
 import Arms from '../../pages/arms/armsController';
-
+import Questionaire from '../../pages/questionaire/questionaireView';
 import ProgramDetail from '../../pages/programDetail/programDetailController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
 import fileCentricCart from '../../pages/fileCentricCart/cartController';
 // import JBrowse from '../JBrowse/JBrowseView';
 // import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
+import ReleaseVersions from '../ReleaseVersions';
 import GlobalSearch from '../../pages/search/searchView';
 import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import GlobalSearchController from '../../pages/search/searchViewController';
+
 import GA from '../../utils/googleAnalytics';
 
 const ScrollToTop = () => {
@@ -65,6 +67,9 @@ const Layout = ({ classes, isSidebarOpened }) => (
             {/* <Route path="/JBrowse" component={JBrowse} /> */}
             <Route exact path="/search" component={GlobalSearch} />
             <Route path="/search/:id" component={GlobalSearchController} />
+            <Route path="/datasubmit" component={Questionaire} />
+            <Route path="/releases" component={ReleaseVersions} />
+
             {/* <Route path="/fileViewer/:id" component={JBrowseDetail} /> */}
             {aboutPageRoutes.map(
               (aboutPageRoute, index) => (
@@ -97,7 +102,7 @@ const styles = (theme) => ({
     // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
     width: 'calc(100%)', // Remove this on adding sidebar
     background: theme.custom.bodyBackGround,
-    marginTop: '205px',
+    marginTop: '209px',
   },
   '@global': {
     '*::-webkit-scrollbar': {

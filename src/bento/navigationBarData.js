@@ -81,12 +81,16 @@ export const navBarData = [
         link: '/cancerDataService',
       },
       {
-        labelText: 'About CRDC',
-        link: '/crdc',
+        labelText: 'NCIs Cloud Services',
+        link: '/cloudresources',
       },
       {
         labelText: 'How To Submit Data',
         link: '/submit',
+      },
+      {
+        labelText: 'Accessing and Analyzing Data',
+        link: '/analysis',
       },
       {
         labelText: 'CDS Data Model',
@@ -100,6 +104,15 @@ export const navBarData = [
         labelText: 'Bento Framework',
         link: '/bento',
       },
+      {
+        labelText: 'CDS New Request Questionnaire',
+        link: '/datasubmit',
+      },
+      {
+        labelText: 'CDS Data Releases',
+        link: '/releases',
+      },
+
     ],
   },
 ];
@@ -107,7 +120,7 @@ export const navBarData = [
 export const externalLinks = {
   about: [
     {
-      title: 'CDS Release Notes',
+      title: 'CDS Software Release Notes',
       link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
     },
   ],

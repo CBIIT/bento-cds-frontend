@@ -41,6 +41,7 @@ type StudyInfo {
     data_type: String
     numberOfSubjects: Int
     numberOfFiles: Int
+    study_access: String
 }
 
 type IdsLists {
@@ -63,10 +64,10 @@ type ProgramDetail {
 
 type ProgramDetailStudy {
     accession: String
+    study_access: String
     study_name: String
     study_description: String
     short_description: String
-    experimental_strategy_and_data_subtypes: String
     num_participants: Int
     num_samples: Int
 }
@@ -162,6 +163,7 @@ type QueryType {
             phs_accession: s.phs_accession,
             study_name: s.study_name,
             data_type: s.study_data_types,
+            study_access: s.study_access,
             numberOfSubjects: COUNT(DISTINCT part),
             numberOfFiles: COUNT(DISTINCT f)
         }
@@ -191,10 +193,10 @@ type QueryType {
             } AS study_participants,
             {
                 accession: s.phs_accession, 
+                study_access: s.study_access,
                 study_name: s.study_name,
                 study_description: s.study_description,
                 short_description: s.short_description,
-                experimental_strategy_and_data_subtypes: s.experimental_strategy_and_data_subtypes,
                 num_participants: COUNT(DISTINCT part),
                 num_samples: COUNT(DISTINCT samp)
             } AS study

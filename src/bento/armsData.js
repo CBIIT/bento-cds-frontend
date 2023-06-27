@@ -43,6 +43,10 @@ const table = {
       header: 'Data Types',
     },
     {
+      dataField: 'study_access',
+      header: 'Study Access',
+    },
+    {
       dataField: 'numberOfSubjects',
       header: 'Number of Participants',
     },
@@ -58,6 +62,7 @@ const GET_STUDIES_DATA_QUERY = gql`{
   studyList  {
     study_name
     phs_accession
+    study_access
     numberOfSubjects
     numberOfFiles
     data_type

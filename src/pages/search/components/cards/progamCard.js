@@ -10,16 +10,26 @@ const ProgamCard = ({ data, classes, index }) => {
     {
       label: 'Program Code',
       dataField: 'program_code',
-
     },
-
     {
       label: 'Program Name',
       dataField: 'program_name',
+      link: '/program/{program_name}',
+
     },
     {
       label: 'Program ID',
       dataField: 'program_id',
+    },
+    {
+      label: 'Program Description',
+      dataField: 'program_short_description',
+    },
+    {
+      label: 'Program External Url',
+      dataField: 'program_external_url',
+      link: '{program_external_url}',
+
     },
 
   ];

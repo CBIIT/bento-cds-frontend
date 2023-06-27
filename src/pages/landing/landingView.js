@@ -66,7 +66,8 @@ const LandingView = ({ classes, statsData }) => (
                 ))}
               </div>
               <div className={classes.aboutContent} id="tile1_description">
-                {landingPageData.tile1.descriptionText}
+                {linkGenerator(landingPageData.tile1.descriptionText)}
+
               </div>
               <div className={classes.aboutButtonSection}>
                 <div className={classes.aboutButtonLeft}>
@@ -128,9 +129,17 @@ const LandingView = ({ classes, statsData }) => (
                   />
                 </div>
                 <div className={classes.content}>
-                  <div className={classes.contentHeader} id="tile3_title">
-                    {landingPageData.tile3.titleText}
-                  </div>
+                  <a href="mailto:cdshelpdesk@mail.nih.gov" className={classes.mailLink}>
+                    <div className={classes.contentHeader} id="tile3_title">
+                      {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
+                        <>
+                          {word}
+                          {<span>&nbsp;</span>}
+                          {index === 2 && <br />}
+                        </>
+                      ))}
+                    </div>
+                  </a>
                   <div className={classes.contentContainer} id="tile3_description">
                     {linkGenerator(landingPageData.tile3.descriptionText)}
                   </div>
@@ -223,8 +232,8 @@ const styles = () => ({
 
   },
   iconArrowRight: {
-    color: '#D36000',
-    marginTop: '6px',
+    color: '#FFF',
+    marginTop: '4px',
 
   },
   whiteSection: {
@@ -267,8 +276,10 @@ const styles = () => ({
   headerLink: {
     textDecoration: 'none',
     display: 'flex',
-    borderBottom: '1.5px solid #D36000',
-    maxWidth: '210px',
+    // borderBottom: '1.5px solid #D36000',
+    maxWidth: '244px',
+    background: '#D36000',
+    borderRadius: '8px',
   },
 
   iconAbout: {
@@ -398,6 +409,9 @@ const styles = () => ({
   studies: {
     float: 'left',
   },
+  mailLink: {
+    textDecoration: 'none',
+  },
 
   contentRightBottom: {
     float: 'left',
@@ -509,15 +523,16 @@ const styles = () => ({
   },
   buttonText: {
     height: '32px',
-    padding: '12px 58px 4px 0px',
+    padding: '8px 58px 8px 16px',
     background: 'transparent',
     fontSize: '12px',
     fontFamily: 'Lato',
     fontWeight: '600',
-    color: '#D36000',
+    color: '#FFF',
     border: 'none',
     display: 'flex',
     letterSpacing: '1px',
+    whiteSpace: 'pre',
   },
 });
 export default withStyles(styles, { withTheme: true })(LandingView);

@@ -14,6 +14,15 @@ export default {
   // Ideal size for icon is 20x20 px
   link_sections: [
     {
+      title: 'Contact Information',
+      items: [
+        {
+          text: 'CDS Help Desk',
+          link: '/support',
+        },
+      ],
+    },
+    {
       title: 'About CDS',
       items: [
         {

@@ -745,10 +745,10 @@ const styles = (theme) => ({
     width: '200px',
   },
   tableCell2: {
-    width: '370px',
+    // width: '370px',
   },
   tableCell3: {
-    width: '370px',
+    // width: '370px',
   },
   tableCell4: {
     width: '160px',

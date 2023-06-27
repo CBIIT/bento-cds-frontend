@@ -58,7 +58,7 @@ function InputViewMax(props) {
         sideBarItem.checkboxItems.upperBound,
         event,
       )}
-      style={{ width: '50px' }}
+      style={{ width: '60px' }}
       inputProps={{
         step: 1,
         min: typeof sliderValue[sideBarIndex] !== 'undefined' ? sliderValue[sideBarIndex][0]

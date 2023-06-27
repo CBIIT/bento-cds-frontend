@@ -157,8 +157,13 @@ const styles = (theme) => ({
   tableDiv: {
     margin: 'auto',
   },
+  tableCell5: {
+    width: '100px',
+    textAlign: 'center',
+  },
   tableCell6: {
     width: '120px',
+    textAlign: 'center',
   },
   externalLinkIcon: {
     width: '14.5px',

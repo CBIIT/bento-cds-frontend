@@ -31,8 +31,6 @@ type file {
   study: study @relation(name:"of_study", direction:OUT)
   samples: [sample] @relation(name:"from_sample", direction:OUT)
   genomic_info: genomic_info @relation(name:"of_file", direction:IN)
-  methylation: methylation @relation(name:"of_file", direction:IN)
-  NONE: [methylation] @relation(name:"from_methylation", direction:OUT)
 }
 
 type genomic_info {
@@ -54,14 +52,6 @@ type genomic_info {
   files: [file] @relation(name:"from_genomic_info", direction:IN)
   samples: [sample] @relation(name:"in_genomic_info", direction:IN)
   file: file @relation(name:"of_file", direction:OUT)
-}
-
-type methylation {
-  reporter_label: String
-  methylation_platform: String
-  file: file @relation(name:"of_file", direction:OUT)
-  files: [file] @relation(name:"from_methylation", direction:IN)
-  samples: [sample] @relation(name:"in_methylation", direction:IN)
 }
 
 type participant {
@@ -94,12 +84,10 @@ type sample {
   sample_age_at_collection: Int
   derived_from_specimen: String
   biosample_accession: String
-  experimental_strategy_and_data_subtypes: String
   participant: participant @relation(name:"of_participant", direction:OUT)
   specimen: specimen @relation(name:"of_specimen", direction:OUT)
   files: [file] @relation(name:"from_sample", direction:IN)
   genomic_info: [genomic_info] @relation(name:"in_genomic_info", direction:OUT)
-  NONE: [methylation] @relation(name:"in_methylation", direction:OUT)
 }
 
 type specimen {
@@ -145,6 +133,7 @@ type study {
   size_of_data_being_uploaded_original: Float
   size_of_data_being_uploaded_original_unit: String
   acl: String
+  study_access: String
   program: program @relation(name:"of_program", direction:OUT)
   participants: [participant] @relation(name:"of_study", direction:IN)
   files: [file] @relation(name:"of_study", direction:IN)
@@ -201,6 +190,7 @@ type StudyInfo {
     data_type: String
     numberOfSubjects: Int
     numberOfFiles: Int
+    study_access: String
 }
 
 type IdsLists {
@@ -223,10 +213,10 @@ type ProgramDetail {
 
 type ProgramDetailStudy {
     accession: String
+    study_access: String
     study_name: String
     study_description: String
     short_description: String
-    experimental_strategy_and_data_subtypes: String
     num_participants: Int
     num_samples: Int
 }
@@ -322,6 +312,7 @@ type QueryType {
             phs_accession: s.phs_accession,
             study_name: s.study_name,
             data_type: s.study_data_types,
+            study_access: s.study_access,
             numberOfSubjects: COUNT(DISTINCT part),
             numberOfFiles: COUNT(DISTINCT f)
         }
@@ -351,10 +342,10 @@ type QueryType {
             } AS study_participants,
             {
                 accession: s.phs_accession, 
+                study_access: s.study_access,
                 study_name: s.study_name,
                 study_description: s.study_description,
                 short_description: s.short_description,
-                experimental_strategy_and_data_subtypes: s.experimental_strategy_and_data_subtypes,
                 num_participants: COUNT(DISTINCT part),
                 num_samples: COUNT(DISTINCT samp)
             } AS study

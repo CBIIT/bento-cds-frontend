@@ -417,6 +417,8 @@ export default {
         fontFamily: 'Nunito',
         fontWeight: 'normal',
         paddingLeft: '20px',
+        maxWidth: '150px',
+        overflowWrap: 'break-word',
       },
       head: {
         fontSize: '0.95rem',
