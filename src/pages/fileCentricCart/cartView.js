@@ -233,7 +233,7 @@ const cartView = ({
               isLoading={isLoading}
             />
             <div className={classes.tableWrapperText}>
-              To access and analyze file click "Download File Manifest" button
+              To access and analyze file click "Download Manifest" button
               and upload resulting file to
               {' '}
               <a className={classes.tableWrapperAnchor} href="https://www.cancergenomicscloud.org">Seven Bridges Genomics</a>
