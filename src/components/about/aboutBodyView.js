@@ -72,7 +72,8 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
                           const linkAttrs = splitedParagraph.match(/\((.*)\)/).pop().split(' ');
                           const target = linkAttrs.find((link) => link.includes('target:'));
                           const url = linkAttrs.find((link) => link.includes('url:'));
-                          const type = linkAttrs.find((link) => link.includes('type:')); // 0 : no img
+                          // eslint-disable-next-line max-len
+                          // const type = linkAttrs.find((link) => link.includes('type:')); // 0 : no img
                           const href = splitedParagraph.match(/\((.*)\)/).pop();
 
                           const link = (
@@ -91,7 +92,7 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
                           return (
                             <>
                               {link}
-                              {type ? '' : (
+                              {href.includes('@') || !href.includes('http') ? '' : (
                                 <img
                                   src={externalIconImage}
                                   // externalIconImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/common/images/logos/svgs/externalLinkIcon.svg',
@@ -256,7 +257,8 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
                       const linkAttrs = splitedParagraph.match(/\((.*)\)/).pop().split(' ');
                       const target = linkAttrs.find((link) => link.includes('target:'));
                       const url = linkAttrs.find((link) => link.includes('url:'));
-                      const type = linkAttrs.find((link) => link.includes('type:')); // 0 : no img
+                      // eslint-disable-next-line max-len
+                      // const type = linkAttrs.find((link) => link.includes('type:')); // 0 : no img
                       const href = splitedParagraph.match(/\((.*)\)/).pop();
 
                       const link = (
@@ -275,7 +277,7 @@ const AboutBody = ({ classes, data, externalIconImage }) => {
                       return (
                         <>
                           {link}
-                          {type ? '' : (
+                          {href.includes('@') || !href.includes('http') ? '' : (
                             <img
                               src={externalIconImage}
                                   // externalIconImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/common/images/logos/svgs/externalLinkIcon.svg',
