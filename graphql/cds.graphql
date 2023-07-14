@@ -24,7 +24,7 @@ type file {
   file_name: String
   file_type: String
   file_description: String
-  file_size: Int
+  file_size: Float
   md5sum: String
   file_url_in_cds: String
   experimental_strategy_and_data_subtypes: String
