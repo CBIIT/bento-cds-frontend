@@ -6,7 +6,7 @@ export const statsStyling = {
     statTitleFirst: false,
     height: '59px',
     background: '#B4E2F5',
-    top: '159px',
+    top: '139px',
   },
   statsGroup: {
     margin: '6px 0px',
