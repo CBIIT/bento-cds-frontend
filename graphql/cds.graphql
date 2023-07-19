@@ -263,7 +263,7 @@ type QueryType {
         OPTIONAL MATCH (s)<--(p:participant)
         OPTIONAL MATCH (p)<--(samp:sample)
         OPTIONAL MATCH (p)<--(diag:diagnosis)
-        OPTIONAL MATCH (samp)<--(f:file)
+        OPTIONAL MATCH (s)<--(f:file)
         RETURN {
             study_name: s.study_name,
             phs_accession: s.phs_accession,
@@ -306,15 +306,17 @@ type QueryType {
 
     studyList: [StudyInfo] @cypher(statement: """
         MATCH (s:study)
-        OPTIONAL MATCH (s)<-[:of_study]-(part:participant)
-        OPTIONAL MATCH (part)<-[:of_participant]-(samp:sample)<-[:from_sample]-(f:file)
+        OPTIONAL MATCH (p:participant)-->(s)
+        WITH s, count(distinct p) AS num_participants
+        OPTIONAL MATCH (f:file)-->(s)
+        WITH s, num_participants, count(distinct f) as num_files
         RETURN {
             phs_accession: s.phs_accession,
             study_name: s.study_name,
             data_type: s.study_data_types,
             study_access: s.study_access,
-            numberOfSubjects: COUNT(DISTINCT part),
-            numberOfFiles: COUNT(DISTINCT f)
+            numberOfSubjects: num_participants,
+            numberOfFiles: num_files
         }
     """, passThrough: true)
 
