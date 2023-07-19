@@ -263,7 +263,7 @@ type QueryType {
         OPTIONAL MATCH (s)<--(p:participant)
         OPTIONAL MATCH (p)<--(samp:sample)
         OPTIONAL MATCH (p)<--(diag:diagnosis)
-        OPTIONAL MATCH (samp)<--(f:file)
+        OPTIONAL MATCH (s)<--(f:file)
         RETURN {
             study_name: s.study_name,
             phs_accession: s.phs_accession,
