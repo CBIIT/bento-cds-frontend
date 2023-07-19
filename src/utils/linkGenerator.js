@@ -45,8 +45,10 @@ const linkGenerator = (paragraph) => {
             <a
               title={title}
               href={linkAttrs}
+              target="_blank"
               color="inherit"
               className={styles.link}
+              rel="noreferrer"
             >
               {title}
             </a>
