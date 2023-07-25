@@ -39,11 +39,11 @@
         - "Provide a ‘List of Uploaders’, these are submitters who will need access to the cloud buckets to upload the data."
     - paragraph: "Once the CDS team validates the submitted metadata manifest and accepts the metadata, a cloud bucket will be created, and the study PI and the submission POC is sent credentials and instructions on how to upload data."
     - paragraph: "The CDS team conducts online office hours for questions about how to get started. Please contact the $$[CDS Helpdesk](cdshelpdesk@mail.nih.gov)$$ to schedule office hours."
-    - paragraph: "For a full step-by-step process and timeline, consult the $$[CDS Users Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
+    - paragraph: "For a full step-by-step process and timeline, consult the $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
   downloadableContentTitle: "CDS Documents"
   downloadableContent:
     - paragraph: "$$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
-    - paragraph: "$$[Submission Questionnaire](https://forms.office.com/Pages/ResponsePage.aspx?id=eHW3FHOX1UKFByUcotwrBpUzGusKVCtGpBZZdym7wqlUNFFHS1pYUEFFNDBWQjg5U0RDWUtITDA0MC4u)$$"
+    - paragraph: "$$[Submission Questionnaire](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSDataSubmissionFormV2.pdf)$$"
     - paragraph: "$$[CDS metadata template](https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_submission_metadata_template-v1.3.1.xlsx?raw=true)$$"
 
 - page: '/cloudresources'
