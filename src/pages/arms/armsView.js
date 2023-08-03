@@ -20,6 +20,13 @@ import themes, { overrides } from '../../themes';
 const Arms = ({ classes, data }) => {
   const overridesObj = themes.light.overrides;
 
+  // Adding commas to numbers
+  const updatedDataWithNumbers = data[table.dataField].map((obj) => ({
+    ...obj, // Spread the properties of the original object
+    numberOfSubjects: Number(obj.numberOfSubjects).toLocaleString('en-US'),
+    numberOfFiles: Number(obj.numberOfFiles).toLocaleString('en-US'),
+  }));
+
   overridesObj.MUIDataTableBodyRow.root.height = '90px';
 
   const computedTheme = createMuiTheme({ ...themes.light, ...overrides });
@@ -66,7 +73,7 @@ const Arms = ({ classes, data }) => {
                 <Grid item xs={12}>
                   <MuiThemeProvider theme={computedTheme}>
                     <CustomDataTable
-                      data={data[table.dataField]}
+                      data={updatedDataWithNumbers}
                       columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectTo, '', globalData.replaceEmptyValueWith)}
                       options={getOptions(table, classes)}
                     />

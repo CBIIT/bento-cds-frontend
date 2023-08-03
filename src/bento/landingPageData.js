@@ -66,16 +66,16 @@ export const landingPageData = {
   tile3: {
     alt: '',
     img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/landingTile3.png',
-    titleText: 'CLICK HERE TO GET STARTED',
-    descriptionText: 'Click to Get Started or reach out to the CDS Helpdesk for any information.',
-    callToActionText: 'Start the process',
+    titleText: 'SUBMIT DATA',
+    descriptionText: 'To get started with the submission please complete the online questionnaire.',
+    callToActionText: 'CDS HELPDESK',
     callToActionLink: '/datasubmit', // Link to the "Submit" Static Page
   },
   tile4: {
     alt: '',
     img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/landingTile4.png',
     titleText: 'CDS DATA',
-    descriptionText: 'Search all CDS cases and build cohorts from the studies hosted in the CDS. The data files from these cohorts can then be analyzed in an NCI Cloud Resource.',
+    descriptionText: 'Search through all the data in CDS, build cohorts across studies released on CDS. The data files from these cohorts can be analyzed on the NCI’s Cloud Resources.',
     callToActionText: 'Learn More',
     callToActionLink: '/cancerDataService', // This links to the cases dashboard.
   },

@@ -32,7 +32,7 @@ query globalSearch($input: String){
         about_page {
             text
         }
-        program {
+        programs {
             program_name
         }
     }

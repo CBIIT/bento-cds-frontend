@@ -151,12 +151,12 @@ const LandingView = ({ classes, statsData }) => (
                     {' '}
                   </div>
                   <div className={classes.blueButtonRight} id="tile3_button">
-                    <Link
-                      to={landingPageData.tile3.callToActionLink}
+                    <a
+                      href="mailto:cdshelpdesk@mail.nih.gov"
                       className={classes.blueButton}
                     >
                       {landingPageData.tile3.callToActionText}
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

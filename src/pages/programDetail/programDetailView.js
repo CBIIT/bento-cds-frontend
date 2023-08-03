@@ -30,6 +30,13 @@ import colors from '../../utils/colors';
 const ProgramDetailView = ({ classes, data, theme }) => {
   const programData = data.programDetail;
 
+  // Adding commas to numbers
+  const updatedDataWithNumbers = data && data.programDetail[table.dataField].map((obj) => ({
+    ...obj, // Spread the properties of the original object
+    num_participants: Number(obj.num_participants).toLocaleString('en-US'),
+    num_samples: Number(obj.num_samples).toLocaleString('en-US'),
+  }));
+
   const redirectTo = () => {
     setSideBarToLoading();
     setDashboardTableLoading();
@@ -313,7 +320,7 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                               />
                             </div>
                             <div className={classes.participantsCount} id="program_detail_participants_count">
-                              {programData[rightPanel.participants[0].dataField]}
+                              {Number(programData[rightPanel.participants[0].dataField]).toLocaleString('en-US')}
                             </div>
                           </div>
                         </div>
@@ -347,7 +354,7 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                               />
                             </div>
                             <div className={classes.fileCount} id="program_detail_file_count">
-                              {programData[rightPanel.files[0].dataField]}
+                              {Number(programData[rightPanel.files[0].dataField]).toLocaleString('en-US')}
                             </div>
                           </div>
                         </div>
@@ -373,7 +380,7 @@ const ProgramDetailView = ({ classes, data, theme }) => {
                 <Grid item xs={12}>
                   <Typography>
                     <CustomDataTable
-                      data={data.programDetail[table.dataField]}
+                      data={updatedDataWithNumbers}
                       columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectToArm, '', globalData.replaceEmptyValueWith)}
                       options={getOptions(table, classes)}
                     />
@@ -751,10 +758,12 @@ const styles = (theme) => ({
     // width: '370px',
   },
   tableCell4: {
-    width: '160px',
+    width: '120px',
+    textAlign: 'center',
   },
   tableCell5: {
-    width: '160px',
+    width: '120px',
+    textAlign: 'center',
   },
   externalLinkIcon: {
     width: '14px',
