@@ -1,6 +1,6 @@
 import React from 'react';
 
-const linkGenerator = (paragraph) => {
+const linkGenerator = (paragraph, customColorWhite = false) => {
   const styles = () => ({
     text: {
       color: '#000000',
@@ -42,16 +42,29 @@ const linkGenerator = (paragraph) => {
               {title}
             </a>
           ) : (
-            <a
-              title={title}
-              href={linkAttrs}
-              target="_blank"
-              color="inherit"
-              className={styles.link}
-              rel="noreferrer"
-            >
-              {title}
-            </a>
+            customColorWhite ? (
+              <a
+                title={title}
+                href={linkAttrs}
+                target="_blank"
+                style={{ color: 'white' }}
+                className={styles.link}
+                rel="noreferrer"
+              >
+                {title}
+              </a>
+            ) : (
+              <a
+                title={title}
+                href={linkAttrs}
+                target="_blank"
+                color="inherit"
+                className={styles.link}
+                rel="noreferrer"
+              >
+                {title}
+              </a>
+            )
           );
 
           return (

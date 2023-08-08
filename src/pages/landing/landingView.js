@@ -66,7 +66,7 @@ const LandingView = ({ classes, statsData }) => (
                 ))}
               </div>
               <div className={classes.aboutContent} id="tile1_description">
-                {linkGenerator(landingPageData.tile1.descriptionText)}
+                {linkGenerator(landingPageData.tile1.descriptionText, true)}
 
               </div>
               <div className={classes.aboutButtonSection}>
@@ -339,6 +339,9 @@ const styles = () => ({
     fontSize: '16px',
     fontWeight: '300',
     lineHeight: '22px',
+    '&:a': {
+      color: 'red !important',
+    },
   },
   aboutButtonSection: {
     background: '#20506A',
