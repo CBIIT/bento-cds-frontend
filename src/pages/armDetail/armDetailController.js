@@ -3,10 +3,7 @@ import { useQuery } from '@apollo/client';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ArmDetailView from './armDetailView';
 import { Typography } from '../../components/Wrappers/Wrappers';
-import {
-  GET_ARM_DETAIL_DATA_QUERY,
-  dataRoot, armIDField,
-} from '../../bento/armDetailData';
+import { GET_ARM_DETAIL_DATA_QUERY, dataRoot, armIDField } from '../../bento/armDetailData';
 
 const ArmDetailContainer = ({ match }) => {
   const { loading, error, data } = useQuery(GET_ARM_DETAIL_DATA_QUERY, {
@@ -17,12 +14,12 @@ const ArmDetailContainer = ({ match }) => {
   if (error || !data || data[dataRoot][armIDField] !== match.params.id) {
     return (
       <Typography variant="h5" color="error" size="sm">
-        {error ? `An error has occurred in loading stats component: ${error}` : 'Recieved wrong data'}
+        {error ? `An error has occurred in loading stats component: ${error}` : 'Received wrong data'}
       </Typography>
     );
   }
 
-  return <ArmDetailView studyData={data[dataRoot]} paramId={match.params.id} />;
+  return <ArmDetailView data={data[dataRoot]} />;
 };
 
 export default ArmDetailContainer;

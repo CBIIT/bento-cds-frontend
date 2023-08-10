@@ -3,37 +3,20 @@ import {
   Grid,
   withStyles,
 } from '@material-ui/core';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { CustomDataTable, getOptions, getColumns } from 'bento-components';
+import {
+  CustomDataTable
+} from '@bento-core/data-table';
+import { getOptions, getColumns } from '@bento-core/util';
 import globalData from '../../bento/siteWideConfig';
 import {
   table, programListingIcon, externalLinkIcon,
 } from '../../bento/programData';
 import Stats from '../../components/Stats/AllStatsController';
 import { Typography } from '../../components/Wrappers/Wrappers';
-import {
-  singleCheckBox, setSideBarToLoading, setDashboardTableLoading,
-} from '../dashboardTab/store/dashboardReducer';
-import themes, { overrides } from '../../themes';
+import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
 
 const Programs = ({ classes, data }) => {
-  const overridesObj = themes.light.overrides;
-
-  overridesObj.MUIDataTableBodyRow.root.height = '90px';
-
-  const computedTheme = createMuiTheme({ ...themes.light, ...overrides });
-
-  const redirectTo = (program) => {
-    setSideBarToLoading();
-    setDashboardTableLoading();
-    singleCheckBox([{
-      datafield: 'programs',
-      groupName: 'Program',
-      isChecked: true,
-      name: program.rowData[0],
-      section: 'Filter By Cases',
-    }]);
-  };
+  const redirectTo = (program) => onClearAllAndSelectFacetValue('programs', program.rowData[0]);
 
   return (
     <>
@@ -63,14 +46,11 @@ const Programs = ({ classes, data }) => {
             <div id="table_programs" className={classes.tableDiv}>
               <Grid container>
                 <Grid item xs={12}>
-                  <MuiThemeProvider theme={computedTheme}>
-
-                    <CustomDataTable
-                      data={data[table.dataField]}
-                      columns={getColumns(table, classes, data, externalLinkIcon, '/data', redirectTo, '', globalData.replaceEmptyValueWith)}
-                      options={getOptions(table, classes)}
-                    />
-                  </MuiThemeProvider>
+                  <CustomDataTable
+                    data={data[table.dataField]}
+                    columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectTo, '', globalData.replaceEmptyValueWith)}
+                    options={getOptions(table, classes)}
+                  />
                 </Grid>
               </Grid>
             </div>
@@ -87,10 +67,9 @@ const styles = (theme) => ({
   link: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: '#900F89',
+    color: theme.palette.text.link,
     '&:hover': {
       textDecoration: 'underline',
-      textUnderlineOffset: '2.5px',
     },
   },
   card: {
@@ -115,26 +94,25 @@ const styles = (theme) => ({
     fontSize: '9pt',
     letterSpacing: '0.025em',
     color: '#000',
-    background: 'white',
+    background: '#eee',
   },
   header: {
-    background: 'white',
+    background: '#eee',
     paddingLeft: '20px',
     paddingRight: '50px',
-    borderBottom: '#9FD8F0 10px solid',
+    borderBottom: '#42779A 10px solid',
     height: '128px',
     paddingTop: '35px',
   },
   headerMainTitle: {
-    fontFamily: 'Inter',
-    letterSpacing: '0.01em',
-    fontWeight: 'bold',
-    color: '#0E6292',
-    fontSize: '26px',
+    fontFamily: 'Lato',
+    letterSpacing: '0.025em',
+    color: '#274FA5',
+    fontSize: '24pt',
     position: 'absolute',
     marginTop: '16px',
     lineHeight: '25px',
-    marginLeft: '2px',
+    marginLeft: '-3px',
   },
 
   headerTitle: {
@@ -151,11 +129,14 @@ const styles = (theme) => ({
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   tableContainer: {
-    background: 'white',
+    background: '#eee',
     paddingBottom: '50px',
   },
   tableDiv: {
     margin: 'auto',
+  },
+  tableCell6: {
+    width: '120px',
   },
   externalLinkIcon: {
     width: '14.5px',

@@ -1,15 +1,11 @@
 import { Grid, withStyles } from '@material-ui/core';
 import React from 'react';
-import { Anchor, prepareLinks } from 'bento-components';
+import { Anchor, prepareLinks } from '@bento-core/util';
 
 const PropertyItem = ({
   label, value, link, labelLink, classes, index,
 }) => {
   const defaultValue = '';
-  function isNumeric(value1) {
-    return /^-?\d+$/.test(value1);
-  }
-
   return (
     <Grid item>
       <Grid container>
@@ -20,7 +16,7 @@ const PropertyItem = ({
         </Grid>
         <Grid item xs={12} className={classes.content} d={`case_detail_left_section_description_${index + 1}`}>
           {value || value === 0 ? (
-            link ? <Anchor text={value} link={link} classes={classes} /> : isNumeric(value) ? value.toLocaleString('en-US') : value
+            link ? <Anchor text={value} link={link} classes={classes} /> : value
           ) : defaultValue}
         </Grid>
       </Grid>
@@ -52,7 +48,7 @@ const PropertySubsection = ({ section: config, data, classes }) => {
 const styles = (theme) => ({
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Inter',
+    fontFamily: 'Lato',
     fontSize: '17px',
     fontWeight: 'bold',
     color: '#2f519f',
@@ -66,7 +62,7 @@ const styles = (theme) => ({
     marginTop: '30px',
   },
   title: {
-    color: '#AE6CAB',
+    color: '#0296C9',
     fontFamily: theme.custom.fontFamily,
     fontSize: '17px',
     lineHeight: '12px',
@@ -81,7 +77,6 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
-      textUnderlineOffset: '2.5px',
     },
     '&:visited': {
       color: '#9F3D26',

@@ -1,0 +1,7 @@
+schema {
+    query: QueryType
+}
+
+type QueryType {
+    schemaVersion: String @cypher(statement: "RETURN '1.0.0'")
+}

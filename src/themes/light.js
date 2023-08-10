@@ -21,16 +21,15 @@ const lightenRate = 7.5;
 const darkenRate = 15;
 const tableHeaderBorder = '#42779A 3px solid';
 const tableHeaderFontColor = '#13344A';
-const tableFontFamily = "'Nunito','Lato Regular','Raleway', sans-serif";
+const tableFontFamily = "'Lato Regular','Raleway', sans-serif";
 const white = '#FFFFFF';
 
 export default {
   custom: {
     maxContentWidth: '1440px',
     maxContent: 'white',
-    bodyBackGround: 'white',
+    bodyBackGround: '#E5F0FA',
     cardBackGround: '#f0f6f8',
-    fontFamilyInter: 'Inter',
     fontFamilySans: '"Open Sans", sans-serif',
     footorBackground: '#325068',
     fontFamily: 'Lato,"Open Sans", sans-serif',
@@ -222,7 +221,7 @@ export default {
       primary: '#4A4A4A',
       secondary: '#6E6E6E',
       hint: '#B9B9B9',
-      link: '#1669aa',
+      link: '#0083c6',
       footerText: 'white',
     },
     background: {
@@ -336,18 +335,14 @@ export default {
         color: tableHeaderFontColor,
         backgroundColor: tableHeader,
         textDecoration: 'underline',
-        textUnderlineOffset: '2.5px',
         fontFamily: tableFontFamily,
-        letterSpacing: '0.02em',
+        letterSpacing: '0.06em',
         fontStyle: 'normal',
-        fontSize: '14px',
+        fontSize: '11pt',
         fontWeight: 'bold',
         paddingLeft: '20px',
         '&:first-child': {
-          paddingLeft: '20px',
-        },
-        '&:last-child': {
-          paddingRight: '20px',
+          paddingLeft: '30px',
         },
       },
       sortActive: {
@@ -375,7 +370,7 @@ export default {
           color: '#004C73',
         },
         '&:nth-child(even) td': {
-          background: '#ebebeb',
+          background: '#f5f5f5',
         },
         '&:nth-child(odd)': {
           color: '#004C73 !important',
@@ -417,8 +412,6 @@ export default {
         fontFamily: 'Nunito',
         fontWeight: 'normal',
         paddingLeft: '20px',
-        maxWidth: '150px',
-        overflowWrap: 'break-word',
       },
       head: {
         fontSize: '0.95rem',
@@ -491,7 +484,7 @@ export default {
         fontSize: '10px',
       },
       actions: {
-        marginRight: '8px',
+        marginRight: '39px',
       },
     },
     MuiSwitch: {
@@ -507,7 +500,7 @@ export default {
     MUIDataTableBodyCell: {
       stackedParent: {
         '&:first-child': {
-          paddingLeft: '20px',
+          paddingLeft: '30px',
         },
       },
     },

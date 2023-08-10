@@ -2,37 +2,37 @@ import gql from 'graphql-tag';
 
 // --------------- Page title configuration --------------
 const pageTitle = {
-  label: 'Program:',
-  dataField: 'program',
+  label: 'Program :',
+  dataField: 'program_acronym',
 };
 
 const pageSubTitle = {
-  dataField: 'program_name',
+  dataField: 'program_id',
 };
 
 const breadCrumb = {
-  label: 'All Programs',
+  label: 'ALL PROGRAMS',
   link: '/programs',
 };
 
 // --------------- Aggregated count configuration --------------
 const aggregateCount = {
-  labelText: 'Participants',
-  dataField: 'num_participants',
-  link: '/data',
-  display: false,
+  labelText: 'Cases',
+  dataField: 'num_subjects',
+  link: '/explore',
+  display: true,
 };
 
 // --------------- Icons configuration --------------
 // Ideal size for programDetailIcon is 107x107 px
 // Ideal size for externalLinkIcon is 16x16 px
 const programDetailIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/programIcon.png',
-  alt: 'CDS program logo',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programIcon.svg',
+  alt: 'Bento program logo',
 };
 
 const externalLinkIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/externalLinkIcon.svg',
+  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/externalLinkIcon.svg',
   alt: 'External link icon',
 };
 
@@ -41,19 +41,19 @@ const externalLinkIcon = {
 const leftPanel = {
   attributes: [
     {
-      dataField: 'program',
+      dataField: 'program_acronym',
       label: 'Program',
     },
     {
       dataField: 'program_name',
       label: 'Program Name',
     },
-    // {
-    //   dataField: 'program_id',
-    //   label: 'Program Id',
-    // },
     {
-      dataField: 'program_short_description',
+      dataField: 'program_id',
+      label: 'Program Id',
+    },
+    {
+      dataField: 'program_full_description',
       label: 'Program Description',
     },
     {
@@ -61,10 +61,9 @@ const leftPanel = {
       label: 'Institution',
     },
     {
-      dataField: 'program_url',
-      label: 'Program Website',
-      externalLink: true,
-
+      dataField: 'program_external_url',
+      label: 'External Link to Program',
+      externalLinkToLabel: true,
     },
   ],
 };
@@ -74,17 +73,8 @@ const leftPanel = {
 const rightPanel = {
   widget: [
     {
-      dataField: 'study_participants',
-      label: 'Studies',
-      display: false,
-    },
-  ],
-  participants: [
-    {
-      dataField: 'num_participants',
-      label: 'Number of Participants',
-      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramDetail.ParticipantCount.svg',
-      fileIconAlt: 'Number of participants icon',
+      dataField: 'diagnoses',
+      label: 'Diagnosis',
       display: true,
     },
   ],
@@ -92,7 +82,7 @@ const rightPanel = {
     {
       dataField: 'num_files',
       label: 'Number of files',
-      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramDetailFileCount.svg',
+      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programNumberofFilesIcon.svg',
       fileIconAlt: 'Number of files icon',
       display: true,
     },
@@ -104,11 +94,11 @@ const table = {
   // Set 'display' to false to hide the table entirely
   display: true,
   // Table title
-  title: 'STUDIES',
+  title: 'ARMS',
   // Field name for table data, need to be updated only when using a different GraphQL query
   dataField: 'studies',
   // Value must be one of the 'field' in columns
-  defaultSortField: 'study_name',
+  defaultSortField: 'study_acronym',
   // 'asc' or 'desc'
   defaultSortDirection: 'asc',
   // Set 'selectableRows' to true to show the row selection
@@ -116,57 +106,57 @@ const table = {
   // A maximum of 10 columns are allowed
   columns: [
     {
-      dataField: 'accession',
-      header: 'Study',
-      link: '/study/{accession}',
+      dataField: 'study_acronym',
+      header: 'Arm',
+      link: '/arm/{study_acronym}'
     },
     {
       dataField: 'study_name',
-      header: 'Study Name',
+      header: 'Arm Name',
     },
     {
-      dataField: 'study_access',
-      header: 'Study Access',
+      dataField: 'study_full_description',
+      header: 'Arm Description',
     },
     {
-      dataField: 'num_samples',
-      header: 'Number Of Samples',
+      dataField: 'study_type',
+      header: 'Arm Type',
     },
     {
-      dataField: 'num_participants',
-      header: 'Number Of Participants',
+      dataField: 'num_subjects',
+      header: 'Associated Cases',
     },
   ],
 };
 
 // --------------- GraphQL query - Retrieve program details --------------
 const GET_PROGRAM_DETAIL_DATA_QUERY = gql`
-query programDetailQuery($program_name: String!){
-  programDetail(program_name:$program_name){
-      program
-      program_name
-      program_url
-      program_short_description
-      num_studies
-      num_participants
-      num_files
-      num_samples
-      num_disease_sites
-      study_participants{
-          group
-          subjects
-      }
-      studies{
-          accession
-          study_access
-          study_name
-          study_description
-          short_description
-          num_participants
-          num_samples
-      }
+query programDetail($program_id: String!) {
+  programDetail(program_id: $program_id) {
+    program_acronym
+    program_id
+    program_name
+    program_full_description
+    institution_name
+    program_external_url
+    num_subjects
+    num_files
+    num_samples
+    num_lab_procedures
+    disease_subtypes
+    diagnoses {
+      group
+      subjects
+    }
+    studies { 
+      study_name
+      study_type
+      study_acronym
+      study_info
+      study_full_description
+      num_subjects
+    }
   }
-  
 }`;
 
 export {

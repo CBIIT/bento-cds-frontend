@@ -1,16 +1,19 @@
 import gql from 'graphql-tag';
-import { FileOnRowsSelect } from '../utils/fileTable';
-import { SampleOnRowsSelect } from '../utils/sampleFileTable';
+import { cellTypes, dataFormatTypes } from '@bento-core/table';
 
 // --------------- Tooltip configuration --------------
 export const tooltipContent = {
   src: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
   alt: 'tooltipIcon',
+  arrow: true,
+  placement: 'top-end',
+  sample: 'Click button to add selected files associated with the selected sample(s).',
+  files: 'Click button to add selected files.',
 };
 
 // -------------- Case ID area configurations --------------
 const caseHeader = {
-  label: 'Participant ID',
+  label: 'Case ID',
   dataField: 'subject_id',
 };
 
@@ -189,165 +192,6 @@ export const externalLinkIcon = {
   alt: 'External link icon',
 };
 
-// --------------- Table 1 configuration --------------
-const table1 = {
-  // Set 'display' to false to hide the table entirely
-  display: true,
-  // Table title
-  tableTitle: 'ASSOCIATED SAMPLES',
-  // Field name for files data, need to be updated only when using a different GraphQL query
-  subjectDetailField: 'samples',
-  // Value must be one of the 'dataField's in fileTableColumns
-  defaultSortField: 'sample_id',
-  // 'asc' or 'desc'
-  defaultSortDirection: 'asc',
-  // Text to appear on Add to cart button
-  buttonText: 'Add Selected Files',
-  saveButtonDefaultStyle: {
-    color: '#fff',
-    backgroundColor: '#09A175',
-    opacity: '1',
-    border: '0px',
-    cursor: 'pointer',
-  },
-  ActiveSaveButtonDefaultStyle: {
-    disabled: 'true',
-    opacity: '0.3',
-    cursor: 'auto',
-  },
-  DeactiveSaveButtonDefaultStyle: {
-    cursor: 'pointer',
-    opacity: 'unset',
-    border: 'unset',
-  },
-  // Help Icon Message
-  tooltipMessage: 'Click button to add selected files associated with the selected sample(s).',
-  helpMessage: 'Here help message',
-  // showHideColumns 'true' or 'false'
-  showHideColumns: true,
-  // download csv
-  download: false,
-  // downloaded File Name
-  downloadFileName: 'Bento_case_files_download',
-  // Set 'selectableRows' to true to show the row selection
-  selectableRows: true,
-  // A maximum of 10 columns are allowed
-  columns: [
-    {
-      dataField: 'sample_id',
-      header: 'Sample ID',
-      sort: 'asc',
-      primary: true,
-      display: true,
-    },
-    {
-      dataField: 'disease_subtype',
-      header: 'Diagnosis',
-      dataFromRoot: true,
-    },
-    {
-      dataField: 'tissue_type',
-      header: 'Tissue Type',
-    },
-    {
-      dataField: 'composition',
-      header: 'Tissue Composition',
-    },
-    {
-      dataField: 'sample_anatomic_site',
-      header: 'Sample Anatomic Site',
-    },
-    {
-      dataField: 'method_of_sample_procurement',
-      header: 'Sample Procurement Method',
-    },
-    {
-      dataField: 'test_name',
-      header: 'Platform',
-      dataFromRoot: true,
-    },
-  ],
-  // Util Functions
-  // Custom function on selct checkbox is selected.
-  customOnRowsSelect: SampleOnRowsSelect,
-};
-
-// --------------- Table 2 configuration --------------
-const table2 = {
-  // Set 'display' to false to hide the table entirely
-  display: true,
-  // Table title
-  tableTitle: 'ASSOCIATED FILES',
-  // Field name for files data, need to be updated only when using a different GraphQL query
-  subjectDetailField: 'files',
-  // Value must be one of the 'dataField's in fileTableColumns
-  defaultSortField: 'file_name',
-  // 'asc' or 'desc'
-  defaultSortDirection: 'asc',
-  // Text to appear on Add to cart button
-  buttonText: 'Add Selected Files',
-  saveButtonDefaultStyle: {
-    color: '#fff',
-    backgroundColor: '#09A175',
-    opacity: '1',
-    border: '0px',
-    cursor: 'pointer',
-  },
-  ActiveSaveButtonDefaultStyle: {
-    disabled: 'true',
-    opacity: '0.3',
-    cursor: 'auto',
-  },
-  DeactiveSaveButtonDefaultStyle: {
-    cursor: 'pointer',
-    opacity: 'unset',
-    border: 'unset',
-  },
-  // Help Icon Message
-  tooltipMessage: 'Click button to add selected files.',
-  helpMessage: 'Here help message',
-  // showHideColumns 'true' or 'false'
-  showHideColumns: true,
-  // download csv 'true' or 'false'
-  download: false,
-  // downloaded File Name
-  downloadFileName: 'Bento_case_samples_download',
-  // Set 'selectableRows' to true to show the row selection
-  selectableRows: true,
-  // A maximum of 10 columns are allowed
-  columns: [
-    {
-      dataField: 'file_name',
-      header: 'File Name',
-    },
-    {
-      dataField: 'file_type',
-      header: 'File Type',
-    },
-    {
-      dataField: 'association',
-      header: 'Association',
-    },
-    {
-      dataField: 'file_description',
-      header: 'Description',
-    },
-    {
-      dataField: 'file_format',
-      header: 'Format',
-    },
-    {
-      dataField: 'file_size',
-      header: 'Size',
-      // set formatBytes to true to display file size (in bytes) in a more human readable format
-      formatBytes: true,
-    },
-  ],
-  // Util Functions
-  // Custom function on selct checkbox is selected.
-  customOnRowsSelect: FileOnRowsSelect,
-};
-
 // --------------- GraphQL query configuration --------------
 
 // query name, also used as root of returned data
@@ -432,7 +276,186 @@ export {
   filesOfSamples,
   leftPanel,
   rightPanel,
-  table1,
-  table2,
   GET_CASE_DETAIL_DATA_QUERY,
+};
+
+// --------------- Case Table configuration --------------
+export const sampleTable = {
+  // Set 'display' to false to hide the table entirely
+  name: 'sample',
+  display: true,
+  dataKey: 'sample_id',
+  // Table title
+  tableTitle: 'ASSOCIATED SAMPLES',
+  // Field name for files data, need to be updated only when using a different GraphQL query
+  subjectDetailField: 'samples',
+  // Value must be one of the 'dataField's in fileTableColumns
+  defaultSortField: 'sample_id',
+  // 'asc' or 'desc'
+  defaultSortDirection: 'asc',
+  // Text to appear on Add to cart button
+  buttonText: 'Add Selected Files',
+  // Help Icon Message
+  tooltipMessage: 'Click button to add selected files associated with the selected sample(s).',
+  helpMessage: 'Here help message',
+  // showHideColumns 'true' or 'false'
+  showHideColumns: true,
+  // download csv
+  download: false,
+  // downloaded File Name
+  downloadFileName: 'Bento_case_files_download',
+  // Set 'selectableRows' to true to show the row selection
+  selectableRows: true,
+  // A maximum of 10 columns are allowed
+  columns: [
+    {
+      cellType: cellTypes.CHECKBOX,
+      display: true,
+    },
+    {
+      dataField: 'sample_id',
+      header: 'Sample ID',
+      sort: 'asc',
+      primary: true,
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'disease_subtype',
+      header: 'Diagnosis',
+      dataFromRoot: true,
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'tissue_type',
+      header: 'Tissue Type',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'composition',
+      header: 'Tissue Composition',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'sample_anatomic_site',
+      header: 'Sample Anatomic Site',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'method_of_sample_procurement',
+      header: 'Sample Procurement Method',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'test_name',
+      header: 'Platform',
+      display: true,
+      tooltipText: 'sort',
+      dataFromRoot: true,
+      role: cellTypes.DISPLAY,
+    },
+  ],
+  addFilesRequestVariableKey: 'sample_ids',
+  addFilesResponseKeys: ['fileIDsFromList'],
+  addAllFilesResponseKeys: ['sampleOverview', 'files'],
+  tableMsg: {
+    noMatch: 'No Matching Records Found',
+  },
+};
+
+// --------------- Files Table configuration --------------
+export const filesTable = {
+  // Table title
+  name: 'files',
+  tableTitle: 'ASSOCIATED FILES',
+  dataKey: 'file_name',
+  // Field name for files data, need to be updated only when using a different GraphQL query
+  subjectDetailField: 'files',
+  // Value must be one of the 'dataField's in fileTableColumns
+  defaultSortField: 'file_name',
+  // 'asc' or 'desc'
+  defaultSortDirection: 'asc',
+  // Text to appear on Add to cart button
+  buttonText: 'Add Selected Files',
+  // Help Icon Message
+  tooltipMessage: 'Click button to add selected files.',
+  helpMessage: 'Here help message',
+  // showHideColumns 'true' or 'false'
+  showHideColumns: true,
+  // download csv 'true' or 'false'
+  download: false,
+  // downloaded File Name
+  downloadFileName: 'Bento_case_samples_download',
+  // Set 'selectableRows' to true to show the row selection
+  selectableRows: true,
+  // A maximum of 10 columns are allowed
+  columns: [
+    {
+      cellType: cellTypes.CHECKBOX,
+      role: cellTypes.CHECKBOX,
+      display: true,
+    },
+    {
+      dataField: 'file_name',
+      header: 'File Name',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'file_type',
+      header: 'File Type',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'association',
+      header: 'Association',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'file_description',
+      header: 'Description',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'file_format',
+      header: 'Format',
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'file_size',
+      header: 'Size',
+      // set formatBytes to true to display file size (in bytes) in a more human readable format
+      display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      dataFormatType: dataFormatTypes.FORMAT_BYTES,
+      cellType: cellTypes.FORMAT_DATA,
+    },
+  ],
+  tableMsg: {
+    noMatch: 'No Matching Records Found',
+  },
+  addFilesRequestVariableKey: 'file_names',
+  addFilesResponseKeys: ['fileIDsFromList'],
+  addAllFilesResponseKeys: ['fileOverview', 'files'],
 };

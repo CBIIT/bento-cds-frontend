@@ -69,7 +69,6 @@ const styles = () => ({
   },
   alphabetExists: {
     textDecoration: 'underline',
-    textUnderlineOffset: '2.5px',
     color: '#06849E',
     '&:hover': {
       cursor: 'pointer',

@@ -3,44 +3,38 @@ import {
   Grid,
   withStyles,
 } from '@material-ui/core';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { Link } from 'react-router-dom';
 import StatsView from './components/statsView';
+import { Button } from '../../components/Wrappers/Wrappers';
 import { landingPageData } from '../../bento/landingPageData';
 import icon from '../../assets/landing/LP_ReadMore.svg';
 import iconAbout from '../../assets/landing/LP_About_Fullarticle.Arrow.svg';
-import linkGenerator from '../../utils/linkGenerator';
 
 const LandingView = ({ classes, statsData }) => (
   <div className={classes.page}>
     <div className={classes.container}>
-      <Grid container className={classes.hero}>
-        <Grid xs={3} lg={4} className={classes.leftBg} />
-        <Grid xs={2} lg={2}>
-          <Grid container spacing={16} direction="row">
-            <div className={classes.heroImage} />
-            <div className={classes.heroTextContainer}>
-              <div className={classes.heroTextWrapper}>
-                <div className={classes.headerTitle}>
-                  { landingPageData.callToActionTitle }
-                </div>
-                <div className={classes.headerContent}>
-                  {linkGenerator(landingPageData.callToActionDescription)}
-                </div>
-                <div className={classes.headerButtonSection}>
-                  <Link to={landingPageData.callToActionLink} className={classes.headerLink}>
-                    <button className={classes.buttonText} type="button">
-                      {landingPageData.callToActionButtonText}
-                    </button>
-                    <ArrowRightIcon className={classes.iconArrowRight} />
-                  </Link>
-                </div>
+      <div className={classes.hero}>
+        <Grid container spacing={16} direction="row">
+          <div className={classes.heroImage} />
+          <div className={classes.heroTextContainer}>
+            <div className={classes.heroTextWrapper}>
+              <div className={classes.headerTitle}>
+                { landingPageData.callToActionTitle }
+              </div>
+              <div className={classes.headerContent}>
+                { landingPageData.callToActionDescription}
+              </div>
+              <div className={classes.headerButtonSection}>
+                <Link to={landingPageData.callToActionLink} className={classes.headerLink}>
+                  <Button className={classes.buttonText} bgColor="neonBlue" color="white">
+                    {landingPageData.callToActionButtonText}
+                  </Button>
+                </Link>
               </div>
             </div>
-          </Grid>
+          </div>
         </Grid>
-        <Grid xs={7} lg={6} className={classes.rightBg} />
-      </Grid>
+      </div>
     </div>
     <div className={classes.whiteSection} />
     <StatsView stats={landingPageData.landingPageStatsBar} statsData={statsData} />
@@ -66,8 +60,7 @@ const LandingView = ({ classes, statsData }) => (
                 ))}
               </div>
               <div className={classes.aboutContent} id="tile1_description">
-                {linkGenerator(landingPageData.tile1.descriptionText)}
-
+                {landingPageData.tile1.descriptionText}
               </div>
               <div className={classes.aboutButtonSection}>
                 <div className={classes.aboutButtonLeft}>
@@ -124,24 +117,16 @@ const LandingView = ({ classes, statsData }) => (
                   <img
                     className={classes.image}
                     src={landingPageData.tile3.img}
-                    alt={landingPageData.tile3.src}
+                    alt={landingPageData.tile3.alt}
                     id="tile3_image"
                   />
                 </div>
                 <div className={classes.content}>
-                  <a href="mailto:cdshelpdesk@mail.nih.gov" className={classes.mailLink}>
-                    <div className={classes.contentHeader} id="tile3_title">
-                      {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
-                        <>
-                          {word}
-                          {<span>&nbsp;</span>}
-                          {index === 2 && <br />}
-                        </>
-                      ))}
-                    </div>
-                  </a>
+                  <div className={classes.contentHeader} id="tile3_title">
+                    {landingPageData.tile3.titleText}
+                  </div>
                   <div className={classes.contentContainer} id="tile3_description">
-                    {linkGenerator(landingPageData.tile3.descriptionText)}
+                    {landingPageData.tile3.descriptionText}
                   </div>
 
                 </div>
@@ -195,49 +180,28 @@ const LandingView = ({ classes, statsData }) => (
 );
 const styles = () => ({
   page: {
-    marginTop: '-47px',
-  },
-  hero: {
-    width: '100%',
-    margin: '0 auto',
-  },
-  leftBg: {
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${landingPageData.heroLeftBg.img})`,
-    backgroundPosition: 'right',
-    minHeight: '470px',
-  },
-  rightBg: {
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${landingPageData.heroRightBg.img})`,
-    backgroundPosition: 'left',
-
+    marginTop: '-53px',
   },
   heroImage: {
     width: '100%',
     height: '420px',
     backgroundRepeat: 'no-repeat',
     backgroundSize: '100% 100%',
-    // backgroundImage: `url(${landingPageData.landingPageHero.img})`,
+    backgroundImage: `url(${landingPageData.landingPageHero.img})`,
   },
   texture: {
     backgroundSize: 'cover',
-    backgroundImage: `url(${landingPageData.landingPageTile.img})`,
-    padding: '110px 0 80px 0',
+    background: '#CAE6FC',
+    padding: '120px 0 80px 0',
   },
   container: {
     fontFamily: 'Raleway, sans-serif',
     margin: '0 auto',
-    background: 'white',
 
   },
-  iconArrowRight: {
-    color: '#FFF',
-    marginTop: '4px',
 
-  },
   whiteSection: {
-    height: '3px',
+    height: '8px',
     background: 'white',
   },
   redButton: {
@@ -253,33 +217,28 @@ const styles = () => ({
     letterSpacing: '0.8px',
   },
   headerTitle: {
-    paddingTop: '90px',
+    paddingTop: '94px',
     fontFamily: 'Inter, Raleway, sans-serif',
-    fontSize: '42px',
+    fontSize: '38px',
     fontWeight: '600',
     lineHeight: '35px',
-    color: '#942990',
-    letterSpacing: '-0.6px',
+    color: '#0077E3',
+    letterSpacing: '-0px',
   },
   paddingLeft50: {
     paddingLeft: '50px',
   },
   headerContent: {
     color: '#000000',
-    fontFamily: 'Nunito Sans',
+    fontFamily: 'Lato, Raleway',
     fontSize: '16px',
-    fontWeight: '300',
-    lineHeight: '21px',
-    marginTop: '32px',
-    marginBottom: '16px',
+    fontWeight: '500',
+    lineHeight: '27px',
+    marginTop: '16px',
+    marginBottom: '26px',
   },
   headerLink: {
     textDecoration: 'none',
-    display: 'flex',
-    // borderBottom: '1.5px solid #D36000',
-    maxWidth: '244px',
-    background: '#D36000',
-    borderRadius: '8px',
   },
 
   iconAbout: {
@@ -301,16 +260,16 @@ const styles = () => ({
   },
   aboutImageSection: {
     height: '249px',
-    background: '#20506A',
   },
   DCWords: {
     height: '200px',
-    background: '#29ABE2',
+    background: '#274FA5',
     color: '#FFFFFF',
-    fontSize: '26px',
+    fontSize: '28px',
+    fontWeight: 'bold',
     textTransform: 'capitalize',
-    lineHeight: '30px',
-    padding: '15px 75px 26px 30px',
+    lineHeight: '36px',
+    padding: '10px 75px 26px 26px',
     fontFamily: 'Lato',
   },
   landingContainer: {
@@ -330,18 +289,18 @@ const styles = () => ({
     height: '249px',
   },
   aboutContent: {
-    background: '#20506A',
+    background: 'white',
     minHeight: '372px',
     width: '300px',
     padding: '30px 30px 32px 30px',
-    color: 'white',
-    fontFamily: 'Nunito Sans',
+    color: '#000000',
+    fontFamily: 'Nunito',
     fontSize: '16px',
-    fontWeight: '300',
+    fontWeight: '500',
     lineHeight: '22px',
   },
   aboutButtonSection: {
-    background: '#20506A',
+    background: 'white',
     height: '71px',
   },
   imgIconAbout: {
@@ -349,12 +308,12 @@ const styles = () => ({
   },
   aboutButtonLeft: {
     float: 'left',
-    background: '#AE5E1B',
+    background: '#443CBB',
     height: '45px',
     width: '48px',
   },
   aboutButtonRight: {
-    background: '#CB864C',
+    background: '#7747FF',
     float: 'left',
     height: '45px',
     width: '132px',
@@ -384,14 +343,14 @@ const styles = () => ({
     color: '#033D6F',
     fontFamily: 'Lato',
     fontSize: '28px',
+    fontWeight: 'bold',
     lineHeight: '27px',
     padding: '10px 0',
   },
   contentContainer: {
     width: '215px',
     color: '#010101',
-    fontFamily: 'Nunito Sans',
-    fontWeight: '300',
+    fontFamily: 'Nunito',
     fontSize: '16px',
     lineHeight: '22px',
     paddingLeft: '2px',
@@ -408,9 +367,6 @@ const styles = () => ({
   },
   studies: {
     float: 'left',
-  },
-  mailLink: {
-    textDecoration: 'none',
   },
 
   contentRightBottom: {
@@ -429,13 +385,13 @@ const styles = () => ({
   mountainMeadowButtonSection: {
     height: '46px',
     width: '176px',
-    backgroundColor: '#942A90',
+    backgroundColor: '#0E8662',
     marginTop: '20px',
 
   },
   blueButton: {
     height: '45px',
-    background: '#942A90',
+    background: '#0074DB',
     color: '#FFFFFF',
     fontFamily: 'Raleway',
     fontSize: '12px',
@@ -458,18 +414,18 @@ const styles = () => ({
     textTransform: 'uppercase',
   },
   mountainMeadowContentHeader: {
-    color: 'white',
-    fontFamily: 'Inter',
+    color: '#033D6F',
+    fontFamily: 'Lato',
     fontSize: '28px',
+    fontWeight: 'bold',
     lineHeight: '32px',
     padding: '15px 0',
   },
   mountainMeadowContent: {
     height: '143px',
-    width: '200px',
-    color: 'white',
-    fontFamily: 'Nunito Sans',
-    fontWeight: '300',
+    width: '230px',
+    color: '#010101',
+    fontFamily: 'Nunito',
     fontSize: '15px',
     lineHeight: '22px',
   },
@@ -519,20 +475,11 @@ const styles = () => ({
     },
   },
   heroTextWrapper: {
-    width: '500px',
+    width: '360px',
   },
   buttonText: {
-    height: '32px',
-    padding: '8px 58px 8px 16px',
-    background: 'transparent',
-    fontSize: '12px',
-    fontFamily: 'Lato',
-    fontWeight: '600',
-    color: '#FFF',
-    border: 'none',
-    display: 'flex',
-    letterSpacing: '1px',
-    whiteSpace: 'pre',
+    padding: '12px 30px',
+    height: '40px',
   },
 });
 export default withStyles(styles, { withTheme: true })(LandingView);

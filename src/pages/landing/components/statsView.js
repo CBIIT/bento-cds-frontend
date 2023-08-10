@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
 import {
   withStyles,
 } from '@material-ui/core';
@@ -11,6 +10,7 @@ const LandingStatsView = ({ classes, stats, statsData }) => (
       [classes.statsSection]: stats.length < 5,
       [classes.statsSectionCenter]: stats.length === 5,
     })}
+    tabIndex={0}
     >
       { stats.length > 0 && (
       <div
@@ -22,18 +22,16 @@ const LandingStatsView = ({ classes, stats, statsData }) => (
 
         {
         stats.map((stat, index) => (
-          <Link to={stat.callToActionLink} className={classes.statLink}>
-            <div className={classes.statsGroup}>
-              <div className={classes.statsText}>
-                <div className={classes.statTitle} id={`title_${index + 1}`}>
-                  {stat.statTitle}
-                </div>
-                <div className={classes.statCount} id={`count_${index + 1}`}>
-                  {statsData[stat.statAPI]}
-                </div>
+          <div className={classes.statsGroup}>
+            <div className={classes.statsText}>
+              <div className={classes.statTitle} id={`title_${index + 1}`}>
+                {stat.statTitle}
+              </div>
+              <div className={classes.statCount} id={`count_${index + 1}`}>
+                {statsData[stat.statAPI]}
               </div>
             </div>
-          </Link>
+          </div>
         ))
         }
       </div>
@@ -44,7 +42,7 @@ const LandingStatsView = ({ classes, stats, statsData }) => (
 
 const styles = () => ({
   statsSection: {
-    background: '#0084BD',
+    background: 'transparent',
     maxWidth: '906px',
     textAlign: 'center',
     position: 'absolute',
@@ -52,7 +50,7 @@ const styles = () => ({
     right: 0,
     margin: '-24px auto auto auto',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
   statsSectionCenter: {
     background: 'transparent',
@@ -69,9 +67,6 @@ const styles = () => ({
       overflow: 'inherit',
     },
   },
-  statLink: {
-    textDecoration: 'none',
-  },
   bannerTexture: {
     color: '#4898B4',
     fontFamily: 'Raleway',
@@ -87,14 +82,14 @@ const styles = () => ({
   boxCut: {
     direction: 'ltr',
     display: 'inline-flex',
-    borderBottom: '74px solid #0084BD',
-    borderLeft: '0px solid transparent',
+    borderBottom: '74px solid white',
+    borderLeft: '50px solid transparent',
     height: '74px',
   },
   box: {
     direction: 'ltr',
     display: 'inline-flex',
-    borderBottom: '74px solid #0084BD',
+    borderBottom: '74px solid white',
     height: '74px',
     boxShadow: '-3px 5px 24px 1px rgba(27,28,28,0.15)',
     // '@media (min-width: 900px)': {
@@ -105,18 +100,12 @@ const styles = () => ({
   statsText: {
     height: '42px',
     display: 'flex',
-    borderBottom: '3px solid white',
-    minWidth: '140px',
-    justifyContent: 'center',
-    '&:hover': {
-      borderBottom: '3px solid #88EDFF',
-
-    },
+    borderBottom: '3px solid #27DBFF',
   },
   statTitle: {
     display: 'inline-block',
     float: 'left',
-    color: '#88EDFF',
+    color: '#476783',
     fontFamily: 'Nunito',
     letterSpacing: 1,
     fontWeight: 900,
@@ -127,7 +116,7 @@ const styles = () => ({
   },
   statCount: {
     display: 'inline-block',
-    color: '#88EDFF',
+    color: '#244264',
     fontFamily: 'Oswald',
     fontSize: '24px',
     fontWeight: 600,
@@ -145,7 +134,7 @@ const styles = () => ({
   statsGroup: {
     // padding: '36px 48px 4px 48px',
     // borderBottom: '2px solid',
-    margin: '8px 20px',
+    margin: '14px 48px',
   },
 });
 

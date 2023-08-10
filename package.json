@@ -1,13 +1,16 @@
 {
   "homepage": ".",
-  "name": "bento-frontend",
-  "version": "0.1.0",
+  "name": "CDS",
+  "version": "0.0.1",
+  "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@apollo/react-components": "^4.0.0",
     "@babel/core": "7.2.2",
+    "@bento-core/all": "^1.0.0",
+    "@jbrowse/react-linear-genome-view": "^2.1.5",
     "@librpc/web": "^1.1.1",
-    "@material-ui/core": "^4.10.0",
+    "@material-ui/core": "^4.12.4",
     "@material-ui/data-grid": "*",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "*",
@@ -19,10 +22,10 @@
     "babel-loader": "8.0.5",
     "babel-plugin-named-asset-import": "^0.3.4",
     "babel-preset-react-app": "^7.0.1",
-    "bento-components": "^1.0.7",
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "classnames": "^2.2.6",
+    "clsx": "^1.2.1",
     "css-loader": "1.0.0",
     "dotenv": "^6.0.0",
     "dotenv-expand": "4.2.0",
@@ -33,8 +36,8 @@
     "font-awesome": "4.7.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.1",
-    "graphiql": "^1.0.4",
-    "graphql": "^14.7.0",
+    "graphiql": "^1.0.3",
+    "graphql": "^15.5.0",
     "graphql-tag": "^2.11.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
@@ -55,12 +58,11 @@
     "postcss-safe-parser": "4.0.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.3",
-    "react": "^17.0.0",
+    "react": "^17.0.2",
     "react-apollo": "^3.1.5",
     "react-app-polyfill": "^0.2.1",
     "react-dev-utils": "^7.0.3",
     "react-dom": "^17.0.0",
-    "react-ga": "^3.3.1",
     "react-loading-skeleton": "^2.1.1",
     "react-measure": "^2.5.2",
     "react-redux": "^7.2.1",
@@ -73,7 +75,6 @@
     "react-use-googlelogin": "^0.12.5",
     "react-uuid": "^1.0.2",
     "react-vis": "^1.11.7",
-    "react-zoom-pan-pinch": "^1.4.5",
     "recharts": "^1.7.1",
     "recompose": "^0.30.0",
     "redux": "^4.0.4",
@@ -95,7 +96,7 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "PORT=3010 node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint src",
@@ -167,5 +168,8 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^1.7.0"
+  },
+  "bentoFramework": {
+    "referenceImplementation": "4.0.0.212"
   }
 }

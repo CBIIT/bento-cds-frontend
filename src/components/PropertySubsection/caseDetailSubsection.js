@@ -1,7 +1,7 @@
 // Component to display a property
 import { Grid, withStyles } from '@material-ui/core';
 import React from 'react';
-import { Anchor, prepareLinks } from 'bento-components';
+import { Anchor, prepareLinks } from '@bento-core/util';
 
 const PropertyItem = ({
   label, value, link, labelLink, classes, index,
@@ -10,11 +10,11 @@ const PropertyItem = ({
   return (
     <Grid item container>
       <Grid item xs={6}>
-        <span className={classes.title} id={`case_detail_left_section_title_${index + 1}`}>
+        <span className={classes.title} id={`case_detail_left_section_title_${label}`}>
           {labelLink ? <Anchor link={labelLink} text={label} classes={classes} /> : label}
         </span>
       </Grid>
-      <Grid item xs={6} className={classes.content} id={`case_detail_left_section_description_${index + 1}`}>
+      <Grid item xs={6} className={classes.content} id={`case_detail_left_section_description_${label}_${value}`}>
         {value || value === 0 ? (
           link ? <Anchor link={link} text={value} classes={classes} /> : value
         ) : defaultValue}
@@ -64,7 +64,7 @@ const styles = (theme) => ({
   },
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Inter',
+    fontFamily: 'Lato',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296C9',
@@ -99,7 +99,6 @@ const styles = (theme) => ({
     textDecoration: 'none',
     '&:hover': {
       textDecoration: 'underline',
-      textUnderlineOffset: '2.5px',
     },
     '&:visited': {
       color: '#9F3D26',

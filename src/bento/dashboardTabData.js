@@ -1,14 +1,23 @@
 /* eslint-disable */
 import gql from 'graphql-tag';
+import { cellTypes } from '@bento-core/table';
 import { customCasesTabDownloadCSV, customFilesTabDownloadCSV, customSamplesTabDownloadCSV } from './tableDownloadCSV';
+import { dataFormatTypes } from '@bento-core/table';
 
 // --------------- Tooltip configuration --------------
 export const tooltipContent = {
   icon: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
   alt: 'tooltipIcon',
-  0: 'Select to add participant files.',
-  1: 'Select to add sample files.',
-  2: 'Select to add files.',
+  0: 'Click button to add selected files associated with the selected case(s).',
+  1: 'Click button to add selected files associated with the selected sample(s).',
+  2: 'Click button to add selected files.',
+  Cases: 'Click button to add selected files associated with the selected case(s).',
+  Samples: 'Click button to add selected files associated with the selected sample(s).',
+  Files: 'Click button to add selected files.',
+  arrow: true,
+  styles: {
+    border: '#03A383 1px solid',
+  }
 };
 
 // --------------- Dahboard Table external link configuration --------------
@@ -18,294 +27,12 @@ export const externalLinkIcon = {
   alt: 'External link icon',
 };
 
-// --------------- Tabs Table configuration --------------
-export const tabContainers = [
-  {
-
-    name: 'Cases',
-    dataField: 'dataCase',
-    api: 'GET_CASES_OVERVIEW_QUERY',
-    paginationAPIField: 'subjectOverview',
-    count: 'numberOfSubjects',
-    dataKey: 'subject_id',
-    defaultSortField: 'subject_id',
-    defaultSortDirection: 'asc',
-    buttonText: 'Add Selected Files',
-    saveButtonDefaultStyle: {
-      color: '#fff',
-      backgroundColor: '#0B4E75',
-      opacity: '1',
-      border: '0px',
-      cursor: 'pointer',
-    },
-    ActiveSaveButtonDefaultStyle: {
-      cursor: 'pointer',
-      opacity: 'unset',
-      border: 'unset',
-    },
-    DeactiveSaveButtonDefaultStyle: {
-      opacity: '0.3',
-      cursor: 'auto',
-    },
-    columns: [
-      {
-        dataField: 'subject_id',
-        header: 'Participant ID',
-        sort: 'asc',
-        primary: true,
-        display: true,
-      },
-      {
-        dataField: 'study_acronym',
-        header: 'Study Name',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'phs_accession',
-        header: 'Accession ',
-        link: '/study/{phs_accession}',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'gender',
-        header: 'Gender',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'samples',
-        header: 'Samples',
-        sort: 'asc',
-        display: true,
-      },
-
-    ],
-    id: 'case_tab',
-    onRowsSelect: 'type1',
-    disableRowSelection: 'type1',
-    tableID: 'case_tab_table',
-    selectableRows: true,
-    tableDownloadCSV: customCasesTabDownloadCSV,
-    tabIndex: '0',
-    downloadFileName: 'Bento_Dashboard_cases_download',
-    headerPagination: true,
-    footerPagination: true,
-  },
-  {
-    name: 'Samples',
-    dataField: 'dataSample',
-    api: 'GET_SAMPLES_OVERVIEW_QUERY',
-    count: 'numberOfSamples',
-    paginationAPIField: 'sampleOverview',
-    dataKey: 'sample_id',
-    defaultSortField: 'sample_id',
-    defaultSortDirection: 'asc',
-    saveButtonDefaultStyle: {
-      color: '#fff',
-      backgroundColor: '#0B4E75',
-      opacity: '1',
-      border: '0px',
-      cursor: 'pointer',
-    },
-    DeactiveSaveButtonDefaultStyle: {
-      opacity: '0.3',
-      cursor: 'auto',
-    },
-    ActiveSaveButtonDefaultStyle: {
-      cursor: 'pointer',
-      opacity: 'unset',
-      border: 'unset',
-    },
-
-    columns: [
-      {
-        dataField: 'sample_id',
-        header: 'Sample ID',
-        sort: 'asc',
-        primary: true,
-        display: true,
-      },
-      {
-        dataField: 'subject_id',
-        header: 'Participant ID',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'study_acronym',
-        header: 'Study Name',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'phs_accession',
-        header: 'Accession',
-        link: '/study/{phs_accession}',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'subject_id',
-        header: 'Participant id',
-        sort: 'asc',
-        display: false,
-      },
-      {
-        dataField: 'is_tumor',
-        header: 'Tumor',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'analyte_type',
-        header: 'Analyte Type',
-        sort: 'asc',
-        display: true,
-      },
-    ],
-    id: 'sample_tab',
-    onRowsSelect: 'type3',
-    disableRowSelection: 'type2',
-    buttonText: 'Add Selected Files',
-    tableID: 'sample_tab_table',
-    selectableRows: true,
-    tabIndex: '1',
-    tableDownloadCSV: customSamplesTabDownloadCSV,
-    downloadFileName: 'Bento_Dashboard_cases_download',
-    headerPagination: true,
-    footerPagination: true,
-  },
-  {
-    name: 'Files',
-    dataField: 'dataFile',
-    api: 'GET_FILES_OVERVIEW_QUERY',
-    paginationAPIField: 'fileOverview',
-    defaultSortField: 'file_name',
-    defaultSortDirection: 'asc',
-    count: 'numberOfFiles',
-    buttonText: 'Add Selected Files',
-    dataKey: 'file_id',
-    saveButtonDefaultStyle: {
-      color: '#fff',
-      backgroundColor: '#0B4E75',
-      opacity: '1',
-      border: '0px',
-      cursor: 'pointer',
-    },
-    DeactiveSaveButtonDefaultStyle: {
-      opacity: '0.3',
-      cursor: 'auto',
-    },
-    ActiveSaveButtonDefaultStyle: {
-      cursor: 'pointer',
-      opacity: 'unset',
-      border: 'unset',
-    },
-    columns: [
-      {
-        dataField: 'file_id',
-        header: 'File ID',
-        sort: 'asc',
-        display: false,
-        primary: true,
-      },
-      {
-        dataField: 'file_name',
-        header: 'File Name',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'study_acronym',
-        header: 'Study Name',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'phs_accession',
-        header: 'Accession',
-        link: '/study/{phs_accession}',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'subject_id',
-        header: 'Participant Id',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'sample_id',
-        header: 'Sample Id',
-        sort: 'asc',
-        display: true,
-      },
-      // {
-      //   dataField: '', // This need to left empty if no data need to be displayed before file download icon
-      //   header: 'Access',
-      //   sort: 'asc',
-      //   display: true,
-      //   downloadDocument: true, // To indicate that column is document donwload
-      //   documentDownloadProps: {
-      //     // Max file size needs to bin Bytes to seperate two support file preview and download
-      //     maxFileSize: 315,
-      //     // Tool top text for Unauthenticated users
-      //     toolTipTextUnauthenticated: 'Login to access this file',
-      //     // Tool top text for file download
-      //     toolTipTextFileDownload: 'Download a copy of this file',
-      //     // Tool top text for file preview
-      //     toolTipTextFilePreview: 'Because of its size and/or format, this file is unavailable for download and must be accessed via the My Files workflow',
-      //     // datafield where file file column exists in the table
-      //     fileSizeColumn: 'file_size',
-      //     // datafield where file file id exists in the table which is used to get file location
-      //     fileLocationColumn: 'file_id',
-      //     // datafield where file format exists in the table
-      //     fileFormatColumn: 'file_format',
-      //     // datafield where file case id exists in the table which is used to get file information
-      //     caseIdColumn: 'subject_id',
-      //     // Unauthenticated lock icon
-      //     iconUnauthenticated: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Access_Lock.svg',
-      //     // file download icon
-      //     iconFileDownload: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadPDF.svg',
-      //     // file preview icon
-      //     iconFilePreview: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadCloud.svg',
-      //     // file viewer icon JBrowse
-      //     iconFileViewer: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadBAM.svg',
-      //   },
-      // },
-      {
-        dataField: 'file_type',
-        header: 'File Type',
-        sort: 'asc',
-        display: true,
-      },
-      {
-        dataField: 'file_size',
-        header: 'File Size',
-        sort: 'asc',
-        display: false,
-      },
-    ],
-    id: 'file_tab',
-    onRowsSelect: 'type2',
-    disableRowSelection: 'type3',
-    tableID: 'file_tab_table',
-    selectableRows: true,
-    tabIndex: '2',
-    tableDownloadCSV: customFilesTabDownloadCSV,
-    downloadFileName: 'Bento_Dashboard_cases_download',
-    headerPagination: true,
-    footerPagination: true,
-  },
-];
 
 // --------------- Tabs Header Data configuration --------------
 export const tabs = [
   {
     id: 'case_tab',
-    title: 'Participants',
+    title: 'Cases',
     dataField: 'dataCase',
     count: 'numberOfSubjects',
   },
@@ -327,25 +54,25 @@ export const tabs = [
 export const tabIndex = [
   {
     title: 'Cases',
-    primaryColor: '#c3e8f7',
+    primaryColor: '#D6F2EA',
     secondaryColor: '#FFDFB8',
-    selectedColor: '#000000',
+    selectedColor: '#10A075',
   },
   {
     title: 'Samples',
-    primaryColor: '#f2d5f1',
+    primaryColor: '#CFEDF9',
     secondaryColor: '#C9F1F1',
-    selectedColor: '#000000',
+    selectedColor: '#0DAFEC',
   },
   {
     title: 'Files',
-    primaryColor: '#fadfc7',
+    primaryColor: '#F7D7F7',
     secondaryColor: '#86D6F0',
-    selectedColor: '#000000',
+    selectedColor: '#C92EC7',
   },
 ];
 
-export const DASHBOARD_QUERY_NEW = gql`
+export const DASHBOARD_QUERY = gql`
 query searchSubjects(
   $subject_ids: [String],
   $accesses:[String],
@@ -559,40 +286,75 @@ query searchSubjects(
 }
 `;
 
-export const FILTER_GROUP_QUERY = gql`
-  query groupCounts($subject_ids: [String]){
-   armsByPrograms(subject_ids: $subject_ids) {
-     program
-     caseSize
-     children {
-         arm
-         caseSize
-         size
-     }
- }
- subjectCountByDiagnoses (subject_ids: $subject_ids){
-  group
-  subjects
+// --------------- GraphQL query - Fetch data for individual tabs --------------
+
+export const GET_CASES_OVERVIEW_QUERY = gql`
+query subjectOverview(
+  $subject_ids: [String],
+  $accesses:[String],
+  $acl:[String],
+  $experimental_strategies:[String],
+  $file_types:[String],
+  $genders:[String],
+  $instrument_models:[String],
+  $is_tumor:[String],
+  $library_layouts:[String],
+  $library_selections:[String],
+  $library_sources:[String],
+  $library_strategies:[String],
+  $number_of_study_participants:[Float],
+  $number_of_study_samples:[Float],
+  $phs_accession:[String],
+  $platforms:[String],
+  $primary_diagnoses:[String],
+  $reference_genome_assemblies:[String],
+  $site:[String],
+  $studies:[String],
+  $study_data_types:[String],
+
+  $order_by: String,
+  $sort_direction: String,
+  $first: Int,
+  $offset: Int
+){
+  subjectOverview(
+      subject_ids: $subject_ids,
+      accesses:$accesses,
+      acl:$acl,
+      experimental_strategies:$experimental_strategies,
+      file_types:$file_types,
+      genders:$genders,
+      instrument_models:$instrument_models,
+      is_tumor:$is_tumor,
+      library_layouts:$library_layouts,
+      library_selections:$library_selections,
+      library_sources:$library_sources,
+      library_strategies:$library_strategies,
+      number_of_study_participants:$number_of_study_participants,
+      number_of_study_samples:$number_of_study_samples,
+      phs_accession:$phs_accession,
+      platforms:$platforms,
+      primary_diagnoses:$primary_diagnoses,
+      reference_genome_assemblies:$reference_genome_assemblies,
+      site:$site,
+      studies:$studies,
+      study_data_types:$study_data_types,
+
+      order_by:$order_by,
+      sort_direction:$sort_direction,
+      first:$first,
+      offset:$offset
+  ){
+      subject_id
+      study_acronym
+      phs_accession
+      gender
+      site
+      samples
+      files
+  }
 }
-subjectCountByRecurrenceScore (subject_ids: $subject_ids){
-  group
-  subjects
-}
-subjectCountByTumorSize(subject_ids: $subject_ids) {
-  group
-  subjects
-}
-subjectCountByChemotherapyRegimen(subject_ids: $subject_ids) {
-  group
-  subjects
-}
-subjectCountByEndocrineTherapy (subject_ids: $subject_ids){
-  group
-  subjects
-}
-   
-}
- `;
+`;
 
 export const GET_FILES_OVERVIEW_QUERY = gql`
 query fileOverview(
@@ -740,73 +502,7 @@ query sampleOverview(
 
 `;
 
-export const GET_CASES_OVERVIEW_QUERY = gql`
-query subjectOverview(
-  $subject_ids: [String],
-  $accesses:[String],
-  $acl:[String],
-  $experimental_strategies:[String],
-  $file_types:[String],
-  $genders:[String],
-  $instrument_models:[String],
-  $is_tumor:[String],
-  $library_layouts:[String],
-  $library_selections:[String],
-  $library_sources:[String],
-  $library_strategies:[String],
-  $number_of_study_participants:[Float],
-  $number_of_study_samples:[Float],
-  $phs_accession:[String],
-  $platforms:[String],
-  $primary_diagnoses:[String],
-  $reference_genome_assemblies:[String],
-  $site:[String],
-  $studies:[String],
-  $study_data_types:[String],
-
-  $order_by: String,
-  $sort_direction: String,
-  $first: Int,
-  $offset: Int
-){
-  subjectOverview(
-      subject_ids: $subject_ids,
-      accesses:$accesses,
-      acl:$acl,
-      experimental_strategies:$experimental_strategies,
-      file_types:$file_types,
-      genders:$genders,
-      instrument_models:$instrument_models,
-      is_tumor:$is_tumor,
-      library_layouts:$library_layouts,
-      library_selections:$library_selections,
-      library_sources:$library_sources,
-      library_strategies:$library_strategies,
-      number_of_study_participants:$number_of_study_participants,
-      number_of_study_samples:$number_of_study_samples,
-      phs_accession:$phs_accession,
-      platforms:$platforms,
-      primary_diagnoses:$primary_diagnoses,
-      reference_genome_assemblies:$reference_genome_assemblies,
-      site:$site,
-      studies:$studies,
-      study_data_types:$study_data_types,
-
-      order_by:$order_by,
-      sort_direction:$sort_direction,
-      first:$first,
-      offset:$offset
-  ){
-      subject_id
-      study_acronym
-      phs_accession
-      gender
-      site
-      samples
-      files
-  }
-}
-`;
+// --------------- GraphQL query - select all check box --------------
 
 export const GET_ALL_FILEIDS_CASESTAB_FOR_SELECT_ALL = gql`
 query search (          
@@ -830,13 +526,15 @@ query search (
 
 export const GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL = gql`
 query search (          
-  $file_ids: [String],
+  $file_names: [String] 
 ){
   fileIDsFromList (          
-      file_ids: $file_ids
+      file_names: $file_names
   ) 
-  }
+}
   `;
+
+// --------------- GraphQL query - Add All to Cart Button --------------
 
 export const GET_ALL_FILEIDS_FROM_CASESTAB_FOR_ADD_ALL_CART = gql`
 query subjectOverview(
@@ -1031,31 +729,317 @@ query fileOverview(
 
             `;
 
-// --------------- GraphQL query - Retrieve files tab details --------------
-export const GET_FILES_NAME_QUERY = gql`
-query fileOverview($file_ids: [String], $offset: Int = 0, $first: Int = 100000, $order_by:String ="file_name"){
-  fileOverview(file_ids: $file_ids, offset: $offset,first: $first, order_by: $order_by) {
-    file_name
-  }
-}
-  `;
-
-export const GET_FILE_IDS_FROM_FILE_NAME = gql`
-  query (
-      $file_name: [String],
-      $offset: Int,
-      $first: Int,
-      $order_by: String
-  )
+// --------------- Tabs Table configuration --------------
+export const tabContainers = [
   {
-      fileIdsFromFileNameDesc(
-          file_name:$file_name, 
-          offset:$offset,
-          first:$first,
-          order_by:$order_by
-      )
+    name: 'Cases',
+    dataField: 'dataCase',
+    api: GET_CASES_OVERVIEW_QUERY,
+    paginationAPIField: 'subjectOverview',
+    count: 'numberOfSubjects',
+    dataKey: 'subject_id',
+    defaultSortField: 'subject_id',
+    defaultSortDirection: 'asc',
+    buttonText: 'Add Selected Files',
+    tableID: 'case_tab_table',
+    extendedViewConfig: {
+      pagination: true,
+      manageViewColumns: true,
+      download: true,
+    },
+    columns: [
       {
-          file_id
-      }
-  }`;
+        cellType: cellTypes.CHECKBOX,
+        display: true,
+        role: cellTypes.CHECKBOX,
+      },
+      {
+        dataField: 'subject_id',
+        header: 'Participant ID',
+        display: true,
+        tooltipText: 'sort',
+      },
+      {
+        dataField: 'study_acronym',
+        header: 'Study Name',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'phs_accession',
+        header: 'Accession',
+        cellType: cellTypes.LINK,
+        linkAttr : {
+          rootPath: '/study',
+          pathParams: ['phs_accession'],
+          // i.e: link: '/study/{phs_accession}',
+        },
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'gender',
+        header: 'Gender',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'samples',
+        header: 'Samples',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+    ],
+    id: 'case_tab',
+    tableID: 'case_tab_table',
+    tableDownloadCSV: customCasesTabDownloadCSV,
+    tabIndex: '0',
+    downloadFileName: 'Bento_Dashboard_cases_download',
+    tableMsg: {
+      noMatch: 'No Matching Records Found',
+    },
+    addFilesRequestVariableKey: 'subject_ids',
+    addFilesResponseKeys: ['fileIDsFromList'],
+    addAllFilesResponseKeys: ['subjectOverview', 'files'],
+    addAllFileQuery: GET_ALL_FILEIDS_FROM_CASESTAB_FOR_ADD_ALL_CART,
+    addSelectedFilesQuery: GET_ALL_FILEIDS_CASESTAB_FOR_SELECT_ALL,
+  },
+  {
+    name: 'Samples',
+    dataField: 'dataSample',
+    api: GET_SAMPLES_OVERVIEW_QUERY,
+    count: 'numberOfSamples',
+    paginationAPIField: 'sampleOverview',
+    dataKey: 'sample_id',
+    defaultSortField: 'sample_id',
+    defaultSortDirection: 'asc',
+    tableID: 'sample_tab_table',
+    extendedViewConfig: {
+      pagination: true,
+      manageViewColumns: true,
+      // download: true,
+    },
+    saveButtonDefaultStyle: {
+      color: '#fff',
+      backgroundColor: '#00AEEF',
+      opacity: '1',
+      border: '0px',
+      cursor: 'pointer',
+    },
+    DeactiveSaveButtonDefaultStyle: {
+      opacity: '0.3',
+      cursor: 'auto',
+    },
+    ActiveSaveButtonDefaultStyle: {
+      cursor: 'pointer',
+      opacity: 'unset',
+      border: 'unset',
+    },
+
+    columns: [
+      {
+        cellType: cellTypes.CHECKBOX,
+        display: true,
+        role: cellTypes.CHECKBOX,
+      },
+      {
+        dataField: 'sample_id',
+        header: 'Sample ID',
+        display: true,
+        tooltipText: 'sort',
+      },
+      {
+        dataField: 'subject_id',
+        header: 'Participant ID',
+        cellType: cellTypes.LINK,
+        linkAttr : {
+          rootPath: '/case',
+          pathParams: ['subject_id'],
+        },
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'study_acronym',
+        header: 'Study Name',
+        tooltipText: 'sort',
+        display: true,
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'phs_accession',
+        header: 'Accession',
+        cellType: cellTypes.LINK,
+        linkAttr : {
+          rootPath: '/study',
+          pathParams: ['phs_accession'],
+        },
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'is_tumor',
+        header: 'Tumor',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'analyte_type',
+        header: 'Analyte Type',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+    ],
+    id: 'sample_tab',
+    tableID: 'sample_tab_table',
+    tabIndex: '1',
+    tableDownloadCSV: customSamplesTabDownloadCSV,
+    downloadFileName: 'Bento_Dashboard_cases_download',
+    tableMsg: {
+      noMatch: 'No Matching Records Found',
+    },
+    addFilesRequestVariableKey: 'sample_ids',
+    addFilesResponseKeys: ['fileIDsFromList'],
+    addAllFilesResponseKeys: ['sampleOverview', 'files'],
+    addAllFileQuery: GET_ALL_FILEIDS_FROM_SAMPLETAB_FOR_ADD_ALL_CART,
+    addSelectedFilesQuery: GET_ALL_FILEIDS_SAMPLESTAB_FOR_SELECT_ALL,
+  },
+  {
+    name: 'Files',
+    dataField: 'dataFile',
+    api: GET_FILES_OVERVIEW_QUERY,
+    paginationAPIField: 'fileOverview',
+    defaultSortField: 'file_name',
+    defaultSortDirection: 'asc',
+    count: 'numberOfFiles',
+    dataKey: 'file_name',
+    tableID: 'file_tab_table',
+    extendedViewConfig: {
+      pagination: true,
+      manageViewColumns: true,
+      download: true,
+    },
+    columns: [
+      {
+        cellType: cellTypes.CHECKBOX,
+        display: true,
+        role: cellTypes.CHECKBOX,
+      },
+      {
+        dataField: 'file_id',
+        header: 'File ID',
+        display: true,
+        tooltipText: 'sort',
+      },
+      {
+        dataField: 'file_name',
+        header: 'File Name',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'study_acronym',
+        header: 'Study Name',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'phs_accession',
+        header: 'Accession',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'subject_id',
+        header: 'Participant Id',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'sample_id',
+        header: 'Sample Id',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+        cellType: cellTypes.FORMAT_DATA,
+      },
+      {
+        dataField: 'acl', // This need to left empty if no data need to be displayed before file download icon
+        header: 'Access',
+        display: true,
+        cellType: cellTypes.CUSTOM_ELEM,
+        downloadDocument: true, // To indicate that column is document donwload
+        documentDownloadProps: {
+          // Max file size needs to bin Bytes to seperate two support file preview and download
+          maxFileSize: 315,
+          // Tool top text for Unauthenticated users
+          toolTipTextUnauthenticated: 'Controlled access file',
+          // Tool top text for file download
+          toolTipTextFileDownload: 'Download a copy of this file',
+          // Tool top text for file preview
+          toolTipTextFilePreview: 'Because of its size and/or format, this file is unavailable for download and must be accessed via the My Files workflow',
+          // datafield where file file column exists in the table
+          fileSizeColumn: 'file_size',
+          // datafield where file file id exists in the table which is used to get file location
+          fileLocationColumn: 'file_id',
+          // datafield where file format exists in the table
+          fileFormatColumn: 'file_format',
+          // datafield where file case id exists in the table which is used to get file information
+          caseIdColumn: 'subject_id',
+          // Unauthenticated lock icon
+          iconUnauthenticated: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Access_Lock.svg',
+          // file download icon
+          iconFileDownload: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadPDF.svg',
+          // file preview icon
+          iconFilePreview: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadCloud.svg',
+          // file viewer icon JBrowse
+          iconFileViewer: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadBAM.svg',
+        },
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'file_type',
+        header: 'File Type',
+        sort: 'asc',
+        display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'file_size',
+        header: 'File Size',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+    ],
+    id: 'file_tab',
+    tableID: 'file_tab_table',
+    selectableRows: true,
+    tableDownloadCSV: customFilesTabDownloadCSV,
+    downloadFileName: 'Bento_Dashboard_cases_download',
+    tableMsg: {
+      noMatch: 'No Matching Records Found',
+    },
+    addFilesRequestVariableKey: 'file_names',
+    addFilesResponseKeys: ['fileIDsFromList'],
+    addAllFilesResponseKeys: ['fileOverview', 'file_id'],
+    addAllFileQuery: GET_ALL_FILEIDS_FROM_FILESTAB_FOR_ADD_ALL_CART,
+    addSelectedFilesQuery: GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL,
+  },
+];
+
   

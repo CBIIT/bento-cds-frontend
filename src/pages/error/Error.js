@@ -89,7 +89,6 @@ const styles = (theme) => ({
   link: {
     color: '#39C0F0',
     textDecoration: 'underline',
-    textUnderlineOffset: '2.5px',
   },
   leftBg: {
     backgroundRepeat: 'no-repeat',
