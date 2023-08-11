@@ -6,7 +6,7 @@ export const statsStyling = {
     statTitleFirst: false,
     height: '59px',
     background: '#B4E2F5',
-    top: '159px',
+    top: '139px',
   },
   statsGroup: {
     margin: '6px 0px',
@@ -71,10 +71,11 @@ export const globalStatsData = [
 
 // --------------- GraphQL query - Retrieve stats details --------------
 export const GET_GLOBAL_STATS_DATA_QUERY = gql`{
+  searchSubjects{
+    numberOfFiles
+    numberOfSamples
     numberOfStudies
     numberOfSubjects
-    numberOfSamples
-    numberOfFiles
-    numberOfDiseaseSites
+} 
   }
   `;
