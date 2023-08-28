@@ -259,20 +259,24 @@ export const widgetConfig = [
     type: 'donut',
     title: 'Experimental Strategy',
     dataName: 'subjectCountByExperimentalStrategy',
+    sliceTitle: 'Files',
   },
   {
     type: 'donut',
     title: 'Gender',
     dataName: 'subjectCountByGender',
+    sliceTitle: 'Files',
   },
   {
     type: 'donut',
     title: 'File Type',
     dataName: 'subjectCountByFileType',
+    sliceTitle: 'Files',
   },
   {
     type: 'donut',
     title: 'Study Data Types',
     dataName: 'subjectCountByStudyDataType',
+    sliceTitle: 'Files',
   },
 ];
