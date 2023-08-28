@@ -4,16 +4,16 @@ import {
   Collapse,
   FormControlLabel,
   Grid,
-  Switch,
+  //Switch, //Removed Dark Mode Switch
   withStyles,
 } from '@material-ui/core';
-import { useTheme } from '../../../components/ThemeContext';
+//import { useTheme } from '../../../components/ThemeContext'; //Removed Dark Mode Switch
 import styles from './WidgetStyle';
 import { WidgetGenerator } from '@bento-core/widgets';
 import { widgetConfig } from '../../../bento/dashboard';
 import colors from '../../../utils/colors';
 import { Typography } from '../../../components/Wrappers/Wrappers';
-import { formatWidgetData } from './WidgetUtils';
+import { formatWidgetData, sortWidgetData } from './WidgetUtils';
 
 const WidgetView = ({
   classes,
@@ -22,7 +22,7 @@ const WidgetView = ({
 }) => {
   const displayWidgets = formatWidgetData(data, widgetConfig);
   const [collapse, setCollapse] = React.useState(true);
-  const themeChanger = useTheme();
+  //const themeChanger = useTheme(); //Removed Dark Mode Switch
   const handleChange = () => setCollapse((prev) => !prev);
 
   const widgetGeneratorConfig = {
@@ -55,7 +55,7 @@ const WidgetView = ({
               </Button>
             )}
           />
-          <Switch
+          {/*<Switch //Removed Dark Mode Switch
             classes={{
               root: classes.switchRoot,
               switchBase: classes.switchBase,
@@ -67,7 +67,7 @@ const WidgetView = ({
             disableRipple
             checked={themeChanger.dark}
             onChange={themeChanger.toggleTheme}
-          />
+          />*/}
         </div>
       </div>
       <Collapse in={collapse} className={classes.backgroundWidgets}>
@@ -80,6 +80,8 @@ const WidgetView = ({
             if (widget.type === 'sunburst' && (!dataset.children || !dataset.children.length)) {
               return <></>;
             }
+            //Sort the Dataset in reverse alphabetical order
+            sortWidgetData(dataset);
             return (
               <Grid key={index} item lg={4} md={6} sm={12} xs={12}>
                 <Widget
