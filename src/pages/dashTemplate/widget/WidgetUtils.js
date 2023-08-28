@@ -33,3 +33,23 @@ export function formatWidgetData(data, custodianConfig) {
 
   return formatted;
 }
+/**
+ * Sorts the widgets data by group in REVERSE alphabetical order
+ *
+ * @param {object} dataset
+ */
+export function sortWidgetData(dataset){
+  //Takes in a an array of objects and sorts by the property 'group' in reverse alphabetical order
+  dataset.sort((a, b) => {
+    const groupA = a.group.toUpperCase(); // Convert to uppercase for case-insensitive sorting
+    const groupB = b.group.toUpperCase();
+    
+    if (groupA < groupB) {
+      return 1;
+    }
+    if (groupA > groupB) {
+      return -1;
+    }
+    return 0; // groups are equal, no change needed
+  });
+}

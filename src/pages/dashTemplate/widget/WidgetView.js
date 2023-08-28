@@ -13,7 +13,7 @@ import { WidgetGenerator } from '@bento-core/widgets';
 import { widgetConfig } from '../../../bento/dashboard';
 import colors from '../../../utils/colors';
 import { Typography } from '../../../components/Wrappers/Wrappers';
-import { formatWidgetData } from './WidgetUtils';
+import { formatWidgetData, sortWidgetData } from './WidgetUtils';
 
 const WidgetView = ({
   classes,
@@ -81,18 +81,7 @@ const WidgetView = ({
               return <></>;
             }
             //Sort the Dataset in reverse alphabetical order
-            dataset.sort((a, b) => {
-              const groupA = a.group.toUpperCase(); // Convert to uppercase for case-insensitive sorting
-              const groupB = b.group.toUpperCase();
-              
-              if (groupA < groupB) {
-                return 1; // a should come after b in the sorted order
-              }
-              if (groupA > groupB) {
-                return -1; // b should come after a in the sorted order
-              }
-              return 0; // groups are equal, no change needed
-            });
+            sortWidgetData(dataset);
             return (
               <Grid key={index} item lg={4} md={6} sm={12} xs={12}>
                 <Widget
