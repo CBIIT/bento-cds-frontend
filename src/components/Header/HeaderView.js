@@ -8,6 +8,18 @@ import { queryAutocompleteAPI, SEARCH_DATAFIELDS, SEARCH_KEYS } from '../../bent
 import { PUBLIC_ACCESS } from '../../bento/siteWideConfig';
 import { accessLevelTypes } from '@bento-core/authentication';
 
+const customStyle = {
+  nihLogoImg: {
+    width: '463px',
+    height: '54px',
+    maxWidth: '460px',
+    minWidth: '200px',
+    maxHeight: '80px',
+    minHeight: '54px',
+    marginLeft: '8px',
+  },
+};
+
 const ICDCHeader = (props) => {
   const { location } = props;
 
@@ -23,6 +35,7 @@ const ICDCHeader = (props) => {
       query: async (search) => queryAutocompleteAPI(search, !authenticated),
       searchKeys: authenticated ? SEARCH_KEYS.private : SEARCH_KEYS.public,
       searchFields: authenticated ? SEARCH_DATAFIELDS.private : SEARCH_DATAFIELDS.public,
+      placeholder: 'SEARCH CDS',
     },
   };
   const { SearchBar } = SearchBarGenerator(SearchBarConfig);
@@ -33,6 +46,7 @@ const ICDCHeader = (props) => {
       alt={headerData.globalHeaderLogoAltText}
       homeLink={headerData.globalHeaderLogoLink}
       SearchComponent={!location.pathname.match('/search') ? SearchBar : undefined}
+      customStyle={customStyle}
     />
   );
 };
