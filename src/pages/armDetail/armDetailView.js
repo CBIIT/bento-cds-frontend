@@ -100,7 +100,7 @@ const ArmDetail = ({ data, classes }) => {
                   className={classes.headerButtonLink}
                   to={(location) => ({
                     ...location,
-                    pathname: `/explore`
+                    pathname: `/data`
                   })}
                   onClick={()=>onClearAllAndSelectFacetValue('studies', data.study_info)}
                 >
