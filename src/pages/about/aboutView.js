@@ -17,7 +17,7 @@ const AboutView = ({ classes, data }) => {
         <div className={classes.rightBg}>
 
           <AboutHeader title={data.title} titleColor="#0B4E75" background="white" />
-          <div className={classes.marginTop}>
+          <div>
             <AboutBody
               data={{
                 image: getImage(data.primaryContentImage, data.title),
@@ -39,9 +39,7 @@ const AboutView = ({ classes, data }) => {
             />
           </div>
         </div>
-      </div>
-      {/* </div> */}
-    </>
+      </div>    </>
 
   );
 };
@@ -50,19 +48,12 @@ const styles = () => ({
   img: {
     width: '100%',
   },
-  whiteBg: {
-    // background: 'white',
-  },
-  marginTop: {
-    // marginTop: '-60px',
-  },
   hero: {
     width: '100%',
     margin: '0 auto',
   },
   leftBg: {
     backgroundImage: 'url(\'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/leftBg.jpg\')',
-    // backgroundImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/LeftSide.png',
     backgroundPosition: 'left top, left top',
     backgroundRepeat: 'no-repeat, repeat',
   },
