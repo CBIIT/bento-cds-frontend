@@ -1,8 +1,11 @@
 export const navBarstyling = {
   global: {
-    backgroundColor: '#142D64',
+    backgroundColor: '#0E6292;',
     height: '39px',
     padding: '9px 20px 0px 20px',
+    fontColor: '#bbefff',
+    activeLabel: '1px solid #bbefff',
+    textTransform: 'capitalize',
   },
   dropDownIcon: {
     displayIcon: false,
@@ -37,8 +40,11 @@ export const navBarstyling = {
     },
   },
   cart: {
-    iconSize: '30px',
-    padding: '6px 20px 0px 5px',
+    iconSize: '26px',
+    padding: '6px 16px 0px 5px',
+  },
+  cartLabel: {
+    color: '#FFAC20',
   },
 };
 
@@ -51,7 +57,7 @@ export const navBarData = [
     link: '/home',
   },
   {
-    labelText: 'explore',
+    labelText: 'data',
     type: 'link',
     link: '/explore',
   },
@@ -59,6 +65,11 @@ export const navBarData = [
     labelText: 'programs',
     type: 'link',
     link: '/programs',
+  },
+  {
+    labelText: 'studies',
+    type: 'link',
+    link: '/studies',
   },
   {
     labelText: 'about',
@@ -83,7 +94,7 @@ export const navBarData = [
 export const navBarCartData = {
   cartLabel: '',
   cartLink: '/fileCentricCart',
-  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Icon-Cart-Navbar.svg',
+  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/navBarCartIcon.svg',
   cartIconAlt: 'cart_logo',
   cartLabelType: 'labelUnderCount',
 };
