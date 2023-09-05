@@ -6,6 +6,11 @@ import {
 import {
   CustomDataTable
 } from '@bento-core/data-table';
+import { 
+  TableContextProvider,
+  TableView,
+  Wrapper,
+} from '@bento-core/paginated-table';
 import { getOptions, getColumns } from '@bento-core/util';
 import globalData from '../../bento/siteWideConfig';
 import {
@@ -14,6 +19,20 @@ import {
 import Stats from '../../components/Stats/AllStatsController';
 import { Typography } from '../../components/Wrappers/Wrappers';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
+import { themeConfig } from './tableConfig/Theme';
+
+const initTblState = (initailState) => ({
+  ...initailState,
+  title: table.name,
+  columns: table.columns,
+  selectedRows: [],
+  tableMsg: table.tableMsg,
+  sortBy: table.defaultSortField,
+  sortOrder: table.defaultSortDirection,
+  rowsPerPage: 10,
+  dataKey: table.dataKey,
+  page: 0,
+})
 
 const Programs = ({ classes, data }) => {
   const redirectTo = (program) => onClearAllAndSelectFacetValue('programs', program.rowData[0]);
@@ -44,16 +63,40 @@ const Programs = ({ classes, data }) => {
 
           { table.display ? (
             <div id="table_programs" className={classes.tableDiv}>
-              <Grid container>
+              {/*<Grid container>
                 <Grid item xs={12}>
-                  <CustomDataTable
+                  {/*<CustomDataTable
                     data={data[table.dataField]}
                     columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectTo, '', globalData.replaceEmptyValueWith)}
                     options={getOptions(table, classes)}
-                  />
+                  />*
+
                 </Grid>
-              </Grid>
+              </Grid>*/}
+              <TableContextProvider>
+                {/*<Wrapper
+                  wrapConfig={configWrapper(table, wrapperConfig)}
+                  customTheme={customTheme}
+                  classes={classes}
+                  section={table.name}
+            >*/}
+                  <Grid container>
+                    <Grid item xs={12} id={table.tableID}>
+                      <TableView
+                        initState={initTblState}
+                        server={false}
+                        themeConfig={themeConfig}
+                        tblRows={data[table.dataField]}
+                        totalRowCount={data[table.dataField].length}
+                        activeTab={true}
+                      />
+                    </Grid>
+                  </Grid>
+                {//</Wrapper>
+                }
+              </TableContextProvider>
             </div>
+            
           ) : ''}
         </div>
 
@@ -64,12 +107,13 @@ const Programs = ({ classes, data }) => {
 
 const styles = (theme) => ({
 
-  link: {
+  LINK: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: theme.palette.text.link,
+    color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   card: {
@@ -97,22 +141,23 @@ const styles = (theme) => ({
     background: '#eee',
   },
   header: {
-    background: '#eee',
+    background: 'white',
     paddingLeft: '20px',
     paddingRight: '50px',
-    borderBottom: '#42779A 10px solid',
+    borderBottom: '#9FD8F0 10px solid',
     height: '128px',
     paddingTop: '35px',
   },
   headerMainTitle: {
-    fontFamily: 'Lato',
-    letterSpacing: '0.025em',
-    color: '#274FA5',
-    fontSize: '24pt',
+    fontFamily: 'Inter',
+    letterSpacing: '0.01em',
+    fontWeight: 'bold',
+    color: '#0E6292',
+    fontSize: '26px',
     position: 'absolute',
     marginTop: '16px',
     lineHeight: '25px',
-    marginLeft: '-3px',
+    marginLeft: '2px',
   },
 
   headerTitle: {
@@ -129,14 +174,11 @@ const styles = (theme) => ({
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   tableContainer: {
-    background: '#eee',
+    background: 'white',
     paddingBottom: '50px',
   },
   tableDiv: {
     margin: 'auto',
-  },
-  tableCell6: {
-    width: '120px',
   },
   externalLinkIcon: {
     width: '14.5px',
