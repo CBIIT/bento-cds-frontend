@@ -4,48 +4,39 @@ export const statsStyling = {
   global: {
     horizontalStyle: false,
     statTitleFirst: false,
-    height: '56px',
-    background: '#8DCAFF',
+    height: '59px',
+    background: '#B4E2F5',
+    top: '139px',
   },
   statsGroup: {
-    margin: '6px 9.25px',
-    padding: '0.1% 6% 2% 6%',
-    borderRight: '1px solid #0B3556',
-    '&:first-child': {
-      padding: '0.1% 6% 2% 6%',
-    },
-    '&:last-child': {
-      padding: '0.1% 6% 2% 6%',
-    },
+    margin: '6px 0px',
+    padding: '0.5% 16% 2% 16% !important',
+    borderRight: '1.25px solid #000000',
+    minWidth: '300px !important',
   },
   statsIcon: {
-    width: '40px',
-    height: '45px',
+    width: '44px',
+    height: '44px',
     margin: '2px 0px 0px -45px',
-    position: 'relative',
   },
   statCount: {
     color: '#0467BD',
     fontFamily: 'Oswald',
     fontSize: '20px',
-    lineHeight: '17px',
-    letterSpacing: '0.02em',
-    margin: '4px 0 2px 13px',
+    margin: '0px 0px -4px 8px',
+    float: 'left',
+    // padding: '4px 60px',
   },
   statTitle: {
-    color: '#062D4F',
+    color: '#000000',
     fontFamily: 'Nunito',
-    fontSize: '12px',
-    fontWeight: '700',
-    lineHeight: '16px',
+    fontSize: '11px',
     textTransform: 'uppercase',
-    margin: '0 0 0 13px',
+    margin: '0px 0px 0px 8px',
+    float: 'left',
   },
 };
 
-/**
- * @property {statAPI} numberOfPrograms Used to index a stat value
- */
 export const globalStatsData = [
   // A maximum of 6 stats are allowed
   {
@@ -85,6 +76,5 @@ export const GET_GLOBAL_STATS_DATA_QUERY = gql`{
     numberOfSamples
     numberOfStudies
     numberOfSubjects
-} 
-  }
-  `;
+    } 
+}`;

@@ -3,11 +3,16 @@ export const tblHeader = {
     root: {
       color: '#13344A',
       position: 'relative',
-      fontSize: '11pt',
-      fontFamily: 'Lato Regular,Raleway, sans-serif',
+      fontSize: '14px',
+      fontFamily: "'Nunito','Lato Regular','Raleway', sans-serif",
       fontWeight: 'bold',
-      letterSpacing: '0.06em',
+      letterSpacing: '0.02em',
       textDecoration: 'none',
+      top: '0px',
+      zIndex: 100,
+      fontStyle: 'normal',
+      paddingLeft: '0px',
+      backgroundColor: '#ffffff',
       '&:hover': {
         color: '#13344A',
       },
@@ -97,8 +102,10 @@ export const tblBody = {
     body: {
       color: '#004C73',
       borderBottom: 'none',
+      maxWidth: '150px',
       '&.file_name': {
-        maxWidth: '300px',
+        // maxWidth: '300px',
+        // minWidth: '210px',
         '& p': {
           lineBreak: 'anywhere',
           paddingTop: '10px',

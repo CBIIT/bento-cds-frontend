@@ -10,7 +10,7 @@ const CartView = (props) => {
   const {
     classes,
     config,
-    filesId = [],
+    filesId = [""],
   } = props;
 
   /**
@@ -32,10 +32,10 @@ const CartView = (props) => {
   });
 
   const variables = {};
-  variables.file_ids = filesId;
+  variables.file_ids = (filesId.length > 0)? filesId : [""];
   return (
     <Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} className={classes.marginTopNegative}>
         <div className={classes.myFilesWrapper}>
           <CartWrapper
             classes={classes}

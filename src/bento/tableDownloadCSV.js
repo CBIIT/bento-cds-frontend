@@ -110,8 +110,8 @@ query filesInList($file_ids: [String], $offset: Int = 0, $first: Int = 1000, $or
 }`;
 
 export const customMyFilesTabDownloadCSV = {
-  keysToInclude: ['file_name', 'file_type', 'association', 'file_description', 'file_format', 'file_size', 'subject_id', 'study_code'],
-  header: ['File Name', 'File Type', 'Association', 'Description', 'File Format', 'Size', 'Case Id', 'Study Code'],
+  keysToInclude: ['subject_id', 'file_name', 'file_id', 'md5sum'],
+  header: ['Participant ID', 'File Name', 'File ID', 'Md5sum', 'User Comments'],
   query: MY_CART,
   apiVariable: 'filesInList',
   fileName: 'BENTO File Manifest',

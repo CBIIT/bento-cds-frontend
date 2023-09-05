@@ -1,8 +1,12 @@
 export const navBarstyling = {
   global: {
-    backgroundColor: '#142D64',
+    backgroundColor: '#0E6292;',
+    marginTop: '100px',
     height: '39px',
     padding: '9px 20px 0px 20px',
+    fontColor: '#bbefff',
+    activeLabel: '1px solid #bbefff',
+    textTransform: 'capitalize',
   },
   dropDownIcon: {
     displayIcon: false,
@@ -37,8 +41,11 @@ export const navBarstyling = {
     },
   },
   cart: {
-    iconSize: '30px',
-    padding: '6px 20px 0px 5px',
+    iconSize: '26px',
+    padding: '6px 16px 0px 5px',
+  },
+  cartLabel: {
+    color: '#FFAC20',
   },
 };
 
@@ -51,9 +58,9 @@ export const navBarData = [
     link: '/home',
   },
   {
-    labelText: 'explore',
+    labelText: 'data',
     type: 'link',
-    link: '/explore',
+    link: '/data',
   },
   {
     labelText: 'programs',
@@ -61,29 +68,68 @@ export const navBarData = [
     link: '/programs',
   },
   {
+    labelText: 'studies',
+    type: 'link',
+    link: '/studies',
+  },
+  {
     labelText: 'about',
     type: 'dropdown',
     dropDownLinks: [
       {
-        labelText: 'Bento',
-        link: '/bento',
+        labelText: 'About CDS',
+        link: '/cancerDataService',
       },
       {
-        labelText: 'Resources',
+        labelText: 'NCIs Cloud Services',
+        link: '/cloudresources',
+      },
+      {
+        labelText: 'How To Submit Data',
+        link: '/submit',
+      },
+      {
+        labelText: 'Accessing and Analyzing Data',
+        link: '/analysis',
+      },
+      {
+        labelText: 'CDS Data Model',
         link: '/resources',
       },
       {
-        labelText: 'Graphql',
+        labelText: 'GraphQl',
         link: '/graphql',
       },
+      {
+        labelText: 'Bento Framework',
+        link: '/bento',
+      },
+      {
+        labelText: 'CDS New Request Questionnaire',
+        link: '/datasubmit',
+      },
+      {
+        labelText: 'CDS Data Releases',
+        link: '/releases',
+      },
+
     ],
   },
 ];
 
+export const externalLinks = {
+  about: [
+    {
+      title: 'CDS Software Release Notes',
+      link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+    },
+  ],
+};
+
 export const navBarCartData = {
   cartLabel: '',
   cartLink: '/fileCentricCart',
-  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Icon-Cart-Navbar.svg',
+  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/navBarCartIcon.svg',
   cartIconAlt: 'cart_logo',
   cartLabelType: 'labelUnderCount',
 };
