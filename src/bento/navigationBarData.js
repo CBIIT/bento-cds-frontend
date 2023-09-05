@@ -100,6 +100,10 @@ export const navBarData = [
         labelText: 'CDS Data Releases',
         link: '/releases',
       },
+      {
+        labelText: 'CDS Software Releases',
+        link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+      },
 
     ],
   },
