@@ -3,21 +3,31 @@ import {
   Grid,
   withStyles,
 } from '@material-ui/core';
+import { 
+  TableContextProvider,
+  TableView,
+} from '@bento-core/paginated-table';
 import {
-  CustomDataTable
-} from '@bento-core/data-table';
-import { getOptions, getColumns } from '@bento-core/util';
-import globalData from '../../bento/siteWideConfig';
-import {
-  table, programListingIcon, externalLinkIcon,
+  table, programListingIcon,
 } from '../../bento/programData';
 import Stats from '../../components/Stats/AllStatsController';
 import { Typography } from '../../components/Wrappers/Wrappers';
-import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
+import { themeConfig } from './tableConfig/Theme';
+
+const initTblState = (initailState) => ({
+  ...initailState,
+  title: table.name,
+  columns: table.columns,
+  selectedRows: [],
+  tableMsg: table.tableMsg,
+  sortBy: table.defaultSortField,
+  sortOrder: table.defaultSortDirection,
+  rowsPerPage: 10,
+  dataKey: table.dataKey,
+  page: 0,
+})
 
 const Programs = ({ classes, data }) => {
-  const redirectTo = (program) => onClearAllAndSelectFacetValue('programs', program.rowData[0]);
-
   return (
     <>
       <Stats />
@@ -44,16 +54,22 @@ const Programs = ({ classes, data }) => {
 
           { table.display ? (
             <div id="table_programs" className={classes.tableDiv}>
-              <Grid container>
-                <Grid item xs={12}>
-                  <CustomDataTable
-                    data={data[table.dataField]}
-                    columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectTo, '', globalData.replaceEmptyValueWith)}
-                    options={getOptions(table, classes)}
-                  />
-                </Grid>
-              </Grid>
+              <TableContextProvider>
+                  <Grid container>
+                    <Grid item xs={12} id={table.tableID}>
+                      <TableView
+                        initState={initTblState}
+                        server={false}
+                        themeConfig={themeConfig}
+                        tblRows={data[table.dataField]}
+                        totalRowCount={data[table.dataField].length}
+                        activeTab={true}
+                      />
+                    </Grid>
+                  </Grid>
+              </TableContextProvider>
             </div>
+            
           ) : ''}
         </div>
 
@@ -97,22 +113,23 @@ const styles = (theme) => ({
     background: '#eee',
   },
   header: {
-    background: '#eee',
+    background: 'white',
     paddingLeft: '20px',
     paddingRight: '50px',
-    borderBottom: '#42779A 10px solid',
+    borderBottom: '#9FD8F0 10px solid',
     height: '128px',
     paddingTop: '35px',
   },
   headerMainTitle: {
-    fontFamily: 'Lato',
-    letterSpacing: '0.025em',
-    color: '#274FA5',
-    fontSize: '24pt',
+    fontFamily: 'Inter',
+    letterSpacing: '0.01em',
+    fontWeight: 'bold',
+    color: '#0E6292',
+    fontSize: '26px',
     position: 'absolute',
     marginTop: '16px',
     lineHeight: '25px',
-    marginLeft: '-3px',
+    marginLeft: '2px',
   },
 
   headerTitle: {
@@ -129,14 +146,11 @@ const styles = (theme) => ({
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   tableContainer: {
-    background: '#eee',
+    background: 'white',
     paddingBottom: '50px',
   },
   tableDiv: {
     margin: 'auto',
-  },
-  tableCell6: {
-    width: '120px',
   },
   externalLinkIcon: {
     width: '14.5px',
