@@ -76,17 +76,46 @@ export const navBarData = [
     type: 'dropdown',
     dropDownLinks: [
       {
-        labelText: 'Bento',
-        link: '/bento',
+        labelText: 'About CDS',
+        link: '/cancerDataService',
       },
       {
-        labelText: 'Resources',
+        labelText: 'NCIs Cloud Services',
+        link: '/cloudresources',
+      },
+      {
+        labelText: 'How To Submit Data',
+        link: '/submit',
+      },
+      {
+        labelText: 'Accessing and Analyzing Data',
+        link: '/analysis',
+      },
+      {
+        labelText: 'CDS Data Model',
         link: '/resources',
       },
       {
-        labelText: 'Graphql',
+        labelText: 'GraphQl',
         link: '/graphql',
       },
+      {
+        labelText: 'Bento Framework',
+        link: '/bento',
+      },
+      {
+        labelText: 'CDS New Request Questionnaire',
+        link: '/datasubmit',
+      },
+      {
+        labelText: 'CDS Data Releases',
+        link: '/releases',
+      },
+      {
+        labelText: 'CDS Software Releases',
+        link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+      },
+
     ],
   },
 ];

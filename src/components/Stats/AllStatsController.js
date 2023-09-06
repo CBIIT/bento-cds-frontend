@@ -10,7 +10,7 @@ const Stats = () => {
       const dispatch = useDispatch();
       dispatch(fetchDataForStats());
     }
-    return state.stats.data;
+    return state.stats.data.searchSubjects;
   });
 
   return (!data || data.length === 0 ? (<CircularProgress />) : <StatsView data={data} />);
