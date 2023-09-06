@@ -31,7 +31,6 @@ const table = {
   defaultSortDirection: 'asc',
   // Set 'selectableRows' to true to show the row selection
   selectableRows: false,
-  tableBodyHeight: '600px',
   // A maximum of 10 columns are allowed
   columns: [
     {
