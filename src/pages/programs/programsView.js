@@ -3,22 +3,15 @@ import {
   Grid,
   withStyles,
 } from '@material-ui/core';
-import {
-  CustomDataTable
-} from '@bento-core/data-table';
 import { 
   TableContextProvider,
   TableView,
-  Wrapper,
 } from '@bento-core/paginated-table';
-import { getOptions, getColumns } from '@bento-core/util';
-import globalData from '../../bento/siteWideConfig';
 import {
-  table, programListingIcon, externalLinkIcon,
+  table, programListingIcon,
 } from '../../bento/programData';
 import Stats from '../../components/Stats/AllStatsController';
 import { Typography } from '../../components/Wrappers/Wrappers';
-import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
 import { themeConfig } from './tableConfig/Theme';
 
 const initTblState = (initailState) => ({
@@ -35,8 +28,6 @@ const initTblState = (initailState) => ({
 })
 
 const Programs = ({ classes, data }) => {
-  const redirectTo = (program) => onClearAllAndSelectFacetValue('programs', program.rowData[0]);
-
   return (
     <>
       <Stats />
@@ -63,23 +54,7 @@ const Programs = ({ classes, data }) => {
 
           { table.display ? (
             <div id="table_programs" className={classes.tableDiv}>
-              {/*<Grid container>
-                <Grid item xs={12}>
-                  {/*<CustomDataTable
-                    data={data[table.dataField]}
-                    columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectTo, '', globalData.replaceEmptyValueWith)}
-                    options={getOptions(table, classes)}
-                  />*
-
-                </Grid>
-              </Grid>*/}
               <TableContextProvider>
-                {/*<Wrapper
-                  wrapConfig={configWrapper(table, wrapperConfig)}
-                  customTheme={customTheme}
-                  classes={classes}
-                  section={table.name}
-            >*/}
                   <Grid container>
                     <Grid item xs={12} id={table.tableID}>
                       <TableView
@@ -92,8 +67,6 @@ const Programs = ({ classes, data }) => {
                       />
                     </Grid>
                   </Grid>
-                {//</Wrapper>
-                }
               </TableContextProvider>
             </div>
             
@@ -107,13 +80,12 @@ const Programs = ({ classes, data }) => {
 
 const styles = (theme) => ({
 
-  LINK: {
+  link: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: '#900F89',
+    color: theme.palette.text.link,
     '&:hover': {
       textDecoration: 'underline',
-      textUnderlineOffset: '2.5px',
     },
   },
   card: {
