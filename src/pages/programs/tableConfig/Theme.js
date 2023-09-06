@@ -115,7 +115,9 @@ export const tblBody = {
       overflowWrap: 'break-word',
       letterSpacing: '0.025em',
       '&.acronym': {
-        fontWeight: 'bold !important',
+        '& p':{
+          fontWeight: 'bold',
+        }
       },
       '&.num_studies': {
         paddingLeft: '55px',
