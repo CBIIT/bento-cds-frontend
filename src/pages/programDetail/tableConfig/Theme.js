@@ -3,8 +3,8 @@ export const tblHeader = {
     root: {
       color: '#13344A',
       position: 'relative',
-      fontSize: '11pt',
-      fontFamily: 'Lato Regular,Raleway, sans-serif',
+      fontSize: '10pt',
+      fontFamily: 'Nunito, Lato Regular, Raleway, sans-serif',
       fontWeight: 'bold',
       letterSpacing: '0.06em',
       textDecoration: 'none',
@@ -15,7 +15,7 @@ export const tblHeader = {
   },
   MuiTableCell: {
     root: {
-      padding: '0px 0px 0px 25px',
+      padding: '5px 5px 5px 20px',
       paddingRight: '5px',
       color: '#13344A',
       '&.del_all_row': {
@@ -84,6 +84,23 @@ export const tblPgn = {
       minHeight: '45px',
     },
   },
+  MuiTypography: {
+    body2: {
+      fontSize: '10px',
+      fontFamily: 'Open Sans',
+      textTransform: 'uppercase',
+    },
+  },
+  MuiSelect: {
+    root: {
+      fontSize: '10px',
+    },
+  },
+  MuiInputBase: {
+    root: {
+      backgroundColor: '#fff',
+    },
+  },
 };
 
 export const tblBody = {
@@ -93,25 +110,47 @@ export const tblBody = {
       maxWidth: '100%',
     },
   },
+  MuiTableRow :{
+    root:{
+      color: '#004C73',
+      '&:nth-child(even)': {
+        backgroundColor: '#ebebeb',
+      },
+    },
+  },
   MuiTableCell: {
     body: {
       color: '#004C73',
       borderBottom: 'none',
-      '&.file_name': {
-        maxWidth: '300px',
-        '& p': {
-          lineBreak: 'anywhere',
-          paddingTop: '10px',
-          paddingBottom: '10px',
+      maxWidth: '150px',
+      overflowWrap: 'break-word',
+      '&.accession': {
+        '& p': {  
+          fontWeight: 'bold',
         },
       },
     },
     root: {
       minHeight: '45px',
-      padding: '0px 0px 0px 25px',
+      padding: '5px 5px 5px 20px',
       paddingRight: '20px',
       color: '#004C73',
       borderBottom: 'none',
+    },
+  },
+  MuiLink: {
+    root: {
+      color: '#900F89',
+      '&:hover': {
+      textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
+      },
+    },
+  },
+  MuiTypography: {
+    body1: {
+      fontSize: '16px',
+      fontFamily: 'Nunito',
     },
   },
 };
