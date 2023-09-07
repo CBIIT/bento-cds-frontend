@@ -5,15 +5,13 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import {
-  getOptions,
-  getColumns,
   manipulateLinks
 } from '@bento-core/util';
-import {
-  CustomDataTable
-} from '@bento-core/data-table';
+import { 
+  TableContextProvider,
+  TableView,
+} from '@bento-core/paginated-table';
 import clsx from 'clsx';
-import globalData from '../../bento/siteWideConfig';
 import {
   pageTitle, table, externalLinkIcon,
   programDetailIcon, breadCrumb, aggregateCount,
@@ -25,6 +23,20 @@ import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 import colors from '../../utils/colors';
 import { WidgetGenerator } from '@bento-core/widgets';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
+import { themeConfig } from './tableConfig/Theme';
+
+const initTblState = (initailState) => ({
+  ...initailState,
+  title: table.name,
+  columns: table.columns,
+  selectedRows: [],
+  tableMsg: table.tableMsg,
+  sortBy: table.defaultSortField,
+  sortOrder: table.defaultSortDirection,
+  rowsPerPage: 10,
+  dataKey: table.dataKey,
+  page: 0,
+})
 
 const ProgramView = ({ classes, data, theme }) => {
   const programData = data.programDetail;
@@ -41,8 +53,6 @@ const ProgramView = ({ classes, data, theme }) => {
   };
 
   const { Widget } = WidgetGenerator(widgetGeneratorConfig);
-
-  const redirectToArm = (programArm) => onClearAllAndSelectFacetValue('studies', `${programArm.rowData[0]}: ${programArm.rowData[1]}`);
 
   const stat = {
     numberOfPrograms: 1,
@@ -327,27 +337,26 @@ const ProgramView = ({ classes, data, theme }) => {
       </div>
       { table.display ? (
         <div id="table_program_detail" className={classes.tableContainer}>
-
           <div className={classes.tableDiv}>
             <div className={classes.tableTitle}>
               <span className={classes.tableHeader}>{table.title}</span>
             </div>
-            <Grid item xs={12}>
-              <Grid container spacing={8}>
-                <Grid item xs={12}>
-                  <Typography>
-                    <CustomDataTable
-                      data={data.programDetail[table.dataField]}
-                      columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectToArm, '', globalData.replaceEmptyValueWith)}
-                      options={getOptions(table, classes)}
-                    />
-                  </Typography>
-                </Grid>
-                <Grid item xs={8}>
-                  <Typography />
+            <TableContextProvider>
+              <Grid item xs={12}>
+                <Grid container spacing={8}>
+                  <Grid item xs={12} id={table.tableID}>
+                    <TableView
+                        initState={initTblState}
+                        server={false}
+                        themeConfig={themeConfig}
+                        tblRows={data[table.queryKey][table.dataField]}
+                        totalRowCount={data[table.queryKey][table.dataField].length}
+                        activeTab={true}
+                      />
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
+            </TableContextProvider>
           </div>
         </div>
       ) : ''}
@@ -402,7 +411,7 @@ const styles = (theme) => ({
   },
   content: {
     fontSize: '15px',
-    fontFamily: theme.custom.fontFamily,
+    fontFamily: 'Nunito',
     lineHeight: '14px',
   },
   warning: {

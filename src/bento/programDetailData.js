@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { cellTypes } from '@bento-core/table';
 
 // --------------- Page title configuration --------------
 const pageTitle = {
@@ -101,8 +102,13 @@ const rightPanel = {
 };
 
 // --------------- Table configuration --------------
+
 const table = {
   // Set 'display' to false to hide the table entirely
+  name: 'studies',
+  queryKey: 'programDetail',
+  dataKey: 'accession',
+  tableID: 'studies_table',
   display: true,
   // Table title
   title: 'STUDIES',
@@ -119,23 +125,37 @@ const table = {
     {
       dataField: 'accession',
       header: 'Study',
-      link: '/study/{accession}',
+      tooltipText: 'Sort by Study',
+      cellType: cellTypes.LINK,
+      linkAttr: {
+        rootPath: '/study',
+        pathParams: ['accession']
+      },
+      display: true,
     },
     {
       dataField: 'study_name',
       header: 'Study Name',
+      tooltipText: 'Sort by Study Name',
+      display: true,
     },
     {
       dataField: 'study_access',
       header: 'Study Access',
+      tooltipText: 'Sort by Study Access',
+      display: true,
     },
     {
       dataField: 'num_samples',
       header: 'Number Of Samples',
+      tooltipText: 'Sort by Number Of Samples',
+      display: true,
     },
     {
       dataField: 'num_participants',
       header: 'Number Of Participants',
+      tooltipText: 'Sort by Number Of Participants',
+      display: true,
     },
   ],
 };
