@@ -2,11 +2,10 @@ import env from '../utils/env';
 // footerLogoImage ideal image size 310x80 px
 
 export default {
-  // footerLogoImage: 'https://raw.githubusercontent.com/cbiit/datacommons-assets/main/bento/images/icons/png/footerlogo.png',
-  // footerLogoAltText: 'Footer Logo',
-  footerLogoText: 'National Cancer Institute',
-  footerLogoSubText: 'at the National Institutes of Health',
-  footerLogoHyperlink: 'https://cancer.gov/',
+  footerLogoImage: 'https://raw.githubusercontent.com/cbiit/datacommons-assets/main/bento/images/icons/png/footerlogo.png',
+  footerLogoAltText: 'Footer Logo',
+  footerLogoHyperlink: 'https://www.cancer.gov/',
+  footerStaticText: 'NIH … Turning Discovery Into Health®',
   version: env.REACT_APP_FE_VERSION,
   BEversion: env.REACT_APP_BE_VERSION,
   // A maximum of 3 Subsections (link_sections) are allowed
@@ -18,52 +17,54 @@ export default {
       title: 'Contact Information',
       items: [
         {
-          text: 'Bento Help Desk',
-          link: 'bento-help@nih.gov',
+          text: 'CDS Help Desk',
+          link: '/support',
         },
       ],
     },
-
+    {
+      title: 'About CDS',
+      items: [
+        {
+          text: 'CDS',
+          link: '/cancerDataService',
+        },
+        {
+          text: 'CRDC',
+          link: 'https://datacommons.cancer.gov/',
+        },
+        {
+          text: 'How to Submit Data',
+          link: '/submit',
+        },
+      ],
+    },
+    {
+      title: 'Resources',
+      items: [
+        {
+          text: 'CDS Data Model',
+          link: 'https://github.com/CBIIT/cds-model',
+        },
+        {
+          text: 'GraphQL',
+          link: '/graphql',
+        },
+        {
+          text: 'Bento',
+          link: '/bento',
+        },
+      ],
+    },
     {
       title: 'More Information',
       items: [
         {
-          text: 'Bento Home',
-          link: 'https://bento-tools.org/',
+          text: 'Policies',
+          link: 'https://www.cancer.gov/policies',
         },
         {
-          text: 'Bento Documentation',
-          link: 'https://cbiit.github.io/bento-docs/master/index.html',
-        },
-      ],
-    },
-
-    {
-      title: 'System Info',
-      systemInfoInLinkSection: true,
-      items: [
-        {
-          text: 'Release Notes',
-          link: 'https://github.com/CBIIT/bento-frontend/releases',
-        },
-        {
-          text: `FE Version: ${env.REACT_APP_FE_VERSION || '0.0.0'}`,
-        },
-        {
-          text: 'BE Version: 0.0.0',
-        },
-        {
-          text: 'System Info Page',
-          link: '/sysinfo',
-        },
-      ],
-    },
-
-    {
-      title: 'Policies',
-      items: [
-        {
-          text: 'Disclaimer',
+          text: ' Disclaimer',
           link: 'https://www.cancer.gov/policies/disclaimer',
         },
         {
@@ -78,6 +79,7 @@ export default {
           text: 'HHS Vulnerability Disclosure',
           link: 'https://www.hhs.gov/vulnerability-disclosure-policy/index.html',
         },
+
       ],
     },
   ],
