@@ -62,6 +62,7 @@ export const navBarData = [
   },
   {
     labelText: 'about',
+    externalLinksFlag: true,
     type: 'dropdown',
     dropDownLinks: [
       {
@@ -97,12 +98,9 @@ export const navBarData = [
         link: '/datasubmit',
       },
       {
-        labelText: 'CDS Data Releases',
-        link: '/releases',
-      },
-      {
         labelText: 'CDS Software Releases',
         link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+        externalLinksFlag: true,
       },
 
     ],
