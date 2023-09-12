@@ -8,8 +8,8 @@ import {
   TableView,
 } from '@bento-core/paginated-table';
 import {
-  table, programListingIcon,
-} from '../../bento/programData';
+  table, studyListingIcon,
+} from '../../bento/studyData';
 import Stats from '../../components/Stats/AllStatsController';
 import { Typography } from '../../components/Wrappers/Wrappers';
 import { themeConfig } from './tableConfig/Theme';
@@ -27,7 +27,7 @@ const initTblState = (initailState) => ({
   page: 0,
 })
 
-const Programs = ({ classes, data }) => {
+const Studies = ({ classes, data }) => {
   return (
     <>
       <Stats />
@@ -36,8 +36,8 @@ const Programs = ({ classes, data }) => {
           <div className={classes.header}>
             <div className={classes.logo}>
               <img
-                src={programListingIcon.src}
-                alt={programListingIcon.alt}
+                src={studyListingIcon.src}
+                alt={studyListingIcon.alt}
               />
 
             </div>
@@ -53,7 +53,7 @@ const Programs = ({ classes, data }) => {
           </div>
 
           { table.display ? (
-            <div id="table_programs" className={classes.tableDiv}>
+            <div id="table_studies" className={classes.tableDiv}>
               <TableContextProvider>
                   <Grid container>
                     <Grid item xs={12} id={table.tableID}>
@@ -113,23 +113,23 @@ const styles = (theme) => ({
     background: '#eee',
   },
   header: {
-    background: 'white',
+    background: '#fff',
     paddingLeft: '20px',
     paddingRight: '50px',
-    borderBottom: '#9FD8F0 10px solid',
+    borderBottom: '#F0BDEE 10px solid',
     height: '128px',
-    paddingTop: '35px',
+    paddingTop: '28px',
   },
   headerMainTitle: {
     fontFamily: 'Inter',
-    letterSpacing: '0.01em',
     fontWeight: 'bold',
-    color: '#0E6292',
+    letterSpacing: '0.02em',
+    color: '#B431B0',
     fontSize: '26px',
     position: 'absolute',
-    marginTop: '16px',
+    marginTop: '20px',
     lineHeight: '25px',
-    marginLeft: '2px',
+    marginLeft: '4px',
   },
 
   headerTitle: {
@@ -163,4 +163,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { withTheme: true })(Programs);
+export default withStyles(styles, { withTheme: true })(Studies);
