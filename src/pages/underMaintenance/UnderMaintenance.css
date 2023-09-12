@@ -1,0 +1,35 @@
+/* UnderMaintenance.css */
+
+.maintenance-container {
+  text-align: center;
+  padding: 20px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.maintenance-icon {
+  font-size: 48px;
+  color: #ff5722;
+}
+
+.maintenance-title {
+  margin-top: 16px;
+}
+
+.maintenance-subtitle {
+  margin-top: 8px;
+}
+
+.emoji {
+  font-size: 24px;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -29,7 +29,7 @@ import editUserController from '../../pages/admin/userDetails/editUserController
 import viewUserController from '../../pages/admin/userDetails/viewUserController';
 import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import AUTH_MIDDLEWARE_CONFIG from '../Auth/authMiddlewareConfig';
-import CarView from '../../pages/cart/cartController';
+import CardView from '../../pages/cart/cartController';
 import AuthSessionTimeoutController from '../SessionTimeout/SessionTimeoutController';
 import { AuthenticationMiddlewareGenerator } from '@bento-core/authentication';
 
@@ -38,6 +38,7 @@ import DashTemplate from '../../pages/dashTemplate/DashTemplateController';
 import Questionaire from '../../pages/questionaire/questionaireView';
 import ReleaseVersions from '../../pages/ReleaseVersions';
 
+import UnderMaintenance from '../../pages/underMaintenance/UnderMaintenance';
 
 
 const ScrollToTop = () => {
@@ -66,8 +67,8 @@ const Layout = ({ classes, isSidebarOpened }) => {
         >
           <Route component={ScrollToTop} />
           <Switch>
-            <MixedRoute exact path="/" component={Home} />
-            <MixedRoute exact path="/home" component={Home} />
+            <MixedRoute exact path="/" component={UnderMaintenance(Home)} />
+            <MixedRoute exact path="/home" component={UnderMaintenance(Home)} />
 
             {/* START: Private Routes */}
             {/* SECTION: Non-Member & Member only Path */}
@@ -78,8 +79,9 @@ const Layout = ({ classes, isSidebarOpened }) => {
             {/* SECTION: Member & Admin only Path */}
             <PrivateRoute path="/programs" access={['admin', 'member']} component={Programs} />
             <PrivateRoute path="/studies" access={['admin', 'member']} component={Studies} />
-            <PrivateRoute path="/fileCentricCart" access={['admin', 'member']} component={CarView} />
+            <PrivateRoute path="/fileCentricCart" access={['admin', 'member']} component={UnderMaintenance(CardView)} />
             <PrivateRoute path="/program/:id" access={['admin', 'member']} component={ProgramDetail} />
+            <PrivateRoute path="/study/:id" access={['admin', 'member']} component={UnderMaintenance(()=><h1> In Compelete Route</h1>)} />
             <PrivateRoute path="/case/:id" access={['admin', 'member']} component={CaseDetail} />
             <PrivateRoute path="/arm/:id" access={['admin', 'member']} component={ArmDetail} />
             <PrivateRoute path="/fileViewer/:id" requiuredSignIn access={['admin', 'member']} component={JBrowseDetail} />
@@ -102,8 +104,8 @@ const Layout = ({ classes, isSidebarOpened }) => {
 
             {/* Psuedo Private routes where minor
             functionality can be accessed my unauthorized users */}
-            <Route exact path="/search" access={['admin', 'member', 'non-member']} component={GlobalSearchController} />
-            <Route path="/search/:id" access={['admin', 'member', 'non-member']} component={GlobalSearchController} />
+            <Route exact path="/search" access={['admin', 'member', 'non-member']} component={UnderMaintenance(GlobalSearchController)} />
+            <Route path="/search/:id" access={['admin', 'member', 'non-member']} component={UnderMaintenance(GlobalSearchController)} />
 
             {/* END: Private Routes */}
 
