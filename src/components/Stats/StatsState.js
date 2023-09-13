@@ -1,5 +1,6 @@
 import { GET_GLOBAL_STATS_DATA_QUERY as STATS_QUERY } from '../../bento/globalStatsData';
 import client from '../../utils/graphqlClient';
+import { enableAuthentication } from '../../bento/siteWideConfig';
 
 export const RECIEVE_STATS = 'RECIEVE_STATS';
 export const STATS_QUERY_ERR = 'STATS_QUERY_ERR';
@@ -42,10 +43,11 @@ function errorhandler(error, type) {
 }
 
 function fetchStats(statQuery, state) {
+  console.log(state && state.login.isSignedIn && enableAuthentication);
   return (dispatch) => client
     .query({
       query: statQuery,
-      context: { clientName: state && state.login.isSignedIn ? '' : 'publicService' },
+      context: {clientName: enableAuthentication ? state && state.login.isSignedIn ? '' : 'publicService' : ''},
     })
     .then((result) => dispatch(receiveStats(result)))
     .catch((error) => dispatch(errorhandler(error, STATS_QUERY_ERR)));

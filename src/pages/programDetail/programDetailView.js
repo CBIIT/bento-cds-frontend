@@ -56,10 +56,9 @@ const ProgramView = ({ classes, data, theme }) => {
 
   const stat = {
     numberOfPrograms: 1,
-    numberOfStudies: programData.num_subjects !== undefined ? programData.studies.length : 'undefined',
-    numberOfSubjects: programData.num_subjects !== undefined ? programData.num_subjects : 'undefined',
+    numberOfStudies: programData.num_studies !== undefined ? programData.num_studies : 'undefined',
+    numberOfSubjects: programData.num_participants !== undefined ? programData.num_participants : 'undefined',
     numberOfSamples: programData.num_samples !== undefined ? programData.num_samples : 'undefined',
-    numberOfLabProcedures: programData.num_lab_procedures !== undefined ? programData.num_lab_procedures : 'undefined',
     numberOfFiles: programData.num_files !== undefined ? programData.num_files : 'undefined',
   };
 
