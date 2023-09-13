@@ -10,9 +10,10 @@ export const statsStyling = {
   },
   statsGroup: {
     margin: '6px 0px',
-    padding: '0.5% 16% 2% 16% !important',
     borderRight: '1.25px solid #000000',
-    minWidth: '300px !important',
+    // Need to uncomment this in custom stats component
+    // padding: '4px 40px 10px 90px',
+    // minWidth: '300px !important',
   },
   statsIcon: {
     width: '44px',
