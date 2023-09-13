@@ -43,7 +43,6 @@ function errorhandler(error, type) {
 }
 
 function fetchStats(statQuery, state) {
-  console.log(state && state.login.isSignedIn && enableAuthentication);
   return (dispatch) => client
     .query({
       query: statQuery,
