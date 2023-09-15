@@ -489,11 +489,9 @@ const styles = (theme) => ({
     paddingTop: '3px',
   },
   breadCrumb: {
-    // height: '11px',
-    // letterSpacing: 10px;
-    // line-height: 29px;
     backgroundColor: '#FFF',
-    padding: '16px 52px 0px 52px',
+    marginLeft: '286px',
+    paddingTop: '19px',
   },
   headerButton: {
     fontFamily: theme.custom.fontFamily,
