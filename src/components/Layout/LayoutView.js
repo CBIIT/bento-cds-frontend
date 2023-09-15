@@ -7,7 +7,6 @@ import NavBar from '../NavBar/NavBarContainer';
 import Footer from '../Footer/FooterView';
 import Error from '../../pages/error/Error';
 import CaseDetail from '../../pages/caseDetail/caseDetailController';
-import ArmDetail from '../../pages/armDetail/armDetailController';
 import table from '../../pages/table/tableView';
 import Home from '../../pages/landing/landingController';
 import About from '../../pages/about/aboutController';
@@ -15,6 +14,7 @@ import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Programs from '../../pages/programs/programsController';
 import ProgramDetail from '../../pages/programDetail/programDetailController';
 import Studies from '../../pages/studies/studiesController';
+import StudyDetail from '../../pages/studyDetail/studyDetailController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
 // import JBrowse from '../JBrowse/JBrowseView';
 import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
@@ -80,8 +80,8 @@ const Layout = ({ classes, isSidebarOpened }) => {
             <PrivateRoute path="/studies" access={['admin', 'member']} component={Studies} />
             <PrivateRoute path="/fileCentricCart" access={['admin', 'member']} component={CarView} />
             <PrivateRoute path="/program/:id" access={['admin', 'member']} component={ProgramDetail} />
+            <PrivateRoute path="/study/:id" access={['admin', 'member']} component={StudyDetail} />
             <PrivateRoute path="/case/:id" access={['admin', 'member']} component={CaseDetail} />
-            <PrivateRoute path="/arm/:id" access={['admin', 'member']} component={ArmDetail} />
             <PrivateRoute path="/fileViewer/:id" requiuredSignIn access={['admin', 'member']} component={JBrowseDetail} />
             {/* bento 4.0 template */}
             <PrivateRoute path="/data" access={['admin', 'member']} component={DashTemplate} />
