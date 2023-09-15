@@ -4,8 +4,8 @@ export const statsStyling = {
   global: {
     horizontalStyle: false,
     statTitleFirst: false,
-    height: '56px',
-    background: '#8DCAFF',
+    height: '59px',
+    background: '#B4E2F5',
   },
   statsGroup: {
     margin: '6px 9.25px',
