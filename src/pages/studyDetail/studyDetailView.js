@@ -16,7 +16,7 @@ import clsx from 'clsx';
 import globalData from '../../bento/siteWideConfig';
 import {
   pageTitle, table, externalLinkIcon,
-  programDetailIcon, breadCrumb, aggregateCount,
+  studyDetailIcon, breadCrumb, aggregateCount,
   pageSubTitle, leftPanel, rightPanel,
 } from '../../bento/studyDetailData';
 import StatsView from '../../components/Stats/StatsView';
@@ -26,7 +26,7 @@ import colors from '../../utils/colors';
 import { WidgetGenerator } from '@bento-core/widgets';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
 
-const ProgramView = ({ classes, data, theme }) => {
+const StudyView = ({ classes, data, theme }) => {
   const studyData = data.studyDetail;
 
   const widgetGeneratorConfig = {
@@ -72,6 +72,10 @@ const ProgramView = ({ classes, data, theme }) => {
   ];
 
   const updatedAttributesData = manipulateLinks(leftPanel.attributes);
+  const updatedAttributesDataRight = manipulateLinks(rightPanel.attributes);
+  console.log("findme3", updatedAttributesDataRight)
+  console.log("findme4", updatedAttributesData)
+
 
   return (
     <>
@@ -83,13 +87,13 @@ const ProgramView = ({ classes, data, theme }) => {
         <div className={classes.header}>
           <div className={classes.logo}>
             <img
-              src={programDetailIcon.src}
-              alt={programDetailIcon.alt}
+              src={studyDetailIcon.src}
+              alt={studyDetailIcon.alt}
             />
 
           </div>
           <div className={classes.headerTitle}>
-            <div className={classes.headerMainTitle} id="program_detail_title">
+            <div className={classes.headerMainTitle} id="study_detail_title">
               <span>
                 {' '}
                 {pageTitle.label}
@@ -101,7 +105,7 @@ const ProgramView = ({ classes, data, theme }) => {
               </span>
             </div>
             <div className={clsx(classes.headerMSubTitle, classes.headerSubTitleCate)}>
-              <span id="program_detail_subtile">
+              <span id="study_detail_subtile">
                 {' '}
                 {studyData[pageSubTitle.dataField]}
               </span>
@@ -110,24 +114,24 @@ const ProgramView = ({ classes, data, theme }) => {
           </div>
 
           {aggregateCount.display ? (
-            <div className={classes.headerButton}>
-              <span className={classes.headerButtonLinkSpan}>
-                <Link
-                  className={classes.headerButtonLink}
-                  to={(location) => ({ ...location, pathname: `${aggregateCount.link}` })}
-                  onClick={()=>onClearAllAndSelectFacetValue('programs', studyData.program_acronym)}
-                >
-                  {' '}
-                  <span className={classes.headerButtonLinkText}>{aggregateCount.labelText}</span>
-                  <span className={classes.headerButtonColumn}>{': '}</span>
-                  <span className={classes.headerButtonLinkNumber} id="program_detail_header_file_count">
+                <div className={classes.headerButton}>
+                <span className={classes.headerButtonLinkSpan}>
+                    <Link
+                    className={classes.headerButtonLink}
+                    to={(location) => ({ ...location, pathname: `${aggregateCount.link}` })}
+                    onClick={()=>onClearAllAndSelectFacetValue('studies', studyData.study_name)}
+                    >
+                    {' '}
+                    <span className={classes.headerButtonLinkText}>{aggregateCount.labelText}</span>
+                    <span className={classes.headerButtonColumn}>{': '}</span>
+                    <span className={classes.headerButtonLinkNumber} id="study_detail_header_file_count">
 
-                    {studyData[aggregateCount.dataField]}
+                        {studyData[aggregateCount.dataField]}
 
-                  </span>
-                </Link>
-              </span>
-            </div>
+                    </span>
+                    </Link>
+                </span>
+                </div>
           ) : ''}
         </div>
 
@@ -216,12 +220,12 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <div>
                                   <span
                                     className={classes.detailContainerHeader}
-                                    id={`program_detail_left_section_title_${index + 1}`}
+                                    id={`study_detail_left_section_title_${index + 1}`}
                                   >
                                     {attribute.label}
                                   </span>
                                   <div>
-                                    <span className={classes.content} id={`program_detail_left_section_description_${index + 1}`}>
+                                    <span className={classes.content} id={`study_detail_left_section_description_${index + 1}`}>
                                       {' '}
                                       {studyData[attribute.dataField]}
                                       {' '}
@@ -236,7 +240,7 @@ const ProgramView = ({ classes, data, theme }) => {
 
               </Grid>
             </Grid>
-
+            
             <Grid
               item
               lg={5}
@@ -244,59 +248,102 @@ const ProgramView = ({ classes, data, theme }) => {
               xs={12}
             >
               <Grid container spacing={16} direction="row" className={classes.detailContainerRight}>
-                { rightPanel.widget[0].display ? (
-                  <Grid
-                    item
-                    xs={12}
-                    className={classes.marginTopN37}
-                  >
-                    <Widget
-                      header={(
-                        <Typography
-                          colorBrightness="main"
-                          size="md"
-                          weight="normal"
-                          family="Nunito"
-                          color={theme.palette.dodgeBlue.main}
-                          className={classes.widgetTitle}
-                        >
-                          {rightPanel.widget[0].label}
-                        </Typography>
-                      )}
-                      bodyClass={classes.fullHeightBody}
-                      className={classes.card}
-                      customBackGround
-                      noPaddedTitle
-                      data={studyData[rightPanel.widget[0].dataField] || []}
-                      chartType="donut"
-                      chartTitleLocation="bottom"
-                      chartTitleAlignment="center"
-                    />
-                  </Grid>
-                ) : ''}
+                {//Mirror the right panel attributes to the left panel
+                }
+                {updatedAttributesDataRight.slice(0, 6).map((attribute, index) => (
+                    <Grid item xs={12} className={classes.rightAttributes}>
+                        <div>
+                            {
+                                attribute.internalLink
+                                    ? (
+                                        <div>
+                                            <span className={classes.detailContainerHeader}>{attribute.label}</span> 
+                                            <div>
+                                                <span className={classes.content}>
+                                                    {' '}
+                                                    <Link
+                                                        className={classes.link}
+                                                        to={`${attribute.actualLink}${studyData[updatedAttributesDataRight[attribute.actualLinkId].dataField]}`}
+                                                    >
+                                                        {studyData[attribute.dataField]}
+                                                    </Link>
+                                                    {' '}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    )
+                                : attribute.externalLink
+                                    ? (
+                                        <div>
+                                          <span
+                                            className={classes.detailContainerHeader}
+                                          >
+                                            {attribute.label}
+                                          </span>
+                                          <div>
+                                            <span className={classes.content}>
+                                              {' '}
+                                              <a
+                                                href={`${attribute.actualLink}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={classes.link}
+                                              >
+                                                {studyData[attribute.dataField]}
+                                              </a>
+                                              {' '}
+                                            </span>
+                                          </div>
+                                        </div>
+                                      )
+                                : attribute.internalLinkToLabel
+                                    ? (
+                                        <div>
+                                            <span
+                                                className={classes.detailContainerHeaderLink}
+                                            >
+                                                <a href={`${studyData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</a>
+                                            </span>
+                                        </div>
+                                    )
+                                : attribute.externalLinkToLabel
+                                    ? (
+                                        <div>
+                                            <span
+                                                className={classes.detailContainerHeaderLink}
+                                            >
+                                                <a href={`${studyData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</a>
+                                                <img
+                                                    src={externalLinkIcon.src}
+                                                    alt={externalLinkIcon.alt}
+                                                    className={classes.externalLinkIcon}
+                                                />
+                                            </span>
+                                        </div>
+                                    )
+                                : (
+                                    <div>
+                                        <span
+                                            className={classes.detailContainerHeader}
+                                            id={`study_detail_right_section_title_${index + 1}`}
+                                        >   
+                                            {attribute.label}
+                                        </span>
+                                        <div>
+                                            <span className={classes.content} id={`study_detail_right_section_description_${index + 1}`}>
+                                                {' '}
+                                                {studyData[attribute.dataField]}
+                                                {' '}
+                                            </span>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </Grid>
+                ))}
 
-                { rightPanel.files[0].display ? (
-                  <Grid item xs={12}>
-                    <div className={classes.fileContainer}>
-                      <span
-                        className={classes.detailContainerHeader}
-                      >
-                        {rightPanel.files[0].label}
-                      </span>
-                      <div className={classes.fileContent}>
-                        <div className={classes.fileIcon}>
-                          <img
-                            src={rightPanel.files[0].fileIconSrc}
-                            alt={rightPanel.files[0].fileIconAlt}
-                          />
-                        </div>
-                        <div className={classes.fileCount} id="program_detail_file_count">
-                          {studyData[rightPanel.files[0].dataField]}
-                        </div>
-                      </div>
-                    </div>
-                  </Grid>
-                ) : ''}
+
               </Grid>
             </Grid>
 
@@ -304,7 +351,7 @@ const ProgramView = ({ classes, data, theme }) => {
         </div>
       </div>
       { table.display ? (
-        <div id="table_program_detail" className={classes.tableContainer}>
+        <div id="table_study_detail" className={classes.tableContainer}>
 
           <div className={classes.tableDiv}>
             <div className={classes.tableTitle}>
@@ -350,9 +397,8 @@ const styles = (theme) => ({
     paddingLeft: '25px !important',
   },
   link: {
+    color: '#DC762F',
     textDecoration: 'none',
-    fontWeight: 'bold',
-    color: theme.palette.text.link,
     '&:hover': {
       textDecoration: 'underline',
     },
@@ -372,7 +418,7 @@ const styles = (theme) => ({
     paddingBottom: '16px',
   },
   content: {
-    fontSize: '15px',
+    fontSize: '14px',
     fontFamily: theme.custom.fontFamily,
     lineHeight: '14px',
   },
@@ -395,7 +441,7 @@ const styles = (theme) => ({
   header: {
     paddingLeft: '21px',
     paddingRight: '35px',
-    borderBottom: '#4B619A 10px solid',
+    borderBottom: '#F0BDEE 10px solid',
     height: '80px',
     maxWidth: '1340px',
     margin: 'auto',
@@ -418,7 +464,7 @@ const styles = (theme) => ({
     },
     fontFamily: 'Lato',
     letterSpacing: '0.025em',
-    color: '#274FA5 ',
+    color: '#B431B0 ',
     fontSize: '26px',
     lineHeight: '24px',
     paddingLeft: '0px',
@@ -456,40 +502,40 @@ const styles = (theme) => ({
     paddingTop: '19px',
   },
   headerButton: {
-    fontFamily: theme.custom.fontFamily,
     float: 'right',
-    marginTop: '15px',
-    width: '104px',
-    height: '33px',
-    background: '#F6F4F4',
-    textAlign: 'center',
-    marginRight: '-20px',
-
+    width: '180px',
+    height: '39px',
+    marginTop: '20px',
+    background: '#FFF',
+    boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
   },
   headerButtonLinkSpan: {
-    fontFamily: theme.custom.fontFamily,
-    height: '50px',
-    background: '#F5F3EE',
-    width: '200px',
-    fontSize: '8pt',
+    marginLeft: '16px',
+    marginTop: '10px',
   },
   headerButtonLinkText: {
     fontFamily: theme.custom.fontFamily,
-    color: theme.palette.text.link,
-    fontSize: '8pt',
+    color: '#0E6292',
+    fontSize: '10px',
     textTransform: 'uppercase',
+    paddingRight: '2px',
+    paddingLeft: '4px',
+    fontWeight: 600,
+    letterSpacing: '0px',
   },
   headerButtonColumn: {
     color: '#000000',
   },
   headerButtonLinkNumber: {
-    color: '#000000',
     fontFamily: theme.custom.fontFamily,
-    borderBottom: 'solid #6690AC',
+    borderBottom: 'solid #900F89 3px',
+    color: '#900F89',
     lineHeight: '30px',
-    paddingBottom: '3px',
+    paddingBottom: '2px',
     margin: '0 4px',
-    fontSize: '8pt',
+    fontSize: '14px',
+    letterSpacing: '1px',
+    fontWeight: 'bold',
   },
   logo: {
     position: 'absolute',
@@ -518,7 +564,7 @@ const styles = (theme) => ({
     fontFamily: 'Lato',
     fontSize: '17px',
     letterSpacing: '0.025em',
-    color: '#0296C9',
+    color: '#AE6CAB',
   },
   detailContainerHeaderLink: {
     fontFamily: 'Raleway',
@@ -545,7 +591,8 @@ const styles = (theme) => ({
     borderRight: '#81a6b9 1px solid',
   },
   detailContainerRight: {
-    padding: '5px 0 5px 36px !important',
+    display: 'block',
+    padding: '5px  5px 36px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -556,6 +603,9 @@ const styles = (theme) => ({
     borderRight: '1px solid #81A6BA',
     marginLeft: '-26px',
   },
+  rightAttributes: {
+    padding: '16px',
+  },        
 
   tableContainer: {
     background: '#f3f3f3',
@@ -678,4 +728,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { withTheme: true })(ProgramView);
+export default withStyles(styles, { withTheme: true })(StudyView);

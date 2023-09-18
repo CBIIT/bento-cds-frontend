@@ -17,16 +17,16 @@ const breadCrumb = {
 
 // --------------- Aggregated count configuration --------------
 const aggregateCount = {
-  labelText: 'Cases',
-  dataField: 'num_subjects',
+  labelText: 'Study Participants',
+  dataField: 'numberOfSubjects',
   link: '/explore',
   display: true,
 };
 
 // --------------- Icons configuration --------------
-// Ideal size for programDetailIcon is 107x107 px
+// Ideal size for studyDetailIcon is 107x107 px
 // Ideal size for externalLinkIcon is 16x16 px
-const programDetailIcon = {
+const studyDetailIcon = {
   src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/studiesIcon.png',
   alt: 'CDS study logo',
 };
@@ -41,29 +41,12 @@ const externalLinkIcon = {
 const leftPanel = {
   attributes: [
     {
-      dataField: 'program_acronym',
-      label: 'Program',
+      dataField: 'phs_accession',
+      label: 'Study Accession',
     },
     {
-      dataField: 'program_name',
-      label: 'Program Name',
-    },
-    {
-      dataField: 'program_id',
-      label: 'Program Id',
-    },
-    {
-      dataField: 'program_full_description',
-      label: 'Program Description',
-    },
-    {
-      dataField: 'institution_name',
-      label: 'Institution',
-    },
-    {
-      dataField: 'program_external_url',
-      label: 'External Link to Program',
-      externalLinkToLabel: true,
+      dataField: 'study_description',
+      label: 'Study Description',
     },
   ],
 };
@@ -71,21 +54,25 @@ const leftPanel = {
 // --------------- Right Pannel configuration --------------
 // Ideal size for fileIconSrc is 66x53 px
 const rightPanel = {
-  widget: [
+  attributes: [
     {
-      dataField: 'diagnoses',
-      label: 'Diagnosis',
-      display: true,
+      dataField: 'numberOfSubjects',
+      label: 'Number Of Participants',
     },
-  ],
-  files: [
     {
-      dataField: 'num_files',
-      label: 'Number of files',
-      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/programNumberofFilesIcon.svg',
-      fileIconAlt: 'Number of files icon',
-      display: true,
+      dataField: 'numberOfFiles',
+      label: 'Number Of Files',
     },
+    {
+      dataField: 'data_types',
+      label: 'Data Types',
+    },
+    {
+      dataField: 'study_external_url',
+      label: 'External Resources',
+      externalLink: true,
+      actualLink: 'study_external_url',
+    }
   ],
 };
 
@@ -129,7 +116,7 @@ const table = {
   ],
 };
 
-// --------------- GraphQL query - Retrieve program details --------------
+// --------------- GraphQL query - Retrieve study details --------------
 const GET_PROGRAM_DETAIL_DATA_QUERY = gql`
 query studyDetail($phs_accession: String) {
   studyDetail(phs_accession: $phs_accession) {
@@ -151,7 +138,7 @@ export {
   pageTitle,
   pageSubTitle,
   aggregateCount,
-  programDetailIcon,
+  studyDetailIcon,
   leftPanel,
   rightPanel,
   externalLinkIcon,
