@@ -1,11 +1,11 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import ProgramView from './studyDetailView';
+import StudyView from './studyDetailView';
 import { Typography } from '../../components/Wrappers/Wrappers';
 import { GET_PROGRAM_DETAIL_DATA_QUERY } from '../../bento/studyDetailData';
 
-const ProgramDetailContainer = ({ match }) => {
+const StudyDetailContainer = ({ match }) => {
   const { loading, error, data } = useQuery(GET_PROGRAM_DETAIL_DATA_QUERY, {
     variables: { phs_accession: match.params.id },
   });
@@ -18,7 +18,7 @@ const ProgramDetailContainer = ({ match }) => {
       </Typography>
     );
   }
-  return <ProgramView data={data} />;
+  return <StudyView data={data} />;
 };
 
-export default ProgramDetailContainer;
+export default StudyDetailContainer;
