@@ -5,45 +5,44 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import {
-  getOptions,
-  getColumns,
   manipulateLinks
 } from '@bento-core/util';
-import {
-  CustomDataTable
-} from '@bento-core/data-table';
+import { 
+    TableContextProvider,
+    TableView,
+    Wrapper
+  } from '@bento-core/paginated-table';
 import clsx from 'clsx';
-import globalData from '../../bento/siteWideConfig';
 import {
   pageTitle, table, externalLinkIcon,
   studyDetailIcon, breadCrumb, aggregateCount,
   pageSubTitle, leftPanel, rightPanel,
 } from '../../bento/studyDetailData';
 import StatsView from '../../components/Stats/StatsView';
-import { Typography } from '../../components/Wrappers/Wrappers';
 import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
-import colors from '../../utils/colors';
-import { WidgetGenerator } from '@bento-core/widgets';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
+import { themeConfig, wrapperThemConfig } from './tableConfig/Theme';
+import { footerConfig } from './tableConfig/Wrapper';
+
+
+const initTblState = (initailState) => ({
+    ...initailState,
+    title: table.name,
+    columns: table.columns,
+    selectedRows: [],
+    tableMsg: table.tableMsg,
+    sortBy: table.defaultSortField,
+    sortOrder: table.defaultSortDirection,
+    rowsPerPage: 10,
+    dataKey: table.dataKey,
+    page: 0,
+  })
 
 const StudyView = ({ classes, data, theme }) => {
   const studyData = data.studyDetail;
 
-  const widgetGeneratorConfig = {
-    theme,
-    DonutConfig: {
-      colors,
-      styles: {
-        cellPadding: 0,
-        textOverflowLength: 20,
-      },
-    },
-  };
 
-  const { Widget } = WidgetGenerator(widgetGeneratorConfig);
-
-  console.log("findme1",studyData);
-
+  
   const stat = {
     numberOfPrograms: 1,
     numberOfStudies: 1,
@@ -52,7 +51,6 @@ const StudyView = ({ classes, data, theme }) => {
     numberOfDiseaseSites: studyData.numberOfDiseaseSites !== undefined ? studyData.numberOfDiseaseSites : 'undefined',
     numberOfFiles: studyData.numberOfFiles !== undefined ? studyData.numberOfFiles : 'undefined',
   };
-  console.log("findme2", stat);
 
   const breadCrumbJson = [
     {
@@ -73,8 +71,6 @@ const StudyView = ({ classes, data, theme }) => {
 
   const updatedAttributesData = manipulateLinks(leftPanel.attributes);
   const updatedAttributesDataRight = manipulateLinks(rightPanel.attributes);
-  console.log("findme3", updatedAttributesDataRight)
-  console.log("findme4", updatedAttributesData)
 
 
   return (
@@ -357,18 +353,30 @@ const StudyView = ({ classes, data, theme }) => {
             <div className={classes.tableTitle}>
               <span className={classes.tableHeader}>{table.title}</span>
             </div>
-            <Grid item xs={12}>
-              <Grid container spacing={8}>
+            <TableContextProvider>
                 <Grid item xs={12}>
-
+                    <Grid container spacing={8}>
+                        <Grid item xs={12} id={table.tableID}>
+                            <TableView
+                                initState={initTblState}
+                                server={false}
+                                themeConfig={themeConfig}
+                                tblRows={data[table.dataField]}
+                                totalRowCount={data[table.dataField].length}
+                                activeTab={true}
+                            />
+                            <Wrapper
+                                wrapConfig={footerConfig}
+                                customTheme={wrapperThemConfig}
+                                classes={classes}
+                                section={table.name}
+                            />
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid item xs={8}>
-                  <Typography />
-                </Grid>
-              </Grid>
-            </Grid>
+            </TableContextProvider>
           </div>
-        </div>
+            </div> 
       ) : ''}
     </>
   );

@@ -1,4 +1,6 @@
 import gql from 'graphql-tag';
+import { cellTypes } from '@bento-core/table';
+
 
 // --------------- Page title configuration --------------
 const pageTitle = {
@@ -79,39 +81,74 @@ const rightPanel = {
 // --------------- Table configuration --------------
 const table = {
   // Set 'display' to false to hide the table entirely
+  name: 'study data',
+  dataKey: 'file_id',
   display: true,
   // Table title
-  title: 'ARMS',
+  title: 'STUDY DATA',
   // Field name for table data, need to be updated only when using a different GraphQL query
-  dataField: 'studies',
+  dataField: 'fileOverview',
   // Value must be one of the 'field' in columns
-  defaultSortField: 'study_acronym',
+  defaultSortField: 'file_name',
   // 'asc' or 'desc'
   defaultSortDirection: 'asc',
   // Set 'selectableRows' to true to show the row selection
-  selectableRows: false,
+  selectableRows: true,
   // A maximum of 10 columns are allowed
   columns: [
     {
-      dataField: 'study_acronym',
-      header: 'Arm',
-      link: '/arm/{study_acronym}'
+      cellType: cellTypes.CHECKBOX,
+      display: true,
+      role: cellTypes.CHECKBOX,
     },
     {
-      dataField: 'study_name',
-      header: 'Arm Name',
+      dataField: 'file_id',
+      header: 'File Id',
+      primary: true,
+      display: false,
     },
     {
-      dataField: 'study_full_description',
-      header: 'Arm Description',
+      dataField: 'file_name',
+      header: 'File Name',
+      tooltipText: 'Sort by File Name',
+      display: true,
     },
     {
-      dataField: 'study_type',
-      header: 'Arm Type',
+      dataField: 'file_type',
+      header: 'Format',
+      tooltipText: 'Sort by File Format',
+      display: true,
     },
     {
-      dataField: 'num_subjects',
-      header: 'Associated Cases',
+      dataField: 'sample_id',
+      header: 'Sample ID',
+      tooltipText: 'Sort by Sample ID',
+      display: true,
+
+    },
+    {
+      dataField: 'subject_id',
+      header: 'Participant ID',
+      tooltipText: 'Sort by Participant ID',
+      display: true,
+    },
+    {
+      dataField: 'gender',
+      header: 'Gender',
+      tooltipText: 'Sort by Gender',
+      display: true,
+    },
+    {
+      dataField: 'analyte_type',
+      header: 'Analyte Type',
+      tooltipText: 'Sort by Analyte Type',
+      display: true,
+    },
+    {
+      dataField: 'is_tumor',
+      header: 'Tumor Status',
+      tooltipText: 'Sort by Tumor Status',
+      display: true,
     },
   ],
 };
@@ -131,6 +168,70 @@ query studyDetail($phs_accession: String) {
     numberOfDiseaseSites
     numberOfFiles
   }
+
+  fileOverview(
+    phs_accession: [$phs_accession],
+  ){
+    study_acronym
+    phs_accession
+    subject_id
+    sample_id
+    gender
+    analyte_type
+    is_tumor
+    file_name
+    file_type
+    file_size
+    file_id
+    md5sum
+  }
+}
+`;
+
+export const GET_MY_FILE_OVERVIEW_QUERY = gql`
+query fileOverview(
+  $subject_ids: [String],
+  $sample_ids: [String],
+  $file_ids: [String],
+  $studies: [String],
+  $phs_accession:String,
+  $file_types: [String],
+  $genders: [String],
+  $is_tumor: [String],
+  $accesses: [String],
+  $first: Int, 
+  $offset: Int, 
+  $order_by:  String
+  $sort_direction: String 
+){
+fileOverview(
+  subject_ids: $subject_ids,
+  sample_ids: $sample_ids,
+  file_ids: $file_ids
+  studies: $studies,
+  phs_accession: [$phs_accession],
+  file_types: $file_types,
+  genders: $genders,
+  is_tumor: $is_tumor,
+  accesses: $accesses,
+  first: $first, 
+  offset: $offset, 
+  order_by: $order_by,
+  sort_direction: $sort_direction
+){
+  study_acronym
+  phs_accession
+  subject_id
+  sample_id
+  gender
+  analyte_type
+  is_tumor
+  file_name
+  file_type
+  file_size
+  file_id
+  md5sum
+}
 }
 `;
 
