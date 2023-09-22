@@ -1,7 +1,11 @@
 const COLORS_EVEN = [
-  '#E1C7DC',
+  '#48C3F8',
+  '#D1D1D1',
   '#0B7562',
-  '#EBAA73',
+  '#30D9BB',
+  '#FD9D4C',
+  '#E1C7DC',
+  '#676567',
 ];
 
 // const COLORS_ODD = [
