@@ -732,7 +732,7 @@ query fileOverview(
 // --------------- Tabs Table configuration --------------
 export const tabContainers = [
   {
-    name: 'Cases',
+    name: 'Participants',
     dataField: 'dataCase',
     api: GET_CASES_OVERVIEW_QUERY,
     paginationAPIField: 'subjectOverview',
@@ -745,7 +745,6 @@ export const tabContainers = [
     extendedViewConfig: {
       pagination: true,
       manageViewColumns: true,
-      download: true,
     },
     columns: [
       {
@@ -925,7 +924,6 @@ export const tabContainers = [
     extendedViewConfig: {
       pagination: true,
       manageViewColumns: true,
-      download: true,
     },
     columns: [
       {
