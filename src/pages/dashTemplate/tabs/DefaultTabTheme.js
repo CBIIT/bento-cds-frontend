@@ -24,17 +24,17 @@ export const customTheme = {
       fontFamily: 'Lato',
       '&.Mui-selected': {
         fontWeight: 'bolder',
-        '&.cases': {
-          background: '#d6f2ea',
-          color: '#10a075',
+        '&.participants': {
+          background: '#c3e8f7',
+          color: '#142D64',
         },
         '&.samples': {
-          background: '#cfedf9',
-          color: '#0dafec',
+          background: '#c3e8f7',
+          color: '#142D64',
         },
         '&.files': {
-          background: '#f7d7f7',
-          color: '#c92ec7',
+          background: '#c3e8f7',
+          color: '#142D64',
         },
         '&.MuiTypography-body1': {
           color: 'red',
