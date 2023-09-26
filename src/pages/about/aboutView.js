@@ -14,7 +14,7 @@ const AboutView = ({ classes, data }) => {
       <div className={classes.leftBg}>
         <div className={classes.rightBg}>
 
-          <AboutHeader title={data.title} titleColor="#0B4E75" background="white" />
+          <AboutHeader title={data.title} titleColor="#0B4E75" background="" />
           <div>
             <AboutBody
               data={{
