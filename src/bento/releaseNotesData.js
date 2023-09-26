@@ -22,6 +22,20 @@ export const VERSIONS = [
     </ul>
   </div>
   <div>
+    <p>CCDI: NCI CCSG CCDI Supplement Additional Genomic Submission - phs002599.v1.p1</p>
+    <ul>
+      <li>104 Participants</li>
+      <li>313 Files</li>
+    </ul>
+  </div>
+  <div>
+  <p>LCCC 1108: Development of a Tumor Molecular Analyses Program and Its Use to Support Treatment Decisions (UNCseqTM) - phs001713.v1.p1</p>
+  <ul>
+    <li>1 Participants</li>
+    <li>1 Files</li>
+  </ul>
+</div>
+  <div>
     <p>CPTAC: CPTAC: Washington University in St. Louis ccRCC snRNA-seq and snATAC-seq study - phs001287.v14.p6</p>
     <ul>
       <li>1,069 participants</li>
