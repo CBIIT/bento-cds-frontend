@@ -7,6 +7,7 @@ import SearchAUtoFill from '../Search/searchAutoFillComponent';
 const customStyle = {
   headerBar: {
     zIndex: '999',
+    top: '167.578px',
   },
   nihLogoImg: {
     height: '54px',

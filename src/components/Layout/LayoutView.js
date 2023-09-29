@@ -26,6 +26,7 @@ import ReleaseVersions from '../ReleaseVersions';
 import GlobalSearch from '../../pages/search/searchView';
 import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import GlobalSearchController from '../../pages/search/searchViewController';
+import WarningBanner from '../warning-banner/WarningBannerView';
 
 import GA from '../../utils/googleAnalytics';
 
@@ -39,6 +40,7 @@ const Layout = ({ classes, isSidebarOpened }) => (
     <CssBaseline />
     <HashRouter>
       <>
+        <WarningBanner />
         <Header />
         <OverlayWindow />
         <NavBar />
@@ -100,7 +102,7 @@ const styles = (theme) => ({
     // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
     width: 'calc(100%)', // Remove this on adding sidebar
     background: theme.custom.bodyBackGround,
-    marginTop: '189px',
+    marginTop: '356.578px',
   },
   '@global': {
     '*::-webkit-scrollbar': {
