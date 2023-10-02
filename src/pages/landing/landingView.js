@@ -129,7 +129,7 @@ const LandingView = ({ classes, statsData }) => (
                   />
                 </div>
                 <div className={classes.content}>
-                  <a href="mailto:cdshelpdesk@mail.nih.gov" className={classes.mailLink}>
+                  <a href="/#/datasubmit" className={classes.mailLink}>
                     <div className={classes.contentHeader} id="tile3_title">
                       {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
                         <>
@@ -151,12 +151,12 @@ const LandingView = ({ classes, statsData }) => (
                     {' '}
                   </div>
                   <div className={classes.blueButtonRight} id="tile3_button">
-                    <Link
-                      to={landingPageData.tile3.callToActionLink}
+                    <a
+                      href={landingPageData.tile3.callToActionLink}
                       className={classes.blueButton}
                     >
                       {landingPageData.tile3.callToActionText}
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
