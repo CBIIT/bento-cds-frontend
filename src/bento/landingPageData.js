@@ -69,7 +69,7 @@ export const landingPageData = {
     titleText: 'SUBMIT DATA',
     descriptionText: 'To get started with the submission please complete the online questionnaire.',
     callToActionText: 'CDS HELPDESK',
-    callToActionLink: '/datasubmit', // Link to the "Submit" Static Page
+    callToActionLink: 'mailto:cdshelpdesk@mail.nih.gov', // Link to the "Submit" Static Page
   },
   tile4: {
     alt: '',
