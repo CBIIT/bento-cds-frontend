@@ -14,7 +14,7 @@ export default () => ({
     color: '#3d4241',
     marginLeft: '0px',
     '&:hover': {
-      backgroundColor: '#566672',
+      backgroundColor: '#60797B',
       color: 'white',
     },
   },
@@ -56,10 +56,11 @@ export default () => ({
     flexShrink: '0',
     fontFamily: 'Open Sans',
     fontWeight: '600',
-    lineHeight: '0',
+    lineHeight: '1',
     marginLeft: '5px',
     letterSpacing: '0',
     textTransform: 'uppercase',
+    overflowWrap: 'break-word',
   },
   dropDownIconSubSection: {
     marginLeft: '0px',
@@ -102,14 +103,14 @@ export default () => ({
     fontSize: '14px',
     marginRight: '0px',
   },
-  activeFacetCases: {
-    color: '#10a075',
+  activeFacetParticipants: {
+    color: '#0E6292',
   },
   activeFacetSamples: {
-    color: '#10beff',
+    color: '#942A90',
   },
   activeFacetFiles: {
-    color: '#e636e4',
+    color: '#AE5E1B',
   },
   searchContainer: {
     paddingTop: '15px',
@@ -117,12 +118,12 @@ export default () => ({
     marginRight: 6,
   },
   findCaseButton: {
-    marginLeft: '105px',
-    backgroundColor: '#10A075',
+    //marginLeft: '105px',
+    backgroundColor: '#0B4E75',
     boxSizing: 'border-box',
     height: 30,
     width: 40,
-    border: '1.25px solid #0D8461',
+    //border: '1.25px solid #C3E8F7',
     cursor: 'pointer',
     borderRadius: 11,
     display: 'flex',
@@ -141,9 +142,9 @@ export default () => ({
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-    backgroundColor: '#10A075',
+    backgroundColor: '#0B4E75',
     color: '#fff',
-    border: '1px solid #0D8461',
+    border: '1px solid #C3E8F7',
     borderRadius: 10,
     fontFamily: 'Lato',
     fontSize: 11,
@@ -151,7 +152,7 @@ export default () => ({
     paddingLeft: 16,
     paddingRight: 12,
     '&:hover': {
-      backgroundColor: '#10A075',
+      backgroundColor: '#0B4E75',
     },
   },
   iconSpan: {
