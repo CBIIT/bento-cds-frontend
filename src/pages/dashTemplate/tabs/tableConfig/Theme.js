@@ -48,6 +48,11 @@ const tblBody = {
       },
     },
   },
+  MuiLink: {
+    root: {
+      color: '#942A90',
+    }
+  }
 }
 
 export const extendedView = {
