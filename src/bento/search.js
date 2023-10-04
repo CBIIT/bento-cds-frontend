@@ -210,8 +210,6 @@ query globalSearch($input: String, $first: Int, $offset: Int){
 }
 `;
 
-//subject_id
-//tissue type?
 export const SEARCH_PAGE_RESULT_SAMPLES = gql`
 query globalSearch($input: String, $first: Int, $offset: Int){
     globalSearch(

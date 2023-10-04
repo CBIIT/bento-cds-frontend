@@ -4,26 +4,18 @@ import { prepareLinks } from '@bento-core/util';
 import PropertyItem from './PropertyItem';
 
 const CARD_PROPERTIES = [
-  //{
-  //  label: 'Participant ID',
-  //  dataField: 'subject_id',
-  //},
   {
     label: 'Sample ID',
     dataField: 'sample_id',
   },
   {
-    label: 'is tumor',
+    label: 'Sample Tissue Type',
     dataField: 'is_tumor',
   },
   {
     label: 'Analyte Type',
     dataField: 'analyte_type',
   },
-  //{
-  //  label: 'Sample Tissue Type',
-  //  dataField: 'tissue_type',
-  //},
 ];
 
 const SampleCard = ({ data, classes, index }) => {
