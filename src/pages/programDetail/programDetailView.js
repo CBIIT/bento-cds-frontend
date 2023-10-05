@@ -490,7 +490,7 @@ const styles = (theme) => ({
   },
   breadCrumb: {
     backgroundColor: '#FFF',
-    marginLeft: '286px',
+    marginLeft: '85px',
     paddingTop: '19px',
   },
   headerButton: {
