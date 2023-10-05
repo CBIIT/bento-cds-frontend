@@ -744,7 +744,7 @@ export const tabContainers = [
     tableID: 'case_tab_table',
     extendedViewConfig: {
       pagination: true,
-      // manageViewColumns: true,
+      manageViewColumns: true,
     },
     columns: [
       {
