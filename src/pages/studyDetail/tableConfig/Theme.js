@@ -76,6 +76,7 @@ export const tblHeader = {
 export const tblPgn = {
   MuiTablePagination: {
     root: {
+      backgroundColor: '#fff',
       paddingRight: '50px',
       borderTop: '5px solid #e7e5e5',
       borderBottom: '3px solid #e7e5e5',
@@ -176,11 +177,45 @@ export const tblContainer = {
   },
 };
 
+export const extendedView = {
+  tblTopPgn: {
+    MuiTablePagination: {
+      root: {
+        backgroundColor: '#fff',
+        paddingRight: '50px',
+        borderTop: '5px solid #e7e5e5',
+        borderBottom: '3px solid #e7e5e5',
+      },
+      toolbar: {
+        minHeight: '45px',
+      },
+    },
+    MuiTypography: {
+      body2: {
+        fontSize: '10px',
+        fontFamily: 'Open Sans',
+        textTransform: 'uppercase',
+      },
+    },
+    MuiSelect: {
+      root: {
+        fontSize: '10px',
+      },
+    },
+    MuiInputBase: {
+      root: {
+        backgroundColor: '#fff',
+      },
+    },
+  },
+};
+
 export const themeConfig = {
   tblHeader,
   tblPgn,
   tblBody,
   tblContainer,
+  extendedView,
 };
 
 export const wrapperThemConfig = {

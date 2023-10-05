@@ -16,7 +16,7 @@ import clsx from 'clsx';
 import {
   pageTitle, table, externalLinkIcon,
   studyDetailIcon, breadCrumb, aggregateCount,
-  pageSubTitle, leftPanel, rightPanel,
+  pageSubTitle, leftPanel, rightPanel, GET_MY_FILE_OVERVIEW_QUERY
 } from '../../bento/studyDetailData';
 import StatsView from '../../components/Stats/StatsView';
 import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
@@ -28,6 +28,8 @@ import { footerConfig } from './tableConfig/Wrapper';
 const initTblState = (initailState) => ({
     ...initailState,
     title: table.name,
+    query: GET_MY_FILE_OVERVIEW_QUERY,
+    paginationAPIField: table.dataField,
     columns: table.columns,
     selectedRows: [],
     tableMsg: table.tableMsg,
@@ -36,6 +38,9 @@ const initTblState = (initailState) => ({
     rowsPerPage: 10,
     dataKey: table.dataKey,
     page: 0,
+    extendedViewConfig: {
+      pagination: true,
+    },
   })
 
 const StudyView = ({ classes, data, theme }) => {
@@ -360,11 +365,13 @@ const StudyView = ({ classes, data, theme }) => {
                         <Grid item xs={12} id={table.tableID}>
                             <TableView
                                 initState={initTblState}
-                                server={false}
                                 themeConfig={themeConfig}
                                 tblRows={data[table.dataField]}
-                                totalRowCount={data[table.dataField].length}
+                                totalRowCount={studyData.numberOfFiles}
                                 activeTab={true}
+                                queryVariables={{
+                                  phs_accession: studyData.phs_accession,
+                                }}
                             />
                             <Wrapper
                                 wrapConfig={footerConfig}

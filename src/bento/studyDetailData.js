@@ -1,6 +1,16 @@
 import gql from 'graphql-tag';
 import { cellTypes } from '@bento-core/table';
 
+export const tooltipContent = {
+  src: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
+  alt: 'tooltipIcon',
+  arrow: true,
+  placement: 'top-end',
+  sample: 'Click button to add selected files associated with the selected sample(s).',
+  files: 'Click button to add selected files.',
+  study_data: 'Click button to add selected files.',
+};
+
 
 // --------------- Page title configuration --------------
 const pageTitle = {
@@ -81,8 +91,8 @@ const rightPanel = {
 // --------------- Table configuration --------------
 const table = {
   // Set 'display' to false to hide the table entirely
-  name: 'study data',
-  dataKey: 'file_id',
+  name: 'study_data',
+  dataKey: 'file_name',
   display: true,
   // Table title
   title: 'STUDY DATA',
@@ -94,6 +104,9 @@ const table = {
   defaultSortDirection: 'asc',
   // Set 'selectableRows' to true to show the row selection
   selectableRows: true,
+  buttonText: 'Add Selected Files',
+  addFilesRequestVariableKey: 'file_names',
+  addFilesResponseKeys: ['fileIDsFromList'],
   // A maximum of 10 columns are allowed
   columns: [
     {
