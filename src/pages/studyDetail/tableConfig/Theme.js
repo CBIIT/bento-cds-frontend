@@ -239,12 +239,12 @@ export const wrapperThemConfig = {
       borderRadius: '10px',
       textTransform: 'uppercase',
       '&.add_selected_button': {
-        backgroundColor: '#10a075',
+        backgroundColor: '#0b4e75',
       },
       '&.Mui-disabled': {
         color: '#fff',
         '&.add_selected_button': {
-          backgroundColor: '#10a075',
+          backgroundColor: '#0b4e75',
           opacity: '0.3',
         },
       },

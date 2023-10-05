@@ -527,8 +527,11 @@ const styles = (theme) => ({
     boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
   },
   headerButtonLinkSpan: {
-    marginLeft: '16px',
-    marginTop: '10px',
+    marginLeft: '8px',
+    marginTop: '5px',
+    display: 'block',
+    boxSizing: 'border-box',
+    whiteSpace: 'nowrap',
   },
   headerButtonLinkText: {
     fontFamily: theme.custom.fontFamily,
