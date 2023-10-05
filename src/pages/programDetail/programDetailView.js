@@ -532,8 +532,8 @@ const styles = (theme) => ({
   logo: {
     position: 'absolute',
     float: 'left',
-    marginLeft: '-23px',
-    marginTop: '-12px',
+    marginLeft: '-24px',
+    marginTop: '-16px',
     width: '107px',
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },

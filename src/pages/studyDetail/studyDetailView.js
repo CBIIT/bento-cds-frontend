@@ -134,7 +134,7 @@ const StudyView = ({ classes, data, theme }) => {
         <div className={classes.detailContainer}>
 
           <Grid container spacing={5}>
-            <Grid item lg={7} sm={6} xs={12} container>
+            <Grid item lg={7} sm={6} xs={12} container className={classes.outerContainer}>
               <Grid container spacing={4} direction="row" className={classes.detailContainerLeft}>
                 {updatedAttributesData.slice(0, 6).map((attribute, index) => (
                   <Grid item xs={12}>
@@ -242,6 +242,7 @@ const StudyView = ({ classes, data, theme }) => {
               lg={5}
               sm={6}
               xs={12}
+              className = {classes.outerContainer}
             >
               <Grid container spacing={16} direction="row" className={classes.detailContainerRight}>
                 {//Mirror the right panel attributes to the left panel
@@ -458,6 +459,7 @@ const styles = (theme) => ({
     margin: 'auto',
     float: 'left',
     marginLeft: '85px',
+    marginTop: '10px',
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
@@ -587,7 +589,7 @@ const styles = (theme) => ({
   },
   detailContainerLeft: {
     display: 'block',
-    padding: '5px  20px 5px 0px !important',
+    padding: '5px  20px 5px 32px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -597,6 +599,9 @@ const styles = (theme) => ({
   },
   borderRight: {
     borderRight: '#81a6b9 1px solid',
+  },
+  outerContainer: {
+    padding: '3px 20px 20px 20px !important',
   },
   detailContainerRight: {
     display: 'block',
@@ -676,7 +681,7 @@ const styles = (theme) => ({
     fontFamily: 'Lato',
     fontSize: '17px',
     letterSpacing: '0.025em',
-    color: '#0296c9',
+    color: '#AE6CAB',
     paddingBottom: '20px',
   },
   fileContainer: {
