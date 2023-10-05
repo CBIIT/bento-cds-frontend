@@ -5,7 +5,7 @@ import { Anchor } from '@bento-core/util';
 const AboutCard = ({
   searchText, data, classes, index,
 }) => {
-  const results = data.text.map((result) => result.replaceAll('$', ''));
+  const results = [data.text.replaceAll('$', '')];
 
   function getHighlightedText(text, highlight) {
     // Split on highlight term and include term into parts, ignore case
