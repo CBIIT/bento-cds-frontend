@@ -63,6 +63,21 @@ const { SearchBox } = SearchBoxGenerator({
       }
     },
   },
+  config: {
+    inputPlaceholder: 'e.g. CDS-CASE-101022, CDS-CASE-101025',
+    noOptionsText: 'No matching items found',
+    searchType: 'subjectIds',
+  },
+});
+
+const customStyles = (theme) => ({/*
+  modalContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingRight: 33,
+    paddingLeft: 33,
+    backgroundColor: '#FFF123',
+  },*/
 });
 
 // Generate UploadModal Component
@@ -86,6 +101,20 @@ const { UploadModal } = UploadModalGenerator({
       }
     },
   },
+  config: {
+    title: 'Upload Participant Set',
+    inputPlaceholder: 'e.g. CDS-CASE-101022, CDS-CASE-101025',
+    inputTooltip: 'Enter valid Participant IDs.',
+    uploadTooltip: 'Select a file from your computer.',
+    accept: '.csv,.txt',
+    maxSearchTerms: 1000,
+    matchedId: 'subject_id',
+    matchedLabel : 'Submitted Participant ID',
+    associateId: 'phs_accession',
+    associateLabel: 'Associated Study',
+    projectName: 'CDS',
+  },
+  customStyles,
 });
 
 const BentoFacetFilter = ({
@@ -151,6 +180,10 @@ const BentoFacetFilter = ({
       setExpanded(!expanded);
     };
 
+    let searchConfig = {
+      title: 'Participants',
+    }
+
     return (
       <>
         <CustomExpansionPanelSummary onClick={collapseHandler} id={section}>
@@ -168,6 +201,7 @@ const BentoFacetFilter = ({
               SearchBox={SearchBox}
               UploadModal={UploadModal}
               hidden={!expanded || !showSearch}
+              config = {searchConfig}
             />
           )}
         </CustomExpansionPanelSummary>

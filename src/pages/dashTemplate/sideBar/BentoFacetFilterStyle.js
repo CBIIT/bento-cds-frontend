@@ -147,9 +147,9 @@ export default () => ({
     border: '1px solid #C3E8F7',
     borderRadius: 10,
     fontFamily: 'Lato',
-    fontSize: 11,
+    fontSize: 11.5,
     boxShadow: 'none',
-    paddingLeft: 16,
+    paddingLeft: 10,
     paddingRight: 12,
     '&:hover': {
       backgroundColor: '#0B4E75',
@@ -171,5 +171,68 @@ export default () => ({
     marginLeft: 0,
     marginRight: 0,
     marginBottom: 6,
+  },
+  paper: {
+    border: '1.25px solid #29ABE2',
+    backgroundColor: '#717171',
+    color: '#fff',
+    borderRadius: 10,
+    fontFamily: 'Lato',
+    fontSize: 12,
+    fontWeight: 500,
+    boxShadow: '0 0 0 2px rgba(41, 171, 226,0.36)',
+    '& ::-webkit-scrollbar': {
+      width: '0.6em',
+      height: '1em',
+    },
+    '& ::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'none',
+      borderRadius: '0px',
+      backgroundColor: 'transparent',
+    },
+    '& ::-webkit-scrollbar-thumb': {
+      backgroundColor: '#000',
+      borderRadius: '0px',
+    },
+  },
+  listbox: {
+    height: 223,
+    paddingTop: '0px',
+    '& li': {
+      borderBottom: '1px solid #fff',
+      '&:nth-last-child(1)': {
+        borderBottom: 'none'
+      }
+    },
+    '& :hover': {
+      color: 'white',
+      backgroundColor: '#29ABE2;'
+    }
+  },
+  searchResultDetailText: {
+    color: '#5E3F14',
+    lineHeight: '20px',
+    fontFamily: 'Open Sans',
+    fontSize: '11px',
+  },
+  inputRoot: {
+    borderRadius: 10,
+    height: 32,
+    color: '#555555',
+    fontFamily: 'Lato',
+    fontSize: 11,
+    paddingLeft: 12,
+    paddingRight: 35,
+    backgroundColor: '#fff',
+    '& input': {
+      height: '7px',
+      fontSize: 10,
+      paddingLeft: '12px !important',
+      fontFamily: 'Nunito',
+    },
+    '& fieldset': {
+      borderWidth: '2px !important',
+      borderColor: '#29ABE2 !important',
+    },
   },
 });
