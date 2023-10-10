@@ -34,6 +34,10 @@ export default {
           link: 'https://datacommons.cancer.gov/',
         },
         {
+          text: 'CDS Data Model',
+          link: 'https://github.com/CBIIT/cds-model',
+        },
+        {
           text: 'How to Submit Data',
           link: '/submit',
         },
@@ -41,18 +45,25 @@ export default {
     },
     {
       title: 'Resources',
+      systemInfoInLinkSection: true,
       items: [
         {
-          text: 'CDS Data Model',
-          link: 'https://github.com/CBIIT/cds-model',
+          text: 'Bento',
+          link: '/bento',
         },
         {
           text: 'GraphQL',
           link: '/graphql',
         },
         {
-          text: 'Bento',
-          link: '/bento',
+          text: `FE Version: ${env.REACT_APP_FE_VERSION || '0.0.0'}`,
+        },
+        {
+          text: 'BE Version: 0.0.0',
+        },
+        {
+          text: 'System Infomation Page',
+          link: '/sysinfo',
         },
       ],
     },
