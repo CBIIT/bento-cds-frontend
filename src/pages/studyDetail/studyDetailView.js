@@ -8,58 +8,53 @@ import {
   manipulateLinks
 } from '@bento-core/util';
 import { 
-  TableContextProvider,
-  TableView,
-} from '@bento-core/paginated-table';
+    TableContextProvider,
+    TableView,
+    Wrapper
+  } from '@bento-core/paginated-table';
 import clsx from 'clsx';
 import {
   pageTitle, table, externalLinkIcon,
-  programDetailIcon, breadCrumb, aggregateCount,
-  pageSubTitle, leftPanel, rightPanel,
-} from '../../bento/programDetailData';
+  studyDetailIcon, breadCrumb, aggregateCount,
+  pageSubTitle, leftPanel, rightPanel, GET_MY_FILE_OVERVIEW_QUERY
+} from '../../bento/studyDetailData';
 import StatsView from '../../components/Stats/StatsView';
-import { Typography } from '../../components/Wrappers/Wrappers';
 import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
-import colors from '../../utils/colors';
-import { WidgetGenerator } from '@bento-core/widgets';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
-import { themeConfig } from './tableConfig/Theme';
+import { themeConfig, wrapperThemConfig } from './tableConfig/Theme';
+import { footerConfig } from './tableConfig/Wrapper';
+
 
 const initTblState = (initailState) => ({
-  ...initailState,
-  title: table.name,
-  columns: table.columns,
-  selectedRows: [],
-  tableMsg: table.tableMsg,
-  sortBy: table.defaultSortField,
-  sortOrder: table.defaultSortDirection,
-  rowsPerPage: 10,
-  dataKey: table.dataKey,
-  page: 0,
-})
-
-const ProgramView = ({ classes, data, theme }) => {
-  const programData = data.programDetail;
-
-  const widgetGeneratorConfig = {
-    theme,
-    DonutConfig: {
-      colors,
-      styles: {
-        cellPadding: 0,
-        textOverflowLength: 20,
-      },
+    ...initailState,
+    title: table.name,
+    query: GET_MY_FILE_OVERVIEW_QUERY,
+    paginationAPIField: table.dataField,
+    columns: table.columns,
+    selectedRows: [],
+    tableMsg: table.tableMsg,
+    sortBy: table.defaultSortField,
+    sortOrder: table.defaultSortDirection,
+    rowsPerPage: 10,
+    dataKey: table.dataKey,
+    page: 0,
+    extendedViewConfig: {
+      pagination: true,
     },
-  };
+  })
 
-  const { Widget } = WidgetGenerator(widgetGeneratorConfig);
+const StudyView = ({ classes, data, theme }) => {
+  const studyData = data.studyDetail;
 
+
+  
   const stat = {
     numberOfPrograms: 1,
-    numberOfStudies: programData.num_studies !== undefined ? programData.num_studies : 'undefined',
-    numberOfSubjects: programData.num_participants !== undefined ? programData.num_participants : 'undefined',
-    numberOfSamples: programData.num_samples !== undefined ? programData.num_samples : 'undefined',
-    numberOfFiles: programData.num_files !== undefined ? programData.num_files : 'undefined',
+    numberOfStudies: 1,
+    numberOfSubjects: studyData.numberOfSubjects !== undefined ? studyData.numberOfSubjects : 'undefined',
+    numberOfSamples: studyData.numberOfSamples !== undefined ? studyData.numberOfSamples : 'undefined',
+    numberOfDiseaseSites: studyData.numberOfDiseaseSites !== undefined ? studyData.numberOfDiseaseSites : 'undefined',
+    numberOfFiles: studyData.numberOfFiles !== undefined ? studyData.numberOfFiles : 'undefined',
   };
 
   const breadCrumbJson = [
@@ -74,12 +69,14 @@ const ProgramView = ({ classes, data, theme }) => {
       isALink: true,
     },
     {
-      name: programData.program,
+      name: studyData.phs_accession,
       isALink: false,
     },
   ];
 
   const updatedAttributesData = manipulateLinks(leftPanel.attributes);
+  const updatedAttributesDataRight = manipulateLinks(rightPanel.attributes);
+
 
   return (
     <>
@@ -91,58 +88,58 @@ const ProgramView = ({ classes, data, theme }) => {
         <div className={classes.header}>
           <div className={classes.logo}>
             <img
-              src={programDetailIcon.src}
-              alt={programDetailIcon.alt}
+              src={studyDetailIcon.src}
+              alt={studyDetailIcon.alt}
             />
 
           </div>
           <div className={classes.headerTitle}>
-            <div className={classes.headerMainTitle} id="program_detail_title">
+            <div className={classes.headerMainTitle} id="study_detail_title">
               <span>
                 {' '}
                 {pageTitle.label}
                 <span>
                   {' '}
                   {' '}
-                  {programData[pageTitle.dataField]}
+                  {studyData[pageTitle.dataField]}
                 </span>
               </span>
             </div>
             <div className={clsx(classes.headerMSubTitle, classes.headerSubTitleCate)}>
-              <span id="program_detail_subtile">
+              <span id="study_detail_subtile">
                 {' '}
-                {programData[pageSubTitle.dataField]}
+                {studyData[pageSubTitle.dataField]}
               </span>
 
             </div>
           </div>
 
           {aggregateCount.display ? (
-            <div className={classes.headerButton}>
-              <span className={classes.headerButtonLinkSpan}>
-                <Link
-                  className={classes.headerButtonLink}
-                  to={(location) => ({ ...location, pathname: `${aggregateCount.link}` })}
-                  onClick={()=>onClearAllAndSelectFacetValue('programs', programData.program_acronym)}
-                >
-                  {' '}
-                  <span className={classes.headerButtonLinkText}>{aggregateCount.labelText}</span>
-                  <span className={classes.headerButtonColumn}>{': '}</span>
-                  <span className={classes.headerButtonLinkNumber} id="program_detail_header_file_count">
+                <div className={classes.headerButton}>
+                <span className={classes.headerButtonLinkSpan}>
+                    <Link
+                    className={classes.headerButtonLink}
+                    to={(location) => ({ ...location, pathname: `${aggregateCount.link}` })}
+                    onClick={()=>onClearAllAndSelectFacetValue('studies', studyData.study_name)}
+                    >
+                    {' '}
+                    <span className={classes.headerButtonLinkText}>{aggregateCount.labelText}</span>
+                    <span className={classes.headerButtonColumn}>{': '}</span>
+                    <span className={classes.headerButtonLinkNumber} id="study_detail_header_file_count">
 
-                    {programData[aggregateCount.dataField]}
+                        {studyData[aggregateCount.dataField]}
 
-                  </span>
-                </Link>
-              </span>
-            </div>
+                    </span>
+                    </Link>
+                </span>
+                </div>
           ) : ''}
         </div>
 
         <div className={classes.detailContainer}>
 
           <Grid container spacing={5}>
-            <Grid item lg={7} sm={6} xs={12} container>
+            <Grid item lg={7} sm={6} xs={12} container className={classes.outerContainer}>
               <Grid container spacing={4} direction="row" className={classes.detailContainerLeft}>
                 {updatedAttributesData.slice(0, 6).map((attribute, index) => (
                   <Grid item xs={12}>
@@ -157,9 +154,9 @@ const ProgramView = ({ classes, data, theme }) => {
                                 {' '}
                                 <Link
                                   className={classes.link}
-                                  to={`${attribute.actualLink}${programData[updatedAttributesData[attribute.actualLinkId].dataField]}`}
+                                  to={`${attribute.actualLink}${studyData[updatedAttributesData[attribute.actualLinkId].dataField]}`}
                                 >
-                                  {programData[attribute.dataField]}
+                                  {studyData[attribute.dataField]}
                                 </Link>
                                 {' '}
                               </span>
@@ -178,12 +175,12 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <span className={classes.content}>
                                   {' '}
                                   <a
-                                    href={`${attribute.actualLink}`}
+                                    href={`${attribute.actualLink}${studyData[updatedAttributesData[attribute.actualLinkId].dataField]}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={classes.link}
                                   >
-                                    {programData[attribute.dataField]}
+                                    {studyData[attribute.dataField]}
                                   </a>
                                   <img
                                     src={externalLinkIcon.src}
@@ -201,7 +198,7 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <span
                                   className={classes.detailContainerHeaderLink}
                                 >
-                                  <a href={`${programData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</a>
+                                  <a href={`${studyData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</a>
                                 </span>
                               </div>
                             )
@@ -211,7 +208,7 @@ const ProgramView = ({ classes, data, theme }) => {
                                   <span
                                     className={classes.detailContainerHeaderLink}
                                   >
-                                    <a href={`${programData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</a>
+                                    <a href={`${studyData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</a>
                                     <img
                                       src={externalLinkIcon.src}
                                       alt={externalLinkIcon.alt}
@@ -224,14 +221,14 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <div>
                                   <span
                                     className={classes.detailContainerHeader}
-                                    id={`program_detail_left_section_title_${index + 1}`}
+                                    id={`study_detail_left_section_title_${index + 1}`}
                                   >
                                     {attribute.label}
                                   </span>
                                   <div>
-                                    <span className={classes.content} id={`program_detail_left_section_description_${index + 1}`}>
+                                    <span className={classes.content} id={`study_detail_left_section_description_${index + 1}`}>
                                       {' '}
-                                      {programData[attribute.dataField]}
+                                      {studyData[attribute.dataField]}
                                       {' '}
                                     </span>
                                   </div>
@@ -244,90 +241,111 @@ const ProgramView = ({ classes, data, theme }) => {
 
               </Grid>
             </Grid>
-
+            
             <Grid
               item
               lg={5}
               sm={6}
               xs={12}
+              className = {classes.outerContainer}
             >
               <Grid container spacing={16} direction="row" className={classes.detailContainerRight}>
-                { rightPanel.widget[0].display ? (
-                  <Grid
-                    item
-                    xs={12}
-                    className={classes.marginTopN37}
-                  >
-                    <Widget
-                      header={(
-                        <Typography
-                          colorBrightness="main"
-                          size="md"
-                          weight="normal"
-                          family="Nunito"
-                          color={theme.palette.dodgeBlue.main}
-                          className={classes.widgetTitle}
-                        >
-                          {rightPanel.widget[0].label}
-                        </Typography>
-                      )}
-                      bodyClass={classes.fullHeightBody}
-                      className={classes.card}
-                      customBackGround
-                      noPaddedTitle
-                      data={programData[rightPanel.widget[0].dataField] || []}
-                      chartType="donut"
-                      chartTitleLocation="bottom"
-                      chartTitleAlignment="center"
-                    />
-                  </Grid>
-                ) : ''}
+                {//Mirror the right panel attributes to the left panel
+                }
+                {updatedAttributesDataRight.slice(0, 6).map((attribute, index) => (
+                    <Grid item xs={12} className={classes.rightAttributes}>
+                        <div>
+                            {
+                                attribute.internalLink
+                                    ? (
+                                        <div>
+                                            <span className={classes.detailContainerHeader}>{attribute.label}</span> 
+                                            <div>
+                                                <span className={classes.content}>
+                                                    {' '}
+                                                    <Link
+                                                        className={classes.link}
+                                                        to={`${attribute.actualLink}${studyData[updatedAttributesDataRight[attribute.actualLinkId].dataField]}`}
+                                                    >
+                                                        {studyData[attribute.dataField]}
+                                                    </Link>
+                                                    {' '}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    )
+                                : attribute.externalLink
+                                    ? (
+                                        <div>
+                                          <span
+                                            className={classes.detailContainerHeader}
+                                          >
+                                            {attribute.label}
+                                          </span>
+                                          <div>
+                                            <span className={classes.content}>
+                                              {' '}
+                                              <a
+                                                href={`${attribute.actualLink}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={classes.link}
+                                              >
+                                                {studyData[attribute.dataField]}
+                                              </a>
+                                              {' '}
+                                            </span>
+                                          </div>
+                                        </div>
+                                      )
+                                : attribute.internalLinkToLabel
+                                    ? (
+                                        <div>
+                                            <span
+                                                className={classes.detailContainerHeaderLink}
+                                            >
+                                                <a href={`${studyData[attribute.dataField]}`} rel="noopener noreferrer">{attribute.label}</a>
+                                            </span>
+                                        </div>
+                                    )
+                                : attribute.externalLinkToLabel
+                                    ? (
+                                        <div>
+                                            <span
+                                                className={classes.detailContainerHeaderLink}
+                                            >
+                                                <a href={`${studyData[attribute.dataField]}`} target="_blank" rel="noopener noreferrer">{attribute.label}</a>
+                                                <img
+                                                    src={externalLinkIcon.src}
+                                                    alt={externalLinkIcon.alt}
+                                                    className={classes.externalLinkIcon}
+                                                />
+                                            </span>
+                                        </div>
+                                    )
+                                : (
+                                    <div>
+                                        <span
+                                            className={classes.detailContainerHeader}
+                                            id={`study_detail_right_section_title_${index + 1}`}
+                                        >   
+                                            {attribute.label}
+                                        </span>
+                                        <div>
+                                            <span className={classes.content} id={`study_detail_right_section_description_${index + 1}`}>
+                                                {' '}
+                                                {studyData[attribute.dataField]}
+                                                {' '}
+                                            </span>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </Grid>
+                ))}
 
-                { rightPanel.participants[0].display ? (
-                  <Grid item xs={12}>
-                    <div className={classes.fileContainer}>
-                      <span
-                        className={classes.detailContainerHeader}
-                      >
-                        {rightPanel.participants[0].label}
-                      </span>
-                      <div className={classes.fileContent}>
-                        <div className={classes.fileIcon}>
-                          <img
-                            src={rightPanel.participants[0].fileIconSrc}
-                            alt={rightPanel.participants[0].fileIconAlt}
-                          />
-                        </div>
-                        <div className={classes.participantsCount} id="program_detail_participants_count">
-                          {programData[rightPanel.participants[0].dataField]}
-                        </div>
-                      </div>
-                    </div>
-                  </Grid>
-                ) : ''}
 
-                { rightPanel.files[0].display ? (
-                  <Grid item xs={12}>
-                    <div className={classes.fileContainer}>
-                      <span
-                        className={classes.detailContainerHeader}
-                      >
-                        {rightPanel.files[0].label}
-                      </span>
-                      <div className={classes.fileContent}>
-                        <div className={classes.fileIcon}>
-                          <img
-                            src={rightPanel.files[0].fileIconSrc}
-                            alt={rightPanel.files[0].fileIconAlt}
-                          />
-                        </div>
-                        <div className={classes.fileCount} id="program_detail_file_count">
-                          {programData[rightPanel.files[0].dataField]}
-                        </div>
-                      </div>
-                    </div>
-                  </Grid>
-                ) : ''}
               </Grid>
             </Grid>
 
@@ -335,29 +353,38 @@ const ProgramView = ({ classes, data, theme }) => {
         </div>
       </div>
       { table.display ? (
-        <div id="table_program_detail" className={classes.tableContainer}>
+        <div id="table_study_detail" className={classes.tableContainer}>
+
           <div className={classes.tableDiv}>
             <div className={classes.tableTitle}>
               <span className={classes.tableHeader}>{table.title}</span>
             </div>
             <TableContextProvider>
-              <Grid item xs={12}>
-                <Grid container spacing={8}>
-                  <Grid item xs={12} id={table.tableID}>
-                    <TableView
-                        initState={initTblState}
-                        server={false}
-                        themeConfig={themeConfig}
-                        tblRows={data[table.queryKey][table.dataField]}
-                        totalRowCount={data[table.queryKey][table.dataField].length}
-                        activeTab={true}
-                      />
-                  </Grid>
+                <Grid item xs={12}>
+                    <Grid container spacing={8}>
+                        <Grid item xs={12} id={table.tableID}>
+                            <TableView
+                                initState={initTblState}
+                                themeConfig={themeConfig}
+                                tblRows={data[table.dataField]}
+                                totalRowCount={studyData.numberOfFiles}
+                                activeTab={true}
+                                queryVariables={{
+                                  phs_accession: studyData.phs_accession,
+                                }}
+                            />
+                            <Wrapper
+                                wrapConfig={footerConfig}
+                                customTheme={wrapperThemConfig}
+                                classes={classes}
+                                section={table.name}
+                            />
+                        </Grid>
+                    </Grid>
                 </Grid>
-              </Grid>
             </TableContextProvider>
           </div>
-        </div>
+            </div> 
       ) : ''}
     </>
   );
@@ -386,12 +413,10 @@ const styles = (theme) => ({
     paddingLeft: '25px !important',
   },
   link: {
+    color: '#DC762F',
     textDecoration: 'none',
-    fontWeight: 'bold',
-    color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
-      textUnderlineOffset: '2.5px',
     },
   },
   paddingLeft8: {
@@ -409,8 +434,8 @@ const styles = (theme) => ({
     paddingBottom: '16px',
   },
   content: {
-    fontSize: '15px',
-    fontFamily: 'Nunito',
+    fontSize: '14px',
+    fontFamily: theme.custom.fontFamily,
     lineHeight: '14px',
   },
   warning: {
@@ -432,7 +457,7 @@ const styles = (theme) => ({
   header: {
     paddingLeft: '21px',
     paddingRight: '35px',
-    borderBottom: '#9FD8F0 10px solid',
+    borderBottom: '#F0BDEE 10px solid',
     height: '80px',
     maxWidth: '1340px',
     margin: 'auto',
@@ -440,8 +465,8 @@ const styles = (theme) => ({
   headerTitle: {
     margin: 'auto',
     float: 'left',
-    marginLeft: '90px',
-    marginTop: '12px',
+    marginLeft: '85px',
+    marginTop: '10px',
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
@@ -454,27 +479,27 @@ const styles = (theme) => ({
       fontWeight: 'bold',
       letterSpacing: '0.025em',
     },
-    fontFamily: 'Inter',
+    fontFamily: 'Lato',
     letterSpacing: '0.025em',
-    color: '#0E6292 ',
+    color: '#B431B0 ',
     fontSize: '26px',
     lineHeight: '24px',
     paddingLeft: '0px',
 
   },
   headerSubTitleCate: {
-    color: '#0B4E75',
+    color: '#00B0BD',
     fontWeight: '300',
-    fontFamily: 'Nunito',
+    fontFamily: 'Poppins',
     textTransform: 'uppercase',
     letterSpacing: '0.023em',
-    fontSize: '16px',
+    fontSize: '15px',
     overflow: 'hidden',
     lineHeight: '24px',
     paddingLeft: '2px',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    // paddingRight: '200px',
+    paddingRight: '200px',
   },
   headerSubTitleContent: {
     color: '#000000',
@@ -494,74 +519,78 @@ const styles = (theme) => ({
     paddingTop: '19px',
   },
   headerButton: {
-    fontFamily: theme.custom.fontFamily,
     float: 'right',
-    marginTop: '15px',
-    width: '182px',
-    height: '33px',
-    background: '#F6F4F4',
-    textAlign: 'center',
-    marginRight: '-20px',
-
+    width: '180px',
+    height: '39px',
+    marginTop: '20px',
+    background: '#FFF',
+    boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
   },
   headerButtonLinkSpan: {
-    fontFamily: theme.custom.fontFamily,
-    height: '50px',
-    background: '#F5F3EE',
-    width: '200px',
-    fontSize: '8pt',
+    marginLeft: '8px',
+    marginTop: '5px',
+    display: 'block',
+    boxSizing: 'border-box',
+    whiteSpace: 'nowrap',
   },
   headerButtonLinkText: {
     fontFamily: theme.custom.fontFamily,
-    color: '#7747FF',
-    fontSize: '8pt',
+    color: '#0E6292',
+    fontSize: '10px',
     textTransform: 'uppercase',
+    paddingRight: '2px',
+    paddingLeft: '4px',
+    fontWeight: 600,
+    letterSpacing: '0px',
   },
   headerButtonColumn: {
     color: '#000000',
   },
   headerButtonLinkNumber: {
-    color: '#000000',
     fontFamily: theme.custom.fontFamily,
-    borderBottom: 'solid #6690AC',
+    borderBottom: 'solid #900F89 3px',
+    color: '#900F89',
     lineHeight: '30px',
-    paddingBottom: '3px',
+    paddingBottom: '2px',
     margin: '0 4px',
-    fontSize: '8pt',
+    fontSize: '14px',
+    letterSpacing: '1px',
+    fontWeight: 'bold',
   },
   logo: {
     position: 'absolute',
     float: 'left',
-    marginLeft: '-24px',
-    marginTop: '-16px',
+    marginLeft: '-23px',
+    marginTop: '-21px',
     width: '107px',
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   detailContainer: {
     maxWidth: '1340px',
     margin: 'auto',
-    paddingTop: '8px',
+    marginBlockEnd: '24px',
+    paddingTop: '24px',
     paddingLeft: '5px',
     fontFamily: theme.custom.fontFamily,
     letterSpacing: '0.014em',
     color: '#000000',
     size: '12px',
     lineHeight: '23px',
-    height: '516px',
+    height: '525px',
 
   },
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Inter',
+    fontFamily: 'Lato',
     fontSize: '17px',
     letterSpacing: '0.025em',
-    color: '#0296C9',
+    color: '#AE6CAB',
   },
   detailContainerHeaderLink: {
-    fontFamily: 'Lato',
+    fontFamily: 'Raleway',
     fontSize: '14px',
     letterSpacing: '0.025em',
-    color: '#900F89',
+    color: '#0077E3',
   },
   detailContainerBottom: {
     borderTop: '#81a6b9 1px solid',
@@ -581,8 +610,12 @@ const styles = (theme) => ({
   borderRight: {
     borderRight: '#81a6b9 1px solid',
   },
+  outerContainer: {
+    padding: '3px 20px 20px 20px !important',
+  },
   detailContainerRight: {
-    padding: '5px 36px 5px 36px !important',
+    display: 'block',
+    padding: '5px  5px 36px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -593,12 +626,15 @@ const styles = (theme) => ({
     borderRight: '1px solid #81A6BA',
     marginLeft: '-26px',
   },
+  rightAttributes: {
+    padding: '16px',
+  },        
 
   tableContainer: {
     background: '#f3f3f3',
   },
   tableHeader: {
-    paddingLeft: '0px',
+    paddingLeft: '30px',
   },
   paddingTop12: {
     paddingTop: '12px',
@@ -652,51 +688,39 @@ const styles = (theme) => ({
   },
   tableTitle: {
     textTransform: 'uppercase',
-    fontFamily: 'Inter',
+    fontFamily: 'Lato',
     fontSize: '17px',
     letterSpacing: '0.025em',
-    color: '#0296c9',
+    color: '#AE6CAB',
     paddingBottom: '20px',
   },
   fileContainer: {
-    paddingTop: '15px',
+    paddingTop: '4px',
   },
   fileContent: {
     backgroundColor: '#F3F3F3',
     borderRadius: '50%',
     height: '162px',
     width: '162px',
+    paddingLeft: '48px',
     marginLeft: '36%',
     marginTop: '25px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   fileIcon: {
     '& img': {
-      width: '40%',
-      padding: '0px 0px 0px 0px',
-      margin: '0px 0px 0px 49px',
+      width: '163%',
+      padding: '21px 120px 0px 0px',
     },
-  },
-  participantsCount: {
-    lineHeight: '31.7px',
-    fontSize: '30px',
-    color: '#0B7562',
-    fontWeight: '600',
-    borderBottom: '#0B7562 solid 4px',
-    fontFamily: 'Oswald',
-    width: 'max-content',
   },
   fileCount: {
     lineHeight: '31.7px',
     fontSize: '30px',
-    color: '#D86B01',
+    color: '#7A297D',
     fontWeight: '600',
-    borderBottom: '#D86B01 solid 4px',
+    borderBottom: '#7A297D solid 5px',
     fontFamily: 'Oswald',
     width: 'max-content',
+    padding: '15px 0px 12px 0px',
   },
   paddingTop32: {
     paddingTop: '36px !important',
@@ -727,4 +751,4 @@ const styles = (theme) => ({
   },
 });
 
-export default withStyles(styles, { withTheme: true })(ProgramView);
+export default withStyles(styles, { withTheme: true })(StudyView);
