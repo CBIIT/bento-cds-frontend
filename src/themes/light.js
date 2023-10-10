@@ -21,7 +21,7 @@ const lightenRate = 7.5;
 const darkenRate = 15;
 const tableHeaderBorder = '#42779A 3px solid';
 const tableHeaderFontColor = '#13344A';
-const tableFontFamily = "'Lato Regular','Raleway', sans-serif";
+const tableFontFamily = "'Nunito','Lato Regular','Raleway', sans-serif";
 const white = '#FFFFFF';
 
 export default {
@@ -30,6 +30,7 @@ export default {
     maxContent: 'white',
     bodyBackGround: 'white',
     cardBackGround: '#f0f6f8',
+    fontFamilyInter: 'Inter',
     fontFamilySans: '"Open Sans", sans-serif',
     footorBackground: '#325068',
     fontFamily: 'Lato,"Open Sans", sans-serif',
@@ -221,7 +222,7 @@ export default {
       primary: '#4A4A4A',
       secondary: '#6E6E6E',
       hint: '#B9B9B9',
-      link: '#0083c6',
+      link: '#1669aa',
       footerText: 'white',
     },
     background: {
@@ -335,14 +336,18 @@ export default {
         color: tableHeaderFontColor,
         backgroundColor: tableHeader,
         textDecoration: 'underline',
+        textUnderlineOffset: '2.5px',
         fontFamily: tableFontFamily,
-        letterSpacing: '0.06em',
+        letterSpacing: '0.02em',
         fontStyle: 'normal',
-        fontSize: '11pt',
+        fontSize: '14px',
         fontWeight: 'bold',
         paddingLeft: '20px',
         '&:first-child': {
-          paddingLeft: '30px',
+          paddingLeft: '20px',
+        },
+        '&:last-child': {
+          paddingRight: '20px',
         },
       },
       sortActive: {
@@ -370,7 +375,7 @@ export default {
           color: '#004C73',
         },
         '&:nth-child(even) td': {
-          background: '#f5f5f5',
+          background: '#ebebeb',
         },
         '&:nth-child(odd)': {
           color: '#004C73 !important',
@@ -390,7 +395,7 @@ export default {
     MuiTableRow: {
       head: {
         height: 40,
-        borderBottom: '3px solid #42779A',
+        // borderBottom: '3px solid #42779A',
       },
       root: {
         height: 40,
@@ -412,6 +417,8 @@ export default {
         fontFamily: 'Nunito',
         fontWeight: 'normal',
         paddingLeft: '20px',
+        maxWidth: '150px',
+        overflowWrap: 'break-word',
       },
       head: {
         fontSize: '0.95rem',
@@ -484,7 +491,7 @@ export default {
         fontSize: '10px',
       },
       actions: {
-        marginRight: '39px',
+        marginRight: '8px',
       },
     },
     MuiSwitch: {
@@ -500,7 +507,7 @@ export default {
     MUIDataTableBodyCell: {
       stackedParent: {
         '&:first-child': {
-          paddingLeft: '30px',
+          paddingLeft: '20px',
         },
       },
     },

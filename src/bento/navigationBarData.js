@@ -122,6 +122,15 @@ export const navBarData = [
   },
 ];
 
+export const externalLinks = {
+  about: [
+    {
+      title: 'CDS Software Release Notes',
+      link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+    },
+  ],
+};
+
 export const navBarCartData = {
   cartLabel: '',
   cartLink: '/fileCentricCart',

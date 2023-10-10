@@ -1,8 +1,11 @@
 export default () => ({
+  marginTopNegative:{
+    marginTop: '-55px',
+    paddingTop: '51px',
+  },
   myFilesWrapper: {
-    border: '#03A383 4px solid',
+    border: '#dc762f 3px solid',
     borderRadius: '35px',
-    marginTop: '200px',
     marginBottom: '80px',
     marginLeft: '3%',
     marginRight: '3%',
@@ -12,6 +15,6 @@ export default () => ({
     paddingLeft: '3%',
   },
   customTooltip: {
-    border: '#03A383 1px solid',
+    border: '#dc762f 1px solid',
   },
 });

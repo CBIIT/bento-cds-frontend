@@ -1,7 +1,9 @@
+import React from "react";
 import gql from 'graphql-tag';
 import { cellTypes, dataFormatTypes } from '@bento-core/table';
 import { types, btnTypes } from '@bento-core/paginated-table';
 import { customMyFilesTabDownloadCSV } from './tableDownloadCSV';
+import CartMessage from '../pages/cart/customComponent/cartMessage';
 
 export const navBarCartData = {
   cartLabel: 'Cart',
@@ -42,7 +44,7 @@ export const myFilesPageData = {
         {
           clsName: 'cart_icon',
           type: types.ICON,
-          src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Icon-Cart-Workflow.svg',
+          src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/cartIcon.png',
           alt: 'Bento MyFiles header logo',
         },
         {
@@ -76,6 +78,16 @@ export const myFilesPageData = {
     paginatedTable: true,
   },
   {
+    container: 'cart_message',
+    size: 'xl',
+    clsName: 'cart_message_outer',
+    items: [
+      {
+        type: types.CUSTOM_ELEM,
+        customViewElem: ()=><CartMessage/>, 
+      }],
+  },
+  {
     container: 'buttons',
     size: 'xl',
     clsName: 'container_footer',
@@ -83,32 +95,61 @@ export const myFilesPageData = {
       {
         clsName: 'manifest_comments',
         type: types.TEXT_INPUT,
-        placeholder: 'Please add a description for the CSV file you are about to download.',
+        placeholder: 'Optional: Please add a description for the CSV file you are about to download.',
       }],
   }]
 };
 
 
 export const manifestData = {
-  keysToInclude: ['study_code', 'subject_id', 'file_name', 'file_id', 'md5sum'],
-  header: ['Study Code', 'Case ID', 'File Name', 'File ID', 'Md5sum', 'User Comments'],
+  keysToInclude: ['subject_id', 'file_name', 'file_id', 'md5sum'],
+  header: ['Participant ID', 'File Name', 'File ID', 'Md5sum', 'User Comments'],
 };
 
 // --------------- GraphQL query - Retrieve selected cases info --------------
 export const GET_MY_CART_DATA_QUERY = gql`
-query filesInList($file_ids: [String], $offset: Int = 0, $first: Int = 10, $order_by:String ="file_name", $sort_direction:String="asc") {
-    filesInList(file_ids: $file_ids, offset: $offset,first: $first, order_by: $order_by, sort_direction: $sort_direction) {
-        study_code
-        subject_id
-        file_name
-        file_type
-        association
-        file_description
-        file_format
-        file_size
-        file_id
-        md5sum
-    }
+query fileOverview(
+  $subject_ids: [String],
+  $sample_ids: [String],
+  $file_ids: [String],
+  $studies: [String],
+  $file_types: [String],
+  $genders: [String],
+  $experimental_strategies: [String],
+  $is_tumor: [String],
+  $accesses: [String],
+  $first: Int, 
+  $offset: Int, 
+  $order_by:  String
+  $sort_direction: String 
+){
+  filesInList: fileOverview(
+  subject_ids: $subject_ids,
+  sample_ids: $sample_ids,
+  file_ids: $file_ids
+  studies: $studies,
+  file_types: $file_types,
+  genders: $genders,
+  experimental_strategies: $experimental_strategies,
+  is_tumor: $is_tumor,
+  accesses: $accesses,
+  first: $first, 
+  offset: $offset, 
+  order_by: $order_by,
+  sort_direction: $sort_direction
+){
+  study_acronym
+  accesses
+  phs_accession
+  subject_id
+  sample_id
+
+  file_name
+  file_type
+  file_size
+  file_id
+  md5sum
+}
 }`;
 
 // --------------- File table configuration --------------
@@ -122,10 +163,47 @@ export const table = {
   defaultSortDirection: 'asc',
   paginationAPIField: 'filesInList',
   tableDownloadCSV: customMyFilesTabDownloadCSV,
+  headerPagination: true,
   columns: [
     {
       dataField: 'file_name',
       header: 'File Name',
+      display: true,
+      tooltipText: 'sort',
+    },
+    {
+      dataField: 'file_id',
+      header: 'File ID',
+      display: false,
+      tooltipText: 'sort',
+    },
+    {
+      dataField: 'study_acronym',
+      header: 'Study Name',
+      display: true,
+      tooltipText: 'sort',
+    },
+    {
+      dataField: 'phs_accession',
+      header: 'Accession',
+      display: true,
+      tooltipText: 'sort',
+    },
+    {
+      dataField: 'subject_id',
+      header: 'Participant Id',
+      display: true,
+      tooltipText: 'sort',
+    },
+    {
+      dataField: 'sample_id',
+      header: 'Sample Id',
+      display: true,
+      tooltipText: 'sort',
+    },
+    {
+      dataField: 'accesses',
+      header: 'Study Access',
       display: true,
       tooltipText: 'sort',
     },
@@ -136,48 +214,12 @@ export const table = {
       tooltipText: 'sort',
     },
     {
-      dataField: 'association',
-      header: 'Association',
-      display: true,
-      tooltipText: 'sort',
-    },
-    {
-      dataField: 'file_description',
-      header: 'Description',
-      display: true,
-      tooltipText: 'sort',
-    },
-    {
-      dataField: 'file_format',
-      header: 'Format',
-      display: true,
-      tooltipText: 'sort',
-    },
-    {
       dataField: 'file_size',
-      header: 'Size',
+      header: 'File Size',
       // set formatBytes to true to display file size (in bytes) in a more human readable format
-      display: true,
+      display: false,
       dataFormatType: dataFormatTypes.FORMAT_BYTES,
       cellType: cellTypes.FORMAT_DATA,
-      tooltipText: 'sort',
-    },
-    {
-      dataField: 'subject_id',
-      header: 'Case ID',
-      display: true,
-      tooltipText: 'sort',
-    },
-    {
-      dataField: 'study_code',
-      header: 'Study Code',
-      display: true,
-      tooltipText: 'sort',
-    },
-    {
-      dataField: 'file_id',
-      header: 'UUID',
-      display: false,
       tooltipText: 'sort',
     },
     {
