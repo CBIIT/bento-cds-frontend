@@ -9,6 +9,12 @@ import {
   SEARCH_PAGE_DATAFIELDS, SEARCH_PAGE_KEYS,
   queryCountAPI, queryResultAPI, queryAutocompleteAPI,
 } from '../../bento/search';
+import CaseCard from './cards/CaseCard';
+import SampleCard from './cards/SampleCard';
+import FileCard from './cards/FileCard';
+import ProgramCard from './cards/ProgramCard';
+import StudyCard from './cards/StudyCard';
+import AboutCard from './cards/AboutCard';
 
 /**
  * Determine the correct datafield and offset for the All tab based
@@ -216,6 +222,15 @@ function searchView(props) {
     },
   });
 
+  const customCardMap = {
+    subject: CaseCard,
+    sample: SampleCard,
+    file: FileCard,
+    program: ProgramCard,
+    study: StudyCard,
+    about: AboutCard,
+  };
+
   const { SearchResults } = SearchResultsGenerator({
     classes,
     functions: {
@@ -233,7 +248,7 @@ function searchView(props) {
       value: '1',
     },
     {
-      name: 'Cases',
+      name: 'Participants',
       field: 'subjects',
       classes: {
         root: classes.buttonRoot,
@@ -302,6 +317,9 @@ function searchView(props) {
       count: searchCounts.about_count || 0,
       value: '8',
     }],
+    config: {
+      resultCardMap: customCardMap,
+    }
   });
 
   useEffect(() => {
