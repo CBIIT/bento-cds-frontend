@@ -33,7 +33,7 @@ const ICDCFooter = () => {
       ])).map((res) => (res.status === 'fulfilled' ? res.value : '0.0.0'));
 
       const linkSections = FooterData.link_sections;
-      linkSections[2].items[2].text = `BE Version: ${BEversion}`;
+      linkSections[2].items[3].text = `BE Version: ${BEversion}`;
 
       setFooterUpdatedData({
         ...FooterData,
