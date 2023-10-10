@@ -18,10 +18,10 @@ window.injectedEnv = {
   REACT_APP_NIH_CLIENT_ID: 'Sample Id',
 
   // Access control settings
-  REACT_APP_AUTH: true,
+  REACT_APP_AUTH: '',
   PUBLIC_ACCESS: 'Metadata Only',
   NODE_LEVEL_ACCESS: true,
-  NODE_LABEL: 'Study Arm(s)',
+  NODE_LABEL: '',
 
   // No Longer Used.
   REACT_APP_BACKEND_GETUSERINFO_API: 'https://k9dc.essential-dev.com/fence/login/',
