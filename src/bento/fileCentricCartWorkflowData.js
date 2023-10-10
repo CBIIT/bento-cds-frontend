@@ -123,7 +123,7 @@ query fileOverview(
   $order_by:  String
   $sort_direction: String 
 ){
-fileOverview(
+  filesInList: fileOverview(
   subject_ids: $subject_ids,
   sample_ids: $sample_ids,
   file_ids: $file_ids
@@ -155,13 +155,13 @@ fileOverview(
 // --------------- File table configuration --------------
 
 export const table = {
-  dataField: 'fileOverview',
+  dataField: 'filesInList',
   // Value must be one of the 'dataField's in "columns"
   defaultSortField: 'file_name',
   // 'asc' or 'desc'
   api: GET_MY_CART_DATA_QUERY,
   defaultSortDirection: 'asc',
-  paginationAPIField: 'fileOverview',
+  paginationAPIField: 'filesInList',
   tableDownloadCSV: customMyFilesTabDownloadCSV,
   headerPagination: true,
   columns: [
