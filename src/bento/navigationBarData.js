@@ -1,7 +1,6 @@
 export const navBarstyling = {
   global: {
     backgroundColor: '#0E6292;',
-    marginTop: '100px',
     height: '39px',
     padding: '9px 20px 0px 20px',
     fontColor: '#bbefff',
@@ -74,6 +73,7 @@ export const navBarData = [
   },
   {
     labelText: 'about',
+    externalLinksFlag: true,
     type: 'dropdown',
     dropDownLinks: [
       {
@@ -111,6 +111,11 @@ export const navBarData = [
       {
         labelText: 'CDS Data Releases',
         link: '/releases',
+      },
+      {
+        labelText: 'CDS Software Releases',
+        link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+        externalLinksFlag: true,
       },
 
     ],

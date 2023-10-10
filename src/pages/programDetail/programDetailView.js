@@ -5,15 +5,13 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import {
-  getOptions,
-  getColumns,
   manipulateLinks
 } from '@bento-core/util';
-import {
-  CustomDataTable
-} from '@bento-core/data-table';
+import { 
+  TableContextProvider,
+  TableView,
+} from '@bento-core/paginated-table';
 import clsx from 'clsx';
-import globalData from '../../bento/siteWideConfig';
 import {
   pageTitle, table, externalLinkIcon,
   programDetailIcon, breadCrumb, aggregateCount,
@@ -25,6 +23,20 @@ import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 import colors from '../../utils/colors';
 import { WidgetGenerator } from '@bento-core/widgets';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
+import { themeConfig } from './tableConfig/Theme';
+
+const initTblState = (initailState) => ({
+  ...initailState,
+  title: table.name,
+  columns: table.columns,
+  selectedRows: [],
+  tableMsg: table.tableMsg,
+  sortBy: table.defaultSortField,
+  sortOrder: table.defaultSortDirection,
+  rowsPerPage: 10,
+  dataKey: table.dataKey,
+  page: 0,
+})
 
 const ProgramView = ({ classes, data, theme }) => {
   const programData = data.programDetail;
@@ -42,28 +54,39 @@ const ProgramView = ({ classes, data, theme }) => {
 
   const { Widget } = WidgetGenerator(widgetGeneratorConfig);
 
-  const redirectToArm = (programArm) => onClearAllAndSelectFacetValue('studies', `${programArm.rowData[0]}: ${programArm.rowData[1]}`);
-
   const stat = {
     numberOfPrograms: 1,
-    numberOfStudies: programData.num_subjects !== undefined ? programData.studies.length : 'undefined',
-    numberOfSubjects: programData.num_subjects !== undefined ? programData.num_subjects : 'undefined',
+    numberOfStudies: programData.num_studies !== undefined ? programData.num_studies : 'undefined',
+    numberOfSubjects: programData.num_participants !== undefined ? programData.num_participants : 'undefined',
     numberOfSamples: programData.num_samples !== undefined ? programData.num_samples : 'undefined',
-    numberOfLabProcedures: programData.num_lab_procedures !== undefined ? programData.num_lab_procedures : 'undefined',
     numberOfFiles: programData.num_files !== undefined ? programData.num_files : 'undefined',
   };
 
-  const breadCrumbJson = [{
-    name: `${breadCrumb.label}`,
-    to: `${breadCrumb.link}`,
-    isALink: true,
-  }];
+  const breadCrumbJson = [
+    {
+      name: 'Home',
+      to: '/home',
+      isALink: true,
+    },
+    {
+      name: `${breadCrumb.label}`,
+      to: `${breadCrumb.link}`,
+      isALink: true,
+    },
+    {
+      name: programData.program,
+      isALink: false,
+    },
+  ];
 
   const updatedAttributesData = manipulateLinks(leftPanel.attributes);
 
   return (
     <>
       <StatsView data={stat} />
+      <div className={classes.breadCrumb}>
+        <CustomBreadcrumb data={breadCrumbJson} />
+      </div>
       <div className={classes.container}>
         <div className={classes.header}>
           <div className={classes.logo}>
@@ -92,7 +115,6 @@ const ProgramView = ({ classes, data, theme }) => {
               </span>
 
             </div>
-            <CustomBreadcrumb className={classes.breadCrumb} data={breadCrumbJson} />
           </div>
 
           {aggregateCount.display ? (
@@ -156,7 +178,7 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <span className={classes.content}>
                                   {' '}
                                   <a
-                                    href={`${attribute.actualLink}${programData[updatedAttributesData[attribute.actualLinkId].dataField]}`}
+                                    href={`${attribute.actualLink}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={classes.link}
@@ -261,6 +283,29 @@ const ProgramView = ({ classes, data, theme }) => {
                   </Grid>
                 ) : ''}
 
+                { rightPanel.participants[0].display ? (
+                  <Grid item xs={12}>
+                    <div className={classes.fileContainer}>
+                      <span
+                        className={classes.detailContainerHeader}
+                      >
+                        {rightPanel.participants[0].label}
+                      </span>
+                      <div className={classes.fileContent}>
+                        <div className={classes.fileIcon}>
+                          <img
+                            src={rightPanel.participants[0].fileIconSrc}
+                            alt={rightPanel.participants[0].fileIconAlt}
+                          />
+                        </div>
+                        <div className={classes.participantsCount} id="program_detail_participants_count">
+                          {programData[rightPanel.participants[0].dataField]}
+                        </div>
+                      </div>
+                    </div>
+                  </Grid>
+                ) : ''}
+
                 { rightPanel.files[0].display ? (
                   <Grid item xs={12}>
                     <div className={classes.fileContainer}>
@@ -291,27 +336,26 @@ const ProgramView = ({ classes, data, theme }) => {
       </div>
       { table.display ? (
         <div id="table_program_detail" className={classes.tableContainer}>
-
           <div className={classes.tableDiv}>
             <div className={classes.tableTitle}>
               <span className={classes.tableHeader}>{table.title}</span>
             </div>
-            <Grid item xs={12}>
-              <Grid container spacing={8}>
-                <Grid item xs={12}>
-                  <Typography>
-                    <CustomDataTable
-                      data={data.programDetail[table.dataField]}
-                      columns={getColumns(table, classes, data, externalLinkIcon, '/explore', redirectToArm, '', globalData.replaceEmptyValueWith)}
-                      options={getOptions(table, classes)}
-                    />
-                  </Typography>
-                </Grid>
-                <Grid item xs={8}>
-                  <Typography />
+            <TableContextProvider>
+              <Grid item xs={12}>
+                <Grid container spacing={8}>
+                  <Grid item xs={12} id={table.tableID}>
+                    <TableView
+                        initState={initTblState}
+                        server={false}
+                        themeConfig={themeConfig}
+                        tblRows={data[table.queryKey][table.dataField]}
+                        totalRowCount={data[table.queryKey][table.dataField].length}
+                        activeTab={true}
+                      />
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
+            </TableContextProvider>
           </div>
         </div>
       ) : ''}
@@ -344,9 +388,10 @@ const styles = (theme) => ({
   link: {
     textDecoration: 'none',
     fontWeight: 'bold',
-    color: theme.palette.text.link,
+    color: '#900F89',
     '&:hover': {
       textDecoration: 'underline',
+      textUnderlineOffset: '2.5px',
     },
   },
   paddingLeft8: {
@@ -365,7 +410,7 @@ const styles = (theme) => ({
   },
   content: {
     fontSize: '15px',
-    fontFamily: theme.custom.fontFamily,
+    fontFamily: 'Nunito',
     lineHeight: '14px',
   },
   warning: {
@@ -387,7 +432,7 @@ const styles = (theme) => ({
   header: {
     paddingLeft: '21px',
     paddingRight: '35px',
-    borderBottom: '#4B619A 10px solid',
+    borderBottom: '#9FD8F0 10px solid',
     height: '80px',
     maxWidth: '1340px',
     margin: 'auto',
@@ -395,7 +440,8 @@ const styles = (theme) => ({
   headerTitle: {
     margin: 'auto',
     float: 'left',
-    marginLeft: '85px',
+    marginLeft: '90px',
+    marginTop: '12px',
     width: 'calc(100% - 265px)',
   },
   headerMainTitle: {
@@ -408,27 +454,27 @@ const styles = (theme) => ({
       fontWeight: 'bold',
       letterSpacing: '0.025em',
     },
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     letterSpacing: '0.025em',
-    color: '#274FA5 ',
+    color: '#0E6292 ',
     fontSize: '26px',
     lineHeight: '24px',
     paddingLeft: '0px',
 
   },
   headerSubTitleCate: {
-    color: '#00B0BD',
+    color: '#0B4E75',
     fontWeight: '300',
-    fontFamily: 'Poppins',
+    fontFamily: 'Nunito',
     textTransform: 'uppercase',
     letterSpacing: '0.023em',
-    fontSize: '15px',
+    fontSize: '16px',
     overflow: 'hidden',
     lineHeight: '24px',
     paddingLeft: '2px',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    paddingRight: '200px',
+    // paddingRight: '200px',
   },
   headerSubTitleContent: {
     color: '#000000',
@@ -443,13 +489,17 @@ const styles = (theme) => ({
     paddingTop: '3px',
   },
   breadCrumb: {
-    color: '#00B0BD',
+    // height: '11px',
+    // letterSpacing: 10px;
+    // line-height: 29px;
+    backgroundColor: '#FFF',
+    padding: '16px 52px 0px 52px',
   },
   headerButton: {
     fontFamily: theme.custom.fontFamily,
     float: 'right',
     marginTop: '15px',
-    width: '104px',
+    width: '182px',
     height: '33px',
     background: '#F6F4F4',
     textAlign: 'center',
@@ -465,7 +515,7 @@ const styles = (theme) => ({
   },
   headerButtonLinkText: {
     fontFamily: theme.custom.fontFamily,
-    color: theme.palette.text.link,
+    color: '#7747FF',
     fontSize: '8pt',
     textTransform: 'uppercase',
   },
@@ -485,36 +535,35 @@ const styles = (theme) => ({
     position: 'absolute',
     float: 'left',
     marginLeft: '-23px',
-    marginTop: '-21px',
+    marginTop: '-12px',
     width: '107px',
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
   detailContainer: {
     maxWidth: '1340px',
     margin: 'auto',
-    marginBlockEnd: '24px',
-    paddingTop: '24px',
+    paddingTop: '8px',
     paddingLeft: '5px',
     fontFamily: theme.custom.fontFamily,
     letterSpacing: '0.014em',
     color: '#000000',
     size: '12px',
     lineHeight: '23px',
-    height: '525px',
+    height: '516px',
 
   },
   detailContainerHeader: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296C9',
   },
   detailContainerHeaderLink: {
-    fontFamily: 'Raleway',
+    fontFamily: 'Lato',
     fontSize: '14px',
     letterSpacing: '0.025em',
-    color: '#0077E3',
+    color: '#900F89',
   },
   detailContainerBottom: {
     borderTop: '#81a6b9 1px solid',
@@ -523,7 +572,7 @@ const styles = (theme) => ({
   },
   detailContainerLeft: {
     display: 'block',
-    padding: '5px  20px 5px 0px !important',
+    padding: '5px  20px 5px 32px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -535,7 +584,7 @@ const styles = (theme) => ({
     borderRight: '#81a6b9 1px solid',
   },
   detailContainerRight: {
-    padding: '5px 0 5px 36px !important',
+    padding: '5px 36px 5px 36px !important',
     minHeight: '500px',
     maxHeight: '500px',
     overflowY: 'auto',
@@ -551,7 +600,7 @@ const styles = (theme) => ({
     background: '#f3f3f3',
   },
   tableHeader: {
-    paddingLeft: '30px',
+    paddingLeft: '0px',
   },
   paddingTop12: {
     paddingTop: '12px',
@@ -605,39 +654,51 @@ const styles = (theme) => ({
   },
   tableTitle: {
     textTransform: 'uppercase',
-    fontFamily: 'Lato',
+    fontFamily: 'Inter',
     fontSize: '17px',
     letterSpacing: '0.025em',
     color: '#0296c9',
     paddingBottom: '20px',
   },
   fileContainer: {
-    paddingTop: '4px',
+    paddingTop: '15px',
   },
   fileContent: {
     backgroundColor: '#F3F3F3',
     borderRadius: '50%',
     height: '162px',
     width: '162px',
-    paddingLeft: '48px',
     marginLeft: '36%',
     marginTop: '25px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   fileIcon: {
     '& img': {
-      width: '163%',
-      padding: '21px 120px 0px 0px',
+      width: '40%',
+      padding: '0px 0px 0px 0px',
+      margin: '0px 0px 0px 49px',
     },
+  },
+  participantsCount: {
+    lineHeight: '31.7px',
+    fontSize: '30px',
+    color: '#0B7562',
+    fontWeight: '600',
+    borderBottom: '#0B7562 solid 4px',
+    fontFamily: 'Oswald',
+    width: 'max-content',
   },
   fileCount: {
     lineHeight: '31.7px',
     fontSize: '30px',
-    color: '#7A297D',
+    color: '#D86B01',
     fontWeight: '600',
-    borderBottom: '#7A297D solid 5px',
+    borderBottom: '#D86B01 solid 4px',
     fontFamily: 'Oswald',
     width: 'max-content',
-    padding: '15px 0px 12px 0px',
   },
   paddingTop32: {
     paddingTop: '36px !important',

@@ -41,25 +41,28 @@ export const customTheme = {
       '&.add_selected_button': {
         marginRight: '10px',
       },
-      '&.add_selected_button_Cases': {
-        backgroundColor: '#10A075',
+      '&.add_selected_button_Participants': {
+        backgroundColor: '#0b4e75',
       },
       '&.add_selected_button_Samples': {
-        backgroundColor: '#0DAFEC',
+        backgroundColor: '#0b4e75',
       },
       '&.add_selected_button_Files': {
-        backgroundColor: '#C92EC7',
+        backgroundColor: '#0b4e75',
       },
       '&.Mui-disabled': {
         color: '#fff',
-        '&.add_selected_button_Cases': {
-          backgroundColor: '#D6F2EA',
+        '&.add_selected_button_Participants': {
+          backgroundColor: '#0b4e75',
+          opacity: '0.3',
         },
         '&.add_selected_button_Samples': {
-          backgroundColor: '#CFEDF9',
+          backgroundColor: '#0b4e75',
+          opacity: '0.3',
         },
         '&.add_selected_button_Files': {
-          backgroundColor: '#F7D7F7',
+          backgroundColor: '#0b4e75',
+          opacity: '0.3',
         },
       },
       '&.yesBtn': {

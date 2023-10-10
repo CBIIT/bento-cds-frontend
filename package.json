@@ -1,13 +1,16 @@
 {
   "homepage": ".",
   "name": "CDS",
-  "version": "0.0.1",
+  "version": "4.0.0",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@apollo/react-components": "^4.0.0",
     "@babel/core": "7.2.2",
+    "@bento-core/about": "^1.0.1-CDS.1",
     "@bento-core/all": "^1.0.0",
+    "@bento-core/nav-bar": "^1.0.1-CDS.0",
+    "@bento-core/stats-bar": "^1.0.1-CDS.0",
     "@jbrowse/react-linear-genome-view": "^2.1.5",
     "@librpc/web": "^1.1.1",
     "@material-ui/core": "^4.12.4",

@@ -732,7 +732,7 @@ query fileOverview(
 // --------------- Tabs Table configuration --------------
 export const tabContainers = [
   {
-    name: 'Cases',
+    name: 'Participants',
     dataField: 'dataCase',
     api: GET_CASES_OVERVIEW_QUERY,
     paginationAPIField: 'subjectOverview',
@@ -744,8 +744,7 @@ export const tabContainers = [
     tableID: 'case_tab_table',
     extendedViewConfig: {
       pagination: true,
-      manageViewColumns: true,
-      download: true,
+      // manageViewColumns: true,
     },
     columns: [
       {
@@ -855,14 +854,8 @@ export const tabContainers = [
       {
         dataField: 'subject_id',
         header: 'Participant ID',
-        cellType: cellTypes.LINK,
-        linkAttr : {
-          rootPath: '/case',
-          pathParams: ['subject_id'],
-        },
         display: true,
         tooltipText: 'sort',
-        role: cellTypes.DISPLAY,
       },
       {
         dataField: 'study_acronym',
@@ -924,8 +917,7 @@ export const tabContainers = [
     tableID: 'file_tab_table',
     extendedViewConfig: {
       pagination: true,
-      manageViewColumns: true,
-      download: true,
+      // manageViewColumns: true,
     },
     columns: [
       {
@@ -936,7 +928,7 @@ export const tabContainers = [
       {
         dataField: 'file_id',
         header: 'File ID',
-        display: true,
+        display: false,
         tooltipText: 'sort',
       },
       {
@@ -956,6 +948,12 @@ export const tabContainers = [
       {
         dataField: 'phs_accession',
         header: 'Accession',
+        cellType: cellTypes.LINK,
+        linkAttr : {
+          rootPath: '/study',
+          pathParams: ['phs_accession'],
+          // i.e: link: '/study/{phs_accession}',
+        },
         display: true,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
@@ -975,41 +973,41 @@ export const tabContainers = [
         role: cellTypes.DISPLAY,
         cellType: cellTypes.FORMAT_DATA,
       },
-      {
-        dataField: 'acl', // This need to left empty if no data need to be displayed before file download icon
-        header: 'Access',
-        display: true,
-        cellType: cellTypes.CUSTOM_ELEM,
-        downloadDocument: true, // To indicate that column is document donwload
-        documentDownloadProps: {
-          // Max file size needs to bin Bytes to seperate two support file preview and download
-          maxFileSize: 315,
-          // Tool top text for Unauthenticated users
-          toolTipTextUnauthenticated: 'Controlled access file',
-          // Tool top text for file download
-          toolTipTextFileDownload: 'Download a copy of this file',
-          // Tool top text for file preview
-          toolTipTextFilePreview: 'Because of its size and/or format, this file is unavailable for download and must be accessed via the My Files workflow',
-          // datafield where file file column exists in the table
-          fileSizeColumn: 'file_size',
-          // datafield where file file id exists in the table which is used to get file location
-          fileLocationColumn: 'file_id',
-          // datafield where file format exists in the table
-          fileFormatColumn: 'file_format',
-          // datafield where file case id exists in the table which is used to get file information
-          caseIdColumn: 'subject_id',
-          // Unauthenticated lock icon
-          iconUnauthenticated: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Access_Lock.svg',
-          // file download icon
-          iconFileDownload: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadPDF.svg',
-          // file preview icon
-          iconFilePreview: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadCloud.svg',
-          // file viewer icon JBrowse
-          iconFileViewer: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadBAM.svg',
-        },
-        tooltipText: 'sort',
-        role: cellTypes.DISPLAY,
-      },
+      // {
+      //   dataField: 'acl', // This need to left empty if no data need to be displayed before file download icon
+      //   header: 'Access',
+      //   display: true,
+      //   cellType: cellTypes.CUSTOM_ELEM,
+      //   downloadDocument: true, // To indicate that column is document donwload
+      //   documentDownloadProps: {
+      //     // Max file size needs to bin Bytes to seperate two support file preview and download
+      //     maxFileSize: 315,
+      //     // Tool top text for Unauthenticated users
+      //     toolTipTextUnauthenticated: 'Controlled access file',
+      //     // Tool top text for file download
+      //     toolTipTextFileDownload: 'Download a copy of this file',
+      //     // Tool top text for file preview
+      //     toolTipTextFilePreview: 'Because of its size and/or format, this file is unavailable for download and must be accessed via the My Files workflow',
+      //     // datafield where file file column exists in the table
+      //     fileSizeColumn: 'file_size',
+      //     // datafield where file file id exists in the table which is used to get file location
+      //     fileLocationColumn: 'file_id',
+      //     // datafield where file format exists in the table
+      //     fileFormatColumn: 'file_format',
+      //     // datafield where file case id exists in the table which is used to get file information
+      //     caseIdColumn: 'subject_id',
+      //     // Unauthenticated lock icon
+      //     iconUnauthenticated: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/Access_Lock.svg',
+      //     // file download icon
+      //     iconFileDownload: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadPDF.svg',
+      //     // file preview icon
+      //     iconFilePreview: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadCloud.svg',
+      //     // file viewer icon JBrowse
+      //     iconFileViewer: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/DocumentDownloadBAM.svg',
+      //   },
+      //   tooltipText: 'sort',
+      //   role: cellTypes.DISPLAY,
+      // },
       {
         dataField: 'file_type',
         header: 'File Type',

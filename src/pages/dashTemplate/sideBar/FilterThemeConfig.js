@@ -43,55 +43,55 @@ const theme = {
     },
     MuiListItem: {
       root: {
-        '&.casesCheckedEven': {
-          backgroundColor: '#e8f7dc',
+        '&.participantsCheckedEven': {
+          backgroundColor: '#DCE9EF',
         },
-        '&.casesCheckedOdd': {
-          backgroundColor: '#f5FDEE',
+        '&.participantsCheckedOdd': {
+          backgroundColor: '#F2FBFF',
         },
         '&.samplesCheckedEven': {
-          backgroundColor: '#C9EBF7',
+          backgroundColor: '#F4E7F3',
         },
         '&.samplesCheckedOdd': {
-          backgroundColor: '#E8F8FE',
+          backgroundColor: '#FFF5FF',
         },
         '&.filesCheckedEven': {
-          backgroundColor: '#FBE3FB',
+          backgroundColor: '#F3ECE5',
         },
         '&.filesCheckedOdd': {
-          backgroundColor: '#FFF2FF',
+          backgroundColor: '#FFFCFA',
         },
       },
     },
     MuiSvgIcon: {
       root: {
-        '&.casesCheckedIcon': {
-          color: '#10a075',
+        '&.participantsCheckedIcon': {
+          color: '#0E6292',
         },
         '&.samplesCheckedIcon': {
-          color: '#10beff',
+          color: '#942A90',
         },
         '&.filesCheckedIcon': {
-          color: '#e636e4',
+          color: '#AE5E1B',
         },
       },
     },
     MuiTypography: {
       root: {
-        '&.casesSubjects': {
-          color: '#10a075',
+        '&.participantsSubjects': {
+          color: '#0E6292',
           fontSize: '12px',
           fontFamily: 'Nunito',
           marginRight: '0px',
         },
         '&.samplesSubjects': {
-          color: '#10beff',
+          color: '#942A90',
           fontSize: '12px',
           fontFamily: 'Nunito',
           marginRight: '0px',
         },
         '&.filesSubjects': {
-          color: '#e636e4',
+          color: '#AE5E1B',
           fontSize: '12px',
           fontFamily: 'Nunito',
           marginRight: '0px',
@@ -106,13 +106,13 @@ const theme = {
       root: {
         height: '5px',
         '&.divider0': {
-          backgroundColor: '#0d8461',
+          backgroundColor: '#0E6292',
         },
         '&.divider1': {
-          backgroundColor: '#10beff',
+          backgroundColor: '#942A90',
         },
         '&.divider2': {
-          backgroundColor: '#e636e4',
+          backgroundColor: '#AE5E1B',
         },
       },
     },

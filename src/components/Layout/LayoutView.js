@@ -14,6 +14,7 @@ import About from '../../pages/about/aboutController';
 import DataDictonary from '../../pages/dataDictionary/dataDictonaryController';
 import Programs from '../../pages/programs/programsController';
 import ProgramDetail from '../../pages/programDetail/programDetailController';
+import Studies from '../../pages/studies/studiesController';
 import GraphqlClient from '../GraphqlClient/GraphqlView';
 // import JBrowse from '../JBrowse/JBrowseView';
 import JBrowseDetail from '../../pages/jbrowseDetail/jbrowseDetailController';
@@ -34,6 +35,10 @@ import { AuthenticationMiddlewareGenerator } from '@bento-core/authentication';
 
 import Notifactions from '../Notifications/NotifactionView';
 import DashTemplate from '../../pages/dashTemplate/DashTemplateController';
+import Questionaire from '../../pages/questionaire/questionaireView';
+import ReleaseVersions from '../../pages/ReleaseVersions';
+
+
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -72,6 +77,7 @@ const Layout = ({ classes, isSidebarOpened }) => {
 
             {/* SECTION: Member & Admin only Path */}
             <PrivateRoute path="/programs" access={['admin', 'member']} component={Programs} />
+            <PrivateRoute path="/studies" access={['admin', 'member']} component={Studies} />
             <PrivateRoute path="/fileCentricCart" access={['admin', 'member']} component={CarView} />
             <PrivateRoute path="/program/:id" access={['admin', 'member']} component={ProgramDetail} />
             <PrivateRoute path="/case/:id" access={['admin', 'member']} component={CaseDetail} />
@@ -110,6 +116,8 @@ const Layout = ({ classes, isSidebarOpened }) => {
                 />
               ),
             )}
+            <Route path="/datasubmit" component={Questionaire} />
+            <Route path="/releases" component={ReleaseVersions} />
             <Route path="/data-dictionary" component={DataDictonary} />
             <Route path="/graphql" component={GraphqlClient} />
             <LoginRoute path="/login" component={Login} />
