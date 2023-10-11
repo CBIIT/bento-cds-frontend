@@ -39,12 +39,12 @@ export const landingPageData = {
     {
       statTitle: 'samples',
       statAPI: 'numberOfSamples',
-      callToActionLink: '/data',
+      callToActionLink: '/data?selectedTab=samples',
     },
     {
       statTitle: 'files',
       statAPI: 'numberOfFiles',
-      callToActionLink: '/data',
+      callToActionLink: '/data?selectedTab=files',
     },
   ],
   tile1: {
