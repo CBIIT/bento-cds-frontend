@@ -2,6 +2,63 @@ export const HEADING = 'Data Release Notes';
 
 export const VERSIONS = [
   {
+    id: 'v4.0',
+    versionNumber: 'v4.0',
+    releaseDate: ' Sept 26, 2023',
+    subHeading: 'Studies',
+    heading: 'Data Release 4.0',
+    content: `<div>
+    <p>CCDI: IGM/MCI - Molecular Characterization Initiative – (June submission) - phs002790.v3.p1</p>
+    <ul>
+      <li>170 Participants</li>
+      <li>3,496 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CCDI: IGM/MCI - Molecular Characterization Initiative – (July submission) - phs002790.v3.p1</p>
+    <ul>
+      <li>184 Participants</li>
+      <li>2,904 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CCDI: NCI CCSG CCDI Supplement Additional Genomic Submission - phs002599.v1.p1</p>
+    <ul>
+      <li>104 Participants</li>
+      <li>313 Files</li>
+    </ul>
+  </div>
+  <div>
+  <p>LCCC 1108: Development of a Tumor Molecular Analyses Program and Its Use to Support Treatment Decisions (UNCseqTM) - phs001713.v1.p1</p>
+  <ul>
+    <li>1 Participants</li>
+    <li>1 Files</li>
+  </ul>
+</div>
+  <div>
+    <p>CPTAC: CPTAC: Washington University in St. Louis ccRCC snRNA-seq and snATAC-seq study - phs001287.v14.p6</p>
+    <ul>
+      <li>1,069 participants</li>
+      <li>1,069 files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CPTAC: CPTAC: Washington University in St. Louis ccRCC snRNA-seq and snATAC-seq study - phs001287.v16.p6</p>
+    <ul>
+      <li>23 Participants</li>
+      <li>105 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>DCCPS CIDR: The Genetic Basis of Aggressive Prostate Cancer: The Role of Rare Variation - phs001524.v2.p2</p>
+    <ul>
+      <li>13,891 Participants</li>
+      <li>27,782 Files</li>
+    </ul>
+  </div>
+  `,
+  },
+  {
     id: 'v3.0',
     versionNumber: 'v3.0',
     releaseDate: 'May 18, 2023',
@@ -36,9 +93,9 @@ export const VERSIONS = [
     </ul>
   </div>
   <div>
-    <p>CCDI: Molecular Characterization Initiative – phs002731.v2.p1</p>
+    <p>CCDI: Molecular Characterization Initiative – phs002790.v2.p1</p>
     <ul>
-      <li>108Participants</li>
+      <li>108 Participants</li>
       <li>1,987 Files</li>
     </ul>
   </div>
