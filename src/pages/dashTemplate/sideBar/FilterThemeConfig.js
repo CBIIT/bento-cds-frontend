@@ -61,6 +61,12 @@ const theme = {
         '&.filesCheckedOdd': {
           backgroundColor: '#FFFCFA',
         },
+        '&.studiesCheckedEven': {
+          backgroundColor: '#A8FB9E',
+        },
+        '&.studiesCheckedOdd': {
+          backgroundColor: '#E7F8E5',
+        },
       },
     },
     MuiSvgIcon: {
@@ -73,6 +79,9 @@ const theme = {
         },
         '&.filesCheckedIcon': {
           color: '#AE5E1B',
+        },
+        '&.studiesCheckedIcon': {
+          color: '#46FF33',
         },
       },
     },
@@ -96,6 +105,12 @@ const theme = {
           fontFamily: 'Nunito',
           marginRight: '0px',
         },
+        '&.studiesSubjects': {
+          color: '#46FF33',
+          fontSize: '12px',
+          fontFamily: 'Nunito',
+          marginRight: '0px',
+        },
       },
     },
     MuiDivider: {
@@ -113,6 +128,9 @@ const theme = {
         },
         '&.divider2': {
           backgroundColor: '#AE5E1B',
+        },
+        '&.divider3': {
+          backgroundColor: '#46FF33',
         },
       },
     },

@@ -112,6 +112,9 @@ export default () => ({
   activeFacetFiles: {
     color: '#AE5E1B',
   },
+  activeFacetStudies: {
+    color: '#46FF33',
+  },
   searchContainer: {
     paddingTop: '15px',
     margin: '0 2px',

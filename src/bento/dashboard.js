@@ -3,7 +3,7 @@ import { sortType, InputTypes } from '@bento-core/facet-filter';
 const PARTICIPANTS = 'Participants';
 const SAMPLES = 'Samples';
 const FILES = 'Files';
-
+const STUDIES = 'Studies';
 // --------------- Facet resetIcon link configuration --------------
 // Ideal size for resetIcon is 16x16 px
 export const resetIcon = {
@@ -19,25 +19,17 @@ export const facetSectionVariables = {
     hasSearch: true,
   },
   Samples: {
-    isExpanded: true,
+    isExpanded: false,
   },
   Files: {
-    isExpanded: true,
+    isExpanded: false,
+  },
+  Studies: {
+    isExpanded: false,
   },
 };
 
 export const facetsConfig = [
-  {
-    section: PARTICIPANTS,
-    label: "Study",
-    apiPath: "filterSubjectCountByStudy",
-    apiForFiltering: "filterSubjectCountByStudy",
-    datafield: "studies",
-    field: "group",
-    type: InputTypes.CHECKBOX,
-    sort_type: sortType.ALPHABET,
-    show: true,
-  },
   {
     section: PARTICIPANTS,
     label: "Experimental Strategy",
@@ -224,6 +216,17 @@ export const facetsConfig = [
     minLowerBound: 0,
     maxUpperBound: 40872,
     quantifier: "Study Samples",
+  },
+  {
+    section: STUDIES,
+    label: "Study",
+    apiPath: "filterSubjectCountByStudy",
+    apiForFiltering: "filterSubjectCountByStudy",
+    datafield: "studies",
+    field: "group",
+    type: InputTypes.CHECKBOX,
+    sort_type: sortType.ALPHABET,
+    show: true,
   },
 ];
 
