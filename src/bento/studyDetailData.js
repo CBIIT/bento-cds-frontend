@@ -31,7 +31,7 @@ const breadCrumb = {
 const aggregateCount = {
   labelText: 'Study Participants',
   dataField: 'numberOfSubjects',
-  link: '/explore',
+  link: '/data',
   display: true,
 };
 
