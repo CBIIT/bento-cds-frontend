@@ -27,6 +27,12 @@ export const externalLinkIcon = {
   alt: 'External link icon',
 };
 
+// --------------- Tabs Index Mapping --------------
+export const tabIndexMap = {
+  'participants': 0,
+  'samples': 1,
+  'files': 2,
+};
 
 // --------------- Tabs Header Data configuration --------------
 export const tabs = [

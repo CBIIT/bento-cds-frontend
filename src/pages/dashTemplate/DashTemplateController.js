@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 import { getFilters } from '@bento-core/facet-filter';
 import DashTemplateView from './DashTemplateView';
-import { DASHBOARD_QUERY } from '../../bento/dashboardTabData';
+import { DASHBOARD_QUERY, tabIndexMap } from '../../bento/dashboardTabData';
 
 const getDashData = (states) => {
   const {
@@ -13,11 +13,6 @@ const getDashData = (states) => {
     localFindUpload, localFindAutocomplete,
   } = states;
 
-  const tabIndexMap = {
-    'participants': 0,
-    'samples': 1,
-    'files': 2,
-  };
   const { search } = useLocation();
   const tabName = search ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
   const tabIndex = tabIndexMap[tabName];
