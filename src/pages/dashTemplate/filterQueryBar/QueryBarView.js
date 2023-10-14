@@ -4,6 +4,7 @@ import { clearAllFilters, clearFacetSection, clearSliderSection, toggleCheckBox 
 import { resetAllData, resetUploadData, updateAutocompleteData } from '@bento-core/local-find';
 import { QueryBarGenerator } from '@bento-core/query-bar';
 import { facetsConfig } from '../../../bento/dashboard';
+import { customStyles } from './QueryBarStyles';
 
 /**
  * Generate the Explore Tab Query Bar
@@ -25,11 +26,16 @@ const QueryBarView = ({ data, statusReducer, localFind }) => {
       ...config,
       items: statusReducer[facet],
       data: data[config.apiForFiltering],
-    }
+    };
   });
   mappedFilterState.sort((a, b) => sectionOrder.indexOf(a.datafield) - sectionOrder.indexOf(b.datafield));
 
   const { QueryBar } = QueryBarGenerator({
+    config: {
+      maxItems: 2,
+      displayAllActiveFilters: false,
+      count: 'count',
+    },
     functions: {
       clearAll: () => {
         dispatch(resetAllData());
@@ -61,17 +67,18 @@ const QueryBarView = ({ data, statusReducer, localFind }) => {
         dispatch(toggleCheckBox({
           datafield: section.datafield,
           isChecked: false,
-          name: checkbox
+          name: checkbox,
         }));
       },
     },
+    customStyles,
   });
 
   return (
-    <QueryBar
-      statusReducer={mappedFilterState}
-      localFind={localFind}
-    />
+        <QueryBar
+          statusReducer={mappedFilterState}
+          localFind={localFind}
+        />
   );
 };
 
