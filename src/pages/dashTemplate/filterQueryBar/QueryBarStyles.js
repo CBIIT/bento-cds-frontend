@@ -1,13 +1,13 @@
 export const customStyles = {
-  facetSectionCases: { // placeholder colors
-      color: '#123FFF',
+  facetSectionCases: {
+      color: '#0B7562',
       backgroundColor: '#FFFFFF',
       border: '1px solid #898989',
   },
-  localFindBackground: { // placeholder colors
-      color: '#0E3151',
-      backgroundColor: '#DFE5FF',
-      border: '1px solid #123FFF',
+  localFindBackground: {
+      color: '#244B44',
+      backgroundColor: '#DCEFEC',
+      border: '1px solid #0B7562',
   },
   facetSectionParticipants: {
       color: '#0E6292',
