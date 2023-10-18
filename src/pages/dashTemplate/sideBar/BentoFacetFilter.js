@@ -113,6 +113,7 @@ const { UploadModal } = UploadModalGenerator({
     associateId: 'phs_accession',
     associateLabel: 'Associated Study',
     projectName: 'CDS',
+    caseIds: 'Participant IDs',
   },
   customStyles,
 });
@@ -253,6 +254,7 @@ const BentoFacetFilter = ({
           facetsConfig={facetsConfig}
           CustomFacetSection={CustomFacetSection}
           CustomFacetView={CustomFacetView}
+          classes={classes}
         />
       </FacetFilterThemeProvider>
     </div>
