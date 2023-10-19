@@ -76,10 +76,10 @@ const QueryBarView = ({ data, statusReducer, localFind }) => {
   });
 
   return (
-        <QueryBar
-          statusReducer={mappedFilterState}
-          localFind={localFind}
-        />
+    <QueryBar
+      statusReducer={mappedFilterState}
+      localFind={localFind}
+    />
   );
 };
 
