@@ -35,6 +35,7 @@ const QueryBarView = ({ data, statusReducer, localFind }) => {
       maxItems: 2,
       displayAllActiveFilters: false,
       count: 'count',
+      caseIDLabel: 'Participant IDs',
     },
     functions: {
       clearAll: () => {
