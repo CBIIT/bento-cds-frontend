@@ -21,7 +21,7 @@ import {
   SearchView, SearchBoxGenerator, UploadModalGenerator,
 } from '@bento-core/local-find';
 import store from '../../../store';
-import styles from './BentoFacetFilterStyle';
+import styles, { uploadModalStyles } from './BentoFacetFilterStyle';
 import { FacetFilter, ClearAllFiltersBtn } from '@bento-core/facet-filter';
 import { facetsConfig, facetSectionVariables, resetIcon } from '../../../bento/dashboard';
 import FacetFilterThemeProvider from './FilterThemeConfig';
@@ -63,6 +63,11 @@ const { SearchBox } = SearchBoxGenerator({
       }
     },
   },
+  config: {
+    inputPlaceholder: 'e.g. CDS-CASE-101022, CDS-CASE-101025',
+    noOptionsText: 'No matching items found',
+    searchType: 'subjectIds',
+  },
 });
 
 // Generate UploadModal Component
@@ -86,6 +91,21 @@ const { UploadModal } = UploadModalGenerator({
       }
     },
   },
+  config: {
+    title: 'Upload Participant Set',
+    inputPlaceholder: 'e.g. CDS-CASE-101025, CDS-CASE-101026, CDS-CASE-101027',
+    inputTooltip: 'Enter valid Participant IDs.',
+    uploadTooltip: 'Select a file from your computer.',
+    accept: '.csv,.txt',
+    maxSearchTerms: 1000,
+    matchedId: 'subject_id',
+    matchedLabel : 'Submitted Participant ID',
+    associateId: 'phs_accession',
+    associateLabel: 'Associated Study',
+    projectName: 'CDS',
+    caseIds: 'Participant IDs',
+  },
+  customStyles : uploadModalStyles,
 });
 
 const BentoFacetFilter = ({
@@ -151,6 +171,10 @@ const BentoFacetFilter = ({
       setExpanded(!expanded);
     };
 
+    let searchConfig = {
+      title: 'Participants',
+    }
+
     return (
       <>
         <CustomExpansionPanelSummary onClick={collapseHandler} id={section}>
@@ -168,6 +192,7 @@ const BentoFacetFilter = ({
               SearchBox={SearchBox}
               UploadModal={UploadModal}
               hidden={!expanded || !showSearch}
+              config = {searchConfig}
             />
           )}
         </CustomExpansionPanelSummary>
@@ -219,6 +244,7 @@ const BentoFacetFilter = ({
           facetsConfig={facetsConfig}
           CustomFacetSection={CustomFacetSection}
           CustomFacetView={CustomFacetView}
+          classes={classes}
         />
       </FacetFilterThemeProvider>
     </div>
