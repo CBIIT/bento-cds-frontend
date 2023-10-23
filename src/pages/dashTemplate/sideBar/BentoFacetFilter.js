@@ -21,7 +21,7 @@ import {
   SearchView, SearchBoxGenerator, UploadModalGenerator,
 } from '@bento-core/local-find';
 import store from '../../../store';
-import styles from './BentoFacetFilterStyle';
+import styles, { uploadModalStyles } from './BentoFacetFilterStyle';
 import { FacetFilter, ClearAllFiltersBtn } from '@bento-core/facet-filter';
 import { facetsConfig, facetSectionVariables, resetIcon } from '../../../bento/dashboard';
 import FacetFilterThemeProvider from './FilterThemeConfig';
@@ -70,16 +70,6 @@ const { SearchBox } = SearchBoxGenerator({
   },
 });
 
-const customStyles = (theme) => ({/*
-  modalContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    paddingRight: 33,
-    paddingLeft: 33,
-    backgroundColor: '#FFF123',
-  },*/
-});
-
 // Generate UploadModal Component
 const { UploadModal } = UploadModalGenerator({
   functions: {
@@ -103,7 +93,7 @@ const { UploadModal } = UploadModalGenerator({
   },
   config: {
     title: 'Upload Participant Set',
-    inputPlaceholder: 'e.g. CDS-CASE-101022, CDS-CASE-101025',
+    inputPlaceholder: 'e.g. CDS-CASE-101025, CDS-CASE-101026, CDS-CASE-101027',
     inputTooltip: 'Enter valid Participant IDs.',
     uploadTooltip: 'Select a file from your computer.',
     accept: '.csv,.txt',
@@ -115,7 +105,7 @@ const { UploadModal } = UploadModalGenerator({
     projectName: 'CDS',
     caseIds: 'Participant IDs',
   },
-  customStyles,
+  customStyles : uploadModalStyles,
 });
 
 const BentoFacetFilter = ({
