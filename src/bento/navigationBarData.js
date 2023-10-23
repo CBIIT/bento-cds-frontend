@@ -48,6 +48,7 @@ export const navBarstyling = {
   },
 };
 
+
 export const navBarData = [
   // A maximum of 5 nav bar items are allowed
   // A maximum of 9 dropDownLinks items are allowed
@@ -112,15 +113,11 @@ export const navBarData = [
         labelText: 'CDS Data Releases',
         link: '/releases',
       },
-      {
-        labelText: 'CDS Software Releases',
-        link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
-        externalLinksFlag: true,
-      },
-
     ],
   },
 ];
+
+export const externalLinksFlag = true;
 
 export const externalLinks = {
   about: [
