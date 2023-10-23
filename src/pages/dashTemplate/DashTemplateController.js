@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useApolloClient } from '@apollo/client';
 import { connect } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 import { getFilters } from '@bento-core/facet-filter';
 import DashTemplateView from './DashTemplateView';
-import { DASHBOARD_QUERY } from '../../bento/dashboardTabData';
+import { DASHBOARD_QUERY, tabIndexMap } from '../../bento/dashboardTabData';
 
 const getDashData = (states) => {
   const {
@@ -12,6 +13,10 @@ const getDashData = (states) => {
     localFindUpload, localFindAutocomplete,
   } = states;
 
+  const { search } = useLocation();
+  const tabName = search ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
+  const tabIndex = tabIndexMap[tabName];
+  
   const client = useApolloClient();
   async function getData(activeFilters) {
     const result = await client.query({
@@ -41,11 +46,11 @@ const getDashData = (states) => {
     });
     return () => controller.abort();
   }, [filterState, localFindUpload, localFindAutocomplete]);
-  return { dashData, activeFilters };
+  return { dashData, activeFilters, tabIndex };
 };
 
 const DashTemplateController = ((props) => {
-  const { dashData, activeFilters } = getDashData(props);
+  const { dashData, activeFilters, tabIndex } = getDashData(props);
 
   if (!dashData) {
     return (<CircularProgress />);
@@ -56,6 +61,7 @@ const DashTemplateController = ((props) => {
       {...props}
       dashData={dashData}
       activeFilters={activeFilters}
+      tabIndex={tabIndex}
     />
   );
 });
