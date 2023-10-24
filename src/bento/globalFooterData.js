@@ -44,7 +44,7 @@ export default {
       ],
     },
     {
-      title: 'Resources',
+      title: 'Sysinfo',
       systemInfoInLinkSection: true,
       items: [
         {
