@@ -291,7 +291,6 @@ export const uploadModalStyles = {
     marginLeft: -36,
     backgroundColor: '#CEDFE8',
     fontFamily: 'Lato',
-    fontWeight: 'bold',
     marginTop: 5,
   },
   listTitle: {
