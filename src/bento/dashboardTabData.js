@@ -751,6 +751,10 @@ export const tabContainers = [
     extendedViewConfig: {
       pagination: true,
       manageViewColumns: true,
+      download: {
+        downloadCsv: 'Download Table Content As CSV',
+        downloadFileName: 'CDS_participant_Download',
+      },
     },
     columns: [
       {
@@ -826,7 +830,10 @@ export const tabContainers = [
     extendedViewConfig: {
       pagination: true,
       manageViewColumns: true,
-      // download: true,
+      download: {
+        downloadCsv: 'Download Table Content As CSV',
+        downloadFileName: 'CDS_sample_Download',
+      },
     },
     saveButtonDefaultStyle: {
       color: '#fff',
@@ -924,6 +931,10 @@ export const tabContainers = [
     extendedViewConfig: {
       pagination: true,
       manageViewColumns: true,
+      download: {
+        downloadCsv: 'Download Table Content As CSV',
+        downloadFileName: 'CDS_file_Download',
+      },
     },
     columns: [
       {
