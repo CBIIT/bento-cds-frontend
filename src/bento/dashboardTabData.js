@@ -869,6 +869,7 @@ export const tabContainers = [
         header: 'Participant ID',
         display: true,
         tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
       },
       {
         dataField: 'study_acronym',
@@ -953,7 +954,6 @@ export const tabContainers = [
         header: 'File Name',
         display: true,
         tooltipText: 'sort',
-        role: cellTypes.DISPLAY,
       },
       {
         dataField: 'study_acronym',
