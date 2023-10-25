@@ -10,6 +10,7 @@
     "@bento-core/about": "^1.0.1-CDS.1",
     "@bento-core/all": "^1.0.0",
     "@bento-core/nav-bar": "^1.0.1-CDS.0",
+    "@bento-core/paginated-table": "^1.0.1-icdc.11",
     "@bento-core/stats-bar": "^1.0.1-CDS.0",
     "@jbrowse/react-linear-genome-view": "^2.1.5",
     "@librpc/web": "^1.1.1",
