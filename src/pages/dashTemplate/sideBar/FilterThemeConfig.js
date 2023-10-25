@@ -122,6 +122,16 @@ const theme = {
         color: '#8DCAFF',
       },
     },
+    MuiCollapse: {
+      wrapperInner: {
+        '& div.min_input_box': {
+          width: '50%',
+        },
+        '& div.max_input_box': {
+          width: '50%',
+        },
+      },
+    },
   },
 };
 
