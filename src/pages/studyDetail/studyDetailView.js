@@ -124,12 +124,12 @@ const StudyView = ({ classes, data, theme }) => {
                     >
                     {' '}
                     <span className={classes.headerButtonLinkText}>{aggregateCount.labelText}</span>
-                    <span className={classes.headerButtonColumn}>{': '}</span>
+                    {aggregateCount.displayCount?
+                    <><span className={classes.headerButtonColumn}>{': '}</span>
                     <span className={classes.headerButtonLinkNumber} id="study_detail_header_file_count">
-
-                        {studyData[aggregateCount.dataField]}
-
-                    </span>
+                      {studyData[aggregateCount.dataField]}
+                    </span></>
+                    : ''}
                     </Link>
                 </span>
                 </div>
@@ -527,8 +527,8 @@ const styles = (theme) => ({
     boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
   },
   headerButtonLinkSpan: {
-    marginLeft: '8px',
-    marginTop: '5px',
+    marginLeft: '14px',
+    marginTop: '8px',
     display: 'block',
     boxSizing: 'border-box',
     whiteSpace: 'nowrap',

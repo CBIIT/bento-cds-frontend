@@ -29,10 +29,11 @@ const breadCrumb = {
 
 // --------------- Aggregated count configuration --------------
 const aggregateCount = {
-  labelText: 'Study Participants',
+  labelText: 'EXPLORE STUDY PARTICIPANTS',
   dataField: 'numberOfSubjects',
   link: '/data',
   display: true,
+  displayCount: false,
 };
 
 // --------------- Icons configuration --------------
