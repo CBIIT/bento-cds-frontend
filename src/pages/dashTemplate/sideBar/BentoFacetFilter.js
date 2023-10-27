@@ -64,7 +64,7 @@ const { SearchBox } = SearchBoxGenerator({
     },
   },
   config: {
-    inputPlaceholder: 'e.g. CDS-CASE-101022, CDS-CASE-101025',
+    inputPlaceholder: 'e.g. CDS-PARTICIPANT-101022, CDS-PARTICIPANT-101025',
     noOptionsText: 'No matching items found',
     searchType: 'subjectIds',
   },
@@ -93,7 +93,7 @@ const { UploadModal } = UploadModalGenerator({
   },
   config: {
     title: 'Upload Participant Set',
-    inputPlaceholder: 'e.g. CDS-CASE-101025, CDS-CASE-101026, CDS-CASE-101027',
+    inputPlaceholder: 'e.g. CDS-PARTICIPANT-101025, CDS-PARTICIPANT-101026, CDS-PARTICIPANT-101027',
     inputTooltip: 'Enter valid Participant IDs.',
     uploadTooltip: 'Select a file from your computer.',
     accept: '.csv,.txt',
