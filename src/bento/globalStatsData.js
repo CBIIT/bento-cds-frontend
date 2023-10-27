@@ -4,15 +4,15 @@ export const statsStyling = {
   global: {
     horizontalStyle: false,
     statTitleFirst: false,
-    height: '56px',
+    height: '58px',
     background: '#B4E2F5',
   },
   statsGroup: {
     margin: '6px 0px',
     borderRight: '1.25px solid #000000',
     // Need to uncomment this in custom stats component
-    // padding: '4px 40px 10px 90px',
-    // minWidth: '300px !important',
+    padding: '0.5% 6% 2% 10% !important',
+    minWidth: '300px !important',
   },
   statsIcon: {
     width: '44px',
