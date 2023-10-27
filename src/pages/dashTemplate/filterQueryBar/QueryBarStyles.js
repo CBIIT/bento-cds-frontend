@@ -9,12 +9,12 @@ export const customStyles = {
       backgroundColor: '#DCEFEC',
       border: '1px solid #0B7562',
   },
-  facetSectionParticipants: {
+  facetSectionStudy: {
       color: '#0E6292',
       backgroundColor: '#FFFFFF',
       border: '1px solid #898989',
   },
-  facetSectionParticipantsBackground: {
+  facetSectionStudyBackground: {
       color: '#0E3151',
       backgroundColor: '#DCE9EF',
       border: '1px solid #5FA5C5',

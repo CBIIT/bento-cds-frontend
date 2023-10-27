@@ -1,6 +1,6 @@
 import { sortType, InputTypes } from '@bento-core/facet-filter';
 
-const PARTICIPANTS = 'Participants';
+const STUDY = 'Study';
 const SAMPLES = 'Samples';
 const FILES = 'Files';
 
@@ -14,7 +14,7 @@ export const resetIcon = {
 
 // --------------- Dashboard Sidebar Sections styling --------------
 export const facetSectionVariables = {
-  Participants: {
+  Study: {
     isExpanded: true,
     hasSearch: true,
   },
@@ -28,8 +28,8 @@ export const facetSectionVariables = {
 
 export const facetsConfig = [
   {
-    section: PARTICIPANTS,
-    label: "Study",
+    section: STUDY,
+    label: "Study Name",
     apiPath: "filterSubjectCountByStudy",
     apiForFiltering: "filterSubjectCountByStudy",
     datafield: "studies",
@@ -39,7 +39,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: PARTICIPANTS,
+    section: STUDY,
     label: "Experimental Strategy",
     apiPath: "subjectCountByExperimentalStrategy",
     apiForFiltering: "filterSubjectCountByExperimentalStrategy",
@@ -50,7 +50,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: PARTICIPANTS,
+    section: STUDY,
     label: "Gender",
     apiPath: "filterSubjectCountByGender",
     apiForFiltering: "filterSubjectCountByGender",
@@ -61,7 +61,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: PARTICIPANTS,
+    section: STUDY,
     label: "PHS Accession",
     apiPath: "filterSubjectCountByPhsAccession",
     apiForFiltering: "filterSubjectCountByPhsAccession",
@@ -72,7 +72,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: PARTICIPANTS,
+    section: STUDY,
     label: "study data types",
     apiPath: "filterSubjectCountByStudyDataType",
     apiForFiltering: "filterSubjectCountByStudyDataType",
