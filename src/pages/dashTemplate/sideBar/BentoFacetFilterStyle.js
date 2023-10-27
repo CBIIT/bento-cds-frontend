@@ -103,7 +103,7 @@ export default () => ({
     fontSize: '14px',
     marginRight: '0px',
   },
-  activeFacetParticipants: {
+  activeFacetStudy: {
     color: '#0E6292',
   },
   activeFacetSamples: {
@@ -116,6 +116,9 @@ export default () => ({
     paddingTop: '15px',
     margin: '0 2px',
     marginRight: 6,
+  },
+  searchLabel: {
+    fontFamily: 'Open Sans',
   },
   findCaseButton: {
     //marginLeft: '105px',
