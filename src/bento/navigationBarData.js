@@ -113,6 +113,14 @@ export const navBarData = [
         labelText: 'CDS Data Releases',
         link: '/releases',
       },
+      {
+        labelText: 'JSON Test',
+        link: '/testJSON',
+      },
+      {
+        labelText: 'YAML Test',
+        link: '/testYAML',
+      },
     ],
   },
 ];

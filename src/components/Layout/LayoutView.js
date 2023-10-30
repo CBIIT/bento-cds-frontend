@@ -37,6 +37,8 @@ import Notifactions from '../Notifications/NotifactionView';
 import DashTemplate from '../../pages/dashTemplate/DashTemplateController';
 import Questionaire from '../../pages/questionaire/questionaireView';
 import ReleaseVersions from '../../pages/ReleaseVersions';
+import ReleaseTestJSON from '../../pages/ReleaseTestJSON';
+import ReleaseTestYAML from '../../pages/ReleaseTestYAML';
 
 
 
@@ -118,11 +120,15 @@ const Layout = ({ classes, isSidebarOpened }) => {
             )}
             <Route path="/datasubmit" component={Questionaire} />
             <Route path="/releases" component={ReleaseVersions} />
+            <Route path="/testJSON" component={ReleaseTestJSON} />
+            <Route path="/testYAML" component={ReleaseTestYAML} />
             <Route path="/data-dictionary" component={DataDictonary} />
             <Route path="/graphql" component={GraphqlClient} />
             <LoginRoute path="/login" component={Login} />
             <Route path="/sysinfo" component={SysInfoView} />
             <Route component={Error} />
+
+
 
           </Switch>
           <Footer data={{ isSidebarOpened }} />
