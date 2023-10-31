@@ -117,10 +117,6 @@ export const navBarData = [
         labelText: 'JSON Test',
         link: '/testJSON',
       },
-      {
-        labelText: 'YAML Test',
-        link: '/testYAML',
-      },
     ],
   },
 ];
