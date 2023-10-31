@@ -1,42 +1,91 @@
 {
-    "HEADING": "Release Test JSON",
-    "VERSIONS": [
-      {
-        "id": "v1.0",
-        "versionNumber": "v1.0",
-        "releaseDate": "October 1, 2023",
-        "subHeading": "Testing JSON...",
-        "heading": "JSON Test",
-        "content": [
-          {
-            "paragraph": "Lorem Ipsum"
-          },
-          {
-            "list": [
-              "Bullet point 1",
-              "Bullet point 2"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "v0.5",
-        "versionNumber": "v1.5",
-        "releaseDate": "September 1, 2023",
-        "subHeading": "Testing JSON...",
-        "heading": "JSON Test",
-        "content": [
-          {
-            "paragraph": "Lorem Ipsum"
-          },
-          {
-            "list": [
-              "Bullet point 1",
-              "Bullet point 1.5",
-              "Bullet point 2"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "HEADING": "Release Test JSON",
+  "VERSIONS": [
+    {
+      "id": "v1.0",
+      "versionNumber": "v1.0",
+      "releaseDate": "October 1, 2023",
+      "subHeading": "Testing JSON 3...",
+      "heading": "JSON Test 3",
+      "content": [
+        {
+          "paragraph": "Lorem Ipsum",
+          "list": [
+            "Bullet point 1",
+            "Bullet point 2",
+            "Bullet point October 1, 2023"
+          ]
+        },
+        {
+          "paragraph": "Lorem Ipsum",
+          "list": [
+            "Bullet point 1",
+            "Bullet point 2",
+            "Bullet point October 1, 2023"
+          ]
+        },
+        {
+          "list": [
+            "Bullet point 1",
+            "Bullet point 2",
+            "Bullet point October 1, 2023"
+          ]
+        },
+        {
+          "paragraph": "Lorem Ipsum"
+        }
+      ]
+    },
+    {
+      "id": "v0.5",
+      "versionNumber": "v0.5",
+      "releaseDate": "September 1, 2023",
+      "subHeading": "Testing JSON 2...",
+      "heading": "JSON Test 2",
+      "content": [
+        {
+          "paragraph": "Lorem Ipsum",
+          "list": [
+            "Bullet point 1",
+            "Bullet point 2",
+            "Bullet point September 1, 2023"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v0.2",
+      "versionNumber": "v0.2",
+      "releaseDate": "August 1, 2023",
+      "subHeading": "Testing JSON 1...",
+      "heading": "JSON Test 1",
+      "content": [
+        {
+          "paragraph": "Lorem Ipsum",
+          "list": [
+            "Bullet point 1",
+            "Bullet point 2",
+            "Bullet point August 1, 2023"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v0.1",
+      "versionNumber": "v0.1",
+      "releaseDate": "July 1, 2023",
+      "subHeading": "Testing JSON 0...",
+      "heading": "JSON Test 0",
+      "content": [
+        {
+          "paragraph": "Lorem Ipsum",
+          "list": [
+            "Bullet point 1",
+            "Bullet point 2",
+            "Bullet point July 1, 2023"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "HEADING": "Data Release Notes",
+  "VERSIONS": [
+    {
+      "id": "v3.0",
+      "versionNumber": "v3.0",
+      "releaseDate": "May 18, 2023",
+      "subHeading": "Studies",
+      "heading": "Data Release 3.0",
+      "content": [
+        {
+          "paragraph": "LCCC 1108: Development of a Tumor Molecular Analyses Program and Its Use to Support Treatment Decisions (UNCseqTM) - phs001713.v1.p1",
+          "list": [
+            "2,074 Participants",
+            "11,340 Files"
+          ]
+        },
+        {
+          "paragraph": "DCCPS CIDR: The Genetic Basis of Aggressive Prostate Cancer: The Role of Rare Variation - phs001524.v1.p1",
+          "list": [
+            "13,891 Participants",
+            "27,782 Files"
+          ]
+        },
+        {
+          "paragraph": "DCCPS:Discovery of Colorectal Cancer Susceptibility Genes in High-Risk Families – phs001787.v1.p1",
+          "list": [
+            "51 Participants",
+            "318 Files"
+          ]
+        },
+        {
+          "paragraph": "PDXNet: Washington University PDX Development and Trial Center -phs002305.v1.p",
+          "list": [
+            "110 Participants",
+            "990 Files"
+          ]
+        },
+        {
+          "paragraph": "CCDI: Molecular Characterization Initiative – phs002731.v2.p1",
+          "list": [
+            "108 Participants",
+            "1,987 Files"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TBD",
+      "versionNumber": "TBD",
+      "releaseDate": "Upcoming",
+      "subHeading": "Studies",
+      "heading": "Coming Soon",
+      "content": [
+        {
+          "list": [
+            "CCDI: Feasibility and Clinical Utility of Whole Genome Profiling in Pediatric and Young Adult Cancers - phs002620.v1.p1",
+            "CCDI: NCI CCSG CCDI Supplement Additional Genomic Submission - phs002599.v1.p1",
+            "PDXNet: Wistar PDX Development and Trial Center - phs002432.v1.p1",
+            "Whole Genome Sequencing to Discover Familial Myeloma Risk Genes - phs001819.v2.p1",
+            "Limited Use Pilot Test Data. The PHS002011 manifest file is available for download the CGC documentation - phs002011.v1.p1",
+            "HTAN Imaging 1st and 2nd submission",
+            "HTAN 1st Genomic phs002371",
+            "CCDI, CHoP - phs002517.v1.p1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.0",
+      "versionNumber": "v2.0",
+      "releaseDate": "April 17, 2023",
+      "subHeading": "Studies",
+      "heading": "Data Release 2.0",
+      "content": [
+        {
+          "paragraph": "CCDI: UCSF Database for the advancement of JMML – Integration of metadata with “Omic” Data - phs002504.v1.p1",
+          "list": [
+            "1,015 Participants",
+            "14,291 Files"
+          ]
+        },
+        {
+          "paragraph": "Childhood Cancer Data Initiative (CCDI): Free the Data: Open Sharing of Comprehensive Genomic Childhood Cancer Datasets (Kansas) - phs002529.v1.p1",
+          "list": [
+            "193 Participants",
+            "5,374 Files"
+          ]
+        },
+        {
+          "paragraph": "DCCPS CIDR: Discovery, Biology, and Risk of Inherited Variants in Glioma sample – phs002250.v2.p1",
+          "list": [
+            "146 Participants",
+            "292 Files"
+          ]
+        },
+        {
+          "paragraph": "DCCPS:Discovery of Colorectal Cancer Susceptibility Genes in High-Risk Families – phs001787.v1.p1",
+          "list": [
+            "51 Participants",
+            "318 Files"
+          ]
+        },
+        {
+          "paragraph": "DCCPS: Detection of Colorectal Cancer Susceptibility Loci Using Genome-Wide Sequencing – phs001554.v1.p1",
+          "list": [
+            "2,892 Participants",
+            "5,784 Files"
+          ]
+        },
+        {
+          "paragraph": "HTAN: Human Tumor Atlas Network Primary Sequencing Data - phs002371.v2.p1 – phs002371.v3.p1",
+          "list": [
+            "660 Participants",
+            "3,781 Files"
+          ]
+        },
+        {
+          "paragraph": "PDXNet: University of Texas PDX Development and Trial Center Grant – phs001980.v2.p1",
+          "list": [
+            "36 Participants",
+            "98 Files"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v1.0",
+      "versionNumber": "v1.0",
+      "releaseDate": "February 22, 2023",
+      "subHeading": "Studies",
+      "heading": "Data Release 1.0",
+      "content": [
+        {
+          "paragraph": "DCCPS GECCO OICR: Molecular Pathological Epidemiology of Cancer - phs002050.v2.p",
+          "list": [
+            "2,528 Participants",
+            "5,056 Files"
+          ]
+        },
+        {
+          "paragraph": "HTAN: Human Tumor Atlas Network Primary Sequencing Data - phs002371.v2.p1",
+          "list": [
+            "270 Participants",
+            "14,808 Files"
+          ]
+        },
+        {
+          "paragraph": "CCDI: Molecular Characterization Initiative - phs002790.v1.p1",
+          "list": [
+            "526 Participants",
+            "9,763 Files"
+          ]
+        },
+        {
+          "paragraph": "CCDI: UCSF Database for the advancement of JMML – Integration of metadata with “Omic” Data - phs002504.v1.p1",
+          "list": [
+            "188 Participants",
+            "935 Files"
+          ]
+        }
+      ]
+    }
+  ]
+}

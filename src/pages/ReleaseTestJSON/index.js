@@ -3,22 +3,25 @@ import {
   Table, TableHead, TableBody, TableCell, TableRow, withStyles,
 } from '@material-ui/core';
 import React, { useState } from 'react';
-import * as Constants from '../../bento/releaseNotesData';
 import styles from './styles';
-import ReleaseNotes from '../ReleaseNotes';
+import ReleaseNotesJSON from '../ReleaseNotesJSON';
 import Stats from '../../components/Stats/AllStatsController';
-import jsonData from './test.json';
+//import jsonData from './test.json';
+import jsonData from './releaseNotesTest.json';
 
 const ReleaseTestJSON = (props) => {
   const { classes } = props;
-  const [versionDetails, setVersionDetails] = useState(Constants.VERSIONS[0]);
-  console.log(jsonData);
+  const [versionDetails, setVersionDetails] = useState(jsonData.VERSIONS[0]);
+  console.log('findme', jsonData);
+  jsonData.VERSIONS.map((row) => (
+    console.log('findme', row)
+  ));
 
   return (
     <>
       <Stats />
       <div className={classes.container}>
-        <h1>{Constants.HEADING}</h1>
+        <h1>{jsonData.HEADING}</h1>
         <div className={classes.wrapper}>
           <div className={classes.tableWrapper}>
             <Table>
@@ -29,7 +32,7 @@ const ReleaseTestJSON = (props) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {Constants.VERSIONS.map((row) => (
+                {jsonData.VERSIONS.map((row) => (
                   <TableRow key={row.id}>
                     <TableCell align="left"><span className={classes.versionLink} onClick={() => setVersionDetails(row)}>{row.versionNumber}</span></TableCell>
                     <TableCell align="left">{row.releaseDate}</TableCell>
@@ -39,7 +42,7 @@ const ReleaseTestJSON = (props) => {
             </Table>
             <hr className={classes.horizontalLine} />
           </div>
-          {versionDetails && <ReleaseNotes versionDetails={versionDetails} />}
+          {versionDetails && <ReleaseNotesJSON versionDetails={versionDetails} />}
         </div>
       </div>
     </>
