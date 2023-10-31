@@ -30,7 +30,7 @@ export const tooltipContent = {
 
 //BENTO-2455 Configuration set for Bento 4.0.
 export const myFilesPageData = {
-  manifestFileName: 'BENTO File Manifest',
+  manifestFileName: 'CDS File Manifest',
   tooltipIcon: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
   tooltipAlt: 'tooltip icon',
   tooltipMessage: 'To access and analyze files: select and remove unwanted files,  click the “Download Manifest” button, and upload the resulting Manifest file to your Seven Bridges Genomics account.',
@@ -102,8 +102,8 @@ export const myFilesPageData = {
 
 
 export const manifestData = {
-  keysToInclude: ['subject_id', 'file_name', 'file_id', 'md5sum'],
-  header: ['Participant ID', 'File Name', 'File ID', 'Md5sum', 'User Comments'],
+  keysToInclude: ['file_id', 'file_name', 'subject_id','md5sum'],
+  header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'User Comments'],
 };
 
 // --------------- GraphQL query - Retrieve selected cases info --------------
@@ -175,6 +175,7 @@ export const table = {
       dataField: 'file_id',
       header: 'File ID',
       display: false,
+      appendString:'drs://nci-crdc.datacommons.io/', 
       tooltipText: 'sort',
     },
     {
