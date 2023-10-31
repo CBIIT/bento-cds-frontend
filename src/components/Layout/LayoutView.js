@@ -126,8 +126,6 @@ const Layout = ({ classes, isSidebarOpened }) => {
             <Route path="/sysinfo" component={SysInfoView} />
             <Route component={Error} />
 
-
-
           </Switch>
           <Footer data={{ isSidebarOpened }} />
         </div>
