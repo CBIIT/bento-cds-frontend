@@ -286,7 +286,7 @@ const StudyView = ({ classes, data, theme }) => {
                                             <span className={classes.content}>
                                               {' '}
                                               <a
-                                                href={`${attribute.actualLink}`}
+                                                href={`${studyData[attribute.actualLink]}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={classes.link}
