@@ -178,7 +178,7 @@ const ProgramView = ({ classes, data, theme }) => {
                                 <span className={classes.content}>
                                   {' '}
                                   <a
-                                    href={`${attribute.actualLink}`}
+                                    href={`${programData[attribute.actualLink]}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={classes.link}
