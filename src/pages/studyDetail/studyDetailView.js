@@ -227,9 +227,9 @@ const StudyView = ({ classes, data, theme }) => {
                                   </span>
                                   <div>
                                     <span className={classes.content} id={`study_detail_left_section_description_${index + 1}`}>
-                                    {' '}
-                                    {studyData[attribute.dataField]}
-                                    {' '}
+                                      {' '}
+                                      {studyData[attribute.dataField]}
+                                      {' '}
                                     </span>
                                   </div>
                                 </div>
