@@ -13,11 +13,12 @@ import {
 import Stats from '../../components/Stats/AllStatsController';
 import { Typography } from '../../components/Wrappers/Wrappers';
 import { themeConfig } from './tableConfig/Theme';
+import { configColumn } from './tableConfig/Column';
 
 const initTblState = (initailState) => ({
   ...initailState,
   title: table.name,
-  columns: table.columns,
+  columns: configColumn({ columns: table.columns }),
   selectedRows: [],
   tableMsg: table.tableMsg,
   sortBy: table.defaultSortField,
