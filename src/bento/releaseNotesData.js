@@ -2,6 +2,138 @@ export const HEADING = 'Data Release Notes';
 
 export const VERSIONS = [
   {
+    id: 'v5.0',
+    versionNumber: 'v5.0',
+    releaseDate: ' Nov 07, 2023',
+    subHeading: 'Studies',
+    heading: 'Data Release 5.0',
+    content: `
+    <div>
+    <p>CCDI: IGM/MCI - Molecular Characterization Initiative – (June submission) - phs002790.v3.p1</p>
+    <ul>
+      <li>149 Participants</li>
+      <li>2,717 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CCDI: IGM/MCI - Molecular Characterization Initiative – (July submission) - phs002790.v3.p1</p>
+    <ul>
+      <li>385 Participants</li>
+      <li>977 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CCDI: IGM/MCI - Molecular Characterization Initiative – (August submission) - phs002790.v3.p1</p>
+    <ul>
+      <li>104 Participants</li>
+      <li>9,444 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>
+      CCDI: IGM/MCI - Molecular Characterization Initiative – (September submission) - phs002790.v4.p1
+
+    </p>
+    <ul>
+      <li>195 Participants</li>
+      <li>4,105 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CCDI: MSKCC phs002620.v1.p1</p>
+    <ul>
+      <li>114 Participants</li>
+      <li>650 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CPTAC: CPTAC: CPTAC Proteogenomic Study (snATAC-seq GBM study) - phs001287.v17.p6    </p>
+    <ul>
+      <li>18 participants</li>
+      <li>69 files</li>
+    </ul>
+  </div>
+  <div>
+    <p>
+      DCCPS CIDR:  RESPOND Project 2- phs002637.v1.p1
+
+    </p>
+    <ul>
+      <li>12,171 Participants</li>
+      <li>24,342 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>
+      HTAN: Human Tumor Atlas Network Primary Sequencing Data (Patch) - phs002371.v3.p1
+    </p>
+    <ul>
+      <li>44 Participants</li>
+      <li>380 Files</li>
+    </ul>
+  </div>
+  `,
+  },
+  {
+    id: 'v4.0',
+    versionNumber: 'v4.0',
+    releaseDate: ' Sept 26, 2023',
+    subHeading: 'Studies',
+    heading: 'Data Release 4.0',
+    content: `<div>
+    <p>CCDI: IGM/MCI - Molecular Characterization Initiative – (June submission) - phs002790.v3.p1</p>
+    <ul>
+      <li>170 Participants</li>
+      <li>3,496 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CCDI: IGM/MCI - Molecular Characterization Initiative – (July submission) - phs002790.v3.p1</p>
+    <ul>
+      <li>184 Participants</li>
+      <li>2,904 Files</li>
+    </ul>
+  </div>
+  <div>
+    <p>CCDI: NCI CCSG CCDI Supplement Additional Genomic Submission - phs002599.v1.p1</p>
+    <ul>
+      <li>104 Participants</li>
+      <li>313 Files</li>
+    </ul>
+  </div>
+  <div>
+  <p>LCCC 1108: Development of a Tumor Molecular Analyses Program and Its Use to Support Treatment Decisions (UNCseqTM) - phs001713.v1.p1</p>
+  <ul>
+    <li>1 Participants</li>
+    <li>1 Files</li>
+  </ul>
+</div>
+  <div>
+    <p>CPTAC: CPTAC Proteogenomic Study - phs001287.v14.p6</p>
+    <ul>
+      <li>1,069 participants</li>
+      <li>1,069 files</li>
+      <li>Publication: <a href="Publication: https://pubmed.ncbi.nlm.nih.gov/37582339/">https://pubmed.ncbi.nlm.nih.gov/37582339/</a></li>
+    </ul>
+  </div>
+  <div>
+    <p>CPTAC: CPTAC Proteogenomic Study - phs001287.v16.p6</p>
+    <ul>
+      <li>23 Participants</li>
+      <li>105 Files</li>
+      <li>Publication: <a href="Publication: https://www.nature.com/articles/s41467-023-37211-7">https://www.nature.com/articles/s41467-023-37211-7</a></li>
+    </ul>
+  </div>
+  <div>
+    <p>DCCPS CIDR: The Genetic Basis of Aggressive Prostate Cancer: The Role of Rare Variation - phs001524.v2.p2</p>
+    <ul>
+      <li>13,891 Participants</li>
+      <li>27,782 Files</li>
+    </ul>
+  </div>
+  `,
+  },
+  {
     id: 'v3.0',
     versionNumber: 'v3.0',
     releaseDate: 'May 18, 2023',
@@ -36,30 +168,10 @@ export const VERSIONS = [
     </ul>
   </div>
   <div>
-    <p>CCDI: Molecular Characterization Initiative – phs002731.v2.p1</p>
+    <p>CCDI: Molecular Characterization Initiative – phs002790.v2.p1</p>
     <ul>
-      <li>108Participants</li>
+      <li>108 Participants</li>
       <li>1,987 Files</li>
-    </ul>
-  </div>
-  `,
-  },
-  {
-    id: 'TBD',
-    versionNumber: 'TBD',
-    releaseDate: 'Upcoming',
-    subHeading: 'Studies',
-    heading: 'Coming Soon',
-    content: `<div>
-    <ul>
-      <li>CCDI: Feasibility and Clinical Utility of Whole Genome Profiling in Pediatric and Young Adult Cancers - phs002620.v1.p1</li>
-      <li>CCDI: NCI CCSG CCDI Supplement Additional Genomic Submission - phs002599.v1.p1</li>
-      <li>PDXNet: Wistar PDX Development and Trial Center - phs002432.v1.p1</li>
-      <li>Whole Genome Sequencing to Discover Familial Myeloma Risk Genes - phs001819.v2.p1</li>
-      <li>Limited Use Pilot Test Data. The PHS002011 manifest file is available for download the CGC documentation - phs002011.v1.p1</li>
-      <li>HTAN Imaging 1st and 2nd submission</li>
-      <li>HTAN 1st Genomic phs002371</li>
-      <li>CCDI, CHoP - phs002517.v1.p1</li>
     </ul>
   </div>
   `,
