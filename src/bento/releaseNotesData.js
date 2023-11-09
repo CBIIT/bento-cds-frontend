@@ -113,7 +113,7 @@ export const VERSIONS = [
     <ul>
       <li>1,069 participants</li>
       <li>1,069 files</li>
-      <li>Publication: <a href="Publication: https://pubmed.ncbi.nlm.nih.gov/37582339/">https://pubmed.ncbi.nlm.nih.gov/37582339/</a></li>
+      <li>Publication: <a href="https://pubmed.ncbi.nlm.nih.gov/37582339/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/37582339/</a></li>
     </ul>
   </div>
   <div>
@@ -121,7 +121,7 @@ export const VERSIONS = [
     <ul>
       <li>23 Participants</li>
       <li>105 Files</li>
-      <li>Publication: <a href="Publication: https://www.nature.com/articles/s41467-023-37211-7">https://www.nature.com/articles/s41467-023-37211-7</a></li>
+      <li>Publication: <a href="https://www.nature.com/articles/s41467-023-37211-7" target="_blank">https://www.nature.com/articles/s41467-023-37211-7</a></li>
     </ul>
   </div>
   <div>
