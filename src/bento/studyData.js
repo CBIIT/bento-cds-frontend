@@ -67,12 +67,14 @@ const table = {
       header: 'Number of Participants',
       tooltipText: 'Sort by Number of Participants',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'numberOfFiles',
       header: 'Number of Files',
       tooltipText: 'Sort by Number of Files',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
   ],
 };
