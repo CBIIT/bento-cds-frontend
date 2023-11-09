@@ -18,7 +18,7 @@ export const SEARCH_KEYS = {
 
 export const SEARCH_DATAFIELDS = {
   public: [],
-  private: ['program_id', 'study_id', 'subject_id', 'sample_id', 'file_id'],
+  private: ['program_name', 'study_name', 'subject_id', 'sample_id', 'file_name', 'node_name'],
 };
 
 /** used by the Global Search page results */
@@ -129,30 +129,27 @@ export const SEARCH_PAGE_RESULT_MODEL_PUBLIC = gql`
 export const SEARCH = gql`
 query globalSearch($input: String){
     globalSearch(input: $input) {
+        programs {
+          program_name
+        }
         studies {
-            study_code
+          study_name
         }
         subjects {
-            subject_id
+          subject_id
         }
         samples {
-            sample_id
-        }
-        samples {
-            sample_id
+          sample_id
         }
         files {
-            file_id
+          file_name
         }
         model {
-            node_name
+          node_name
         }
         about_page {
-            text
-        }
-        program {
-            program_name
-        }
+          text
+      }
     }
 }
 `;
