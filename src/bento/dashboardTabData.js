@@ -750,7 +750,9 @@ export const tabContainers = [
     tableID: 'case_tab_table',
     extendedViewConfig: {
       pagination: true,
-      manageViewColumns: true,
+      manageViewColumns: {
+        title: 'View Columns',
+      },
       download: {
         downloadCsv: 'Download Table Content As CSV',
         downloadFileName: 'CDS_participant_Download',
@@ -829,7 +831,9 @@ export const tabContainers = [
     tableID: 'sample_tab_table',
     extendedViewConfig: {
       pagination: true,
-      manageViewColumns: true,
+      manageViewColumns: {
+        title: 'View Columns',
+      },
       download: {
         downloadCsv: 'Download Table Content As CSV',
         downloadFileName: 'CDS_sample_Download',
@@ -931,7 +935,9 @@ export const tabContainers = [
     tableID: 'file_tab_table',
     extendedViewConfig: {
       pagination: true,
-      manageViewColumns: true,
+      manageViewColumns: {
+        title: 'View Columns',
+      },
       download: {
         downloadCsv: 'Download Table Content As CSV',
         downloadFileName: 'CDS_file_Download',
