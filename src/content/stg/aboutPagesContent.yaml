@@ -44,7 +44,7 @@
   downloadableContent:
     - paragraph: "$$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
     - paragraph: "$$[Submission Questionnaire](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSDataSubmissionFormV2.pdf)$$"
-    - paragraph: "$$[CDS metadata template](https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_submission_metadata_template-v1.3.1.xlsx?raw=true)$$"
+    - paragraph: "$$[CDS metadata template](https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_Metadata_Submission_Template_v1.3.2_Nov2023.xlsx?raw=true)$$"
 
 - page: '/cloudresources'
   title: "NCI's Cloud Services"
