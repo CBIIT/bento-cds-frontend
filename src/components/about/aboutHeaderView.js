@@ -15,6 +15,7 @@ const styles = () => ({
     padding: '45px',
   },
   container: {
+    paddingTop: '50px',
   },
   whitePadding: {
     // height: '6px',
