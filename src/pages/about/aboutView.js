@@ -64,6 +64,7 @@ const styles = () => ({
     // backgroundImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/LeftSide.png',
     backgroundPosition: 'left top, left top',
     backgroundRepeat: 'no-repeat, repeat',
+    marginTop: '50px',
   },
   rightBg: {
     paddingBottom: '30px',

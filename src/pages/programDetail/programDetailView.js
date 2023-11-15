@@ -522,7 +522,7 @@ const styles = (theme) => ({
     // height: '11px',
     // letterSpacing: 10px;
     // line-height: 29px;
-    padding: '16px 52px 0px 52px',
+    padding: '65px 52px 0px 52px',
   },
   headerButton: {
     fontFamily: theme.custom.fontFamily,

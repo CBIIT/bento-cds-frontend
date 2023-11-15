@@ -19,7 +19,7 @@ const GraphqlView = ({ classes }) => (<div className={classes.grapqhQlContainer}
 const styles = () => ({
   grapqhQlContainer: {
     height: '600px',
-    marginTop: '-44px',
+    marginTop: '0px',
   },
 });
 

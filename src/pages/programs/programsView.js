@@ -153,6 +153,7 @@ const styles = (theme) => ({
   tableContainer: {
     background: 'white',
     paddingBottom: '50px',
+    paddingTop: '49px',
   },
   tableDiv: {
     margin: 'auto',

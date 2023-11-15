@@ -1,12 +1,13 @@
 export const navBarstyling = {
   global: {
     backgroundColor: '#0E6292;',
-    marginTop: '100px',
+    marginTop: '0px',
     height: '39px',
     padding: '9px 20px 0px 20px',
     fontColor: '#bbefff',
     activeLabel: '1px solid #bbefff',
     textTransform: 'capitalize',
+    position: 'relative',
   },
   dropDownIcon: {
     displayIcon: false,

@@ -200,6 +200,7 @@ const styles = () => ({
   hero: {
     width: '100%',
     margin: '0 auto',
+    marginTop: '46px',
   },
   leftBg: {
     backgroundRepeat: 'no-repeat',
