@@ -264,6 +264,7 @@ const styles = (theme) => ({
   container: {
     backgroundColor: '#FFFFFF',
     padding: '0 32px',
+    paddingTop: '50px',
   },
   innerContainer: {
     maxWidth: '1340px',

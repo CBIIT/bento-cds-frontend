@@ -169,8 +169,8 @@ export default () => ({
     fontWeight: 'bold',
     textDecoration: 'none',
   },
-  marginTopNegative20: {
-    marginTop: '-60px',
+  marginTopNegative10: {
+    marginTop: '-10px',
   },
   emptyWrapper: {
     height: '60px',

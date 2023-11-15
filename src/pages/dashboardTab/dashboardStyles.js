@@ -20,7 +20,7 @@ const styles = (theme) => ({
     display: 'flex',
     maxWidth: '1800px',
     margin: 'auto',
-    paddingTop: '10px',
+    paddingTop: '59px',
   },
   widgetsContainer: {
     background: theme.palette.widgetBackground.main,

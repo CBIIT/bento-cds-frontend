@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { withStyles, CssBaseline } from '@material-ui/core';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import aboutPageRoutes from '../../bento/aboutPagesRoutes';
@@ -26,7 +26,7 @@ import ReleaseVersions from '../ReleaseVersions';
 import GlobalSearch from '../../pages/search/searchView';
 import OverlayWindow from '../OverlayWindow/OverlayWindow';
 import GlobalSearchController from '../../pages/search/searchViewController';
-
+import ShutdownBanner from '../ShutdownBanner/ShutdownBanner';
 import GA from '../../utils/googleAnalytics';
 
 const ScrollToTop = () => {
@@ -34,73 +34,97 @@ const ScrollToTop = () => {
   return null;
 };
 
-const Layout = ({ classes, isSidebarOpened }) => (
-  <>
-    <CssBaseline />
-    <HashRouter>
-      <>
-        <Header />
-        <OverlayWindow />
-        <NavBar />
-        {/* Reminder: Ajay need to replace the ICDC with env variable and
-          change build npm to read env variable */}
-        <div
-          className={classes.content}
-        >
-          <Route component={ScrollToTop} />
-          { GA.init() && <GA.RouteTracker /> }
-          <Switch>
-            <Route exact path="/CDS/" component={Home} />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
-            <Route path="/data" component={Dashboard} />
-            <Route path="/programs" component={Programs} />
-            <Route path="/studies" component={Arms} />
-            <Route path="/model" component={modelPage} />
-            <Route path="/table" component={table} />
-            <Route path="/fileCentricCart" component={fileCentricCart} />
-            <Route path="/program/:id" component={ProgramDetail} />
-            <Route path="/case/:id" component={CaseDetail} />
-            <Route path="/study/:id" component={ArmDetail} />
-            {/* <Route path="/JBrowse" component={JBrowse} /> */}
-            <Route exact path="/search" component={GlobalSearch} />
-            <Route path="/search/:id" component={GlobalSearchController} />
-            <Route path="/datasubmit" component={Questionaire} />
-            <Route path="/releases" component={ReleaseVersions} />
+const Layout = ({ classes, isSidebarOpened }) => {
+  const headerRef = useRef(null);
+  const contentRef = useRef(null);
 
-            {/* <Route path="/fileViewer/:id" component={JBrowseDetail} /> */}
-            {aboutPageRoutes.map(
-              (aboutPageRoute, index) => (
-                <Route
-                  key={index}
-                  path={aboutPageRoute}
-                  component={About}
-                />
-              ),
-            )}
-            <Route path="/data-dictionary" component={DataDictonary} />
-            <Route path="/graphql" component={GraphqlClient} />
-            <Route component={Error} />
-          </Switch>
-          <Footer data={{ isSidebarOpened }} />
-        </div>
-      </>
-    </HashRouter>
-  </>
-);
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        // Access the new size information from entry.contentRect
+        contentRef.current.style.height = `calc(100% - ${entry.contentRect.height}px)`;
+      });
+    });
+
+    // Attach the ResizeObserver to the target element (in this case, the containerRef)
+    if (headerRef.current) {
+      resizeObserver.observe(headerRef.current);
+    }
+
+    // Cleanup function to disconnect the ResizeObserver when the component unmounts
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <>
+      <CssBaseline />
+      <HashRouter>
+        <>
+          <div className={classes.container}>
+            <OverlayWindow />
+            <div id="headerSection" ref={headerRef} className={classes.header}>
+              <ShutdownBanner src="https://cbiit.github.io/crdc-alert-elements/banners/government-shutdown.html" />
+              <Header />
+              <NavBar />
+            </div>
+
+            {/* Reminder: Ajay need to replace the ICDC with env variable and
+          change build npm to read env variable */}
+            <div
+              ref={contentRef}
+              className={classes.content}
+            >
+              <Route component={ScrollToTop} />
+              { GA.init() && <GA.RouteTracker /> }
+              <Switch>
+                <Route exact path="/CDS/" component={Home} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/home" component={Home} />
+                <Route path="/data" component={Dashboard} />
+                <Route path="/programs" component={Programs} />
+                <Route path="/studies" component={Arms} />
+                <Route path="/model" component={modelPage} />
+                <Route path="/table" component={table} />
+                <Route path="/fileCentricCart" component={fileCentricCart} />
+                <Route path="/program/:id" component={ProgramDetail} />
+                <Route path="/case/:id" component={CaseDetail} />
+                <Route path="/study/:id" component={ArmDetail} />
+                {/* <Route path="/JBrowse" component={JBrowse} /> */}
+                <Route exact path="/search" component={GlobalSearch} />
+                <Route path="/search/:id" component={GlobalSearchController} />
+                <Route path="/datasubmit" component={Questionaire} />
+                <Route path="/releases" component={ReleaseVersions} />
+
+                {/* <Route path="/fileViewer/:id" component={JBrowseDetail} /> */}
+                {aboutPageRoutes.map(
+                  (aboutPageRoute, index) => (
+                    <Route
+                      key={index}
+                      path={aboutPageRoute}
+                      component={About}
+                    />
+                  ),
+                )}
+                <Route path="/data-dictionary" component={DataDictonary} />
+                <Route path="/graphql" component={GraphqlClient} />
+                <Route component={Error} />
+              </Switch>
+              <Footer data={{ isSidebarOpened }} />
+            </div>
+          </div>
+        </>
+      </HashRouter>
+    </>
+  );
+};
 
 const styles = (theme) => ({
   root: {
     display: 'flex',
     maxWidth: '100vw',
     overflowX: 'hidden',
-  },
-  content: {
-    flexGrow: 1,
-    // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
-    width: 'calc(100%)', // Remove this on adding sidebar
-    background: theme.custom.bodyBackGround,
-    marginTop: '189px',
   },
   '@global': {
     '*::-webkit-scrollbar': {
@@ -117,6 +141,24 @@ const styles = (theme) => ({
       outline: '1px solid slategrey',
       borderRadius: '0px',
     },
+  },
+  container: {
+    top: '0px',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+  },
+  header: {
+    width: '100%',
+    zIndex: '9999',
+  },
+  content: {
+    flexGrow: 1,
+    width: 'calc(100%)', // Remove this on adding sidebar
+    background: theme.custom.bodyBackGround,
+    overflowY: 'auto',
+    position: 'absolute',
+    height: '100%',
   },
 });
 

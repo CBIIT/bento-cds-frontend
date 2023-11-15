@@ -169,7 +169,7 @@ const cartView = ({
   );
 
   return (
-    <Grid className={classes.marginTopNegative20}>
+    <Grid className={classes.marginTopNegative10}>
       <DialogBox
         isOpen={modalStatus}
         closeModal={closeDialogBox}
