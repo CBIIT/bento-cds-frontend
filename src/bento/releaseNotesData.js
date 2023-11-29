@@ -177,26 +177,6 @@ export const VERSIONS = [
   `,
   },
   {
-    id: 'TBD',
-    versionNumber: 'TBD',
-    releaseDate: 'Upcoming',
-    subHeading: 'Studies',
-    heading: 'Coming Soon',
-    content: `<div>
-    <ul>
-      <li>CCDI: Feasibility and Clinical Utility of Whole Genome Profiling in Pediatric and Young Adult Cancers - phs002620.v1.p1</li>
-      <li>CCDI: NCI CCSG CCDI Supplement Additional Genomic Submission - phs002599.v1.p1</li>
-      <li>PDXNet: Wistar PDX Development and Trial Center - phs002432.v1.p1</li>
-      <li>Whole Genome Sequencing to Discover Familial Myeloma Risk Genes - phs001819.v2.p1</li>
-      <li>Limited Use Pilot Test Data. The PHS002011 manifest file is available for download the CGC documentation - phs002011.v1.p1</li>
-      <li>HTAN Imaging 1st and 2nd submission</li>
-      <li>HTAN 1st Genomic phs002371</li>
-      <li>CCDI, CHoP - phs002517.v1.p1</li>
-    </ul>
-  </div>
-  `,
-  },
-  {
     id: 'v2.0',
     versionNumber: 'v2.0',
     releaseDate: 'April 17, 2023',
