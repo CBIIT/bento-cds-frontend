@@ -33,7 +33,7 @@ const QueryBarView = ({ data, statusReducer, localFind }) => {
   const { QueryBar } = QueryBarGenerator({
     config: {
       maxItems: 2,
-      displayAllActiveFilters: false,
+      displayAllActiveFilters: true,
       count: 'count',
       caseIDLabel: 'Participant IDs',
     },
