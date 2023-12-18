@@ -48,6 +48,7 @@ const styles = () => ({
         margin: 0,
         fontSize: 16,
         fontWeight: 400,
+        whiteSpace: 'pre-wrap',
       },
       '& ul': {
         fontFamily: 'Nunito',
