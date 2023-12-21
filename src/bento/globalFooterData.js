@@ -41,6 +41,10 @@ export default {
           text: 'How to Submit Data',
           link: '/submit',
         },
+        {
+          text: 'GraphQL',
+          link: '/graphql',
+        },
       ],
     },
     {
@@ -50,10 +54,6 @@ export default {
         {
           text: 'Bento',
           link: '/bento',
-        },
-        {
-          text: 'GraphQL',
-          link: '/graphql',
         },
         {
           text: `FE Version: ${env.REACT_APP_FE_VERSION || '0.0.0'}`,
