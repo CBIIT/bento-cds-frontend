@@ -24,12 +24,12 @@ import colors from '../../utils/colors';
 import { WidgetGenerator } from '@bento-core/widgets';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
 import { themeConfig } from './tableConfig/Theme';
+import { configColumn } from './tableConfig/Column';
 
 const initTblState = (initailState) => ({
   ...initailState,
   title: table.name,
-  columns: table.columns,
-  selectedRows: [],
+  columns: configColumn({ columns: table.columns }),  selectedRows: [],
   tableMsg: table.tableMsg,
   sortBy: table.defaultSortField,
   sortOrder: table.defaultSortDirection,

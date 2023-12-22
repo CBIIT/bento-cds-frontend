@@ -150,12 +150,14 @@ const table = {
       header: 'Number Of Samples',
       tooltipText: 'Sort by Number Of Samples',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'num_participants',
       header: 'Number Of Participants',
       tooltipText: 'Sort by Number Of Participants',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
   ],
 };
