@@ -77,4 +77,4 @@
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/support.jpeg'
   content: 
     - 
-      paragraph: "If you have any questions, please contact us at $$@cdshelpdesk@mail.nih.gov@$$."
+      paragraph: "If you have any questions, please contact us at $$[CDSHelpDesk@mail.nih.gov](CDSHelpDesk@mail.nih.gov)$$."
