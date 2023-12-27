@@ -7,7 +7,7 @@ import CustomThemeProvider from './FooterThemeConfig';
 const BACKEND_API = env.REACT_APP_BACKEND_API;
 // const FILE_SERVICE_API = env.REACT_APP_FILE_SERVICE_API;
 
-const fetchVersion = (url) => fetch(`${url}version/`)
+const fetchVersion = (url) => fetch(`${url}version`)
   .then((resp) => resp.text())
   .then((text) => {
     const json = JSON.parse(text);
