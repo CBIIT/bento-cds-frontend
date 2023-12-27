@@ -5,9 +5,9 @@ import env from '../../utils/env';
 import CustomThemeProvider from './FooterThemeConfig';
 
 const BACKEND_API = env.REACT_APP_BACKEND_API;
-const FILE_SERVICE_API = env.REACT_APP_FILE_SERVICE_API;
+// const FILE_SERVICE_API = env.REACT_APP_FILE_SERVICE_API;
 
-const fetchVersion = (url) => fetch(`${url}version`)
+const fetchVersion = (url) => fetch(`${url}version/`)
   .then((resp) => resp.text())
   .then((text) => {
     const json = JSON.parse(text);
@@ -27,18 +27,16 @@ const ICDCFooter = () => {
           ? `:${backendApiUrl.port}/`
           : '/'
       }`;
-      const [BEversion, FileServiceVersion] = (await Promise.allSettled([
+      const [BEversion] = (await Promise.allSettled([
         fetchVersion(backendOrigin),
-        fetchVersion(FILE_SERVICE_API),
+        // fetchVersion(FILE_SERVICE_API), can return FileServiceVersion. 
       ])).map((res) => (res.status === 'fulfilled' ? res.value : '0.0.0'));
 
       const linkSections = FooterData.link_sections;
-      linkSections[2].items[3].text = `BE Version: ${BEversion}`;
+      linkSections[2].items[2].text = `BE Version: ${BEversion}`;
 
       setFooterUpdatedData({
         ...FooterData,
-        ...{ FileServiceVersion },
-        ...{ BEversion },
         link_sections: linkSections,
       });
     };
