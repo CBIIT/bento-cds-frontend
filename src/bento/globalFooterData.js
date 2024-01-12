@@ -62,7 +62,7 @@ export default {
           text: 'BE Version: 0.0.0',
         },
         {
-          text: 'System Infomation Page',
+          text: 'System Information Page',
           link: '/sysinfo',
         },
       ],
