@@ -25,8 +25,8 @@
     - paragraph: "The CDS is home to a combination of open and controlled access data, however, the CDS Portal is accessible for users to search and browse with no required login. This allows users to check if CDS has data of interest before going through the process of requesting access to controlled access data through the NCBI’s $$[dbGaP](https://www.ncbi.nlm.nih.gov/gap/)$$ system"
     - paragraph: "Open access data is publicly accessible; it does not require any approvals. Being a cloud repository, CDS does not facilitate direct downloads of data, owing to high data download charges. However, programs/initiatives can reach out to $$[CDSHelpDesk@mail.nih.gov](CDSHelpDesk@mail.nih.gov)$$ to request downloads if willing to fund the download for users approved to access their data. Please contact the CDS helpdesk for further information."
     - paragraph: ""
-    - paragraph: "Learn more about $$[Accessing and Analyzing Data](/#/analysis)$$"
-    - paragraph: "$$[Learn how to Submit Data](/#/submit)$$"
+    - paragraph: "Learn more about $$[Accessing and Analyzing Data](target:_self url:/#/analysis)$$"
+    - paragraph: "$$[Learn how to Submit Data](target:_self url:/#/submit)$$"
 - page: '/submit'
   title: "How to Submit Data"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/submit.png'
@@ -77,4 +77,4 @@
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/support.jpeg'
   content: 
     - 
-      paragraph: "If you have any questions, please contact us at $$@cdshelpdesk@mail.nih.gov@$$."
+      paragraph: "If you have any questions, please contact us at $$[CDSHelpDesk@mail.nih.gov](CDSHelpDesk@mail.nih.gov)$$."
