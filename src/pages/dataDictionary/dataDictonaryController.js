@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import yaml from 'js-yaml';
 import axios from 'axios';
-import YAMLData from '../../content/stg/aboutPagesContent.yaml';
+import YAMLData from '../../content/stage/aboutPagesContent.yaml';
 import DataDictBody from './dataDictonaryView';
 import env from '../../utils/env';
 
