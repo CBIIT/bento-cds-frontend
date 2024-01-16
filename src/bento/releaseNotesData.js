@@ -2,6 +2,43 @@ export const HEADING = 'Data Release Notes';
 
 export const VERSIONS = [
   {
+    id: 'v6.0',
+    versionNumber: 'v6.0',
+    releaseDate: 'January 16, 2024',
+    subHeading: 'Studies',
+    heading: 'Data Release 6.0',
+    content: `
+    <div>
+        <p>CCDI: IGM/MCI - Molecular Characterization Initiative - phs002790.v5.p1</p>
+        <ul>
+            <li>93 Participants</li>
+            <li>225 Files</li>
+        </ul>
+    </div>
+    <div>
+        <p>GW GDIT phs003155.v1.p1</p>
+        <ul>
+            <li>1,342 Participants</li>
+            <li>1,342 Files</li>
+        </ul>
+    </div>
+    <div>
+        <p>PDXNet – PDXNet phs002432.1.p1</p>
+        <ul>
+            <li>46 Participants</li>
+            <li>370 Files</li>
+        </ul>
+    </div>
+    <div>
+        <p>HTAN: Human Tumor Atlas Network Primary Sequencing Data (2 files patch) - phs002371.v3.p1</p>
+        <ul>
+            <li>1 Participants</li>
+            <li>2 Files</li>
+        </ul>
+    </div>
+    `,
+  },
+  {
     id: 'v5.0',
     versionNumber: 'v5.0',
     releaseDate: ' Nov 07, 2023',
