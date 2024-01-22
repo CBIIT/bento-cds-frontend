@@ -35,7 +35,7 @@ export default {
         },
         {
           text: 'CDS Data Model',
-          link: 'https://github.com/CBIIT/cds-model',
+          link: '/resources',
         },
         {
           text: 'How to Submit Data',
