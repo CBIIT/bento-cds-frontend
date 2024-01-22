@@ -183,36 +183,42 @@ export const table = {
       header: 'Study Name',
       display: true,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'phs_accession',
       header: 'Accession',
       display: true,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'subject_id',
       header: 'Participant Id',
       display: true,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'sample_id',
       header: 'Sample Id',
       display: true,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'accesses',
       header: 'Study Access',
       display: true,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'file_type',
       header: 'File Type',
       display: true,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'file_size',
@@ -230,9 +236,12 @@ export const table = {
       tooltipText: 'sort',
     },
     {
+      dataField: 'remove',
       cellType: cellTypes.DELETE,
+      header: 'Remove',
       headerType: cellTypes.DELETE,
       display: true,
+      role: cellTypes.DISPLAY
     },
   ],
   tableMsg: {

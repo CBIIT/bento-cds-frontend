@@ -29,6 +29,11 @@ const CartView = (props) => {
     sortOrder: config.defaultSortDirection,
     rowsPerPage: 10,
     page: 0,
+    extendedViewConfig: {
+      manageViewColumns: {
+        title: 'View Columns',
+      },
+    },
   });
 
   const variables = {};
