@@ -182,6 +182,10 @@ query searchSubjects(
           group
           subjects
       }
+      subjectCountByImageModality{
+          group
+          subjects
+      }
       subjectCountByInstrumentModel{
           group
           subjects
@@ -195,6 +199,10 @@ query searchSubjects(
           subjects
       }
       subjectCountByPhsAccession{
+          group
+          subjects
+      }
+      subjectCountBySampleType{
           group
           subjects
       }
@@ -258,6 +266,10 @@ query searchSubjects(
           group
           subjects
       }
+      filterSubjectCountByImageModality{
+          group
+          subjects
+      }
       filterSubjectCountByInstrumentModel{
           group
           subjects
@@ -271,6 +283,10 @@ query searchSubjects(
           subjects
       }
       filterSubjectCountByPhsAccession{
+          group
+          subjects
+      }
+      filterSubjectCountBySampleType{
           group
           subjects
       }
@@ -302,6 +318,7 @@ query subjectOverview(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -314,6 +331,7 @@ query subjectOverview(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String],
