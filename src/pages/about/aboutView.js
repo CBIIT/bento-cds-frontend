@@ -2,10 +2,19 @@ import React from 'react';
 import { AboutHeader, AboutBody } from '@bento-core/about';
 import { withStyles } from '@material-ui/core';
 import Stats from '../../components/Stats/AllStatsController';
+import { getComponent } from '../../bento/aboutPagesComponentMap';
 
 const AboutView = ({ classes, data }) => {
   const getImage = (imgPath, alt) => <img className={classes.img} src={imgPath != null ? imgPath : ''} alt={alt} />;
 
+  const getImageLocation = (imgLocation) => {
+    if (imgLocation && imgLocation === "hidden") {
+      return null;
+    }
+
+    return imgLocation ? imgLocation : 'right';
+  }
+  
   return (
     <>
       <Stats />
@@ -15,11 +24,11 @@ const AboutView = ({ classes, data }) => {
         <div className={classes.rightBg}>
 
           <AboutHeader title={data.title} titleColor="#0B4E75" background="" />
-          <div>
+          <div className={classes.aboutBodyWrapper}>
             <AboutBody
               data={{
-                image: getImage(data.primaryContentImage, data.title),
-                imageLocation: 'right',
+                image: data.imageLocation !== "hidden" ? getImage(data.primaryContentImage, data.title) : null,
+                imageLocation: getImageLocation(data.imageLocation),
                 title: data.title ? data.title : '',
                 content: data.content ? data.content : '',
                 table: data.table ? data.table : '',
@@ -36,9 +45,14 @@ const AboutView = ({ classes, data }) => {
               externalIconImage="https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/externalLinkIcon.svg"
             />
           </div>
-        </div>
-      </div>    </>
 
+          {data.components && data.components.map((componentName, idx)  => {
+            const Component = getComponent(componentName);
+            return Component ? <Component key={`${data.title}_${idx}`} /> : null;
+          })}
+        </div>
+      </div>    
+    </>
   );
 };
 
@@ -61,6 +75,11 @@ const styles = () => ({
     backgroundPosition: 'right bottom, left top',
     backgroundRepeat: 'no-repeat, repeat',
   },
+  aboutBodyWrapper: {
+    "& .MuiGrid-container": {
+      justifyContent: "center"
+    }
+  }
 });
 
 export default withStyles(styles)(AboutView);

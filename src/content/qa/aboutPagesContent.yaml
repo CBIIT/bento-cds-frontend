@@ -12,6 +12,12 @@
     - paragraph: "All code necessary to use the $$[Bento platform](https://bento-tools.org/#/)$$  on which CDS is built is provided in the form of Docker containers.  However, the Bento code is also available to the public for research and forking and pull requests.  There are a number of  CDS resources to explore on the CDS GitHub page including the CDS Core Data Model: $$[https://github.com/CBIIT/cds-model](https://github.com/CBIIT/cds-model)$$."
   secondaryZoomImageTitle: "The CDS Core Data Model"
   secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/docs/model-desc/cds-model.svg'
+- page: '/graphql'
+  title: "Query CDS using GrapgiQL"
+  imageLocation: "hidden"
+  content:
+    - paragraph: "Users can search through all CDS data using GrapgQL queries. There are several queries that users can utilize from the $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
+  components: ["GraphqlClient"]
 - page: '/cancerDataService'
   title: "About the Cancer Data Service"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
