@@ -78,7 +78,8 @@ const styles = () => ({
   },
   aboutBodyWrapper: {
     "& ul": {
-      marginTop: "-22px"
+      marginTop: "-22px",
+      marginBottom: 0,
     },
     "& .MuiGrid-container": {
       justifyContent: "center"
