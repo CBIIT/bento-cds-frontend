@@ -86,7 +86,7 @@ export const navBarData = [
         link: '/cloudresources',
       },
       {
-        labelText: 'How To Submit Data',
+        labelText: 'CDS Data Submission',
         link: '/submit',
       },
       {
