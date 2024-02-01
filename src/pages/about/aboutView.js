@@ -1,4 +1,5 @@
 import React from 'react';
+// import AboutBody from "../../components/about/aboutBodyView"
 import { AboutHeader, AboutBody } from '@bento-core/about';
 import { withStyles } from '@material-ui/core';
 import Stats from '../../components/Stats/AllStatsController';
@@ -39,7 +40,11 @@ const AboutView = ({ classes, data }) => {
                 downloadableContentTitle: data.downloadableContentTitle
                   ? data.downloadableContentTitle : null,
                 downloadableContent: data.downloadableContent ? data.downloadableContent : '',
-                lineHeight: "23.2px"
+                actionTitle: data.actionTitle ? data.actionTitle : null,
+                actionButtonLabel: data.actionButtonLabel ? data.actionButtonLabel : null,
+                actionLink: data.actionLink ? data.actionLink : null,
+                marginBottom: data.marginBottom ? data.marginBottom : 0,
+                lineHeight: "23.2px",
               }}
               titleColor="#1280AE"
               linkColor="#900F89"

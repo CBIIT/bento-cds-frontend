@@ -51,6 +51,10 @@
 - page: '/submit'
   title: "CDS Data Submission"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/submit.png'
+  actionTitle: 'START THE SUBMISSION REQUEST PROCESS'
+  actionButtonLabel: 'CDS SUBMISSION REQUEST'
+  actionLink: '/datasubmit'
+  marginBottom: '140px'
   content:
     - paragraph: "$$#HOW TO SUBMIT DATA#$$"
     - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$. The prospective submitters should complete the CDS Questionnaire, this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
