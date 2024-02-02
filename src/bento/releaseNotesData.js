@@ -1,4 +1,4 @@
-export const HEADING = 'Data Release Notes';
+export const HEADING = 'Release Notes';
 
 export const VERSIONS = [
   {
@@ -41,7 +41,7 @@ export const VERSIONS = [
   {
     id: 'v5.0',
     versionNumber: 'v5.0',
-    releaseDate: ' Nov 07, 2023',
+    releaseDate: 'Nov 07, 2023',
     subHeading: 'Studies',
     heading: 'Data Release 5.0',
     content: `
@@ -114,7 +114,7 @@ export const VERSIONS = [
   {
     id: 'v4.0',
     versionNumber: 'v4.0',
-    releaseDate: ' Sept 26, 2023',
+    releaseDate: 'Sept 26, 2023',
     subHeading: 'Studies',
     heading: 'Data Release 4.0',
     content: `<div>
