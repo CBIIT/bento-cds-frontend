@@ -21,6 +21,9 @@
 - page: '/cancerDataService'
   title: "About the Cancer Data Service"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
+  actionTitle: 'ALSO AVAILABLE:'
+  actionButtonLabel: 'CDS DATA MODEL'
+  actionLink: '/resources'
   content:
     - paragraph: "$$#ABOUT CDS#$$"
     - paragraph: "The CDS model works with diverse data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CDS continues to evolve to meet the data needs for various NCI-funded programs."
