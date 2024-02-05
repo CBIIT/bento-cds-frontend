@@ -31,8 +31,23 @@
     - paragraph: "The CDS is home to a combination of open and controlled access data, however, the CDS Portal is accessible for users to search and browse with no required login. This allows users to check if CDS has data of interest before going through the process of requesting access to controlled access data through the NCBI’s $$[dbGaP](https://www.ncbi.nlm.nih.gov/gap/)$$ system"
     - paragraph: "Open access data is publicly accessible; it does not require any approvals. Being a cloud repository, CDS does not facilitate direct downloads of data, owing to high data download charges. However, programs/initiatives can reach out to $$[CDSHelpDesk@mail.nih.gov](CDSHelpDesk@mail.nih.gov)$$ to request downloads if willing to fund the download for users approved to access their data. Please contact the CDS helpdesk for further information."
     - paragraph: ""
-    - paragraph: "Learn more about $$[Accessing and Analyzing Data](target:_self url:/#/analysis)$$"
-    - paragraph: "$$[Learn how to Submit Data](target:_self url:/#/submit)$$"
+    - paragraph: "$$#Accessing and Analyzing Data#$$"
+    - paragraph: "The CDS Data Portal offers users a variety of ways to search data and download a data manifest to export information to one of NCI's Cloud Resources where data can be analyzed. Researchers can filter the files available by a variety of methods on the Data page:"
+    - paragraph: ""
+    - listWithBullets:
+      - "Search by participant IDs by uploading a list of known IDs to have the data associated with those participants returned"
+      - "Search using filters including Study, Experimental Strategy, Gender, Tumor, and File Type"
+      - "Search using a programmatic approach by querying the entire CDS schema using the GraphQL endpoint"
+    - paragraph: "Once a researcher has filtered down to a set of files of interest, that set can be saved to the portal \"shopping cart,\" from which an export manifest can be generated. That manifest contains all the information needed to import files to the $$[Velsera-CGC](https://www.cancergenomicscloud.org)$$ to carry out analysis."
+    - paragraph: "The CDS Data Portal also hosts descriptions and additional information about the studies and programs that have deposited data in the CDS. These are linked to the search page making it easy to find all the data from a specific study."
+    - paragraph: ""
+    - paragraph: "$$#NCI's Cloud Services#$$"
+    - paragraph: "The CRDC Cloud Resources($$[Velsera Cancer Genomics Cloud](target:_self url:https://www.cancergenomicscloud.org)$$  ,$$[ISB Cancer Genomics Cloud](https://isb-cgc.appspot.com/)$$ ), each providing analysis platforms when working with data."
+    - paragraph: "These cloud-based platforms eliminate the need for researchers to download and store extremely large data sets by allowing them to bring analysis tools to the data in the cloud. These cloud resources provide access to on-demand computational capacity to analyze data. They also allow users to run best practice tools and pipelines already implemented or to upload their own data or analysis methods to secure workspaces."
+    - paragraph: "All cloud resources provide support for data access through a web-based user interface in addition to programmatic access to analytic tools and workflows, and the capability of sharing results with collaborators. Each cloud resource is continually developing new functionality to improve the user experience and add new tools for researchers."
+    - paragraph: "CDS currently has a collaboration with $$[Velsera Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$(SBG), which is hosted on Amazon Web Services and has a rich user interface that allows researchers to find data of interest and combine it with their own private data. Data can be analyzed using more than 200 preinstalled, curated bioinformatics tools and workflows. Researchers can also extend the functionality of the platform by adding their own data and tools via an intuitive software development kit."
+    - paragraph: "• Read more about tools for data analysis on the $$[Velsera website](https://docs.cancergenomicscloud.org/docs/workflows-and-tools)$$."
+    - paragraph: "• $$[Learn more about importing files from CDS to Velsera](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
 - page: '/submit'
   title: "How to Submit Data"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/submit.png'
@@ -40,6 +55,7 @@
     - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$ The prospective submitters should complete the CDS Questionnaire, this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
     - paragraph: "Once the CDS reviews questionnaire responses, CDS will schedule a short interview to discuss the responses and the requirements, to make sure that CDS is a good fit for the data sharing needs."
     - paragraph: "If the submission request is approved , the submitter has to"
+    - paragraph: ""
     - listWithBullets: 
         - "Fill out a CDS metadata template in the CDS Documents section, that includes information regarding samples, filenames, file size, MD5 checksums etc. for the data/files planned to be submitted to CDS."
         - "Provide a ‘List of Uploaders’, these are submitters who will need access to the cloud buckets to upload the data."
@@ -66,6 +82,7 @@
   content:
     - paragraph: "The CDS Data Portal offers users a variety of ways to search data and download a data manifest to export information to one of NCI’s Cloud Resources where data can be analyzed."
     - paragraph: "Researchers can filter the files available by a variety of methods on the Data page:"
+    - paragraph: ""
     - listWithBullets: 
       - "Search by participant IDs by uploading a list of known IDs to have the data associated with those participants returned"
       - "Search using filters including Study, Experimental Strategy, Gender, Tumor, and File Type"

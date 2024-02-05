@@ -39,6 +39,7 @@ const AboutView = ({ classes, data }) => {
                 downloadableContentTitle: data.downloadableContentTitle
                   ? data.downloadableContentTitle : null,
                 downloadableContent: data.downloadableContent ? data.downloadableContent : '',
+                lineHeight: "23.2px"
               }}
               titleColor="#1280AE"
               linkColor="#900F89"
@@ -76,6 +77,10 @@ const styles = () => ({
     backgroundRepeat: 'no-repeat, repeat',
   },
   aboutBodyWrapper: {
+    "& ul": {
+      marginTop: "-22px",
+      marginBottom: 0,
+    },
     "& .MuiGrid-container": {
       justifyContent: "center"
     }
