@@ -79,6 +79,8 @@ const styles = () => ({
   },
   dataHeading: {
     color: '#0E6292',
+    display: 'inline-block',
+    paddingBottom: 8,
   },
   releaseDropdown: {
     color: '#000000',
@@ -88,6 +90,9 @@ const styles = () => ({
   },
   upsideDown: {
     transform: 'rotate(180deg)',
+  },
+  softwareBorder: {
+    borderTop: '2px solid #CDD4D8',
   },
   softwareHeading: {
     color: '#942A90',

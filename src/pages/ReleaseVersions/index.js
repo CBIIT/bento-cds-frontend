@@ -38,7 +38,7 @@ const ReleaseVersions = (props) => {
                     <TableCell align="left">{"(" + row.releaseDate + ")"}</TableCell>
                   </TableRow>
                 ))}
-                <TableRow>
+                <TableRow className={classes.softwareBorder}>
                   <TableCell colSpan={2}>
                     <span className={clsx(classes.releaseHeading, classes.softwareHeading)} onClick={() => window.open("https://github.com/CBIIT/bento-cds-frontend/releases")}> 
                       {"SOFTWARE RELEASE NOTES"}
