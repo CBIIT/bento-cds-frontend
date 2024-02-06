@@ -21,6 +21,9 @@
 - page: '/cancerDataService'
   title: "About the Cancer Data Service"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
+  actionTitle: 'ALSO AVAILABLE:'
+  actionButtonLabel: 'CDS DATA MODEL'
+  actionLink: '/resources'
   content:
     - paragraph: "$$#ABOUT CDS#$$"
     - paragraph: "The CDS model works with diverse data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CDS continues to evolve to meet the data needs for various NCI-funded programs."
@@ -49,10 +52,15 @@
     - paragraph: "• Read more about tools for data analysis on the $$[Velsera website](https://docs.cancergenomicscloud.org/docs/workflows-and-tools)$$."
     - paragraph: "• $$[Learn more about importing files from CDS to Velsera](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
 - page: '/submit'
-  title: "How to Submit Data"
+  title: "CDS Data Submission"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/submit.png'
+  actionTitle: 'START THE SUBMISSION REQUEST PROCESS'
+  actionButtonLabel: 'CDS SUBMISSION REQUEST'
+  actionLink: '/datasubmit'
+  marginBottom: '140px'
   content:
-    - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$ The prospective submitters should complete the CDS Questionnaire, this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
+    - paragraph: "$$#HOW TO SUBMIT DATA#$$"
+    - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$. The prospective submitters should complete the CDS Questionnaire, this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
     - paragraph: "Once the CDS reviews questionnaire responses, CDS will schedule a short interview to discuss the responses and the requirements, to make sure that CDS is a good fit for the data sharing needs."
     - paragraph: "If the submission request is approved , the submitter has to"
     - paragraph: ""
@@ -61,13 +69,7 @@
         - "Provide a ‘List of Uploaders’, these are submitters who will need access to the cloud buckets to upload the data."
     - paragraph: "Once the CDS team validates the submitted metadata manifest and accepts the metadata, a cloud bucket will be created, and the study PI and the submission POC is sent credentials and instructions on how to upload data."
     - paragraph: "The CDS team conducts online office hours for questions about how to get started. Please contact the $$[CDS Helpdesk](cdshelpdesk@mail.nih.gov)$$ to schedule office hours."
-    - paragraph: "For a full step-by-step process and timeline, consult the $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
-  downloadableContentTitle: "CDS Documents"
-  downloadableContent:
-    - paragraph: "$$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
-    - paragraph: "$$[Submission Questionnaire](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSDataSubmissionFormV2.pdf)$$"
-    - paragraph: "$$[CDS metadata template](https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_Metadata_Submission_Template_v1.3.3.xlsx?raw=true)$$"
-
+    - paragraph: "For a full step-by-step process and timeline, consult the $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$."
 - page: '/cloudresources'
   title: "NCI's Cloud Services"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/crdc.png'
