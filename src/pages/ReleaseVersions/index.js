@@ -1,7 +1,9 @@
 // import { withStyles } from "@mui/styles";
 import {
-  Table, TableHead, TableBody, TableCell, TableRow, withStyles,
+  Table, TableBody, TableCell, TableRow, withStyles,
 } from '@material-ui/core';
+import { ArrowDropDown, Launch } from '@material-ui/icons'; 
+import clsx from 'clsx'; 
 import React, { useState, useEffect } from 'react';
 import jsonLink from '../../bento/releaseNotesData';
 import styles from './styles';
@@ -12,6 +14,7 @@ const ReleaseVersions = (props) => {
   const { classes } = props;
   const [jsonData, setJsonData] = useState(null);
   const [versionDetails, setVersionDetails] = useState(null);
+  const [expanded, setExpanded] = useState(false); 
 
   useEffect(() => {
     const fetchJsonData = async () => {
@@ -38,19 +41,29 @@ const ReleaseVersions = (props) => {
             <div className={classes.wrapper}>
               <div className={classes.tableWrapper}>
                 <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell align="left">Version</TableCell>
-                      <TableCell align="left">Date</TableCell>
-                    </TableRow>
-                  </TableHead>
                   <TableBody>
+                    <TableRow>
+                      <TableCell colSpan={2} > 
+                        <span className={clsx(classes.releaseHeading, classes.dataHeading)} onClick={() => setExpanded(!expanded)}>  
+                          {"CDS RELEASE NOTES"} 
+                          <ArrowDropDown className={clsx(classes.releaseDropdown, expanded ? classes.upsideDown : '')}/> 
+                        </span> 
+                      </TableCell> 
+                    </TableRow>
                     {jsonData.VERSIONS.map((row) => (
-                      <TableRow key={row.id}>
-                        <TableCell align="left"><span className={classes.versionLink} onClick={() => setVersionDetails(row)}>{row.versionNumber}</span></TableCell>
-                        <TableCell align="left">{row.releaseDate}</TableCell>
+                      <TableRow key={row.id} onClick={() => setVersionDetails(row)} className={expanded ? '' : classes.hiddenRow}>
+                        <TableCell align="left"><span className={classes.version}>{"Version: " + row.versionNumber}</span></TableCell> 
+                        <TableCell align="left">{"(" + row.releaseDate + ")"}</TableCell> 
                       </TableRow>
                     ))}
+                    <TableRow className={classes.softwareBorder}> 
+                      <TableCell colSpan={2}> 
+                        <span className={clsx(classes.releaseHeading, classes.softwareHeading)} onClick={() => window.open("https://github.com/CBIIT/bento-cds-frontend/releases")}>  
+                          {"SOFTWARE RELEASE NOTES"} 
+                          <Launch className={classes.softwareDropdown}/> 
+                        </span> 
+                      </TableCell> 
+                    </TableRow> 
                   </TableBody>
                 </Table>
                 <hr className={classes.horizontalLine} />

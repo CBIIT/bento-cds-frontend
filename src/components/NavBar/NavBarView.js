@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavBar } from '@bento-core/nav-bar';
 import {
-  navBarData, navBarCartData, navBarstyling, externalLinks, externalLinksFlag
+  navBarData, navBarCartData, navBarstyling,
 } from '../../bento/navigationBarData';
 import Login from '../Auth/loginComponent';
 import { enableAuthentication, PUBLIC_ACCESS } from '../../bento/siteWideConfig';
@@ -33,8 +33,6 @@ const BentoNavBar = ({ cartFieldIds = [] }) => {
         navBarstyling={navBarstyling}
         numberOfCases={getNumberOfCase()}
         LoginComponent={getLoginComponent()}
-        externalLinksFlag={externalLinksFlag}
-        externalLinks={externalLinks}
       />
     </>
   );
