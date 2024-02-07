@@ -6,7 +6,7 @@ import DocumentDownloadView from '../../../../components/DocumentDownload/Docume
 export const CustomCellView = (props) => {
   const {
     downloadDocument, documentDownloadProps,
-    displayEmpty, dataField,
+    displayEmpty, dataField, label,
   } = props;
   if (downloadDocument) {
     return (
@@ -22,6 +22,8 @@ export const CustomCellView = (props) => {
     );
   } else if (typeof displayEmpty === "boolean") {
     return (<Typography>{displayEmpty || props[dataField] ? props[dataField] : ""}</Typography>);
+  } else if (Array.isArray(label)) {
+    return (<Typography>{label.join(", ")}</Typography>);
   }
 
   // other custom elem
