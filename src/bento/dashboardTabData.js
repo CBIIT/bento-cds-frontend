@@ -86,6 +86,7 @@ query searchSubjects(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -98,6 +99,7 @@ query searchSubjects(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String]
@@ -109,6 +111,7 @@ query searchSubjects(
       experimental_strategies:$experimental_strategies,
       file_types:$file_types,
       genders:$genders,
+      image_modality:$image_modality,
       instrument_models:$instrument_models,
       is_tumor:$is_tumor,
       library_layouts:$library_layouts,
@@ -121,6 +124,7 @@ query searchSubjects(
       platforms:$platforms,
       primary_diagnoses:$primary_diagnoses,
       reference_genome_assemblies:$reference_genome_assemblies,
+      sample_types:$sample_types,
       site:$site,
       studies:$studies,
       study_data_types:$study_data_types
@@ -182,6 +186,10 @@ query searchSubjects(
           group
           subjects
       }
+      subjectCountByImageModality{
+          group
+          subjects
+      }
       subjectCountByInstrumentModel{
           group
           subjects
@@ -195,6 +203,10 @@ query searchSubjects(
           subjects
       }
       subjectCountByPhsAccession{
+          group
+          subjects
+      }
+      subjectCountBySampleType{
           group
           subjects
       }
@@ -258,6 +270,10 @@ query searchSubjects(
           group
           subjects
       }
+      filterSubjectCountByImageModality{
+          group
+          subjects
+      }
       filterSubjectCountByInstrumentModel{
           group
           subjects
@@ -271,6 +287,10 @@ query searchSubjects(
           subjects
       }
       filterSubjectCountByPhsAccession{
+          group
+          subjects
+      }
+      filterSubjectCountBySampleType{
           group
           subjects
       }
@@ -302,6 +322,7 @@ query subjectOverview(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -314,6 +335,7 @@ query subjectOverview(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String],
@@ -330,6 +352,7 @@ query subjectOverview(
       experimental_strategies:$experimental_strategies,
       file_types:$file_types,
       genders:$genders,
+      image_modality:$image_modality,
       instrument_models:$instrument_models,
       is_tumor:$is_tumor,
       library_layouts:$library_layouts,
@@ -342,6 +365,7 @@ query subjectOverview(
       platforms:$platforms,
       primary_diagnoses:$primary_diagnoses,
       reference_genome_assemblies:$reference_genome_assemblies,
+      sample_types:$sample_types,
       site:$site,
       studies:$studies,
       study_data_types:$study_data_types,
@@ -371,6 +395,7 @@ query fileOverview(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -383,6 +408,7 @@ query fileOverview(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String],
@@ -400,6 +426,7 @@ query fileOverview(
       experimental_strategies:$experimental_strategies,
       file_types:$file_types,
       genders:$genders,
+      image_modality:$image_modality,
       instrument_models:$instrument_models,
       is_tumor:$is_tumor,
       library_layouts:$library_layouts,
@@ -412,6 +439,7 @@ query fileOverview(
       platforms:$platforms,
       primary_diagnoses:$primary_diagnoses,
       reference_genome_assemblies:$reference_genome_assemblies,
+      sample_types:$sample_types,
       site:$site,
       studies:$studies,
       study_data_types:$study_data_types,
@@ -447,6 +475,7 @@ query sampleOverview(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -459,6 +488,7 @@ query sampleOverview(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String],
@@ -475,6 +505,7 @@ query sampleOverview(
       experimental_strategies:$experimental_strategies,
       file_types:$file_types,
       genders:$genders,
+      image_modality:$image_modality,
       instrument_models:$instrument_models,
       is_tumor:$is_tumor,
       library_layouts:$library_layouts,
@@ -487,6 +518,7 @@ query sampleOverview(
       platforms:$platforms,
       primary_diagnoses:$primary_diagnoses,
       reference_genome_assemblies:$reference_genome_assemblies,
+      sample_types:$sample_types,
       site:$site,
       studies:$studies,
       study_data_types:$study_data_types,
@@ -550,6 +582,7 @@ query subjectOverview(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -562,6 +595,7 @@ query subjectOverview(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String],
@@ -578,6 +612,7 @@ subjectOverview(
       experimental_strategies:$experimental_strategies,
       file_types:$file_types,
       genders:$genders,
+      image_modality:$image_modality,
       instrument_models:$instrument_models,
       is_tumor:$is_tumor,
       library_layouts:$library_layouts,
@@ -590,6 +625,7 @@ subjectOverview(
       platforms:$platforms,
       primary_diagnoses:$primary_diagnoses,
       reference_genome_assemblies:$reference_genome_assemblies,
+      sample_types:$sample_types,
       site:$site,
       studies:$studies,
       study_data_types:$study_data_types,
@@ -614,6 +650,7 @@ query sampleOverview(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -626,6 +663,7 @@ query sampleOverview(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String],
@@ -643,6 +681,7 @@ query sampleOverview(
       experimental_strategies:$experimental_strategies,
       file_types:$file_types,
       genders:$genders,
+      image_modality:$image_modality,
       instrument_models:$instrument_models,
       is_tumor:$is_tumor,
       library_layouts:$library_layouts,
@@ -655,6 +694,7 @@ query sampleOverview(
       platforms:$platforms,
       primary_diagnoses:$primary_diagnoses,
       reference_genome_assemblies:$reference_genome_assemblies,
+      sample_types:$sample_types,
       site:$site,
       studies:$studies,
       study_data_types:$study_data_types,
@@ -679,6 +719,7 @@ query fileOverview(
   $experimental_strategies:[String],
   $file_types:[String],
   $genders:[String],
+  $image_modality:[String],
   $instrument_models:[String],
   $is_tumor:[String],
   $library_layouts:[String],
@@ -691,6 +732,7 @@ query fileOverview(
   $platforms:[String],
   $primary_diagnoses:[String],
   $reference_genome_assemblies:[String],
+  $sample_types:[String],
   $site:[String],
   $studies:[String],
   $study_data_types:[String],
@@ -708,6 +750,7 @@ query fileOverview(
       experimental_strategies:$experimental_strategies,
       file_types:$file_types,
       genders:$genders,
+      image_modality:$image_modality,
       instrument_models:$instrument_models,
       is_tumor:$is_tumor,
       library_layouts:$library_layouts,
@@ -720,6 +763,7 @@ query fileOverview(
       platforms:$platforms,
       primary_diagnoses:$primary_diagnoses,
       reference_genome_assemblies:$reference_genome_assemblies,
+      sample_types:$sample_types,
       site:$site,
       studies:$studies,
       study_data_types:$study_data_types,
