@@ -198,7 +198,7 @@ export const facetsConfig = [
     label: "sample type",
     apiPath: "filterSubjectCountBySampleType",
     apiForFiltering: "filterSubjectCountBySampleType",
-    datafield: "filterSubjectCountBySampleType",
+    datafield: "sample_types",
     field: "group",
     type: InputTypes.CHECKBOX,
     sort_type: sortType.ALPHABET,
