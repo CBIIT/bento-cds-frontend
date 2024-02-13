@@ -1,9 +1,43 @@
 import React from 'react';
 import { cellTypes, headerTypes } from '@bento-core/table';
+import { Link as RouterLink } from 'react-router-dom';
+import { Typography, Link } from '@material-ui/core';
+import { onClearAllAndSelectFacetValue } from '../../dashTemplate/sideBar/BentoFilterUtils';
+import { customTypes } from '../../../bento/studyData';
 
 export const CustomCellView = () => (<></>);
 
 export const CustomHeaderCellView = () => (<></>);
+
+const DashboardLinkFromList = ({ dataField, facet, facetValue, ...rest }) => {
+  if (!dataField || !facet || !facetValue || !rest[dataField] || !rest[dataField].length) {
+    return <></>;
+  }
+
+  const items = rest[dataField].split(",");
+
+  return (
+    <>
+      {items.map((item, idx) =>
+        idx === 0 ? (
+          <Link
+            component={RouterLink}
+            to={(location) => ({ ...location, pathname: "/data" })}
+            onClick={() =>
+              onClearAllAndSelectFacetValue(facet, rest[facetValue])
+            }
+            className={cellTypes.LINK}
+            underline='none'
+          >
+            <Typography>{item}</Typography>
+          </Link>
+        ) : (
+          <Typography>{item}</Typography>
+        )
+      )}
+    </>
+  );
+};
 
 const CustomNumberFormatCellView = ({ label }) => (
     <>
@@ -28,6 +62,13 @@ export const configColumn = ({
   */
   const displayColumns = columns.filter((col) => col.display);
   const displayCustomView = [...displayColumns].map((column) => {
+    if (column.cellType === cellTypes.CUSTOM_ELEM && column.customType === customTypes.DASHBOARD_LINK_FROM_LIST) {
+      
+      return {
+        ...column,
+        customCellRender: (props) => <DashboardLinkFromList {...props} />,
+      };
+    }
     if (column.cellType === cellTypes.CUSTOM_ELEM) {
       return {
         ...column,

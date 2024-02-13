@@ -14,6 +14,12 @@ const externalLinkIcon = {
   alt: 'External link icon',
 };
 
+// --------------- Table Custom Types configuration --------------
+export const customTypes = {
+  DASHBOARD_LINK_FROM_LIST: 'dashboardLinkFromList',
+  NUMBER_FORMAT_VIEW: 'numberFormatView'
+}
+
 // --------------- Table configuration --------------
 const table = {
   // Set 'display' to false to hide the table entirely
@@ -35,13 +41,23 @@ const table = {
   columns: [
     {
       dataField: 'phs_accession',
-      header: 'Accession',
-      tooltipText: 'Sort by Accession',
+      header: 'Study',
+      tooltipText: 'Sort by Study',
       cellType: cellTypes.LINK,
       linkAttr: {
         rootPath: '/study',
         pathParams: ['phs_accession']
       },
+      display: true,
+    },
+    {
+      dataField: 'study_version',
+      header: 'Study Version',
+      tooltipText: 'Sort by Study Version',
+      cellType: cellTypes.CUSTOM_ELEM,
+      customType: customTypes.DASHBOARD_LINK_FROM_LIST,
+      facet: 'phs_accession',
+      facetValue: 'phs_accession',
       display: true,
     },
     {
@@ -84,6 +100,7 @@ const GET_STUDIES_DATA_QUERY = gql`{
   studyList  {
     study_name
     phs_accession
+    study_version
     study_access
     numberOfSubjects
     numberOfFiles
