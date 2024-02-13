@@ -140,11 +140,14 @@ export const tblBody = {
   },
   MuiLink: {
     root: {
-      color: '#900F89',
-      '&:hover': {
-      textDecoration: 'underline',
-      textUnderlineOffset: '2.5px',
+      "& p": {
+        color: '#900F89',
+        fontWeight: 'bold',
       },
+      '&:hover': {
+        textDecoration: 'underline',
+        textUnderlineOffset: '2.5px',
+      }
     },
   },
   MuiTypography: {
