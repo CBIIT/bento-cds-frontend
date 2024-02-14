@@ -140,6 +140,7 @@ export const tblBody = {
   },
   MuiLink: {
     root: {
+      color: '#900F89',
       "& p": {
         color: '#900F89',
         fontWeight: 'bold',
