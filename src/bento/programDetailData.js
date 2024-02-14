@@ -101,6 +101,12 @@ const rightPanel = {
   ],
 };
 
+// --------------- Table Custom Types configuration --------------
+export const customTypes = {
+  DASHBOARD_LINK_FROM_LIST: 'dashboardLinkFromList',
+  NUMBER_FORMAT_VIEW: 'numberFormatView'
+}
+
 // --------------- Table configuration --------------
 
 const table = {
@@ -134,9 +140,25 @@ const table = {
       display: true,
     },
     {
+      dataField: 'study_version',
+      header: 'Study Version',
+      tooltipText: 'Sort by Study Version',
+      cellType: cellTypes.CUSTOM_ELEM,
+      customType: customTypes.DASHBOARD_LINK_FROM_LIST,
+      facet: 'phs_accession',
+      facetValue: 'accession',
+      display: true,
+    },
+    {
       dataField: 'study_name',
       header: 'Study Name',
       tooltipText: 'Sort by Study Name',
+      display: true,
+    },
+    {
+      dataField: 'study_data_types',
+      header: 'Data Types',
+      tooltipText: 'Sort by Data Types',
       display: true,
     },
     {
@@ -146,16 +168,16 @@ const table = {
       display: true,
     },
     {
-      dataField: 'num_samples',
-      header: 'Number Of Samples',
-      tooltipText: 'Sort by Number Of Samples',
+      dataField: 'num_participants',
+      header: 'Number of Participants',
+      tooltipText: 'Sort by Number of Participants',
       display: true,
       cellType: cellTypes.CUSTOM_ELEM,
     },
     {
-      dataField: 'num_participants',
-      header: 'Number Of Participants',
-      tooltipText: 'Sort by Number Of Participants',
+      dataField: 'num_files',
+      header: 'Number of Files',
+      tooltipText: 'Sort by Number of Files',
       display: true,
       cellType: cellTypes.CUSTOM_ELEM,
     },
@@ -182,11 +204,14 @@ query programDetailQuery($program_name: String!){
       studies{
           accession
           study_access
+          study_version
+          study_data_types
           study_name
           study_description
           short_description
           num_participants
           num_samples
+          num_files
       }
   }
   
