@@ -45,7 +45,7 @@ const ReleaseVersions = (props) => {
                     <TableRow>
                       <TableCell colSpan={2} > 
                         <span className={clsx(classes.releaseHeading, classes.dataHeading)} onClick={() => setExpanded(!expanded)}>  
-                          {"CDS RELEASE NOTES"} 
+                          {"DATA RELEASE NOTES"} 
                           <ArrowDropDown className={clsx(classes.releaseDropdown, expanded ? classes.upsideDown : '')}/> 
                         </span> 
                       </TableCell> 

@@ -110,7 +110,7 @@ export const navBarData = [
         link: '/datasubmit',
       },
       {
-        labelText: 'CDS Data Releases',
+        labelText: 'CDS Release Notes',
         link: '/releases',
       },
     ],
