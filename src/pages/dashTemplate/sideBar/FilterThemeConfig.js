@@ -43,55 +43,115 @@ const theme = {
     },
     MuiListItem: {
       root: {
-        '&.studyCheckedEven': {
+        '&.demographicsCheckedEven': {
           backgroundColor: '#DCE9EF',
         },
-        '&.studyCheckedOdd': {
+        '&.demographicsCheckedOdd': {
           backgroundColor: '#F2FBFF',
         },
-        '&.samplesCheckedEven': {
+        '&.studyCheckedEven': {
           backgroundColor: '#F4E7F3',
         },
-        '&.samplesCheckedOdd': {
+        '&.studyCheckedOdd': {
           backgroundColor: '#FFF5FF',
         },
-        '&.filesCheckedEven': {
+        '&.samplesCheckedEven': {
           backgroundColor: '#F3ECE5',
         },
-        '&.filesCheckedOdd': {
+        '&.samplesCheckedOdd': {
           backgroundColor: '#FFFCFA',
         },
-      },
+        '&.sequencingCheckedEven': {
+          backgroundColor: '#DCE9EF',
+        },
+        '&.sequencingCheckedOdd': {
+          backgroundColor: '#F2FBFF',
+        },
+        '&.imagingCheckedEven': {
+          backgroundColor: '#F4E7F3',
+        },
+        '&.imagingCheckedOdd': {
+          backgroundColor: '#FFF5FF',
+        },
+        '&.diagnosisCheckedEven': {
+          backgroundColor: '#F3ECE5',
+        },
+        '&.diagnosisCheckedOdd': {
+          backgroundColor: '#FFFCFA',
+        },
+        '&.filesCheckedEven': {
+          backgroundColor: '#DCE9EF',
+        },
+        '&.filesCheckedOdd': {
+          backgroundColor: '#F2FBFF',
+        },
+      },      
     },
     MuiSvgIcon: {
       root: {
-        '&.studyCheckedIcon': {
+        '&.demographicsCheckedIcon': {
           color: '#0E6292',
         },
-        '&.samplesCheckedIcon': {
+        '&.studyCheckedIcon': {
           color: '#942A90',
         },
-        '&.filesCheckedIcon': {
+        '&.samplesCheckedIcon': {
           color: '#AE5E1B',
+        },
+        '&.sequencingCheckedIcon': {
+          color: '#0E6292',
+        },
+        '&.imagingCheckedIcon': {
+          color: '#942A90',
+        },
+        '&.diagnosisCheckedIcon': {
+          color: '#AE5E1B',
+        },
+        '&.filesCheckedIcon': {
+          color: '#0E6292',
         },
       },
     },
     MuiTypography: {
       root: {
-        '&.studySubjects': {
+        '&.demographicsSubjects': {
           color: '#0E6292',
           fontSize: '12px',
           fontFamily: 'Nunito',
           marginRight: '0px',
         },
-        '&.samplesSubjects': {
+        '&.studySubjects': {
           color: '#942A90',
           fontSize: '12px',
           fontFamily: 'Nunito',
           marginRight: '0px',
         },
-        '&.filesSubjects': {
+        '&.samplesSubjects': {
           color: '#AE5E1B',
+          fontSize: '12px',
+          fontFamily: 'Nunito',
+          marginRight: '0px',
+        },
+        '&.sequencingSubjects': {
+          color: '#0E6292',
+          fontSize: '12px',
+          fontFamily: 'Nunito',
+          marginRight: '0px',
+        },
+        '&.imagingSubjects': {
+          color: '#942A90',
+          fontSize: '12px',
+          fontFamily: 'Nunito',
+          marginRight: '0px',
+        },
+        '&.diagnosisSubjects': {
+          color: '#AE5E1B',
+          fontSize: '12px',
+          fontFamily: 'Nunito',
+          marginRight: '0px',
+        },
+        '&.filesSubjects': {
+          color: '#0E6292',
           fontSize: '12px',
           fontFamily: 'Nunito',
           marginRight: '0px',
@@ -112,6 +172,33 @@ const theme = {
           backgroundColor: '#942A90',
         },
         '&.divider2': {
+          backgroundColor: '#AE5E1B',
+        },
+        '&.divider3': {
+          backgroundColor: '#0E6292',
+        },
+        '&.divider4': {
+          backgroundColor: '#942A90',
+        },
+        '&.divider5': {
+          backgroundColor: '#AE5E1B',
+        },
+        '&.divider6': {
+          backgroundColor: '#0E6292',
+        },
+        '&.divider7': {
+          backgroundColor: '#942A90',
+        },
+        '&.divider8': {
+          backgroundColor: '#AE5E1B',
+        },
+        '&.divider9': {
+          backgroundColor: '#0E6292',
+        },
+        '&.divider10': {
+          backgroundColor: '#942A90',
+        },
+        '&.divider11': {
           backgroundColor: '#AE5E1B',
         },
       },

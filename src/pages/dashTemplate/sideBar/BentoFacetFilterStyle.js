@@ -103,14 +103,26 @@ export default () => ({
     fontSize: '14px',
     marginRight: '0px',
   },
-  activeFacetStudy: {
+  activeFacetDemographics: {
     color: '#0E6292',
   },
-  activeFacetSamples: {
+  activeFacetStudy: {
     color: '#942A90',
   },
-  activeFacetFiles: {
+  activeFacetSamples: {
     color: '#AE5E1B',
+  },
+  activeFacetSequencing: {
+    color: '#0E6292',
+  },
+  activeFacetImaging: {
+    color: '#942A90',
+  },
+  activeFacetDiagnosis: {
+    color: '#AE5E1B',
+  },
+  activeFacetFiles: {
+    color: '#0E6292',
   },
   searchContainer: {
     paddingTop: '15px',

@@ -171,9 +171,9 @@ const BentoFacetFilter = ({
       setExpanded(!expanded);
     };
 
+    // TODO: Need to move this config to Bento Config Files. 
     let searchConfig = {
       title: 'Participants',
-      searchLabel: 'Participants',
     }
 
     return (
