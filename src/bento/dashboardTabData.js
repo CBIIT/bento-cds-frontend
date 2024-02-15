@@ -382,6 +382,9 @@ query subjectOverview(
       site
       samples
       files
+      race
+      ethnicity
+      primary_diagnosis
   }
 }
 `;
@@ -462,6 +465,9 @@ query fileOverview(
       file_size
       file_id
       md5sum
+      study_data_type
+      library_strategy
+      image_modality
   }
 }
 `;
@@ -535,6 +541,9 @@ query sampleOverview(
       is_tumor
       analyte_type
       files
+      sample_type
+      sample_tumor_status
+      organ_or_tissue
   }
 }
 
@@ -849,6 +858,27 @@ export const tabContainers = [
         role: cellTypes.DISPLAY,
         cellType: cellTypes.CUSTOM_ELEM,
       },
+      {
+        dataField: 'race',
+        header: 'Race',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'ethnicity',
+        header: 'Ethnicity',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'primary_diagnosis',
+        header: 'Primary Diagnosis',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
     ],
     id: 'case_tab',
     tableID: 'case_tab_table',
@@ -950,6 +980,34 @@ export const tabContainers = [
         dataField: 'analyte_type',
         header: 'Analyte Type',
         display: true,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'files',
+        header: 'Files',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'sample_type',
+        header: 'Sample Type',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'sample_tumor_status',
+        header: 'Sample Tumor Status',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'organ_or_tissue',
+        header: 'Organ or Tissue',
+        display: false,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
       },
@@ -1087,6 +1145,27 @@ export const tabContainers = [
       {
         dataField: 'file_size',
         header: 'File Size',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'study_data_type',
+        header: 'Study Data Type',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'library_strategy',
+        header: 'Library Strategy',
+        display: false,
+        tooltipText: 'sort',
+        role: cellTypes.DISPLAY,
+      },
+      {
+        dataField: 'image_modality',
+        header: 'Image Modality',
         display: false,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
