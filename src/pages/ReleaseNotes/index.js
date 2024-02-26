@@ -13,7 +13,7 @@ const ReleaseNotes = (props) => {
       <hr className={classes.horizontalLine} />
       <div className={classes.releaseNotesWrapper}>
         <h3 className={classes.heading}>{versionDetails.heading}</h3>
-        <p className={classes.releaseDateInfo}>{`Release Data: ${versionDetails.releaseDate}`}</p>
+        <p className={classes.releaseDateInfo}>{`Release Date: ${versionDetails.releaseDate}`}</p>
         <p className={classes.subHeading}>{versionDetails.subHeading}</p>
         <div
           className={classes.infoWrapper}

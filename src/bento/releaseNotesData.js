@@ -2,6 +2,50 @@ export const HEADING = 'Data Release Notes';
 
 export const VERSIONS = [
   {
+    id: 'v7.0',
+    versionNumber: 'v7.0',
+    releaseDate: 'February 27, 2024',
+    subHeading: 'Studies',
+    heading: 'Data Release 7.0',
+    content: `
+    <div>
+        <p>CCDI: IGM/MCI - Molecular Characterization Initiative - phs002790.v5.p1</p>
+        <ul>
+            <li>5 Participants</li>
+            <li>3,322 Files</li>
+        </ul>
+    </div>
+    <div>
+        <p>CPTAC phs001287.v14.p6 – Pan cancer files upload</p>
+        <ul>
+            <li>3 Participants</li>
+            <li>992 Files</li>
+        </ul>
+    </div>
+    <div>
+        <p>DCCPS phs002050.v2.p1 – study reload</p>
+        <ul>
+            <li>2,528 Participants</li>
+            <li>5,056 Files</li>
+        </ul>
+    </div>
+    <div>
+        <p>DCCPS phs001787.v1.p1 – study reload</p>
+        <ul>
+            <li>51 Participants</li>
+            <li>318 Files</li>
+        </ul>
+    </div>
+    <div>
+        <p>DCCPS phs001819.v1.p1</p>
+        <ul>
+            <li>39 Participants</li>
+            <li>39 Files</li>
+        </ul>
+    </div>
+    `,
+  },
+  {
     id: 'v6.0',
     versionNumber: 'v6.0',
     releaseDate: 'January 16, 2024',
