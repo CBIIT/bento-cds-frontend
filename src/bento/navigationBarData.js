@@ -98,7 +98,7 @@ export const navBarData = [
         link: '/resources',
       },
       {
-        labelText: 'Query CDS using GrapgiQL',
+        labelText: 'Query CDS using GraphQL',
         link: '/graphql',
       },
       {
