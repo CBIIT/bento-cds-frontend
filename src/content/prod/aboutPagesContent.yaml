@@ -13,10 +13,10 @@
   secondaryZoomImageTitle: "The CDS Core Data Model"
   secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/docs/model-desc/cds-model.svg'
 - page: '/graphql'
-  title: "Query CDS using GrapgiQL"
+  title: "Query CDS using GraphQL"
   imageLocation: "hidden"
   content:
-    - paragraph: "Users can search through all CDS data using GrapgQL queries. There are several queries that users can utilize from the $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
+    - paragraph: "Users can search through all CDS data using GraphQL queries. There are several queries that users can utilize from the $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
   components: ["GraphqlClient"]
 - page: '/cancerDataService'
   title: "About the Cancer Data Service"
