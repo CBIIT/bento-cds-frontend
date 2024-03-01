@@ -24,6 +24,7 @@ const ReleaseVersions = (props) => {
         setJsonData(data);
         setVersionDetails(data.VERSIONS[0]); // Set initial version details
       } catch (error) {
+        alert('Error fetching release notes data:', error);
         console.error('Error fetching JSON data:', error);
       }
     };
