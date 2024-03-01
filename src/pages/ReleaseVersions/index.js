@@ -9,12 +9,14 @@ import jsonLink from '../../bento/releaseNotesData';
 import styles from './styles';
 import ReleaseNotes from '../ReleaseNotes';
 import Stats from '../../components/Stats/AllStatsController';
+import { Typography } from '../../components/Wrappers/Wrappers';
 
 const ReleaseVersions = (props) => {
   const { classes } = props;
   const [jsonData, setJsonData] = useState(null);
   const [versionDetails, setVersionDetails] = useState(null);
   const [expanded, setExpanded] = useState(false); 
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchJsonData = async () => {
@@ -24,7 +26,7 @@ const ReleaseVersions = (props) => {
         setJsonData(data);
         setVersionDetails(data.VERSIONS[0]); // Set initial version details
       } catch (error) {
-        alert('Error fetching release notes data:', error);
+        setError(error);
         console.error('Error fetching JSON data:', error);
       }
     };
@@ -73,6 +75,13 @@ const ReleaseVersions = (props) => {
             </div>
           </>
         )}
+        {
+          error && (
+            <Typography variant="h5" color="error" size="sm">
+              {error ? `An error has occurred in loading release notes data: ${error}` : 'Recieved wrong data'}
+            </Typography>
+          )
+        }
       </div>
     </>
   );
