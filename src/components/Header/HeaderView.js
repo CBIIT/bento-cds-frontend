@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import  {Header}  from '@bento-core/header';
 import { withRouter } from 'react-router-dom';
@@ -22,6 +22,14 @@ const customStyle = {
 
 const ICDCHeader = (props) => {
   const { location } = props;
+  const withPageOffsetStyle = {
+    headerBar: {
+      marginTop: "var(--alert-margin-top)",
+    },
+  }
+  const styles = useMemo(() => {
+    return { ...customStyle, ...withPageOffsetStyle };
+  }, [customStyle, withPageOffsetStyle])
 
   const isSignedIn = useSelector((state) => state && state.login.isSignedIn);
   const isAdmin = useSelector((state) => state.login && state.login.role && state.login.role === 'admin');
@@ -46,7 +54,7 @@ const ICDCHeader = (props) => {
       alt={headerData.globalHeaderLogoAltText}
       homeLink={headerData.globalHeaderLogoLink}
       SearchComponent={!location.pathname.match('/search') ? SearchBar : undefined}
-      customStyle={customStyle}
+      customStyle={styles}
     />
   );
 };

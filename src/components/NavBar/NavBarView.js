@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { NavBar } from '@bento-core/nav-bar';
 import {
@@ -11,6 +11,16 @@ import { accessLevelTypes } from '@bento-core/authentication';
 const BentoNavBar = ({ cartFieldIds = [] }) => {
   const isSignedIn = useSelector((state) => state.login.isSignedIn);
   const { METADATA_ONLY } = accessLevelTypes;
+  const withPageOffsetStyle = {
+    global: {
+      ...navBarstyling.global,
+      marginTop: "calc(var(--alert-margin-top) + 100px)"
+    }
+  };
+  const styles = useMemo(() => {
+    return { ...navBarstyling, ...withPageOffsetStyle };
+  }, [navBarstyling, withPageOffsetStyle])
+  console.log({ styles });
 
   const getNumberOfCase = () => {
     const { length: numberOfCases } = cartFieldIds;
@@ -30,7 +40,7 @@ const BentoNavBar = ({ cartFieldIds = [] }) => {
       <NavBar
         navBarData={navBarData}
         navBarCartData={navBarCartData}
-        navBarstyling={navBarstyling}
+        navBarstyling={styles}
         numberOfCases={getNumberOfCase()}
         LoginComponent={getLoginComponent()}
       />
