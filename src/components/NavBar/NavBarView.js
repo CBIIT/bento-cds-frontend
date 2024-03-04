@@ -20,7 +20,6 @@ const BentoNavBar = ({ cartFieldIds = [] }) => {
   const styles = useMemo(() => {
     return { ...navBarstyling, ...withPageOffsetStyle };
   }, [navBarstyling, withPageOffsetStyle])
-  console.log({ styles });
 
   const getNumberOfCase = () => {
     const { length: numberOfCases } = cartFieldIds;

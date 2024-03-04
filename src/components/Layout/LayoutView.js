@@ -55,7 +55,6 @@ const Layout = ({ classes, isSidebarOpened }) => {
       if (hostDiv && hostDiv.shadowRoot) {
         const siteAlert = hostDiv.shadowRoot.querySelector('.usa-site-alert');
         if (siteAlert) {
-          console.log(siteAlert.offsetHeight);
           document.documentElement.style.setProperty('--alert-margin-top', `${siteAlert.offsetHeight}px`);
 
           // Adjust site alert styling to also be fixed
