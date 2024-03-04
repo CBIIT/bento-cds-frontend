@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { withStyles, CssBaseline } from '@material-ui/core';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import aboutPageRoutes from '../../bento/aboutPagesRoutes';
@@ -49,6 +49,42 @@ const Layout = ({ classes, isSidebarOpened }) => {
   // Access control imports
   const { LoginRoute, MixedRoute, PrivateRoute, AdminRoute} = AuthenticationMiddlewareGenerator(AUTH_MIDDLEWARE_CONFIG);
 
+  useEffect(() => {
+    const adjustForSiteAlert = () => {
+      const hostDiv = document.body.children[0];
+      if (hostDiv && hostDiv.shadowRoot) {
+        const siteAlert = hostDiv.shadowRoot.querySelector('.usa-site-alert');
+        if (siteAlert) {
+          console.log(siteAlert.offsetHeight);
+          document.documentElement.style.setProperty('--alert-margin-top', `${siteAlert.offsetHeight}px`);
+
+          // Adjust site alert styling to also be fixed
+          siteAlert.style.position = "fixed";
+          siteAlert.style.top = 0;
+          siteAlert.style.left = 0;
+          siteAlert.style.width = "100%";
+          siteAlert.style.zIndex = "9999";
+        }
+      } else {
+        document.documentElement.style.setProperty('--alert-margin-top', '0px');
+      }
+    };
+
+    // Initial check
+    adjustForSiteAlert();
+    const observer = new MutationObserver(adjustForSiteAlert);
+
+    observer.observe(document.body, {
+      childList: true,
+    });
+    window.addEventListener('resize', adjustForSiteAlert);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', adjustForSiteAlert);
+    }
+  }, [])
+    
   return (
   <>
     <CssBaseline />
@@ -143,7 +179,7 @@ const styles = (theme) => ({
     // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
     width: 'calc(100%)', // Remove this on adding sidebar
     background: theme.custom.bodyBackGround,
-    marginTop: '196px',
+    marginTop: 'calc(var(--alert-margin-top) + 196px)',
   },
   '@global': {
     '*::-webkit-scrollbar': {
