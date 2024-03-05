@@ -53,13 +53,13 @@ const Layout = ({ classes, isSidebarOpened }) => {
     const adjustForSiteAlert = () => {
       const hostDiv = document.body.children[0];
       if (!hostDiv || !hostDiv.shadowRoot) {
-        document.documentElement.style.setProperty('--alert-margin-top', '0px');
+        document.documentElement.style.setProperty('--site-alert-offset', '0px');
         return;
       }
 
       const siteAlert = hostDiv.shadowRoot.querySelector('.usa-site-alert');
       if (siteAlert) {
-        document.documentElement.style.setProperty('--alert-margin-top', `${siteAlert.offsetHeight}px`);
+        document.documentElement.style.setProperty('--site-alert-offset', `${siteAlert.offsetHeight}px`);
 
         // Adjust site alert styling to also be fixed
         siteAlert.style.position = 'fixed';
@@ -179,7 +179,7 @@ const styles = (theme) => ({
     // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
     width: 'calc(100%)', // Remove this on adding sidebar
     background: theme.custom.bodyBackGround,
-    marginTop: 'calc(var(--alert-margin-top) + 196px)',
+    marginTop: 'calc(var(--site-alert-offset) + 196px)',
   },
   '@global': {
     '*::-webkit-scrollbar': {
