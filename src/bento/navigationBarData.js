@@ -6,6 +6,7 @@ export const navBarstyling = {
     fontColor: '#bbefff',
     activeLabel: '1px solid #bbefff',
     textTransform: 'capitalize',
+    marginTop: 'calc(var(--alert-margin-top) + 100px)'
   },
   dropDownIcon: {
     displayIcon: false,
