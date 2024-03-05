@@ -4,7 +4,5 @@ export default [
   '/graphql',
   '/submit',
   '/cancerDataService',
-  '/cloudresources',
-  '/analysis',
   '/support',
 ];

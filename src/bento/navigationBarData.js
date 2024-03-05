@@ -82,16 +82,8 @@ export const navBarData = [
         link: '/cancerDataService',
       },
       {
-        labelText: 'NCIs Cloud Services',
-        link: '/cloudresources',
-      },
-      {
         labelText: 'CDS Data Submission',
         link: '/submit',
-      },
-      {
-        labelText: 'Accessing and Analyzing Data',
-        link: '/analysis',
       },
       {
         labelText: 'CDS Data Model',
@@ -102,16 +94,19 @@ export const navBarData = [
         link: '/graphql',
       },
       {
-        labelText: 'Bento Framework',
-        link: '/bento',
-      },
-      {
-        labelText: 'CDS New Request Questionnaire',
-        link: '/datasubmit',
-      },
-      {
-        labelText: 'CDS Release Notes',
+        labelText: 'CDS – Release Notes',
         link: '/releases',
+      },
+      {
+        labelText: 'CDS Documents',
+        link: '/releases', //edit this line
+        //type: 'dropdown',
+        //dropDownLinks: [
+        //  {
+        //    labelText: 'CDS – Release Notes',
+        //    link: '/releases',
+        ///  },
+        //],
       },
     ],
   },
