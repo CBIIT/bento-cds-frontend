@@ -52,20 +52,21 @@ const Layout = ({ classes, isSidebarOpened }) => {
   useEffect(() => {
     const adjustForSiteAlert = () => {
       const hostDiv = document.body.children[0];
-      if (hostDiv && hostDiv.shadowRoot) {
-        const siteAlert = hostDiv.shadowRoot.querySelector('.usa-site-alert');
-        if (siteAlert) {
-          document.documentElement.style.setProperty('--alert-margin-top', `${siteAlert.offsetHeight}px`);
-
-          // Adjust site alert styling to also be fixed
-          siteAlert.style.position = "fixed";
-          siteAlert.style.top = 0;
-          siteAlert.style.left = 0;
-          siteAlert.style.width = "100%";
-          siteAlert.style.zIndex = "9999";
-        }
-      } else {
+      if (!hostDiv || !hostDiv.shadowRoot) {
         document.documentElement.style.setProperty('--alert-margin-top', '0px');
+        return;
+      }
+
+      const siteAlert = hostDiv.shadowRoot.querySelector('.usa-site-alert');
+      if (siteAlert) {
+        document.documentElement.style.setProperty('--alert-margin-top', `${siteAlert.offsetHeight}px`);
+
+        // Adjust site alert styling to also be fixed
+        siteAlert.style.position = 'fixed';
+        siteAlert.style.top = 0;
+        siteAlert.style.left = 0;
+        siteAlert.style.width = '100%';
+        siteAlert.style.zIndex = '9999';
       }
     };
 
