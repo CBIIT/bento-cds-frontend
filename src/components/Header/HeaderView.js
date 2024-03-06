@@ -9,6 +9,9 @@ import { PUBLIC_ACCESS } from '../../bento/siteWideConfig';
 import { accessLevelTypes } from '@bento-core/authentication';
 
 const customStyle = {
+  headerBar: {
+    marginTop: 'var(--site-alert-offset)',
+  },
   nihLogoImg: {
     width: '463px',
     height: '54px',
