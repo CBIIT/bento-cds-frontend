@@ -83,16 +83,8 @@ export const navBarData = [
         link: '/cancerDataService',
       },
       {
-        labelText: 'NCIs Cloud Services',
-        link: '/cloudresources',
-      },
-      {
         labelText: 'CDS Data Submission',
         link: '/submit',
-      },
-      {
-        labelText: 'Accessing and Analyzing Data',
-        link: '/analysis',
       },
       {
         labelText: 'CDS Data Model',
@@ -103,17 +95,30 @@ export const navBarData = [
         link: '/graphql',
       },
       {
-        labelText: 'Bento Framework',
-        link: '/bento',
-      },
-      {
-        labelText: 'CDS New Request Questionnaire',
-        link: '/datasubmit',
-      },
-      {
-        labelText: 'CDS Release Notes',
+        labelText: 'CDS – Release Notes',
         link: '/releases',
       },
+      // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
+      {
+        labelText: 'CDS User Guide',
+        link: '/cancerDataService',
+      },
+      {
+        labelText: 'CDS Submission Request',
+        link: '/datasubmit',
+      },
+      // {
+      //   labelText: 'CDS Metadata Template',
+      //   link: 'https://github.com/CBIIT/cds-model/tree/main/metadata-manifest',
+      // },
+      // {
+      //   labelText: 'CDS Documents',
+      //   // link: '/releases',
+      //   type: 'dropdown',
+      //   dropDownLinks: [
+          
+      //   ],
+      // },
     ],
   },
 ];
@@ -123,8 +128,8 @@ export const externalLinksFlag = true;
 export const externalLinks = {
   about: [
     {
-      title: 'CDS Software Release Notes',
-      link: 'https://github.com/CBIIT/bento-cds-frontend/releases',
+      title: 'CDS Metadata Template',
+      link: 'https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_Metadata_Submission_Template_v1.3.3.xlsx?raw=true',
     },
   ],
 };
