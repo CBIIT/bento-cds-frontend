@@ -1,3 +1,4 @@
-const jsonLink = 'https://raw.githubusercontent.com/CBIIT/CDS-Data-Releases/main/DataReleaseNotes.json';
+import env from '../utils/env'
+const jsonLink = env.REACT_APP_DATA_RELEASES_URL;
 
 export default jsonLink;
