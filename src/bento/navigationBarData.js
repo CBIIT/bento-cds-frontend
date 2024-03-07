@@ -100,10 +100,6 @@ export const navBarData = [
       },
       // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
       {
-        labelText: 'CDS User Guide',
-        link: '/cancerDataService',
-      },
-      {
         labelText: 'CDS Submission Request',
         link: '/datasubmit',
       },
@@ -127,6 +123,10 @@ export const externalLinksFlag = true;
 
 export const externalLinks = {
   about: [
+    {
+      title: 'CDS User Guide',
+      link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf',
+    },
     {
       title: 'CDS Metadata Template',
       link: 'https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_Metadata_Submission_Template_v1.3.3.xlsx?raw=true',
