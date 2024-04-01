@@ -129,7 +129,7 @@ const LandingView = ({ classes, statsData }) => (
                   />
                 </div>
                 <div className={classes.content}>
-                  <a href="/#/datasubmit" className={classes.mailLink}>
+                  <a href="https://hub.datacommons.cancer.gov/submissions" className={classes.mailLink} target="_blank" rel="noopener noreferrer">
                     <div className={classes.contentHeader} id="tile3_title">
                       {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
                         <>
@@ -277,7 +277,8 @@ const styles = () => ({
     textDecoration: 'none',
     display: 'flex',
     // borderBottom: '1.5px solid #D36000',
-    maxWidth: '244px',
+    width: "fit-content",
+    paddingRight: "19px",
     background: '#D36000',
     borderRadius: '8px',
   },
@@ -465,7 +466,7 @@ const styles = () => ({
     padding: '15px 0',
   },
   mountainMeadowContent: {
-    height: '143px',
+    minHeight: '143px',
     width: '200px',
     color: 'white',
     fontFamily: 'Nunito Sans',
