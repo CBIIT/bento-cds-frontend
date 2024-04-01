@@ -64,7 +64,7 @@ const { SearchBox } = SearchBoxGenerator({
     },
   },
   config: {
-    inputPlaceholder: 'e.g. CDS-PARTICIPANT-101022, CDS-PARTICIPANT-101025',
+    inputPlaceholder: 'e.g. DH-PARTICIPANT-10102',
     noOptionsText: 'No matching items found',
     searchType: 'subjectIds',
   },
