@@ -34,7 +34,7 @@ export default {
           link: 'https://datacommons.cancer.gov/',
         },
         {
-          text: 'CDS Data Model',
+          text: 'Data Model',
           link: '/resources',
         },
         {
