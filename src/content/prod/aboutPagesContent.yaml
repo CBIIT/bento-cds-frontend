@@ -22,7 +22,7 @@
   title: "About the CRDC Data Hub Portal"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
   actionTitle: 'ALSO AVAILABLE:'
-  actionButtonLabel: 'CDS DATA MODEL'
+  actionButtonLabel: 'DATA MODEL'
   actionLink: '/resources'
   content:
     - paragraph: "$$#ABOUT DH Portal#$$"
