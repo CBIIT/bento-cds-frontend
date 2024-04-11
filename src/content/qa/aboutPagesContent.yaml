@@ -51,25 +51,6 @@
     - paragraph: "CDS currently has a collaboration with $$[Velsera Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$(SBG), which is hosted on Amazon Web Services and has a rich user interface that allows researchers to find data of interest and combine it with their own private data. Data can be analyzed using more than 200 preinstalled, curated bioinformatics tools and workflows. Researchers can also extend the functionality of the platform by adding their own data and tools via an intuitive software development kit."
     - paragraph: "• Read more about tools for data analysis on the $$[Velsera website](https://docs.cancergenomicscloud.org/docs/workflows-and-tools)$$."
     - paragraph: "• $$[Learn more about importing files from CDS to Velsera](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
-- page: '/submit'
-  title: "CDS Data Submission"
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/submit.png'
-  actionTitle: 'START THE SUBMISSION REQUEST PROCESS'
-  actionButtonLabel: 'CDS SUBMISSION REQUEST'
-  actionLink: '/datasubmit'
-  marginBottom: '140px'
-  content:
-    - paragraph: "$$#HOW TO SUBMIT DATA#$$"
-    - paragraph: "Submitters should start by reading the step-by-step $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$. The prospective submitters should complete the CDS Questionnaire, this can be done on the $$[CDS portal](/#/datasubmit)$$. The PDF version of the CDS Questionnaire can also be downloaded from the portal."
-    - paragraph: "Once the CDS reviews questionnaire responses, CDS will schedule a short interview to discuss the responses and the requirements, to make sure that CDS is a good fit for the data sharing needs."
-    - paragraph: "If the submission request is approved , the submitter has to"
-    - paragraph: ""
-    - listWithBullets: 
-        - "Fill out a CDS metadata template in the CDS Documents section, that includes information regarding samples, filenames, file size, MD5 checksums etc. for the data/files planned to be submitted to CDS."
-        - "Provide a ‘List of Uploaders’, these are submitters who will need access to the cloud buckets to upload the data."
-    - paragraph: "Once the CDS team validates the submitted metadata manifest and accepts the metadata, a cloud bucket will be created, and the study PI and the submission POC is sent credentials and instructions on how to upload data."
-    - paragraph: "The CDS team conducts online office hours for questions about how to get started. Please contact the $$[CDS Helpdesk](cdshelpdesk@mail.nih.gov)$$ to schedule office hours."
-    - paragraph: "For a full step-by-step process and timeline, consult the $$[CDS User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$."
 - page: '/cloudresources'
   title: "NCI's Cloud Services"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/crdc.png'

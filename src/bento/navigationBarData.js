@@ -83,8 +83,9 @@ export const navBarData = [
         link: '/cancerDataService',
       },
       {
-        labelText: 'CDS Data Submission',
-        link: '/submit',
+        labelText: 'Submission Requests',
+        link: 'https://hub.datacommons.cancer.gov/submissions',
+        isExternalLink: true,
       },
       {
         labelText: 'Data Model',
@@ -115,24 +116,21 @@ export const navBarData = [
           
       //   ],
       // },
+      {
+        labelText: 'CDS User Guide',
+        link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf',
+        isExternalLink: true,
+      },
+      {
+        labelText: 'CDS Metadata Template',
+        link: 'https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_Metadata_Submission_Template_v1.3.3.xlsx?raw=true',
+        isExternalLink: true,
+      },
     ],
   },
 ];
 
 export const externalLinksFlag = true;
-
-export const externalLinks = {
-  about: [
-    {
-      title: 'CDS User Guide',
-      link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf',
-    },
-    {
-      title: 'CDS Metadata Template',
-      link: 'https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_Metadata_Submission_Template_v1.3.3.xlsx?raw=true',
-    },
-  ],
-};
 
 export const navBarCartData = {
   cartLabel: '',
