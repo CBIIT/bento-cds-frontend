@@ -38,10 +38,6 @@ export default {
           link: '/resources',
         },
         {
-          text: 'How to Submit Data',
-          link: '/submit',
-        },
-        {
           text: 'GraphQL',
           link: '/graphql',
         },
