@@ -96,7 +96,7 @@ export const navBarData = [
         link: '/graphql',
       },
       {
-        labelText: 'CDS – Release Notes',
+        labelText: 'DH Portal - Release Notes',
         link: '/releases',
       },
       // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
