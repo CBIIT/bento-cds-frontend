@@ -96,7 +96,7 @@ export const navBarData = [
         link: '/graphql',
       },
       {
-        labelText: 'CDS – Release Notes',
+        labelText: 'DH Portal - Release Notes',
         link: '/releases',
       },
       // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
@@ -104,26 +104,9 @@ export const navBarData = [
         labelText: 'CDS Submission Request',
         link: '/datasubmit',
       },
-      // {
-      //   labelText: 'CDS Metadata Template',
-      //   link: 'https://github.com/CBIIT/cds-model/tree/main/metadata-manifest',
-      // },
-      // {
-      //   labelText: 'CDS Documents',
-      //   // link: '/releases',
-      //   type: 'dropdown',
-      //   dropDownLinks: [
-          
-      //   ],
-      // },
       {
         labelText: 'CDS User Guide',
         link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf',
-        isExternalLink: true,
-      },
-      {
-        labelText: 'CDS Metadata Template',
-        link: 'https://github.com/CBIIT/cds-model/blob/main/metadata-manifest/CDS_Metadata_Submission_Template_v1.3.3.xlsx?raw=true',
         isExternalLink: true,
       },
     ],
