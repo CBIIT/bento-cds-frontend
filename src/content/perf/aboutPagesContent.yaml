@@ -10,7 +10,7 @@
   content:
     - paragraph: "The model works with diverse data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CRDC Data Hub continues to evolve to meet the data needs for various NCI-funded programs."
     - paragraph: "All code necessary to use the $$[Bento platform](https://bento-tools.org/#/)$$ on which the CRDC Data Hub portal is built is provided in the form of Docker containers. However, the Bento code is also available to the public for research and forking and pull requests. There are a number of CRDC Data Model resources to explore on the CDS GitHub page including the CRDC Core Data Model: $$[https://github.com/CBIIT/cds-model](https://github.com/CBIIT/cds-model)$$."
-  secondaryZoomImageTitle: "The CDS Core Data Model"
+  secondaryZoomImageTitle: "The Core Data Model"
   secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/docs/model-desc/cds-model.svg'
 - page: '/graphql'
   title: "Query CDS using GraphQL"
