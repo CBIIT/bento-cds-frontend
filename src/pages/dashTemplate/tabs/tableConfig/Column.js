@@ -23,6 +23,9 @@ export const CustomCellView = (props) => {
   } else if (typeof displayEmpty === "boolean") {
     return (<Typography>{displayEmpty || props[dataField] ? props[dataField] : ""}</Typography>);
   } else if (Array.isArray(label)) {
+    if (label.length > 5){
+      return (<Typography>{label.slice(0,5).join(", ") + ", ..."}</Typography>);
+    }
     return (<Typography>{label.join(", ")}</Typography>);
   }
 
