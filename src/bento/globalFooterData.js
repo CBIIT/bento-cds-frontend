@@ -17,16 +17,16 @@ export default {
       title: 'Contact Information',
       items: [
         {
-          text: 'CDS Help Desk',
-          link: '/support',
+          text: 'CDRC Help Desk',
+          link: 'CRDCHelpDesk@nih.gov',
         },
       ],
     },
     {
-      title: 'About CDS',
+      title: 'About CDRC Data Discovery Portal',
       items: [
         {
-          text: 'CDS',
+          text: 'CRDC Data Discovery Portal',
           link: '/cancerDataService',
         },
         {
@@ -71,7 +71,7 @@ export default {
           link: 'https://www.cancer.gov/policies',
         },
         {
-          text: ' Disclaimer',
+          text: 'Disclaimer',
           link: 'https://www.cancer.gov/policies/disclaimer',
         },
         {
