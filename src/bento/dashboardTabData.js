@@ -1090,6 +1090,7 @@ export const tabContainers = [
         display: true,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       {
         dataField: 'sample_id',
@@ -1097,7 +1098,7 @@ export const tabContainers = [
         display: true,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
-        cellType: cellTypes.FORMAT_DATA,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       // {
       //   dataField: 'acl', // This need to left empty if no data need to be displayed before file download icon
@@ -1162,6 +1163,7 @@ export const tabContainers = [
         display: false,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       {
         dataField: 'image_modality',
