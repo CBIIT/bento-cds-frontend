@@ -21,6 +21,7 @@ import {
 import StatsView from '../../components/Stats/StatsView';
 import CustomBreadcrumb from '../../components/Breadcrumb/BreadcrumbView';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
+import { configColumn } from './tableConfig/Column';
 import { themeConfig, wrapperThemConfig } from './tableConfig/Theme';
 import { footerConfig } from './tableConfig/Wrapper';
 
@@ -30,7 +31,7 @@ const initTblState = (initailState) => ({
     title: table.name,
     query: GET_MY_FILE_OVERVIEW_QUERY,
     paginationAPIField: table.dataField,
-    columns: table.columns,
+    columns: configColumn(table.columns),
     selectedRows: [],
     tableMsg: table.tableMsg,
     sortBy: table.defaultSortField,
