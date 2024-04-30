@@ -138,17 +138,31 @@ query fileOverview(
   order_by: $order_by,
   sort_direction: $sort_direction
 ){
-  study_acronym
-  accesses
-  phs_accession
-  subject_id
-  sample_id
-
   file_name
-  file_type
   file_size
   file_id
+  file_type
   md5sum
+  experimental_strategy
+  study_acronym
+  phs_accession
+  study_data_type
+  accesses
+  image_modality
+  organ_or_tissue
+  license
+
+  library_layouts
+  library_strategy
+  
+  subject_id
+  gender
+  race
+  primary_diagnoses
+        
+  sample_id
+  analyte_type
+  is_tumor
 }
 }`;
 
@@ -198,6 +212,7 @@ export const table = {
       display: true,
       tooltipText: 'sort',
       role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'sample_id',
@@ -205,6 +220,7 @@ export const table = {
       display: true,
       tooltipText: 'sort',
       role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'accesses',
@@ -217,6 +233,98 @@ export const table = {
       dataField: 'file_type',
       header: 'File Type',
       display: true,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'gender',
+      header: 'Gender',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'race',
+      header: 'Race',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'primary_diagnoses',
+      header: 'Primary Diagnosis',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'is_tumor',
+      header: 'Sample Tumor Status',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'analyte_type',
+      header: 'Analyte Type',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'organ_or_tissue',
+      header: 'Organ or Tissue',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'study_data_type',
+      header: 'Study Data Type',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'library_strategy',
+      header: 'Library Strategy',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'image_modality',
+      header: 'Image Modality',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'experimental_strategy',
+      header: 'Experimental Strategy',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'library_layouts',
+      header: 'Library Layouts',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'license',
+      header: 'License',
+      display: false,
       tooltipText: 'sort',
       role: cellTypes.DISPLAY,
     },

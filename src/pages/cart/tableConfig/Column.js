@@ -1,7 +1,23 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
 import { cellTypes, headerTypes } from '@bento-core/table';
 
-export const CustomCellView = () => (<></>);
+export const CustomCellView = (props) => {
+  const {
+    label,
+  } = props;
+
+  if (Array.isArray(label)) {
+    if (label.length > 5){
+      return (<Typography>{label.slice(0,5).join(", ") + ", ..."}</Typography>);
+    }
+    return (<Typography>{label.join(", ")}</Typography>);
+  }
+
+  // other custom elem
+  return (<></>);
+};
+
 
 export const CustomHeaderCellView = () => (<></>);
 
@@ -19,8 +35,7 @@ export const configColumn = ({
   * display columns as configuration
   * set custom cell render for column
   */
-  const displayColumns = columns.filter((col) => col.display);
-  const displayCustomView = [...displayColumns].map((column) => {
+  const displayCustomView = [...columns].map((column) => {
     if (column.cellType === cellTypes.CUSTOM_ELEM) {
       return {
         ...column,
