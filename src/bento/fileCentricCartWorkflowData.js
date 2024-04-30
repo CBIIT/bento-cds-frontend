@@ -335,6 +335,7 @@ export const table = {
       display: false,
       dataFormatType: dataFormatTypes.FORMAT_BYTES,
       cellType: cellTypes.FORMAT_DATA,
+      role: cellTypes.DISPLAY,
       tooltipText: 'sort',
     },
     {
@@ -342,6 +343,7 @@ export const table = {
       header: 'Md5Sum',
       display: false,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'remove',
