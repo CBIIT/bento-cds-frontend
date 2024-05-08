@@ -829,11 +829,11 @@ export const tabContainers = [
         display: true,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       {
         dataField: 'phs_accession',
         header: 'Accession',
-        cellType: cellTypes.LINK,
         linkAttr : {
           rootPath: '/study',
           pathParams: ['phs_accession'],
@@ -842,6 +842,7 @@ export const tabContainers = [
         display: true,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       {
         dataField: 'gender',
@@ -878,6 +879,7 @@ export const tabContainers = [
         display: false,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
     ],
     id: 'case_tab',
@@ -956,11 +958,11 @@ export const tabContainers = [
         tooltipText: 'sort',
         display: true,
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       {
         dataField: 'phs_accession',
         header: 'Accession',
-        cellType: cellTypes.LINK,
         linkAttr : {
           rootPath: '/study',
           pathParams: ['phs_accession'],
@@ -968,6 +970,7 @@ export const tabContainers = [
         display: true,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       {
         dataField: 'is_tumor',
@@ -989,6 +992,7 @@ export const tabContainers = [
         display: false,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
       {
         dataField: 'sample_type',
@@ -1010,6 +1014,7 @@ export const tabContainers = [
         display: false,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
+        cellType: cellTypes.CUSTOM_ELEM,
       },
     ],
     id: 'sample_tab',

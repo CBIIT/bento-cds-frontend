@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Link, Typography } from '@material-ui/core';
 import { cellTypes, headerTypes } from '@bento-core/table';
 import DocumentDownloadView from '../../../../components/DocumentDownload/DocumentDownloadView';
 
@@ -23,6 +23,21 @@ export const CustomCellView = (props) => {
   } else if (typeof displayEmpty === "boolean") {
     return (<Typography>{displayEmpty || props[dataField] ? props[dataField] : ""}</Typography>);
   } else if (Array.isArray(label)) {
+    if (props.linkAttr) {
+      const { rootPath } = props.linkAttr;
+      return (
+        <Typography>
+          {label.map((item, idx) => {
+            return (
+              <Link href={`#${rootPath}/`.concat(item)} className={cellTypes.LINK}>
+                <Typography key={idx}>{item}{idx !== label.length - 1 && ", "}</Typography>
+              </Link>
+            );
+          })}
+        </Typography>
+      );
+    }
+    
     if (label.length > 5){
       return (<Typography>{label.slice(0,5).join(", ") + ", ..."}</Typography>);
     }
