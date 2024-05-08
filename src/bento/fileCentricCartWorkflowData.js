@@ -2,7 +2,7 @@ import React from "react";
 import gql from 'graphql-tag';
 import { cellTypes, dataFormatTypes } from '@bento-core/table';
 import { types, btnTypes } from '@bento-core/paginated-table';
-import { customMyFilesTabDownloadCSV } from './tableDownloadCSV';
+import { customMyFilesTabDownloadCSV, MY_CART_MANIFEST_QUERY} from './tableDownloadCSV';
 import CartMessage from '../pages/cart/customComponent/cartMessage';
 
 export const navBarCartData = {
@@ -102,8 +102,8 @@ export const myFilesPageData = {
 
 
 export const manifestData = {
-  keysToInclude: ['file_id', 'file_name', 'subject_id','md5sum'],
-  header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'User Comments'],
+  keysToInclude: ['file_id', 'file_name', 'subject_id','md5sum', 'study_acronym', 'phs_accession', 'sample_id', 'accesses', 'file_type', 'gender', 'race', 'primary_diagnosis', 'is_tumor', 'analyte_type', 'organ_or_tissue', 'study_data_type', 'library_strategy', 'image_modality', 'experimental_strategy', 'library_layouts', 'license' ],
+  header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'Study Name', 'Accession', 'Sample Id', 'Study Access', 'File Type', 'Gender', 'Race', 'Primary Diagnosis', 'Sample Tumor Status', 'Analyte Type', 'Organ or Tissue', 'Study Data Type', 'Library Strategy', ' Image Modality', 'Experimental Strategy', 'Library Layouts', 'License',  'User Comments'],
 };
 
 // --------------- GraphQL query - Retrieve selected cases info --------------
@@ -174,6 +174,7 @@ export const table = {
   defaultSortField: 'file_name',
   // 'asc' or 'desc'
   api: GET_MY_CART_DATA_QUERY,
+  manifestAPI: MY_CART_MANIFEST_QUERY,
   defaultSortDirection: 'asc',
   paginationAPIField: 'filesInList',
   tableDownloadCSV: customMyFilesTabDownloadCSV,

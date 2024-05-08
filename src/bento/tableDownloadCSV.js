@@ -93,26 +93,41 @@ export const customFilesTabDownloadCSV = {
   defaultFullTableDownload: false,
 };
 
-export const MY_CART = gql`
+export const MY_CART_MANIFEST_QUERY = gql`
 query filesInList($file_ids: [String], $offset: Int = 0, $first: Int = 1000, $order_by:String ="") {
     filesInList(file_ids: $file_ids, offset: $offset,first: $first, order_by: $order_by) {
-        study_code
-        subject_id
-        file_name
-        file_type
-        association
-        file_description
-        file_format
-        file_size
-        file_id
-        md5sum
+      file_name
+      file_size
+      file_id
+      file_type
+      md5sum
+      experimental_strategy
+      study_acronym
+      phs_accession
+      study_data_type
+      accesses
+      image_modality
+      organ_or_tissue
+      license
+    
+      library_layouts
+      library_strategy
+      
+      subject_id
+      gender
+      race
+      primary_diagnoses
+            
+      sample_id
+      analyte_type
+      is_tumor
     }
 }`;
 
 export const customMyFilesTabDownloadCSV = {
   keysToInclude: ['subject_id', 'file_name', 'file_id', 'md5sum'],
   header: ['Participant ID', 'File Name', 'File ID', 'Md5sum', 'User Comments'],
-  query: MY_CART,
+  query: MY_CART_MANIFEST_QUERY,
   apiVariable: 'filesInList',
   fileName: 'BENTO File Manifest',
   defaultFullTableDownload: false,
