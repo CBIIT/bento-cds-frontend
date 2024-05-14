@@ -38,7 +38,7 @@ const ICDCHeader = (props) => {
       query: async (search) => queryAutocompleteAPI(search, !authenticated),
       searchKeys: authenticated ? SEARCH_KEYS.private : SEARCH_KEYS.public,
       searchFields: authenticated ? SEARCH_DATAFIELDS.private : SEARCH_DATAFIELDS.public,
-      placeholder: 'SEARCH DATA HUB',
+      placeholder: 'SEARCH CDS',
     },
   };
   const { SearchBar } = SearchBarGenerator(SearchBarConfig);
