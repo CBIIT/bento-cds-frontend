@@ -4,6 +4,7 @@ import { cellTypes, dataFormatTypes } from '@bento-core/table';
 import { types, btnTypes } from '@bento-core/paginated-table';
 import { customMyFilesTabDownloadCSV, MY_CART_MANIFEST_QUERY} from './tableDownloadCSV';
 import CartMessage from '../pages/cart/customComponent/cartMessage';
+import ReadMe from '../pages/cart/customComponent/readme/readmeButton';
 
 export const navBarCartData = {
   cartLabel: 'Cart',
@@ -64,6 +65,21 @@ export const myFilesPageData = {
     size: 'xl',
     clsName: 'container_header',
     items: [
+      {
+        title: 'README',
+        clsName: 'readme',
+        type: types.CUSTOM_ELEM,
+        role: btnTypes.DOWNLOAD_MANIFEST,
+        btnType: btnTypes.DOWNLOAD_MANIFEST,
+        customViewElem: (props) => <ReadMe {...props}/>
+      },
+      {
+        title: 'AVAILABLE EXPORT OPTIONS',
+        clsName: 'download_manifest',
+        type: types.BUTTON,
+        role: btnTypes.DOWNLOAD_MANIFEST,
+        btnType: btnTypes.DOWNLOAD_MANIFEST,
+      },
       {
         title: 'DOWNLOAD MANIFEST',
         clsName: 'download_manifest',

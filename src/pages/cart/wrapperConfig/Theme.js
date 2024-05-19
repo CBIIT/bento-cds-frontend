@@ -35,12 +35,19 @@ export const customTheme = {
         maxWidth: '100%',
         height: '75px',
         padding: '10px 0px 15px 0px',
+        display: 'flex',
+        alignItems: 'center',
         position: 'relative',
-        textAlign: 'right',
         '& img.tooltip_icon': {
           width: '20px',
           marginLeft: '5px',
           verticalAlign: 'top',
+        },
+        '& button:first-child': {
+          marginRight: 'auto',
+        },
+        '& button:not(first-child)': {
+          marginLeft: '10px',
         },
       },
       '&.tooltip_icon': {
