@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, withStyles } from '@material-ui/core';
-import readMeContent from '../../../../bento/fileCentricCartPageREADME.md'
+//import readMeContent from '../../../../bento/fileCentricCartPageREADME.md'
 import ReadMeDialogComponent from './components/readmeDialogController';
 import ReadmeIcon from './readmeIcon';
-import { readMeButtonStyles } from './readMeStyles';
+import { readMeButtonStyles } from './readmeStyles';
 
 const readMeButtonView = (props) => {
     const { classes } = props;
