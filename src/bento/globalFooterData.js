@@ -23,10 +23,10 @@ export default {
       ],
     },
     {
-      title: 'About CDRC Data Discovery Portal',
+      title: 'About CDS Portal',
       items: [
         {
-          text: 'CRDC Data Discovery Portal',
+          text: 'CDS',
           link: '/cancerDataService',
         },
         {
