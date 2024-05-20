@@ -2,7 +2,7 @@ import React from "react";
 import gql from 'graphql-tag';
 import { cellTypes, dataFormatTypes } from '@bento-core/table';
 import { types, btnTypes } from '@bento-core/paginated-table';
-import { customMyFilesTabDownloadCSV } from './tableDownloadCSV';
+import { customMyFilesTabDownloadCSV, MY_CART_MANIFEST_QUERY} from './tableDownloadCSV';
 import CartMessage from '../pages/cart/customComponent/cartMessage';
 
 export const navBarCartData = {
@@ -102,8 +102,8 @@ export const myFilesPageData = {
 
 
 export const manifestData = {
-  keysToInclude: ['file_id', 'file_name', 'subject_id','md5sum'],
-  header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'User Comments'],
+  keysToInclude: ['file_id', 'file_name', 'subject_id','md5sum', 'study_acronym', 'phs_accession', 'sample_id', 'accesses', 'file_type', 'gender', 'race', 'primary_diagnosis', 'is_tumor', 'analyte_type', 'organ_or_tissue', 'study_data_type', 'library_strategy', 'image_modality', 'experimental_strategy', 'library_layouts', 'license', 'file_size'],
+  header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'Study Name', 'Accession', 'Sample Id', 'Study Access', 'File Type', 'Gender', 'Race', 'Primary Diagnosis', 'Sample Tumor Status', 'Analyte Type', 'Organ or Tissue', 'Study Data Type', 'Library Strategy', ' Image Modality', 'Experimental Strategy', 'Library Layouts', 'License', 'File Size (in bytes)', 'User Comments'],
 };
 
 // --------------- GraphQL query - Retrieve selected cases info --------------
@@ -138,17 +138,31 @@ query fileOverview(
   order_by: $order_by,
   sort_direction: $sort_direction
 ){
-  study_acronym
-  accesses
-  phs_accession
-  subject_id
-  sample_id
-
   file_name
-  file_type
   file_size
   file_id
+  file_type
   md5sum
+  experimental_strategy
+  study_acronym
+  phs_accession
+  study_data_type
+  accesses
+  image_modality
+  organ_or_tissue
+  license
+
+  library_layouts
+  library_strategy
+  
+  subject_id
+  gender
+  race
+  primary_diagnoses
+        
+  sample_id
+  analyte_type
+  is_tumor
 }
 }`;
 
@@ -160,6 +174,7 @@ export const table = {
   defaultSortField: 'file_name',
   // 'asc' or 'desc'
   api: GET_MY_CART_DATA_QUERY,
+  manifestAPI: MY_CART_MANIFEST_QUERY,
   defaultSortDirection: 'asc',
   paginationAPIField: 'filesInList',
   tableDownloadCSV: customMyFilesTabDownloadCSV,
@@ -198,6 +213,7 @@ export const table = {
       display: true,
       tooltipText: 'sort',
       role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'sample_id',
@@ -205,6 +221,7 @@ export const table = {
       display: true,
       tooltipText: 'sort',
       role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'accesses',
@@ -221,12 +238,105 @@ export const table = {
       role: cellTypes.DISPLAY,
     },
     {
+      dataField: 'gender',
+      header: 'Gender',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'race',
+      header: 'Race',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'primary_diagnoses',
+      header: 'Primary Diagnosis',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'is_tumor',
+      header: 'Sample Tumor Status',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'analyte_type',
+      header: 'Analyte Type',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'organ_or_tissue',
+      header: 'Organ or Tissue',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'study_data_type',
+      header: 'Study Data Type',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'library_strategy',
+      header: 'Library Strategy',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'image_modality',
+      header: 'Image Modality',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
+      dataField: 'experimental_strategy',
+      header: 'Experimental Strategy',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'library_layouts',
+      header: 'Library Layouts',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+      cellType: cellTypes.CUSTOM_ELEM,
+    },
+    {
+      dataField: 'license',
+      header: 'License',
+      display: false,
+      tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
+    },
+    {
       dataField: 'file_size',
       header: 'File Size',
       // set formatBytes to true to display file size (in bytes) in a more human readable format
       display: false,
       dataFormatType: dataFormatTypes.FORMAT_BYTES,
       cellType: cellTypes.FORMAT_DATA,
+      role: cellTypes.DISPLAY,
       tooltipText: 'sort',
     },
     {
@@ -234,6 +344,7 @@ export const table = {
       header: 'Md5Sum',
       display: false,
       tooltipText: 'sort',
+      role: cellTypes.DISPLAY,
     },
     {
       dataField: 'remove',

@@ -138,31 +138,35 @@ const table = {
       header: 'Sample ID',
       tooltipText: 'Sort by Sample ID',
       display: true,
-
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'subject_id',
       header: 'Participant ID',
       tooltipText: 'Sort by Participant ID',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'gender',
       header: 'Gender',
       tooltipText: 'Sort by Gender',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'analyte_type',
       header: 'Analyte Type',
       tooltipText: 'Sort by Analyte Type',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
     {
       dataField: 'is_tumor',
       header: 'Tumor Status',
       tooltipText: 'Sort by Tumor Status',
       display: true,
+      cellType: cellTypes.CUSTOM_ELEM,
     },
   ],
 };
