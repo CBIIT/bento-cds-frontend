@@ -105,7 +105,7 @@ export const navBarData = [
         link: '/datasubmit',
       },
       {
-        labelText: 'CDS User Guide',
+        labelText: 'CDS Portal User Guide',
         link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf',
         isExternalLink: true,
       },
