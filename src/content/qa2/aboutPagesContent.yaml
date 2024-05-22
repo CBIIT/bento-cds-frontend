@@ -16,7 +16,7 @@
   title: "Query the CDS Portal Using GraphQL"
   imageLocation: "hidden"
   content:
-    - paragraph: "Users can search through all the CDS portal using GraphQL queries. There are several queries that users can utilize from the $$[CDS Portal User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
+    - paragraph: "Users can search through all the CDS portal using GraphQL queries. There are several queries that users can utilize from the $$[CDS Portal User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSPortalUserGuide.pdf)$$"
   components: ["GraphqlClient"]
 - page: '/cancerDataService'
   title: "About the CRDC Data Hub Portal"
@@ -50,7 +50,7 @@
     - paragraph: "All cloud resources provide support for data access through a web-based user interface in addition to programmatic access to analytic tools and workflows, and the capability of sharing results with collaborators. Each cloud resource is continually developing new functionality to improve the user experience and add new tools for researchers."
     - paragraph: "CRDC currently has a collaboration with $$[Velsera Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$(SBG), which is hosted on Amazon Web Services and has a rich user interface that allows researchers to find data of interest and combine it with their own private data. Data can be analyzed using more than 200 preinstalled, curated bioinformatics tools and workflows. Researchers can also extend the functionality of the platform by adding their own data and tools via an intuitive software development kit."
     - paragraph: "• Read more about tools for data analysis on the $$[Velsera website](https://docs.cancergenomicscloud.org/docs/workflows-and-tools)$$."
-    - paragraph: "• $$[Learn more about importing files from CDS Portal to Velsera](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSUserGuide.pdf)$$"
+    - paragraph: "• $$[Learn more about importing files from CDS Portal to Velsera](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSPortalUserGuide.pdf)$$"
 - page: '/cloudresources'
   title: "NCI's Cloud Services"
   primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/crdc.png'
