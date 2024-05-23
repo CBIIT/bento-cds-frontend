@@ -41,13 +41,15 @@ export const customTheme = {
         '& img.tooltip_icon': {
           width: '20px',
           marginLeft: '5px',
-          verticalAlign: 'top',
+          height: '100%',
+          paddingBottom: '30px',
         },
         '& button:first-child': {
           marginRight: 'auto',
+          marginLeft: '0px',
         },
         '& button:not(first-child)': {
-          marginLeft: '10px',
+          marginLeft: '33px',
         },
       },
       '&.tooltip_icon': {
