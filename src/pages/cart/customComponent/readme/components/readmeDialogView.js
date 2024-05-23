@@ -17,8 +17,8 @@ import html2pdf from 'html2pdf.js';
 import styles from './readmeDialogStyle';
 import CustomTheme from './readmeDialogTheme';
 import footerLine from './assets/footer_line.png';
-//import nihLogo from './assets/dh_nih_logo.png';
-import nihLogo from './assets/cds_nih_logo.png';
+import nihLogo from './assets/dh_nih_logo.png';
+//import nihLogo from './assets/cds_nih_logo.png';
 import { createFileName } from './utils';
 import PdfDownloadIcon from './assets/Download_PDF.svg';
 
@@ -38,7 +38,7 @@ export const downloadMarkdownPdf = async (title, content) => {
   /** create html elment for pdf - convert marked object to html */
   const readMeContent = document.createElement('div');
   /** add header logo on first page */
-  const headerLogo = `<img src='${nihLogo}' height="50px" width="400px"  alt='logo' />
+  const headerLogo = `<img src='${nihLogo}' height="50px" width="384px"  alt='logo' />
   <br> <hr style="height:3px" color="#173554" />`;
   readMeContent.innerHTML += headerLogo;
   const titleEl = "<br><span style='color: #4D6787; font-size: 23px; font-family: Nunito Light'>".concat(title, '</span>');
