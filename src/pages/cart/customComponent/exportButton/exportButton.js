@@ -137,8 +137,8 @@ const ExportButtonView = (props,) => {
           <StyledMenuItem onClick={() => {
             initiateDownload(type);
             setOpen(false);
-            
           }}
+          key={type}
           className={classes.styledMenuItem}
           >
             {
