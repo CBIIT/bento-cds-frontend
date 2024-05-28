@@ -38,6 +38,7 @@ export const customTheme = {
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
+        zIndex: '1',
         '& img.tooltip_icon': {
           width: '20px',
           marginLeft: '5px',

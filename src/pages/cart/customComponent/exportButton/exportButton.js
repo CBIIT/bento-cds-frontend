@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import gql from 'graphql-tag';
-import { Paper, Popper, Button, ClickAwayListener, Grow, withStyles } from '@material-ui/core';
+import { Paper, Popper, Button, ClickAwayListener, Grow, MenuItem, MenuList, withStyles } from '@material-ui/core';
 import { noop } from 'lodash';
 import { useQuery } from '@apollo/client';
 import { MY_CART_MANIFEST_QUERY } from '../../../../bento/tableDownloadCSV'
@@ -47,6 +47,15 @@ const ExportButtonView = (props,) => {
           setOpen(false);
         }
     }
+
+    const StyledMenuItem = withStyles(() => ({
+        root: {
+          padding: '2px 26px',
+          color: '#fff',
+          overflow: 'auto',
+          whiteSpace: 'wrap',
+        },
+      }))(MenuItem);
 
     const STORE_MANIFEST_QUERY = gql`
       query storeManifest($manifestString: String!) {
@@ -125,7 +134,7 @@ const ExportButtonView = (props,) => {
             break;
         }
         return (
-          <li onClick={() => {
+          <StyledMenuItem onClick={() => {
             initiateDownload(type);
             setOpen(false);
           }}
@@ -140,7 +149,7 @@ const ExportButtonView = (props,) => {
               )
             }
             <div style={{ paddingLeft: icon ? '10px' : '0' }}>{type}</div>
-          </li>
+          </StyledMenuItem>
         );
       };
     
@@ -186,16 +195,16 @@ const ExportButtonView = (props,) => {
                     className={classes.dropdownPaper}
                   >
                     <ClickAwayListener onClickAway={handleClose}>
-                      <ul
+                      <MenuList
                         autoFocusItem={open}
                         id="menu-list-grow"
                         onKeyDown={handleListKeyDown}
-                        className={
-                          classes.dropdownMenuList
-                        }
+                        classes={{
+                          root: classes.dropdownMenuList,
+                        }}
                       >
                         {options}
-                      </ul>
+                      </MenuList>
                     </ClickAwayListener>
                   </Paper>
                 </Grow>

@@ -51,8 +51,6 @@ export const exportStyles = (props) =>({
         color: 'white',
         borderBottomRightRadius: '8px',
         borderBottomLeftRadius: '8px',
-        margin: '0px',
-        paddingInlineStart: '0px',
     },
     dropdownPaper: {
         maxWidth: '260px',
@@ -66,9 +64,5 @@ export const exportStyles = (props) =>({
         lineHeight: '16px',
         textTransform: 'uppercase',
         height: '48px',
-        display: 'flex',
-        alignItems: 'center',
-        cursor: 'pointer',
-        padding: '10px 0px 10px 40px',
     },
 })
