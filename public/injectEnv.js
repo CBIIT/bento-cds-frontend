@@ -4,6 +4,7 @@ window.injectedEnv = {
 
   REACT_APP_APPLICATION_VERSION: 'YYYY_MM_DD/HH:MM',
   REACT_APP_DATA_RELEASES_URL: 'https://raw.githubusercontent.com/CBIIT/CDS-Data-Releases/dev/DataReleaseNotes.json', 
+  REACT_APP_STATIC_CONTENT_URL: 'https://raw.githubusercontent.com/CBIIT/dev/',
 
   // Services API End Points:
   REACT_APP_BACKEND_API: 'http://localhost:3000/v1/graphql/',

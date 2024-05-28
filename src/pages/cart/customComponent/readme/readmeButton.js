@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, withStyles } from '@material-ui/core';
 //import readMeContent from '../../../../bento/fileCentricCartPageREADME.md'
+import env from '../../../../utils/env';
 import ReadMeDialogComponent from './components/readmeDialogController';
 import ReadmeIcon from './readmeIcon';
 import { readMeButtonStyles } from './readmeStyles';
 
 const readMeButtonView = (props) => {
     const { classes } = props;
-    const tempReadMeUrl = 'https://raw.githubusercontent.com/CBIIT/icdc-readMe-content/dev/My_Files_Cart_Page_README.md'
+    const readMeURL = env.REACT_APP_STATIC_CONTENT_URL+ 'fileCentricCartPageREADME.md';
 
     const [displayReadMe, setDisplayReadMe] = useState(false);
     const [content, setContent] = useState(undefined);
 
     useEffect(() => {
-        getReadMe(setContent, tempReadMeUrl);
+        getReadMe(setContent, readMeURL);
       }, []);
 
     const getReadMe = async (setContent, url) => {
