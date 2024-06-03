@@ -153,7 +153,7 @@ export default () => ({
   uploadButton: {
     boxSizing: 'border-box',
     fontWeight: '400',
-    height: 32,
+    //height: 32,
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
@@ -169,6 +169,10 @@ export default () => ({
     '&:hover': {
       backgroundColor: '#0B4E75',
     },
+    //fields added to remove button
+    visibility: 'hidden',
+    height: 0,
+    padding: 0,
   },
   iconSpan: {
     marginTop: '5.2px',
