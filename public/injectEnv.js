@@ -4,6 +4,7 @@ window.injectedEnv = {
 
   REACT_APP_APPLICATION_VERSION: 'YYYY_MM_DD/HH:MM',
   REACT_APP_DATA_RELEASES_URL: 'https://raw.githubusercontent.com/CBIIT/CDS-Data-Releases/dev/DataReleaseNotes.json', 
+  REACT_APP_STATIC_CONTENT_URL: 'https://raw.githubusercontent.com/CBIIT/dev/',
 
   // Services API End Points:
   REACT_APP_BACKEND_API: 'http://localhost:3000/v1/graphql/',
@@ -11,6 +12,7 @@ window.injectedEnv = {
   REACT_APP_FILE_SERVICE_API: 'http://localhost:3000/api/files/',
   REACT_APP_AUTH_SERVICE_API: 'http://localhost:3000/api/auth/',
   REACT_APP_USER_SERVICE_API: 'http://localhost:3000/api/users/',
+  REACT_APP_INTEROP_SERVICE_API: 'http://localhost:3000/api/interoperation/',
 
   // IDP Auth url
   REACT_APP_NIH_AUTH_URL: 'https://stsstg.nih.gov/auth/oauth/v2/authorize',
