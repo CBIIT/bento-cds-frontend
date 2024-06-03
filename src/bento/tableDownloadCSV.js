@@ -101,6 +101,11 @@ query filesInList($file_ids: [String], $offset: Int = 0, $first: Int = 1000, $or
       file_id
       file_type
       md5sum
+
+      associated_file
+      associated_drs_uri
+      associated_md5sum
+
       experimental_strategy
       study_acronym
       phs_accession
