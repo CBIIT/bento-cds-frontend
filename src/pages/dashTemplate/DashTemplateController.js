@@ -18,6 +18,7 @@ const getDashData = (states) => {
   const tabName = search && new URLSearchParams(search).get('selectedTab') ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
   const tabIndex = tabIndexMap[tabName];
 
+  //Useful for one facet and one facet value pair selection
   const selectedFacet = search && new URLSearchParams(search).get('selectedFacet') ? new URLSearchParams(search).get('selectedFacet') : null;
   const selectedFacetValue = search && new URLSearchParams(search).get('selectedFacetValue') ? new URLSearchParams(search).get('selectedFacetValue') : null;
 
