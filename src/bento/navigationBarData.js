@@ -101,10 +101,6 @@ export const navBarData = [
       },
       // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
       {
-        labelText: 'CDS Submission Request',
-        link: '/datasubmit',
-      },
-      {
         labelText: 'CDS Portal User Guide',
         link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSPortalUserGuide.pdf',
         isExternalLink: true,
