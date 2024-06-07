@@ -10,7 +10,7 @@ import { accessLevelTypes } from '@bento-core/authentication';
 
 const customStyle = {
   headerBar: {
-    marginTop: 'var(--site-alert-offset)',
+    marginTop: 'calc(var(--site-alert-offset, 0px) + var(--banner-offset, 0px))',
   },
   nihLogoImg: {
     width: '463px',
