@@ -68,7 +68,7 @@ export const landingPageData = {
     img: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/landing/landingTile3.png',
     titleText: 'SUBMIT DATA',
     descriptionText: 'To get started with the submission please complete the online questionnaire.',
-    callToActionText: 'DATA HUB HELPDESK',
+    callToActionText: 'CRDC HELPDESK',
     callToActionLink: 'mailto:CRDCHelpDesk@nih.gov', // Send email to CRDC help desk
   },
   tile4: {
