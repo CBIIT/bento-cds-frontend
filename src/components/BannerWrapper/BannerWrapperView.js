@@ -10,7 +10,7 @@ const BannerWrapperView = ({ children }) => {
         // Directly set the banner offset based on the current banner height
         document.documentElement.style.setProperty(
           "--banner-offset",
-          `${height}px`
+          `${height || 0}px`
         );
       }
     };
