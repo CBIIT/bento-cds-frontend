@@ -6,7 +6,7 @@ export const statsStyling = {
     statTitleFirst: false,
     height: '58px',
     background: '#B4E2F5',
-    top: 'calc(var(--site-alert-offset) + 139px)',
+    top: 'calc(var(--site-alert-offset, 0px) + var(--banner-offset, 0px) + 139px)',
   },
   statsGroup: {
     margin: '6px 0px',
