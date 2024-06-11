@@ -5,6 +5,7 @@ import { Paper, Popper, Button, ClickAwayListener, Grow, MenuItem, MenuList, wit
 import { noop } from 'lodash';
 import { useQuery } from '@apollo/client';
 import { MY_CART_MANIFEST_QUERY } from '../../../../bento/tableDownloadCSV'
+import { manifestData } from '../../../../bento/fileCentricCartWorkflowData'
 import arrowDownPng from './assets/arrowDown.png';
 import cgcIcon from './assets/cgc.svg';
 import { getManifestData } from './util/TableService';
@@ -69,31 +70,26 @@ const ExportButtonView = (props,) => {
         if (!data) {
           return null;
         }
-        const processedStoreManifestPayload = data.filesInList.map((el) => ({
-            file_name: el ? el.file_name : undefined,
-            file_size: el ? el.file_size : undefined,
-            file_id: el ? el.file_id : undefined,
-            file_type: el ? el.file_type : undefined,
-            md5sum: el ? el.md5sum : undefined,
-            experimental_strategy: el ? el.experimental_strategy : undefined,
-            study_acronym: el ? el.study_acronym : undefined,
-            phs_accession: el ? el.phs_accession : undefined,
-            study_data_type: el ? el.study_data_type : undefined,
-            accesses: el ? el.accesses : undefined,
-            image_modality: el ? el.image_modality : undefined,
-            organ_or_tissue: el ? el.organ_or_tissue : undefined,
-            license: el ? el.license : undefined,
-            library_layouts: el ? el.library_layouts : undefined,
-            library_strategy: el ? el.library_strategy : undefined,
-            subject_id: el ? el.subject_id : undefined,
-            gender: el ? el.gender : undefined,
-            race: el ? el.race : undefined,
-            primary_diagnoses: el ? el.primary_diagnoses : undefined,
-            sample_id: el ? el.sample_id : undefined,
-            analyte_type: el ? el.analyte_type : undefined,
-            is_tumor: el ? el.is_tumor : undefined,
-          }));
-          
+        const appendString = 'drs://nci-crdc.datacommons.io/'
+        const processedStoreManifestPayload = data.filesInList.map((el) => {
+          const obj = {}
+          // - 1 to ignore the User Comments column
+          for (let i = 0; i < manifestData.keysToInclude.length - 1; i++) {
+            if (manifestData.keysToInclude[i] === 'file_id') {
+              obj[manifestData.header[i]] = el && el[manifestData.keysToInclude[i]] ? 
+                appendString + el[manifestData.keysToInclude[i]] 
+                : 
+                "";
+            }
+            else {
+              obj[manifestData.header[i]] = el && el[manifestData.keysToInclude[i]] ? 
+              el[manifestData.keysToInclude[i]] 
+              : 
+              "";
+            }
+          }
+          return obj;
+          });
         return processedStoreManifestPayload;
     };
     
