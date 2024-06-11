@@ -73,8 +73,7 @@ const ExportButtonView = (props,) => {
         const appendString = 'drs://nci-crdc.datacommons.io/'
         const processedStoreManifestPayload = data.filesInList.map((el) => {
           const obj = {}
-          // - 1 to ignore the User Comments column
-          for (let i = 0; i < manifestData.keysToInclude.length - 1; i++) {
+          for (let i = 0; i < manifestData.keysToInclude.length; i++) {
             if (manifestData.keysToInclude[i] === 'file_id') {
               obj[manifestData.header[i]] = el && el[manifestData.keysToInclude[i]] ? 
                 appendString + el[manifestData.keysToInclude[i]] 
