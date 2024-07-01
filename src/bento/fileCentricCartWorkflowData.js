@@ -113,7 +113,7 @@ export const myFilesPageData = {
 
 export const manifestData = {
   keysToInclude: ['file_id', 'file_name', 'subject_id', 'md5sum', 'associated_file', 'associated_drs_uri', 'associated_md5sum', 'study_acronym', 'phs_accession', 'sample_id', 'accesses', 'file_type', 'gender', 'race', 'primary_diagnoses', 'is_tumor', 'analyte_type', 'organ_or_tissue', 'study_data_type', 'library_strategy', 'image_modality', 'experimental_strategy', 'library_layouts', 'license', 'file_size'],
-  header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'Associated File', 'Associated File DRS URI', 'Associated File md5sum', 'Study Name', 'Accession', 'Sample Id', 'Study Access', 'File Type', 'Gender', 'Race', 'Primary Diagnoses', 'Sample Tumor Status', 'Analyte Type', 'Organ or Tissue', 'Study Data Type', 'Library Strategy', 'Image Modality', 'Experimental Strategy', 'Library Layout', 'License', 'File Size (in bytes)', 'User Comments'],
+  header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'Associated File', 'Associated File DRS URI', 'Associated File md5sum', 'Study Name', 'Accession', 'Sample Id', 'Study Access', 'File Type', 'Gender', 'Race', 'Primary Diagnosis', 'Sample Tumor Status', 'Analyte Type', 'Organ or Tissue', 'Study Data Type', 'Library Strategy', 'Image Modality', 'Experimental Strategy', 'Library Layout', 'License', 'File Size (in bytes)', 'User Comments'],
 };
 
 // --------------- GraphQL query - Retrieve selected cases info --------------
