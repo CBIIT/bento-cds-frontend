@@ -25,7 +25,7 @@ const getDashData = (states) => {
    if (selectedFacet && selectedFacetValue) {
       onClearAllAndSelectFacetValue(selectedFacet, selectedFacetValue);
       const history = useHistory();
-      history.push('/data');
+      history.replace('/data');
     }
 
   const client = useApolloClient();
