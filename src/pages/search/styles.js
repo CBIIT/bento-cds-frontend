@@ -10,7 +10,7 @@ const styles = () => ({
   },
   tabContainter: {
     display: 'flex',
-    maxWidth: '840px',
+    maxWidth: '900px',
     margin: '0 auto',
   },
   tabColor: { color: '#142D64' },
