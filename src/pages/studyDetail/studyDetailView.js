@@ -463,9 +463,9 @@ const styles = (theme) => ({
     paddingLeft: '21px',
     paddingRight: '35px',
     borderBottom: '#F0BDEE 10px solid',
-    height: '80px',
     maxWidth: '1340px',
     margin: 'auto',
+    display: 'flex',
   },
   headerTitle: {
     margin: 'auto',
