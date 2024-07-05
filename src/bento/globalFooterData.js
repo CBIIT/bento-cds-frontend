@@ -18,7 +18,7 @@ export default {
       items: [
         {
           text: 'CDRC Help Desk',
-          link: 'CRDCHelpDesk@nih.gov',
+          link: 'NCICRDC@mail.nih.gov',
         },
       ],
     },

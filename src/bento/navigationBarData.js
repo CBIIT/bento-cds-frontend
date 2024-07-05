@@ -84,7 +84,7 @@ export const navBarData = [
       },
       {
         labelText: 'Submission Requests',
-        link: 'https://hub.datacommons.cancer.gov/submissions',
+        link: 'https://hub.datacommons.cancer.gov/',
         isExternalLink: true,
       },
       {
