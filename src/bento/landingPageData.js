@@ -69,7 +69,7 @@ export const landingPageData = {
     titleText: 'SUBMIT DATA',
     descriptionText: 'To get started with the submission please complete the online questionnaire.',
     callToActionText: 'CRDC HELPDESK',
-    callToActionLink: 'mailto:CRDCHelpDesk@nih.gov', // Send email to CRDC help desk
+    callToActionLink: 'mailto:NCICRDC@mail.nih.gov', // Send email to CRDC help desk
   },
   tile4: {
     alt: '',
