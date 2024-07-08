@@ -25,6 +25,7 @@ import { WidgetGenerator } from '@bento-core/widgets';
 import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilterUtils';
 import { themeConfig } from './tableConfig/Theme';
 import { configColumn } from './tableConfig/Column';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 const initTblState = (initailState) => ({
   ...initailState,
@@ -39,6 +40,7 @@ const initTblState = (initailState) => ({
 })
 
 const ProgramView = ({ classes, data, theme }) => {
+  usePageTitle(`Program - ${data.programDetail[pageTitle.dataField]}`);
   const programData = data.programDetail;
 
   const widgetGeneratorConfig = {

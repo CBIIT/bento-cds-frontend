@@ -4,8 +4,10 @@ import { AboutHeader, AboutBody } from '@bento-core/about';
 import { withStyles } from '@material-ui/core';
 import Stats from '../../components/Stats/AllStatsController';
 import { getComponent } from '../../bento/aboutPagesComponentMap';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 const AboutView = ({ classes, data }) => {
+  usePageTitle(data.title || "About")
   const getImage = (imgPath, alt) => <img className={classes.img} src={imgPath != null ? imgPath : ''} alt={alt} />;
 
   const getImageLocation = (imgLocation) => {

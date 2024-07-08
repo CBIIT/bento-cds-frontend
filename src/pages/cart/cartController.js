@@ -8,17 +8,22 @@ import {
 import { TableContextProvider } from '@bento-core/paginated-table';
 import { table } from '../../bento/fileCentricCartWorkflowData';
 import CartView from './cartView';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
-const CartController = (props) => (
-  <CartContextProvider>
-    <TableContextProvider>
-      <CartView
-        {...props}
-        config={table}
-      />
-    </TableContextProvider>
-  </CartContextProvider>
-);
+const CartController = (props) => {
+  usePageTitle("File Centric Cart");
+
+  return (
+    <CartContextProvider>
+      <TableContextProvider>
+        <CartView
+          {...props}
+          config={table}
+        />
+      </TableContextProvider>
+    </CartContextProvider>
+  );
+}
 
 const mapStateToProps = (state) => ({
   filesId: state.cartReducer.filesId,

@@ -10,8 +10,10 @@ import styles from './styles';
 import ReleaseNotes from '../ReleaseNotes';
 import Stats from '../../components/Stats/AllStatsController';
 import { Typography } from '../../components/Wrappers/Wrappers';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 const ReleaseVersions = (props) => {
+  usePageTitle("Release Notes");
   const { classes } = props;
   const [jsonData, setJsonData] = useState(null);
   const [versionDetails, setVersionDetails] = useState(null);

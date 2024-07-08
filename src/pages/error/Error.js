@@ -5,30 +5,35 @@ import {
 } from '@material-ui/core';
 import LeftBg from '../../assets/error/leftBg.png';
 import rightBg from '../../assets/error/rightBg.png';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
-const Error = ({ classes }) => (
-  <div className={classes.container}>
-    <Grid container className={classes.container2}>
-      <Grid item xs={3} className={classes.leftBg}> </Grid>
-      <Grid item xs={6}>
-        <Paper classes={{ root: classes.paperRoot }}>
-          <div className={classes.errorCodeText}>404</div>
-          <Typography className={classes.boldText}>PAGE NOT FOUND</Typography>
-          <div className={classes.errorTextRow}>
-            <Typography className={classes.errorText}>
-              The page you are looking for does not exist or another error has occured.
-              Go back or head&nbsp;
-              <Link className={classes.link} to="/">home</Link>
-              {' '}
-              to choose another direction.
-            </Typography>
-          </div>
-        </Paper>
+const Error = ({ classes }) => {
+  usePageTitle("404 Page not found")
+
+  return (
+    <div className={classes.container}>
+      <Grid container className={classes.container2}>
+        <Grid item xs={3} className={classes.leftBg}> </Grid>
+        <Grid item xs={6}>
+          <Paper classes={{ root: classes.paperRoot }}>
+            <div className={classes.errorCodeText}>404</div>
+            <Typography className={classes.boldText}>PAGE NOT FOUND</Typography>
+            <div className={classes.errorTextRow}>
+              <Typography className={classes.errorText}>
+                The page you are looking for does not exist or another error has occured.
+                Go back or head&nbsp;
+                <Link className={classes.link} to="/">home</Link>
+                {' '}
+                to choose another direction.
+              </Typography>
+            </div>
+          </Paper>
+        </Grid>
+        <Grid item xs={3} className={classes.rightBg} />
       </Grid>
-      <Grid item xs={3} className={classes.rightBg} />
-    </Grid>
-  </div>
-);
+    </div>
+  );
+}
 
 const styles = (theme) => ({
   container: {

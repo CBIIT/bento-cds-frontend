@@ -4,8 +4,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import LandingView from './landingView';
 import { Typography } from '../../components/Wrappers/Wrappers';
 import { GET_LANDING_PAGE_DATA_QUERY } from '../../bento/landingPageData';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 const landingController = () => {
+  usePageTitle("CDS");
   const { loading, error, data } = useQuery(GET_LANDING_PAGE_DATA_QUERY);
 
   if (loading) return <CircularProgress />;

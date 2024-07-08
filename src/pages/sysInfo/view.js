@@ -14,6 +14,7 @@ import materialUICorePackageJson from '@material-ui/core/package.json';
 // import jbrowsePackageJson from '@jbrowse/core/package.json';
 import packageJson from '../../../package.json';
 import { coreRequirements, microServiceRequirements, dependencyRequirements } from '../../bento/sysinfoData';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 async function getVersionDataFromService(url) {
   const result = await fetch(url)
@@ -54,6 +55,7 @@ function envVariableNotSetError(variable) {
 
 // Main Function
 function SysInfoView() {
+  usePageTitle("System Information")
   const classes = useStyles();
   const [state, setState] = useState({});
   const backendApiUrl = new URL(env.REACT_APP_BACKEND_API);
