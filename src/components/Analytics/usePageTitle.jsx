@@ -18,9 +18,11 @@ const usePageTitle = (title, restore = true) => {
     // Update title on mount
     document.title = title;
 
-    const currentPath = location.hash.replace("#", "") || "/";
-    console.log({ currentPath, title, location });
-    
+    if (!ReactGA.isInitialized) {
+      return;
+    }
+
+    const currentPath = location.hash.replace("#", "") || "/";    
     ReactGA.send({
       hitType: "pageview",
       page: currentPath,

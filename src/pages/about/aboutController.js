@@ -28,7 +28,6 @@ const About = ({ match }) => {
     fetchData();
   }, [match.path]);
 
-  console.log({ data });
   if(data.error){
     return <div>Error in Loading aboutPagesContent.yaml.</div>
   }
