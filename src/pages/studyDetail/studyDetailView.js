@@ -24,6 +24,7 @@ import { onClearAllAndSelectFacetValue } from '../dashTemplate/sideBar/BentoFilt
 import { configColumn } from './tableConfig/Column';
 import { themeConfig, wrapperThemConfig } from './tableConfig/Theme';
 import { footerConfig } from './tableConfig/Wrapper';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 
 const initTblState = (initailState) => ({
@@ -45,6 +46,7 @@ const initTblState = (initailState) => ({
   })
 
 const StudyView = ({ classes, data, theme }) => {
+  usePageTitle(`Study - ${data.studyDetail[pageTitle.dataField]}`);
   const studyData = data.studyDetail;
 
 

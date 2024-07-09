@@ -4,6 +4,7 @@ import {
   withStyles,
 } from '@material-ui/core';
 import { CustomDataTable } from '@bento-core/data-table';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 const columns = [{ name: 'program_id', label: 'Program' },
   { name: 'clinical_study_designation', label: 'Study Code' },
@@ -40,20 +41,24 @@ const options = {
   viewColumns: false,
 };
 
-const Studies = () => (
-  <>
-    <Grid container spacing={32}>
-      <Grid item xs={12}>
-        <CustomDataTable
-          title="Sample Table"
-          data={data}
-          columns={columns}
-          options={options}
-        />
+const Studies = () => {
+  usePageTitle("Sample Table")
+
+  return (
+    <>
+      <Grid container spacing={32}>
+        <Grid item xs={12}>
+          <CustomDataTable
+            title="Sample Table"
+            data={data}
+            columns={columns}
+            options={options}
+          />
+        </Grid>
       </Grid>
-    </Grid>
-  </>
-);
+    </>
+  );
+}
 
 const styles = (theme) => ({
   card: {

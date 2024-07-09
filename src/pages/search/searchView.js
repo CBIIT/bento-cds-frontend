@@ -15,6 +15,7 @@ import FileCard from './cards/FileCard';
 import ProgramCard from './cards/ProgramCard';
 import StudyCard from './cards/StudyCard';
 import AboutCard from './cards/AboutCard';
+import usePageTitle from '../../components/Analytics/usePageTitle';
 
 /**
  * Determine the correct datafield and offset for the All tab based
@@ -86,7 +87,7 @@ function searchView(props) {
     classes, searchparam = '',
     isSignedIn, isAuthorized, publicAccessEnabled,
   } = props;
-
+  usePageTitle(`Search ${searchparam ? "- " + searchparam : ""}`.trim())
   const history = useHistory();
   const [searchText, setSearchText] = useState(searchparam);
   const [searchCounts, setSearchCounts] = useState([]);

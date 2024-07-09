@@ -6,11 +6,15 @@ import { ApolloProvider } from '@apollo/client'
 import { Provider } from 'react-redux';
 import store from './store';
 import client from './utils/graphqlClient';
+import { AnalyticsProvider } from "./components/Analytics/AnalyticsContext";
+import env from './utils/env';
 
 ReactDOM.render(
   <ApolloProvider client={client}>
       <Provider store={store}>
-        <App />
+        <AnalyticsProvider GA_MEASUREMENT_ID={env.REACT_APP_GA_TRACKING_ID}>
+          <App />
+        </AnalyticsProvider>
       </Provider>
   </ApolloProvider>,
   document.getElementById("root")
