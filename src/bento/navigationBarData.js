@@ -6,7 +6,7 @@ export const navBarstyling = {
     fontColor: '#bbefff',
     activeLabel: '1px solid #bbefff',
     textTransform: 'capitalize',
-    marginTop: 'calc(var(--site-alert-offset) + 100px)'
+    marginTop: 'calc(var(--site-alert-offset, 0px) + var(--banner-offset, 0px) + 100px)'
   },
   dropDownIcon: {
     displayIcon: false,
@@ -100,10 +100,6 @@ export const navBarData = [
         link: '/releases',
       },
       // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
-      {
-        labelText: 'CDS Submission Request',
-        link: '/datasubmit',
-      },
       {
         labelText: 'CDS Portal User Guide',
         link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSPortalUserGuide.pdf',

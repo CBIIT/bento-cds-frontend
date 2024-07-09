@@ -2,7 +2,6 @@ import React from 'react';
 import { cellTypes, headerTypes } from '@bento-core/table';
 import { Link as RouterLink } from 'react-router-dom';
 import { Typography, Link } from '@material-ui/core';
-import { onClearAllAndSelectFacetValue } from '../../dashTemplate/sideBar/BentoFilterUtils';
 import { customTypes } from '../../../bento/studyData';
 
 export const CustomCellView = () => (<></>);
@@ -22,10 +21,7 @@ const DashboardLinkFromList = ({ dataField, facet, facetValue, ...rest }) => {
         idx === 0 ? (
           <Link
             component={RouterLink}
-            to={(location) => ({ ...location, pathname: "/data" })}
-            onClick={() =>
-              onClearAllAndSelectFacetValue(facet, rest[facetValue])
-            }
+            to={(location) => ({ ...location, pathname: "/data", search: `?selectedFacet=${facet}&selectedFacetValue=${rest[facetValue]}` })}
             className={cellTypes.LINK}
             underline='none'
           >

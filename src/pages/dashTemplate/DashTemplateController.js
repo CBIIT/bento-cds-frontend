@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useApolloClient } from '@apollo/client';
 import { connect } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 import { getFilters } from '@bento-core/facet-filter';
 import DashTemplateView from './DashTemplateView';
 import { DASHBOARD_QUERY, tabIndexMap } from '../../bento/dashboardTabData';
+import { onClearAllAndSelectFacetValue } from './sideBar/BentoFilterUtils';
 
 const getDashData = (states) => {
   const {
@@ -14,9 +15,19 @@ const getDashData = (states) => {
   } = states;
 
   const { search } = useLocation();
-  const tabName = search ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
+  const tabName = search && new URLSearchParams(search).get('selectedTab') ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
   const tabIndex = tabIndexMap[tabName];
-  
+
+  //Useful for one facet and one facet value pair selection
+  const selectedFacet = search && new URLSearchParams(search).get('selectedFacet') ? new URLSearchParams(search).get('selectedFacet') : null;
+  const selectedFacetValue = search && new URLSearchParams(search).get('selectedFacetValue') ? new URLSearchParams(search).get('selectedFacetValue') : null;
+
+   if (selectedFacet && selectedFacetValue) {
+      onClearAllAndSelectFacetValue(selectedFacet, selectedFacetValue);
+      const history = useHistory();
+      history.replace('/data');
+    }
+
   const client = useApolloClient();
   async function getData(activeFilters) {
     const result = await client.query({

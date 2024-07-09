@@ -35,8 +35,9 @@ import { AuthenticationMiddlewareGenerator } from '@bento-core/authentication';
 
 import Notifactions from '../Notifications/NotifactionView';
 import DashTemplate from '../../pages/dashTemplate/DashTemplateController';
-import Questionaire from '../../pages/questionaire/questionaireView';
 import ReleaseVersions from '../../pages/ReleaseVersions';
+import TextBanner from '../TextBanner';
+import BannerWrapper from '../BannerWrapper';
 
 
 
@@ -92,6 +93,12 @@ const Layout = ({ classes, isSidebarOpened }) => {
       <>
         <Notifactions />
         <AuthSessionTimeoutController />
+        <BannerWrapper>
+          <TextBanner
+            heading="Over the next several months, the CDS site will transition to integrate with the central CRDC Data Submission and Data Discovery portals to provide users with a more comprehensive experience."
+            aria-label="CDS announcement banner"
+          />
+        </BannerWrapper>
         <Header />
         <OverlayWindow />
         <NavBar />
@@ -152,7 +159,6 @@ const Layout = ({ classes, isSidebarOpened }) => {
                 />
               ),
             )}
-            <Route path="/datasubmit" component={Questionaire} />
             <Route path="/releases" component={ReleaseVersions} />
             <Route path="/data-dictionary" component={DataDictonary} />
             <Route path="/graphql" component={GraphqlClient} />
@@ -179,7 +185,7 @@ const styles = (theme) => ({
     // width: `calc(100vw - 240px)`,   // Ajay need to add this on addung side bar
     width: 'calc(100%)', // Remove this on adding sidebar
     background: theme.custom.bodyBackGround,
-    marginTop: 'calc(var(--site-alert-offset) + 196px)',
+    marginTop: 'calc(var(--site-alert-offset, 0px) + var(--banner-offset, 0px) + 196px)',
   },
   '@global': {
     '*::-webkit-scrollbar': {
