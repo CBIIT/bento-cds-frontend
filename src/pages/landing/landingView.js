@@ -129,7 +129,7 @@ const LandingView = ({ classes, statsData }) => (
                   />
                 </div>
                 <div className={classes.content}>
-                  <a href="https://hub.datacommons.cancer.gov/submissions" className={classes.mailLink} target="_blank" rel="noopener noreferrer">
+                  <a href="https://hub.datacommons.cancer.gov/" className={classes.mailLink} target="_blank" rel="noopener noreferrer">
                     <div className={classes.contentHeader} id="tile3_title">
                       {landingPageData.tile3.titleText.match(/\b(\w+)\b/g).map((word, index) => (
                         <>
