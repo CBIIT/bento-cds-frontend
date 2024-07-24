@@ -340,6 +340,9 @@ const styles = () => ({
     fontSize: '16px',
     fontWeight: '300',
     lineHeight: '22px',
+    '& a': {
+      color: 'white'
+    }
   },
   aboutButtonSection: {
     background: '#20506A',
