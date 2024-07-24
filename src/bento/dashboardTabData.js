@@ -1165,7 +1165,7 @@ export const tabContainers = [
       {
         dataField: 'library_strategy',
         header: 'Library Strategy',
-        display: false,
+        display: true,
         tooltipText: 'sort',
         role: cellTypes.DISPLAY,
         cellType: cellTypes.CUSTOM_ELEM,
