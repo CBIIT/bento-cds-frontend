@@ -1039,7 +1039,7 @@ export const tabContainers = [
     defaultSortField: 'file_name',
     defaultSortDirection: 'asc',
     count: 'numberOfFiles',
-    dataKey: 'file_name',
+    dataKey: 'file_id',
     tableID: 'file_tab_table',
     extendedViewConfig: {
       pagination: true,
@@ -1190,7 +1190,7 @@ export const tabContainers = [
     addFilesResponseKeys: ['fileIDsFromList'],
     addAllFilesResponseKeys: ['fileOverview', 'file_id'],
     addAllFileQuery: GET_ALL_FILEIDS_FROM_FILESTAB_FOR_ADD_ALL_CART,
-    addSelectedFilesQuery: GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL,
+    //addSelectedFilesQuery: GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL,
   },
 ];
 
