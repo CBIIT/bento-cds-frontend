@@ -1,3 +1,5 @@
+import { STATIC_CONTENT } from "../assets/staticContent";
+
 export const navBarstyling = {
   global: {
     backgroundColor: '#0E6292;',
@@ -102,7 +104,7 @@ export const navBarData = [
       // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
       {
         labelText: 'CDS Portal User Guide',
-        link: 'https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSPortalUserGuideV2.pdf',
+        link: STATIC_CONTENT.about.USER_GUIDE,
         isExternalLink: true,
       },
     ],
