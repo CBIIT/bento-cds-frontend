@@ -7,10 +7,6 @@ import AboutView from './aboutView';
 import { CircularProgress } from '@material-ui/core';
 import { STATIC_CONTENT } from '../../assets/staticContent';
 
-const STATIC_CONTENT_MAPPING = {
-  USER_GUIDE_LINK: STATIC_CONTENT.about.USER_GUIDE,
-}
-
 const About = ({ match }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +18,7 @@ const About = ({ match }) => {
       try {
         setLoading(true);
         result = await axios.get(YAMLData);
-        const renderedContent = ejs.render(result.data, STATIC_CONTENT_MAPPING);
+        const renderedContent = ejs.render(result.data, STATIC_CONTENT.about);
         resultData = yaml.safeLoad(renderedContent);
         const supportObj = resultData.find(({ page }) => page === match.path);
         setData(supportObj);
