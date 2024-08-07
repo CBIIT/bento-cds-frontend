@@ -22,7 +22,6 @@ export const STATIC_CONTENT = {
     CART_ICON_IMAGE: `${env.REACT_APP_STATIC_CONTENT_URL}icons/cartIcon.png`,
     CART_ICON_SVG: `${env.REACT_APP_STATIC_CONTENT_URL}icons/cartIcon.svg`,
     EXTERNAL_LINK_ICON_SVG: `${env.REACT_APP_STATIC_CONTENT_URL}icons/externalLinkIcon.svg`,
-    FAVICON_ICO: `${env.REACT_APP_STATIC_CONTENT_URL}icons/favicon.ico`,
     INFO_TOOLTIP_ICON_SVG: `${env.REACT_APP_STATIC_CONTENT_URL}icons/infoTooltip.svg`,
     NAV_BAR_CART_ICON_SVG: `${env.REACT_APP_STATIC_CONTENT_URL}icons/navBarCartIcon.svg`,
     PROGRAM_DETAIL_PARTICIPANT_COUNT_ICON_SVG: `${env.REACT_APP_STATIC_CONTENT_URL}icons/ProgramDetail.ParticipantCount.svg`,
