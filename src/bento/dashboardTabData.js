@@ -582,7 +582,7 @@ query search (
   `;
 
 // --------------- GraphQL query - Add All to Cart Button --------------
-
+/*
 export const GET_ALL_FILEIDS_FROM_CASESTAB_FOR_ADD_ALL_CART = gql`
 query subjectOverview(
   $subject_ids: [String],
@@ -718,6 +718,7 @@ query sampleOverview(
 }
 
         `;
+*/
 
 export const GET_ALL_FILEIDS_FROM_FILESTAB_FOR_ADD_ALL_CART = gql`
 query fileOverview(
@@ -892,8 +893,8 @@ export const tabContainers = [
     },
     addFilesRequestVariableKey: 'subject_ids',
     addFilesResponseKeys: ['fileIDsFromList'],
-    addAllFilesResponseKeys: ['subjectOverview', 'files'],
-    addAllFileQuery: GET_ALL_FILEIDS_FROM_CASESTAB_FOR_ADD_ALL_CART,
+    addAllFilesResponseKeys: ['fileOverview', 'file_id'],
+    addAllFileQuery: GET_ALL_FILEIDS_FROM_FILESTAB_FOR_ADD_ALL_CART,
     addSelectedFilesQuery: GET_ALL_FILEIDS_CASESTAB_FOR_SELECT_ALL,
   },
   {
@@ -1027,8 +1028,8 @@ export const tabContainers = [
     },
     addFilesRequestVariableKey: 'sample_ids',
     addFilesResponseKeys: ['fileIDsFromList'],
-    addAllFilesResponseKeys: ['sampleOverview', 'files'],
-    addAllFileQuery: GET_ALL_FILEIDS_FROM_SAMPLETAB_FOR_ADD_ALL_CART,
+    addAllFilesResponseKeys: ['fileOverview', 'file_id'],
+    addAllFileQuery: GET_ALL_FILEIDS_FROM_FILESTAB_FOR_ADD_ALL_CART,
     addSelectedFilesQuery: GET_ALL_FILEIDS_SAMPLESTAB_FOR_SELECT_ALL,
   },
   {
