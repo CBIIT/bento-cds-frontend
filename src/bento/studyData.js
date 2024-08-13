@@ -1,16 +1,17 @@
 import gql from 'graphql-tag';
 import { cellTypes } from '@bento-core/table';
+import { STATIC_CONTENT } from '../assets/staticContent';
 
 // --------------- Icons configuration --------------
 // Ideal size for programListingIcon is 100x100 px
 // Ideal size for externalLinkIcon is 16x16 px
 const studyListingIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/studiesIcon.png',
+  src: STATIC_CONTENT.icons.STUDIES_ICON_IMAGE,
   alt: 'CDS Study logo',
 };
 
 const externalLinkIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/externalLinkIcon.svg',
+  src: STATIC_CONTENT.icons.EXTERNAL_LINK_ICON_SVG,
   alt: 'External link icon',
 };
 

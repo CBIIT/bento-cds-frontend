@@ -1,11 +1,11 @@
 - page: '/bento'
   title: "Bento"
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/purpose.png'
+  primaryContentImage: <%= PURPOSE_CONTENT_IMAGE %>
   content:
     - paragraph: "Bento is an open source framework developed by the Frederick National Laboratory for Cancer Research to support data sharing. It provides a structure to enable groups to quickly stand up and then configure a data sharing environment for life science data - groups can use Bento to share data amongst themselves or with a larger community. Bento's reference implementation contains a data model that is compatible with the Cancer Research Data Commons' Harmonized model (CRDC-H) such that Bento instances can be connected into and inter-operate with the CRDC. Users can customize the data model for their own needs. Bento also contains a User Interface and an API for programmatic access."
     - paragraph: "$$*CONTACT:*$$ bento-help@nih.gov"
 - page: "/resources"
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
+  primaryContentImage: <%= CDS_CONTENT_IMAGE %>
   title: "Data Model"
   content:
     - paragraph: "The model works with diverse data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CRDC Data Hub continues to evolve to meet the data needs for various NCI-funded programs."
@@ -16,11 +16,11 @@
   title: "Query the CDS Portal Using GraphQL"
   imageLocation: "hidden"
   content:
-    - paragraph: "Users can search through all the CDS portal using GraphQL queries. There are several queries that users can utilize from the $$[CDS Portal User Guide](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSPortalUserGuide.pdf)$$"
+    - paragraph: "Users can search through all the CDS portal using GraphQL queries. There are several queries that users can utilize from the $$[CDS Portal User Guide](<%= USER_GUIDE_PDF %>)$$"
   components: ["GraphqlClient"]
 - page: '/cancerDataService'
   title: "About the Cancer Data Service Portal"
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
+  primaryContentImage: <%= CDS_CONTENT_IMAGE %>
   actionTitle: 'ALSO AVAILABLE:'
   actionButtonLabel: 'DATA MODEL'
   actionLink: '/resources'
@@ -50,10 +50,10 @@
     - paragraph: "All cloud resources provide support for data access through a web-based user interface in addition to programmatic access to analytic tools and workflows, and the capability of sharing results with collaborators. Each cloud resource is continually developing new functionality to improve the user experience and add new tools for researchers."
     - paragraph: "CRDC currently has a collaboration with $$[Velsera Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$(SBG), which is hosted on Amazon Web Services and has a rich user interface that allows researchers to find data of interest and combine it with their own private data. Data can be analyzed using more than 200 preinstalled, curated bioinformatics tools and workflows. Researchers can also extend the functionality of the platform by adding their own data and tools via an intuitive software development kit."
     - paragraph: "• Read more about tools for data analysis on the $$[Velsera website](https://docs.cancergenomicscloud.org/docs/workflows-and-tools)$$."
-    - paragraph: "• $$[Learn more about importing files from CDS Portal to Velsera](https://github.com/CBIIT/datacommons-assets/raw/main/cds/about/CDSPortalUserGuide.pdf)$$"
+    - paragraph: "• $$[Learn more about importing files from CDS Portal to Velsera](<%= USER_GUIDE_PDF %>)$$"
 - page: '/cloudresources'
   title: "NCI's Cloud Services"
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/crdc.png'
+  primaryContentImage: <%= CRDC_CONTENT_IMAGE %>
   content:
     - paragraph: "The CRDC Cloud Resources($$[Velsera Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$  ,$$[ISB Cancer Genomics Cloud](https://isb-cgc.appspot.com/)$$ ), each providing analysis platforms when working with data."
     - paragraph: "These cloud-based platforms eliminate the need for researchers to download and store extremely large data sets by allowing them to bring analysis tools to the data in the cloud. These cloud resources provide access to on-demand computational capacity to analyze data. They also allow users to run best practice tools and pipelines already implemented or to upload their own data or analysis methods to secure workspaces."
@@ -61,7 +61,7 @@
     - paragraph: "CDS currently has a collaboration with $$[Velsera Cancer Genomics Cloud](https://www.cancergenomicscloud.org)$$(SBG), which is hosted on Amazon Web Services and has a rich user interface that allows researchers to find data of interest and combine it with their own private data. Data can be analyzed using more than 200 preinstalled, curated bioinformatics tools and workflows. Researchers can also extend the functionality of the platform by adding their own data and tools via an intuitive software development kit."
 - page: '/analysis'
   title: "Accessing and Analyzing Data"
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/cds.png'
+  primaryContentImage: <%= CDS_CONTENT_IMAGE %>
   content:
     - paragraph: "The CDS Data Portal offers users a variety of ways to search data and download a data manifest to export information to one of NCI’s Cloud Resources where data can be analyzed."
     - paragraph: "Researchers can filter the files available by a variety of methods on the Data page:"
@@ -80,7 +80,7 @@
     - paragraph: "•  Learn more about importing files from CDS to Velsera ($$[SBG-CGC](https://docs.cancergenomicscloud.org/docs/import-cds-data)$$)"
 - page: /support
   title: Support
-  primaryContentImage: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/support.jpeg'
+  primaryContentImage: <%= SUPPORT_CONTENT_IMAGE %>
   content: 
     - 
       paragraph: "If you have any questions, please contact us at $$[CDSHelpDesk@mail.nih.gov](CDSHelpDesk@mail.nih.gov)$$."
