@@ -32,6 +32,11 @@ export const wrapperConfig = [{
       btnType: btnTypes.ADD_ALL_FILES,
       conditional: false,
       alertMessage,
+      buttonTooltipConfig: {
+        title: "Click to add all files associated with the study.",
+        arrow: true,
+        placement: "top",
+      },
     },
     {
       title: 'ADD SELECTED FILES',
@@ -42,6 +47,11 @@ export const wrapperConfig = [{
       tooltipCofig: tooltipContent,
       conditional: true,
       alertMessage,
+      buttonTooltipConfig: {
+        title: "Click to add only the files you have selected associated with the participants or samples.",
+        arrow: true,
+        placement: "top"
+      },
     }],
 },
 {
