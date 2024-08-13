@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { STATIC_CONTENT } from '../assets/staticContent';
 
 export const statsStyling = {
   global: {
@@ -44,28 +45,28 @@ export const globalStatsData = [
     statTitle: 'Studies',
     type: 'field',
     statAPI: 'numberOfStudies',
-    statIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/svgs/studies.svg',
+    statIconSrc: STATIC_CONTENT.icons.svgs.STUDIES_SVG,
     statIconAlt: 'Studies Stats Bar Icon',
   },
   {
     statTitle: 'Participants',
     type: 'field',
     statAPI: 'numberOfSubjects',
-    statIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/svgs/participants.svg',
+    statIconSrc: STATIC_CONTENT.icons.svgs.PARTICIPANTS_SVG,
     statIconAlt: 'Participants Stats Bar Icon',
   },
   {
     statTitle: 'Samples',
     type: 'field',
     statAPI: 'numberOfSamples',
-    statIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/svgs/samples.svg',
+    statIconSrc: STATIC_CONTENT.icons.svgs.SAMPLES_SVG,
     statIconAlt: 'Samples Stats Bar Icon',
   },
   {
     statTitle: 'Files',
     type: 'field',
     statAPI: 'numberOfFiles',
-    statIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/svgs/files.svg',
+    statIconSrc: STATIC_CONTENT.icons.svgs.FILES_SVG,
     statIconAlt: 'Files Stats Bar Icon',
   },
 ];

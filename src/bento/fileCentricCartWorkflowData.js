@@ -6,6 +6,7 @@ import { customMyFilesTabDownloadCSV, MY_CART_MANIFEST_QUERY} from './tableDownl
 import CartMessage from '../pages/cart/customComponent/cartMessage';
 import ReadMe from '../pages/cart/customComponent/readme/readmeButton';
 import ExportButton from "../pages/cart/customComponent/exportButton/exportButtonController";
+import { STATIC_CONTENT } from "../assets/staticContent";
 
 export const navBarCartData = {
   cartLabel: 'Cart',
@@ -46,7 +47,7 @@ export const myFilesPageData = {
         {
           clsName: 'cart_icon',
           type: types.ICON,
-          src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/cartIcon.png',
+          src: STATIC_CONTENT.icons.CART_ICON_IMAGE,
           alt: 'Bento MyFiles header logo',
         },
         {

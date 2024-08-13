@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { cellTypes } from '@bento-core/table';
+import { STATIC_CONTENT } from '../assets/staticContent';
 
 export const tooltipContent = {
   src: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
@@ -40,12 +41,12 @@ const aggregateCount = {
 // Ideal size for studyDetailIcon is 107x107 px
 // Ideal size for externalLinkIcon is 16x16 px
 const studyDetailIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/studiesIcon.png',
+  src: STATIC_CONTENT.icons.STUDIES_ICON_IMAGE,
   alt: 'CDS study logo',
 };
 
 const externalLinkIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/externalLinkIcon.svg',
+  src: STATIC_CONTENT.icons.EXTERNAL_LINK_ICON_SVG,
   alt: 'External link icon',
 };
 

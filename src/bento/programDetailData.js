@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { cellTypes } from '@bento-core/table';
+import { STATIC_CONTENT } from '../assets/staticContent';
 
 // --------------- Page title configuration --------------
 const pageTitle = {
@@ -28,12 +29,12 @@ const aggregateCount = {
 // Ideal size for programDetailIcon is 107x107 px
 // Ideal size for externalLinkIcon is 16x16 px
 const programDetailIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/programIcon.png',
+  src: STATIC_CONTENT.icons.PROGRAM_ICON_IMAGE,
   alt: 'CDS program logo',
 };
 
 const externalLinkIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/externalLinkIcon.svg',
+  src: STATIC_CONTENT.icons.EXTERNAL_LINK_ICON_SVG,
   alt: 'External link icon',
 };
 
@@ -85,7 +86,7 @@ const rightPanel = {
     {
       dataField: 'num_participants',
       label: 'Number of Participants',
-      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramDetail.ParticipantCount.svg',
+      fileIconSrc: STATIC_CONTENT.icons.PROGRAM_DETAIL_PARTICIPANT_COUNT_ICON_SVG,
       fileIconAlt: 'Number of participants icon',
       display: true,
     },
@@ -94,7 +95,7 @@ const rightPanel = {
     {
       dataField: 'num_files',
       label: 'Number of files',
-      fileIconSrc: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/ProgramDetailFileCount.svg',
+      fileIconSrc: STATIC_CONTENT.icons.PROGRAM_DETAIL_FILE_COUNT_ICON_SVG,
       fileIconAlt: 'Number of files icon',
       display: true,
     },

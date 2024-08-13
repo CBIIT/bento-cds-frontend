@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core';
 import Stats from '../../components/Stats/AllStatsController';
 import { getComponent } from '../../bento/aboutPagesComponentMap';
 import usePageTitle from '../../components/Analytics/usePageTitle';
+import { STATIC_CONTENT } from '../../assets/staticContent';
 
 const AboutView = ({ classes, data }) => {
   usePageTitle(data.title || "About")
@@ -50,7 +51,7 @@ const AboutView = ({ classes, data }) => {
               }}
               titleColor="#1280AE"
               linkColor="#900F89"
-              externalIconImage="https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/externalLinkIcon.svg"
+              externalIconImage={STATIC_CONTENT.icons.EXTERNAL_LINK_ICON_SVG}
             />
           </div>
 
@@ -73,13 +74,13 @@ const styles = () => ({
     margin: '0 auto',
   },
   leftBg: {
-    backgroundImage: 'url(\'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/leftBg.jpg\')',
+    backgroundImage: `url('${STATIC_CONTENT.about.LEFT_BG_IMAGE}')`,
     backgroundPosition: 'left top, left top',
     backgroundRepeat: 'no-repeat, repeat',
   },
   rightBg: {
     paddingBottom: '30px',
-    backgroundImage: 'url(\'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/about/rightBg.png\')',
+    backgroundImage: `url('${STATIC_CONTENT.about.RIGHT_BG_IMAGE}')`,
     backgroundPosition: 'right bottom, left top',
     backgroundRepeat: 'no-repeat, repeat',
   },

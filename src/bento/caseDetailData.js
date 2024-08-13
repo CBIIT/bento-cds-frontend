@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { cellTypes, dataFormatTypes } from '@bento-core/table';
+import { STATIC_CONTENT } from '../assets/staticContent';
 
 // --------------- Tooltip configuration --------------
 export const tooltipContent = {
@@ -188,7 +189,7 @@ const rightPanel = [
 // --------------- Dahboard Table external link configuration --------------
 // Ideal size for externalLinkIcon is 16x16 px
 export const externalLinkIcon = {
-  src: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/bento/images/icons/svgs/externalLinkIcon.svg',
+  src: STATIC_CONTENT.icons.EXTERNAL_LINK_ICON_SVG,
   alt: 'External link icon',
 };
 

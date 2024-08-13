@@ -104,7 +104,7 @@ export const navBarData = [
       // TODO: Adding sub menu items at root level for now. Need to add support for sub menu items in the future.
       {
         labelText: 'CDS Portal User Guide',
-        link: STATIC_CONTENT.about.USER_GUIDE,
+        link: STATIC_CONTENT.about.USER_GUIDE_PDF,
         isExternalLink: true,
       },
     ],
@@ -116,7 +116,7 @@ export const externalLinksFlag = true;
 export const navBarCartData = {
   cartLabel: '',
   cartLink: '/fileCentricCart',
-  cartIcon: 'https://raw.githubusercontent.com/CBIIT/datacommons-assets/main/cds/icons/navBarCartIcon.svg',
+  cartIcon: STATIC_CONTENT.icons.NAV_BAR_CART_ICON_SVG,
   cartIconAlt: 'cart_logo',
   cartLabelType: 'labelUnderCount',
 };
