@@ -135,19 +135,35 @@ query searchSubjects(
       numberOfSamples
       numberOfFiles
       numberOfDiseaseSites
+      donutCountByExperimentalStrategy{
+          group
+          subjects
+      }
+      donutCountByGender{
+          group
+          subjects
+      }
+      donutCountByFileType{
+          group
+          subjects
+      }
+      donutCountByImageModality{
+          group
+          subjects
+      }
+      donutCountBySampleType{
+          group
+          subjects
+      }
+      donutCountByStudyDataTypes{
+          group
+          subjects
+      }
       subjectCountByStudy{
           group
           subjects
       }
-      subjectCountByExperimentalStrategy{
-          group
-          subjects
-      }
       subjectCountByAccess{
-          group
-          subjects
-      }
-      subjectCountByGender{
           group
           subjects
       }
@@ -156,10 +172,6 @@ query searchSubjects(
           subjects
       }
       subjectCountByAnalyteType{
-          group
-          subjects
-      }
-      subjectCountByFileType{
           group
           subjects
       }
@@ -187,10 +199,6 @@ query searchSubjects(
           group
           subjects
       }
-      subjectCountByImageModality{
-          group
-          subjects
-      }
       subjectCountByInstrumentModel{
           group
           subjects
@@ -204,14 +212,6 @@ query searchSubjects(
           subjects
       }
       subjectCountByPhsAccession{
-          group
-          subjects
-      }
-      subjectCountBySampleType{
-          group
-          subjects
-      }
-      subjectCountByStudyDataType{
           group
           subjects
       }
