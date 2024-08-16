@@ -1002,7 +1002,7 @@ export const tabContainers = [
         dataField: 'files',
         header: 'Files',
         display: false,
-        tooltipText: 'File unique ID associated with the participant and sample',
+        tooltipText: 'File unique ID associated with the participant and sample.',
         role: cellTypes.DISPLAY,
         cellType: cellTypes.CUSTOM_ELEM,
       },
