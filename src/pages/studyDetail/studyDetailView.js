@@ -468,6 +468,7 @@ const styles = (theme) => ({
     maxWidth: '1340px',
     margin: 'auto',
     display: 'flex',
+    alignItems: 'end',
   },
   headerTitle: {
     margin: 'auto',
@@ -568,7 +569,8 @@ const styles = (theme) => ({
     position: 'absolute',
     float: 'left',
     marginLeft: '-23px',
-    marginTop: '-21px',
+    //marginTop: '-21px',
+    marginBottom: '-34px',
     width: '107px',
     filter: 'drop-shadow(-3px 2px 6px rgba(27,28,28,0.29))',
   },
