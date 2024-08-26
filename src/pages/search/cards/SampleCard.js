@@ -13,7 +13,7 @@ const CARD_PROPERTIES = [
     dataField: 'is_tumor',
   },
   {
-    label: 'Analyte Type',
+    label: 'Sample Type',
     dataField: 'analyte_type',
   },
 ];
