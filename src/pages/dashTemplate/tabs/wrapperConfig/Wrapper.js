@@ -66,6 +66,11 @@ export const wrapperConfig = [{
       role: btnTypes.ADD_SELECTED_FILES,
       btnType: btnTypes.ADD_SELECTED_FILES,
       conditional: true,
+      buttonTooltipConfig: {
+        title: "Click to add only the files you have selected associated with the participants or samples.",
+        arrow: true,
+        placement: "top"
+      },
     }],
 },
 {
