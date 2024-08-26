@@ -5,22 +5,6 @@ import { customCasesTabDownloadCSV, customFilesTabDownloadCSV, customSamplesTabD
 import { dataFormatTypes } from '@bento-core/table';
 import { STATIC_CONTENT } from '../assets/staticContent';
 
-// --------------- Tooltip configuration --------------
-export const tooltipContent = {
-  icon: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
-  alt: 'tooltipIcon',
-  0: 'Click button to add selected files associated with the selected case(s).',
-  1: 'Click button to add selected files associated with the selected sample(s).',
-  2: 'Click button to add selected files.',
-  Participants: 'Select to add participant files.',
-  Samples: 'Select to add sample files.',
-  Files: 'Select to add files.',
-  arrow: true,
-  styles: {
-    border: '#03A383 1px solid',
-  }
-};
-
 // --------------- Dahboard Table external link configuration --------------
 // Ideal size for externalLinkIcon is 16x16 px
 export const externalLinkIcon = {
