@@ -6,19 +6,16 @@ import { dataFormatTypes } from '@bento-core/table';
 import { STATIC_CONTENT } from '../assets/staticContent';
 
 // --------------- Tooltip configuration --------------
-export const tooltipContent = {
-  icon: 'https://raw.githubusercontent.com/google/material-design-icons/master/src/action/help/materialicons/24px.svg',
-  alt: 'tooltipIcon',
-  0: 'Click button to add selected files associated with the selected case(s).',
-  1: 'Click button to add selected files associated with the selected sample(s).',
-  2: 'Click button to add selected files.',
-  Participants: 'Select to add participant files.',
-  Samples: 'Select to add sample files.',
-  Files: 'Select to add files.',
+export const addAllFilesButtonTooltipConfig = {
+  title: 'Click to add all files associated with the study.',
   arrow: true,
-  styles: {
-    border: '#03A383 1px solid',
-  }
+  placement: 'top',
+};
+
+export const addSelectedFilesButtonTooltipConfig = {
+  title: 'Click to add only the files you have selected associated with the participants or samples.',
+  arrow: true,
+  placement: 'top',
 };
 
 // --------------- Dahboard Table external link configuration --------------
@@ -1196,5 +1193,6 @@ export const tabContainers = [
     //addSelectedFilesQuery: GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL,
   },
 ];
+
 
   

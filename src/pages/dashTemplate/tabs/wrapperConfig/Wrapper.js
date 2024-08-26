@@ -3,7 +3,8 @@ import {
   types,
 } from '@bento-core/paginated-table';
 import {
-  tooltipContent,
+  addAllFilesButtonTooltipConfig,
+  addSelectedFilesButtonTooltipConfig,
 } from '../../../../bento/dashboardTabData';
 import { alertMessage } from '../../../../bento/fileCentricCartWorkflowData';
 
@@ -32,11 +33,7 @@ export const wrapperConfig = [{
       btnType: btnTypes.ADD_ALL_FILES,
       conditional: false,
       alertMessage,
-      buttonTooltipConfig: {
-        title: "Click to add all files associated with the study.",
-        arrow: true,
-        placement: "top",
-      },
+      buttonTooltipConfig: addAllFilesButtonTooltipConfig,
     },
     {
       title: 'ADD SELECTED FILES',
@@ -44,14 +41,9 @@ export const wrapperConfig = [{
       type: types.BUTTON,
       role: btnTypes.ADD_SELECTED_FILES,
       btnType: btnTypes.ADD_SELECTED_FILES,
-      tooltipCofig: tooltipContent,
       conditional: true,
       alertMessage,
-      buttonTooltipConfig: {
-        title: "Click to add only the files you have selected associated with the participants or samples.",
-        arrow: true,
-        placement: "top"
-      },
+      buttonTooltipConfig: addSelectedFilesButtonTooltipConfig,
     }],
 },
 {
@@ -69,8 +61,8 @@ export const wrapperConfig = [{
       type: types.BUTTON,
       role: btnTypes.ADD_SELECTED_FILES,
       btnType: btnTypes.ADD_SELECTED_FILES,
-      tooltipCofig: tooltipContent,
       conditional: true,
+      buttonTooltipConfig: addSelectedFilesButtonTooltipConfig,
     }],
 },
 {
