@@ -5,6 +5,19 @@ import { customCasesTabDownloadCSV, customFilesTabDownloadCSV, customSamplesTabD
 import { dataFormatTypes } from '@bento-core/table';
 import { STATIC_CONTENT } from '../assets/staticContent';
 
+// --------------- Tooltip configuration --------------
+export const addAllFilesButtonTooltipConfig = {
+  title: 'Click to add all files associated with the study.',
+  arrow: true,
+  placement: 'top',
+};
+
+export const addSelectedFilesButtonTooltipConfig = {
+  title: 'Click to add only the files you have selected associated with the participants or samples.',
+  arrow: true,
+  placement: 'top',
+};
+
 // --------------- Dahboard Table external link configuration --------------
 // Ideal size for externalLinkIcon is 16x16 px
 export const externalLinkIcon = {
@@ -969,20 +982,6 @@ export const tabContainers = [
         cellType: cellTypes.CUSTOM_ELEM,
       },
       {
-        dataField: 'is_tumor',
-        header: 'Tumor',
-        display: true,
-        tooltipText: 'sort',
-        role: cellTypes.DISPLAY,
-      },
-      {
-        dataField: 'analyte_type',
-        header: 'Analyte Type',
-        display: true,
-        tooltipText: 'sort',
-        role: cellTypes.DISPLAY,
-      },
-      {
         dataField: 'files',
         header: 'Files',
         display: false,
@@ -1194,5 +1193,6 @@ export const tabContainers = [
     //addSelectedFilesQuery: GET_ALL_FILEIDS_FILESTAB_FOR_SELECT_ALL,
   },
 ];
+
 
   
