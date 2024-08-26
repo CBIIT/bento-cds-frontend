@@ -985,20 +985,6 @@ export const tabContainers = [
         cellType: cellTypes.CUSTOM_ELEM,
       },
       {
-        dataField: 'is_tumor',
-        header: 'Tumor',
-        display: true,
-        tooltipText: 'sort',
-        role: cellTypes.DISPLAY,
-      },
-      {
-        dataField: 'analyte_type',
-        header: 'Analyte Type',
-        display: true,
-        tooltipText: 'sort',
-        role: cellTypes.DISPLAY,
-      },
-      {
         dataField: 'files',
         header: 'Files',
         display: false,
