@@ -127,7 +127,9 @@ const Layout = ({ classes, isSidebarOpened }) => {
             <PrivateRoute path="/case/:id" access={['admin', 'member']} component={CaseDetail} />
             <PrivateRoute path="/fileViewer/:id" requiuredSignIn access={['admin', 'member']} component={JBrowseDetail} />
             {/* bento 4.0 template */}
-            <PrivateRoute path="/data" access={['admin', 'member']} component={DashTemplate} />
+            <PrivateRoute exact path="/data" access={['admin', 'member']} component={DashTemplate} />
+            <PrivateRoute exact path="/data/:filterQuery" access={['admin', 'member']} component={DashTemplate} />
+
             {/* END SECTION */}
 
             {/* SECTION: Admin only Path */}

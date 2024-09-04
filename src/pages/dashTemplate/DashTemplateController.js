@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useApolloClient } from '@apollo/client';
 import { connect } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { CircularProgress } from '@material-ui/core';
 import { getFilters } from '@bento-core/facet-filter';
 import DashTemplateView from './DashTemplateView';
 import { DASHBOARD_QUERY, tabIndexMap } from '../../bento/dashboardTabData';
-import { onClearAllAndSelectFacetValue } from './sideBar/BentoFilterUtils';
+import { setActiveFilterByPathQuery } from './sideBar/BentoFilterUtils';
 
 const getDashData = (states) => {
   const {
@@ -15,18 +15,8 @@ const getDashData = (states) => {
   } = states;
 
   const { search } = useLocation();
-  const tabName = search && new URLSearchParams(search).get('selectedTab') ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
+  const tabName = search ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
   const tabIndex = tabIndexMap[tabName];
-
-  //Useful for one facet and one facet value pair selection
-  const selectedFacet = search && new URLSearchParams(search).get('selectedFacet') ? new URLSearchParams(search).get('selectedFacet') : null;
-  const selectedFacetValue = search && new URLSearchParams(search).get('selectedFacetValue') ? new URLSearchParams(search).get('selectedFacetValue') : null;
-
-   if (selectedFacet && selectedFacetValue) {
-      onClearAllAndSelectFacetValue(selectedFacet, selectedFacetValue);
-      const history = useHistory();
-      history.replace('/data');
-    }
 
   const client = useApolloClient();
   async function getData(activeFilters) {
@@ -37,9 +27,7 @@ const getDashData = (states) => {
       .then((response) => response.data);
     return result;
   }
-
   const [dashData, setDashData] = useState(null);
-
   const activeFilters = {
     ...getFilters(filterState),
     subject_ids: [
@@ -47,7 +35,6 @@ const getDashData = (states) => {
       ...(localFindAutocomplete || []).map((obj) => obj.title),
     ],
   };
-
   useEffect(() => {
     const controller = new AbortController();
     getData(activeFilters).then((result) => {
@@ -59,14 +46,19 @@ const getDashData = (states) => {
   }, [filterState, localFindUpload, localFindAutocomplete]);
   return { dashData, activeFilters, tabIndex };
 };
-
 const DashTemplateController = ((props) => {
+  // redirect
+  const { match, history } = props;
+  console.log('find-me: ', match);
+  if (match.params.filterQuery) {
+    setActiveFilterByPathQuery(match);
+    const redirectUrl = '/data';
+    history.push(redirectUrl);
+  }
   const { dashData, activeFilters, tabIndex } = getDashData(props);
-
   if (!dashData) {
     return (<CircularProgress />);
   }
-
   return (
     <DashTemplateView
       {...props}
@@ -76,11 +68,9 @@ const DashTemplateController = ((props) => {
     />
   );
 });
-
 const mapStateToProps = (state) => ({
   filterState: state.statusReducer.filterState,
   localFindUpload: state.localFind.upload,
   localFindAutocomplete: state.localFind.autocomplete,
 });
-
 export default connect(mapStateToProps, null)(DashTemplateController);
