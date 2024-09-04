@@ -49,11 +49,10 @@ const getDashData = (states) => {
 const DashTemplateController = ((props) => {
   // redirect
   const { match, history } = props;
-  console.log('find-me: ', match);
   if (match.params.filterQuery) {
     setActiveFilterByPathQuery(match);
     const redirectUrl = '/data';
-    history.push(redirectUrl);
+    history.replace(redirectUrl);
   }
   const { dashData, activeFilters, tabIndex } = getDashData(props);
   if (!dashData) {
