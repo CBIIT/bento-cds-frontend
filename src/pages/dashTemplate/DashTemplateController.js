@@ -15,7 +15,9 @@ const getDashData = (states) => {
   } = states;
 
   const { search } = useLocation();
-  const tabName = search ? new URLSearchParams(search).get('selectedTab').toLowerCase() : 'participants';
+
+  const selectedTab = new URLSearchParams(search).get('selectedTab');
+  const tabName = search && selectedTab ? selectedTab.toLowerCase() : 'participants';
   const tabIndex = tabIndexMap[tabName];
 
   const client = useApolloClient();
