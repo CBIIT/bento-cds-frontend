@@ -15,13 +15,14 @@ const DashboardLinkFromList = ({ dataField, facet, facetValue, ...rest }) => {
 
   const items = rest[dataField].split(",");
 
+  const encodeFacetQuery = (facet, value) => encodeURIComponent(JSON.stringify({ [facet]: [value] }));
   return (
     <>
       {items.map((item, idx) =>
         idx === 0 ? (
           <Link
             component={RouterLink}
-            to={(location) => ({ ...location, pathname: "/data", search: `?selectedFacet=${facet}&selectedFacetValue=${rest[facetValue]}` })}
+            to={(location) => ({ ...location, pathname: `/data/${encodeFacetQuery(facet, rest[facetValue])}` })}
             className={cellTypes.LINK}
             underline='none'
           >
