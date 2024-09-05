@@ -62,7 +62,7 @@ export async function getAllSubjectIds(subjectIdsArray) {
 }
 
 export const setActiveFilterByPathQuery = (match) => {
-  const query = decodeURI(match.params.filterQuery || '');
+  const query = decodeURIComponent(match.params.filterQuery || '');
   const filterObject = JSON.parse(query);
   const { autocomplete = [], upload = [], uploadMetadata } = filterObject;
 
