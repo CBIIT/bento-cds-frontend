@@ -60,7 +60,7 @@ const styles = (theme) => ({
   cardTitle: {
     color: theme.palette.text.link,
     textDecoration: 'none',
-    fontSize: '40px',
+    fontSize: '16px',
     fontFamily: 'Nunito',
     paddingLeft: '9px',
     verticalAlign: 'middle',
