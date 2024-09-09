@@ -200,6 +200,7 @@ query globalSearch($input: String, $first: Int, $offset: Int){
         subjects {
             type
             subject_id
+            subject_ids_filter
             study
             site
         }
@@ -219,6 +220,7 @@ query globalSearch($input: String, $first: Int, $offset: Int){
             sample_id
             is_tumor
             analyte_type
+            subject_ids_filter
         }
 }
 }
@@ -238,6 +240,7 @@ query globalSearch($input: String, $first: Int, $offset: Int){
             file_id
             file_name
             file_type
+            subject_ids_filter
         }
 }
 }

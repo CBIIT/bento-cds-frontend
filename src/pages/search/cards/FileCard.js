@@ -1,7 +1,9 @@
 import React from 'react';
 import { Grid, withStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import { prepareLinks } from '@bento-core/util';
 import PropertyItem from './PropertyItem';
+import { encodeSubjectIds } from './utils';
 
 const CARD_PROPERTIES = [
   {
@@ -42,7 +44,9 @@ const FileCard = ({ data, classes, index }) => {
         <div>
           <span className={classes.detailContainerHeader}>FILE</span>
           <span className={classes.cardTitle}>
-            {data.file_id}
+            <Link to={`/data/${encodeSubjectIds(data['subject_ids_filter'])}`} className={classes.cardTitle}>
+              {data.file_id}
+            </Link>
           </span>
         </div>
         {propertiesWithLinks.map((prop, idx) => (

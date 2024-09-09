@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, withStyles } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import { prepareLinks } from '@bento-core/util';
 import PropertyItem from './PropertyItem';
 
@@ -8,6 +7,7 @@ const CARD_PROPERTIES = [
   {
     label: 'Study Name',
     dataField: 'study_name',
+    link: '/study/{phs_accession}',
   },
   {
     label: 'Study Code',
@@ -31,9 +31,6 @@ const StudyCard = ({ data, classes, index }) => {
         <div>
           <span className={classes.detailContainerHeader}>STUDY</span>
           <span className={classes.cardTitle}>
-            <Link to={`/arm/${data.study_code}`} className={classes.cardTitle}>
-              {data.study_id}
-            </Link>
           </span>
         </div>
         {propertiesWithLinks.map((prop, idx) => (
