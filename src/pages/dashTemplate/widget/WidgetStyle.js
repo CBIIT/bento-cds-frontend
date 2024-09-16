@@ -55,7 +55,9 @@ const styles = (theme) => ({
   },
   floatRight: {
     float: 'right',
-    marginRight: '80px',
+    position: 'absolute',
+    right: '80px',
+    zIndex: '1',
   },
   floatLeft: {
     float: 'left',
