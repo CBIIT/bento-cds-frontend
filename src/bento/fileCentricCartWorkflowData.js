@@ -329,7 +329,7 @@ export const table = {
       dataField: 'library_layouts',
       header: 'Library Layout',
       display: false,
-      tooltipText: 'Sequencing library layout',
+      tooltipText: 'Sequencing library layout.',
       role: cellTypes.DISPLAY,
       cellType: cellTypes.CUSTOM_ELEM,
     },
@@ -354,7 +354,7 @@ export const table = {
       dataField: 'md5sum',
       header: 'Md5Sum',
       display: false,
-      tooltipText: 'MD5 hex digest for this file',
+      tooltipText: 'MD5 hex digest for this file.',
       role: cellTypes.DISPLAY,
     },
     {
