@@ -72,7 +72,6 @@ export const tblHeader = {
         textAlign: 'center',
         fontWeight: 'bold',
         fontFamily: 'Lato Regular, Raleway, sans-serif',
-        lineHeight: '47px',
       },
     },
   },
