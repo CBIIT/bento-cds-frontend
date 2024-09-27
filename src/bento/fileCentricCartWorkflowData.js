@@ -107,6 +107,7 @@ export const myFilesPageData = {
         clsName: 'manifest_comments',
         type: types.TEXT_INPUT,
         placeholder: 'Optional: Please add a description for the CSV file you are about to download.',
+        ariaLabel: 'Add comments to the manifest file',
       }],
   }]
 };
