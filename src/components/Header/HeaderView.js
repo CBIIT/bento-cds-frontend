@@ -39,6 +39,7 @@ const ICDCHeader = (props) => {
       searchKeys: authenticated ? SEARCH_KEYS.private : SEARCH_KEYS.public,
       searchFields: authenticated ? SEARCH_DATAFIELDS.private : SEARCH_DATAFIELDS.public,
       placeholder: 'SEARCH CDS',
+      ariaLabel: 'Search CDS',
     },
   };
   const { SearchBar } = SearchBarGenerator(SearchBarConfig);

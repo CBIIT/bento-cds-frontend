@@ -67,6 +67,7 @@ const { SearchBox } = SearchBoxGenerator({
     inputPlaceholder: 'e.g. CDS-PARTICIPANT-10102',
     noOptionsText: 'No matching items found',
     searchType: 'subjectIds',
+    ariaLabel: 'Search by Participant IDs',
   },
 });
 
