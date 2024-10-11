@@ -6,7 +6,7 @@ import {
   addAllFilesButtonTooltipConfig,
   addSelectedFilesButtonTooltipConfig,
 } from '../../../../bento/dashboardTabData';
-import { alertMessage } from '../../../../bento/fileCentricCartWorkflowData';
+import { alertMessage, maximumNumberOfFilesAllowedInTheCart } from '../../../../bento/fileCentricCartWorkflowData';
 
 export const layoutConfig = [{
   container: 'buttons',
@@ -34,6 +34,7 @@ export const wrapperConfig = [{
       conditional: false,
       alertMessage,
       buttonTooltipConfig: addAllFilesButtonTooltipConfig,
+      maxFileLimit: maximumNumberOfFilesAllowedInTheCart,
     },
     {
       title: 'ADD SELECTED FILES',
@@ -44,6 +45,7 @@ export const wrapperConfig = [{
       conditional: true,
       alertMessage,
       buttonTooltipConfig: addSelectedFilesButtonTooltipConfig,
+      maxFileLimit: maximumNumberOfFilesAllowedInTheCart,
     }],
 },
 {
