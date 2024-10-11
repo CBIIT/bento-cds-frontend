@@ -3,7 +3,8 @@ export const customTheme = {
     root: {
       paddingTop: '5px',
       '&.container_header': {
-        textAlign: 'right',
+        display: 'flex',
+        justifyContent: 'flex-end',
       },
       '&.container_footer': {
         paddingTop: '10px',

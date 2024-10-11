@@ -104,4 +104,8 @@ export default () => ({
       border: '#03A383 1px solid',
     },
   },
+  customTooltipSpan:{
+    display: 'inline-block',
+    margin: '6px 10px 10px 0px',
+  },
 });
