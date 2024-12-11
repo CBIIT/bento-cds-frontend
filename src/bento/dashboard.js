@@ -3,7 +3,7 @@ import { sortType, InputTypes } from '@bento-core/facet-filter';
 const DEMOGRAPHICS = 'Demographics'; 
 const STUDY = 'Study';
 const SAMPLES = 'Samples';
-const SEQUENCING = 'Sequencing'; 
+const GENOMIC = 'Genomic'; 
 const IMAGING = 'Imaging';
 const DIAGNOSIS = 'Diagnosis';
 const FILES = 'Files';
@@ -29,7 +29,7 @@ export const facetSectionVariables = {
   Samples: {
     isExpanded: true,
   },
-  Sequencing: {
+  Genomic: {
     isExpanded: true,
   },
   Imaging: {
@@ -164,9 +164,9 @@ export const facetsConfig = [
     maxUpperBound: 40872,
     quantifier: "Study Samples",
   },
-  // SEQUENCING
+  // GENOMIC
   {
-    section: SEQUENCING,
+    section: GENOMIC,
     label: "Library Strategy",
     apiPath: "filterSubjectCountByLibraryStrategy",
     apiForFiltering: "filterSubjectCountByLibraryStrategy",
@@ -177,7 +177,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: SEQUENCING,
+    section: GENOMIC,
     label: "Library Source",
     apiPath: "filterSubjectCountByLibrarySource",
     apiForFiltering: "filterSubjectCountByLibrarySource",
@@ -188,7 +188,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: SEQUENCING,
+    section: GENOMIC,
     label: "Library Layout",
     apiPath: "filterSubjectCountByLibraryLayout",
     apiForFiltering: "filterSubjectCountByLibraryLayout",
@@ -199,7 +199,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: SEQUENCING,
+    section: GENOMIC,
     label: "Library Selection",
     apiPath: "filterSubjectCountByLibrarySelection",
     apiForFiltering: "filterSubjectCountByLibrarySelection",
@@ -210,7 +210,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: SEQUENCING,
+    section: GENOMIC,
     label: "Platform",
     apiPath: "filterSubjectCountByPlatform",
     apiForFiltering: "filterSubjectCountByPlatform",
@@ -221,7 +221,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: SEQUENCING,
+    section: GENOMIC,
     label: "Instrument Model",
     apiPath: "filterSubjectCountByInstrumentModel",
     apiForFiltering: "filterSubjectCountByInstrumentModel",
@@ -232,7 +232,7 @@ export const facetsConfig = [
     show: true,
   },
   {
-    section: SEQUENCING,
+    section: GENOMIC,
     label: "Reference Genome Assembly",
     apiPath: "filterSubjectCountByReferenceGenomeAssembly",
     apiForFiltering: "filterSubjectCountByReferenceGenomeAssembly",

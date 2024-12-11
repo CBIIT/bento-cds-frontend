@@ -39,12 +39,12 @@ export const customStyles = {
     backgroundColor: '#F3ECE5',
     border: '1px solid #AE5E1B',
   },
-  facetSectionSequencing: {
+  facetSectionGenomic: {
     color: '#0E6292',
     backgroundColor: '#FFFFFF',
     border: '1px solid #898989',
   },
-  facetSectionSequencingBackground: {
+  facetSectionGenomicBackground: {
     color: '#0E3151',
     backgroundColor: '#DCE9EF',
     border: '1px solid #5FA5C5',

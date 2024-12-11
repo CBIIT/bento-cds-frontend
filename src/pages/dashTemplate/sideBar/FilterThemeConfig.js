@@ -61,10 +61,10 @@ const theme = {
         '&.samplesCheckedOdd': {
           backgroundColor: '#FFFCFA',
         },
-        '&.sequencingCheckedEven': {
+        '&.genomicCheckedEven': {
           backgroundColor: '#DCE9EF',
         },
-        '&.sequencingCheckedOdd': {
+        '&.genomicCheckedOdd': {
           backgroundColor: '#F2FBFF',
         },
         '&.imagingCheckedEven': {
@@ -104,7 +104,7 @@ const theme = {
         '&.samplesCheckedIcon': {
           color: '#AE5E1B',
         },
-        '&.sequencingCheckedIcon': {
+        '&.genomicCheckedIcon': {
           color: '#0E6292',
         },
         '&.imagingCheckedIcon': {
@@ -141,7 +141,7 @@ const theme = {
           fontFamily: 'Nunito',
           marginRight: '0px',
         },
-        '&.sequencingSubjects': {
+        '&.genomicSubjects': {
           color: '#0E6292',
           fontSize: '12px',
           fontFamily: 'Nunito',

@@ -112,7 +112,7 @@ export default () => ({
   activeFacetSamples: {
     color: '#AE5E1B',
   },
-  activeFacetSequencing: {
+  activeFacetGenomic: {
     color: '#0E6292',
   },
   activeFacetImaging: {
