@@ -114,7 +114,7 @@ export const myFilesPageData = {
 
 
 export const manifestData = {
-  keysToInclude: ['file_id', 'file_name', 'subject_id', 'md5sum', 'associated_file', 'associated_drs_uri', 'associated_md5sum', 'study_acronym', 'phs_accession', 'sample_id', 'accesses', 'file_type', 'gender', 'race', 'primary_diagnoses', 'is_tumor', 'analyte_type', 'organ_or_tissue', 'study_data_type', 'library_strategy', 'image_modality', 'experimental_strategy', 'library_layouts', 'license', 'file_size'],
+  keysToInclude: ['file_id', 'file_name', 'subject_id', 'md5sum', 'associated_file', 'associated_drs_uri', 'associated_md5sum', 'study_acronym', 'phs_accession', 'sample_id', 'accesses', 'file_type', 'sex', 'race', 'primary_diagnoses', 'is_tumor', 'analyte_type', 'organ_or_tissue', 'study_data_type', 'library_strategy', 'image_modality', 'experimental_strategy', 'library_layouts', 'license', 'file_size'],
   header: ['drs_uri', 'name', 'Participant ID', 'Md5sum', 'Associated File', 'Associated File DRS URI', 'Associated File md5sum', 'Study Name', 'Accession', 'Sample Id', 'Study Access', 'File Type', 'Sex', 'Race', 'Primary Diagnosis', 'Sample Tumor Status', 'Sample Type', 'Organ or Tissue', 'Study Data Type', 'Library Strategy', 'Image Modality', 'Experimental Strategy', 'Library Layout', 'License', 'File Size (in bytes)', 'User Comments'],
 };
 
@@ -126,7 +126,7 @@ query fileOverview(
   $file_ids: [String],
   $studies: [String],
   $file_types: [String],
-  $genders: [String],
+  $sex: [String],
   $experimental_strategies: [String],
   $is_tumor: [String],
   $accesses: [String],
@@ -141,7 +141,7 @@ query fileOverview(
   file_ids: $file_ids
   studies: $studies,
   file_types: $file_types,
-  genders: $genders,
+  sex: $sex,
   experimental_strategies: $experimental_strategies,
   is_tumor: $is_tumor,
   accesses: $accesses,
@@ -168,7 +168,7 @@ query fileOverview(
   library_strategy
   
   subject_id
-  gender
+  sex
   race
   primary_diagnoses
         
@@ -250,7 +250,7 @@ export const table = {
       role: cellTypes.DISPLAY,
     },
     {
-      dataField: 'gender',
+      dataField: 'sex',
       header: 'Sex',
       display: false,
       tooltipText: 'Sex of the participant.',

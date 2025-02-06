@@ -58,7 +58,7 @@ export const facetsConfig = [
     label: "Sex",
     apiPath: "filterSubjectCountByGender",
     apiForFiltering: "filterSubjectCountByGender",
-    datafield: "genders",
+    datafield: "sex",
     field: "group",
     type: InputTypes.CHECKBOX,
     sort_type: sortType.ALPHABET,

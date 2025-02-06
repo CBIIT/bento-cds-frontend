@@ -119,7 +119,7 @@ query filesInList($file_ids: [String], $offset: Int = 0, $first: Int = 1000, $or
       library_strategy
       
       subject_id
-      gender
+      sex
       race
       primary_diagnoses
             
