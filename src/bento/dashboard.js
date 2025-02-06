@@ -55,7 +55,7 @@ export const facetsConfig = [
   // DEMOGRAPHICS
   {
     section: DEMOGRAPHICS,
-    label: "Gender",
+    label: "Sex",
     apiPath: "filterSubjectCountByGender",
     apiForFiltering: "filterSubjectCountByGender",
     datafield: "genders",
@@ -388,7 +388,7 @@ export const widgetConfig = [
   },
   {
     type: 'donut',
-    title: 'Gender',
+    title: 'Sex',
     dataName: 'donutCountByGender',
     sliceTitle: 'Participants',
   },

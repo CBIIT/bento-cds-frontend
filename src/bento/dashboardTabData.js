@@ -960,9 +960,9 @@ export const tabContainers = [
       },
       {
         dataField: 'gender',
-        header: 'Gender',
+        header: 'Sex',
         display: true,
-        tooltipText: 'Gender of the participant.',
+        tooltipText: 'Sex of the participant.',
         role: cellTypes.DISPLAY,
       },
       {
