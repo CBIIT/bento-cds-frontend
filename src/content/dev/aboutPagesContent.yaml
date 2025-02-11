@@ -8,7 +8,7 @@
   primaryContentImage: <%= CDS_CONTENT_IMAGE %>
   title: "Data Model"
   content:
-    - paragraph: "The model works with diverse data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CRDC Data Submission portal continues to evolve to meet the data needs for various NCI-funded programs."
+    - paragraph: "The model works with various data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CRDC Data Submission portal continues to evolve to meet the data needs for various NCI-funded programs."
     - paragraph: "All code necessary to use the $$[Bento platform](https://bento-tools.org/#/)$$ on which the CRDC Data Submission portal is built is provided in the form of Docker containers. However, the Bento code is also available to the public for research and forking and pull requests. There are a number of CRDC Data Model resources to explore on the CDS GitHub page including the CRDC Core Data Model: $$[https://github.com/CBIIT/cds-model](https://github.com/CBIIT/cds-model)$$."
   secondaryZoomImageTitle: "The Core Data Model"
   secondaryZoomImage: 'https://raw.githubusercontent.com/CBIIT/cds-model/main/docs/model-desc/cds-model.svg'
@@ -26,7 +26,7 @@
   actionLink: '/resources'
   content:
     - paragraph: "$$#ABOUT CDS#$$"
-    - paragraph: "The data model works with diverse data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CDS continues to evolve to meet the data needs for various NCI-funded programs."
+    - paragraph: "The data model works with various data types, offering robust yet flexible infrastructure while adhering to FAIR (Findability, Accessibility, Interoperability, and Reuse) data principles. CDS continues to evolve to meet the data needs for various NCI-funded programs."
     - paragraph: "The Cancer Data Service provides data sharing capabilities for additional studies that fall under the following categories:"
     - listWithBullets: 
       - "Studies with data that do not match any existing CRDC data commons (Proteomic Data Commons, Genomic Data Commons, Imaging Data Commons, Clinical and Translational Data Commons, and Integrated Canine Data Commons)"
