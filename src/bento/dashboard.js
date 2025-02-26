@@ -334,7 +334,7 @@ export const facetsConfig = [
     sort_type: sortType.ALPHABET,
     show: true,
   },
-  {
+/*  {
     section: PROTEOMIC,
     label: "Proteomic Design Description",
     apiPath: "filterSubjectCountByProteomicDesignDescriptions",
@@ -344,7 +344,7 @@ export const facetsConfig = [
     type: InputTypes.CHECKBOX,
     sort_type: sortType.ALPHABET,
     show: true,
-  },
+  },*/
 ];
 
 // --------------- Dashboard Widgets configuration --------------
